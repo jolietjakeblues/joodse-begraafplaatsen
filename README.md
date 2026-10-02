@@ -1,6 +1,6 @@
 # Joodse Begraafplaatsen
 
-Kaart van de Joodse begraafplaatsen in Nederland — **bestaand, geruimd en verdwenen** — op basis van de inventarisatie van [stichting Dodenakkers](https://www.dodenakkers.nl/). **Stand 2026-10-02: West-Nederland** — Zuid-Holland, Utrecht, Noord-Holland, Zeeland en Flevoland (91 begraafplaatsen: 67 bestaand, 2 geruimd, 22 verdwenen). De overige provincies volgen; zie [docs/03-planning.md](docs/03-planning.md).
+Kaart van de Joodse begraafplaatsen in Nederland; **bestaand, geruimd en verdwenen**, op basis van de inventarisatie van [stichting Dodenakkers](https://www.dodenakkers.nl/). **Stand 2026-10-02: West-Nederland** — Zuid-Holland, Utrecht, Noord-Holland, Zeeland en Flevoland (91 begraafplaatsen: 67 bestaand, 2 geruimd, 22 verdwenen). De overige provincies volgen; zie [docs/03-planning.md](docs/03-planning.md).
 
 Statische site (MapLibre GL + GeoJSON), geen backend. Los van het project *Dodenakkers Zuid-Holland* (provincieopdracht), maar met dezelfde werkwijze.
 
