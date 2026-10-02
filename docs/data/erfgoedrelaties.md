@@ -4,11 +4,11 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 ## Samenvatting
 
-- 226 begraafplaatsen, waarvan 170 met berekende relaties.
-- Binnen of deels in een rijksbeschermd gezicht: **33**.
-- Gebouwd rijksmonument binnen 100 m: **84**.
-- Archeologisch rijksmonument binnen 100 m: **0**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **57**.
+- 251 begraafplaatsen, waarvan 189 met berekende relaties.
+- Binnen of deels in een rijksbeschermd gezicht: **36**.
+- Gebouwd rijksmonument binnen 100 m: **96**.
+- Archeologisch rijksmonument binnen 100 m: **2**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **62**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -22,6 +22,8 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 - `jb-loc-2792` Nieuwe Israelitische Begraafplaats, Winterswijk: complex 523430 "Joodse Begraafplaats" — onderdelen 523431 (Begraafplaats), 523432 (Baarhuisje)
 - `jb-loc-2826` Oude Israelitische Begraafplaats, Winterswijk: complex 523457 "None" — onderdelen 39057 (Synagoge), 523458 (Onderwijzerswoning), 523459 (Schoolgebouw), 523460 (Begraafplaatshek)
 - `jb-loc-3210` Joodse Begraafplaats, Zutphen: complex 523405 "Joodse Begraafplaats" — onderdelen 523406 (Begraafplaats), 523407 (Poortgebouw)
+- `jb-loc-562` Nieuwe joodse begraafplaats op Gemeentelijke begraafplaats, Roermond: complex 520488 "'t Oude Kerkhof" — onderdelen 32599 (Kapel (F)), 520489 (Grafmonument), 520490 (Grafkapel(H)), 520491 (Baarhuisje), 520492 (Grafmonument), 520493 (Grafmonument), 520494 (Grafmonument), 520495 (Grafkapel(H)), 520496 (Grafmonument), 520497 (Grafmonument), 520498 (Grafmonument), 528526 (Begraafplaats)
+- `jb-loc-513` Oude joodse begraafplaats op Gemeentelijke begraafplaats, Roermond: complex 520488 "'t Oude Kerkhof" — onderdelen 32599 (Kapel (F)), 520489 (Grafmonument), 520490 (Grafkapel(H)), 520491 (Baarhuisje), 520492 (Grafmonument), 520493 (Grafmonument), 520494 (Grafmonument), 520495 (Grafkapel(H)), 520496 (Grafmonument), 520497 (Grafmonument), 520498 (Grafmonument), 528526 (Begraafplaats)
 - `jb-loc-341` Joodse Begraafplaats, Oirschot: complex 519162 "De Kemmer" — onderdelen 519163 (Begraafplaats), 519164 (Grafmonument), 519856 (Begraafplaats en -onderdelen), 519857 (Begraafplaats en -onderdelen), 519858 (Begraafplaats en -onderdelen), 519859 (Begraafplaats en -onderdelen), 519860 (Begraafplaats en -onderdelen), 519861 (Begraafplaats en -onderdelen), 519862 (Begraafplaats en -onderdelen)
 - `jb-loc-189` Mahsike Hadas, Putte: complex 516689 "Israëlitische begraafplaats" — onderdelen 516690 (–), 516691 (Grafmonument), 525638 (Begraafplaatsaula), 525639 (Begraafplaats en -onderdelen), 525640 (Grafmonument)
 - `jb-loc-192` Shomre Hadas, Putte: complex 516692 "Sombre Hadass" — onderdelen 516693 (Grafmonument), 516694 (Grafmonument), 525634 (Poortgebouw), 525635 (Begraafplaatshek), 525636 (Grafmonument), 525637 (Grafmonument)
@@ -40,13 +42,18 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 
 Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftekens) — ter beoordeling.
 
-- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516728](https://monumentenregister.cultureelerfgoed.nl/monumenten/516728)  (Begraafplaatsaula, op_terrein)
 - `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516729](https://monumentenregister.cultureelerfgoed.nl/monumenten/516729)  (Muur(D), op_terrein)
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516728](https://monumentenregister.cultureelerfgoed.nl/monumenten/516728)  (Begraafplaatsaula, op_terrein)
 - `jb-loc-2936` Joodse Begraafplaats, Elburg: [430531](https://monumentenregister.cultureelerfgoed.nl/monumenten/430531)  (Fort, vesting en -onderdelen, overlapt)
 - `jb-loc-2623` Joodse Begraafplaats Bossche Poort, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40288](https://monumentenregister.cultureelerfgoed.nl/monumenten/40288)  (Omwalling, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40287](https://monumentenregister.cultureelerfgoed.nl/monumenten/40287)  (Omwalling, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
+- `jb-loc-760` Joodse Begraafplaats, Grevenbicht: [46212](https://monumentenregister.cultureelerfgoed.nl/monumenten/46212)  (Archeologie (N1), overlapt)
+- `jb-loc-671` Oud Vroenhoven, Maastricht: [506572](https://monumentenregister.cultureelerfgoed.nl/monumenten/506572) Grafmonument Jezuïeten (Grafmonument, overlapt)
+- `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [36769](https://monumentenregister.cultureelerfgoed.nl/monumenten/36769) Kasteel Valkenburg (Kasteel, buitenplaats, overlapt)
+- `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [47164](https://monumentenregister.cultureelerfgoed.nl/monumenten/47164)  (Archeologie (N1), overlapt)
+- `jb-loc-1110` Nieuwe Begraafplaats, Venlo: [37192](https://monumentenregister.cultureelerfgoed.nl/monumenten/37192)  (Begraafplaats en -onderdelen, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525640](https://monumentenregister.cultureelerfgoed.nl/monumenten/525640)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [516691](https://monumentenregister.cultureelerfgoed.nl/monumenten/516691)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525639](https://monumentenregister.cultureelerfgoed.nl/monumenten/525639)  (Begraafplaats en -onderdelen, op_terrein)

@@ -1,24 +1,24 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 22:38.
-Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland, Gelderland, Overijssel, Noord-Brabant**. Excel-rijen landelijk: 315.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 22:55.
+Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland, Gelderland, Overijssel, Noord-Brabant, Limburg**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
 
-- 226 begraafplaatsen: 167 in gebruik, 3 geruimd, 56 verdwenen.
+- 251 begraafplaatsen: 185 in gebruik, 4 geruimd, 62 verdwenen.
 - Elk record is via (reeks, Nr) aan precies één punt gekoppeld; sleutel `jb-<reeks>-<Nr>`.
-- Terreinen gekoppeld: 169.
+- Terreinen gekoppeld: 188.
 
 ## Koppelwijze terrein
 
 | koppelwijze | aantal |
 |---|---|
-| binnen_naam_gelijk | 141 |
-| binnen_naamvariant | 22 |
+| binnen_naam_gelijk | 153 |
+| binnen_naamvariant | 29 |
 | geen_terrein_bevestigd | 1 |
 | handmatig | 3 |
 | nabij_naam_gelijk | 3 |
-| niet_van_toepassing | 56 |
+| niet_van_toepassing | 62 |
 
 ## Ter controle voor Dodenakkers: naamvarianten
 
@@ -31,6 +31,13 @@ Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de p
 | `jb-loc-4219` | Oude Joodse begraafplaats, Wageningen | Joodse begraafplaats, Wageningen | binnen_naamvariant | open |
 | `jb-loc-1669` | Joodse begraafplaats, Herwijnen | Joodse begraafplaats, Herwijnen | nabij_naam_gelijk | open |
 | `jb-loc-2623` | Joodse begraafplaats Bossche Poort, Zaltbommel | Joodse begraafplaats Bossche Poort, Zaltbommel | nabij_naam_gelijk | open |
+| `jb-loc-671` | Joodse begraafplaats, Maastricht | Joods Maastricht | binnen_naamvariant | open |
+| `jb-loc-719` | Joodse begraafplaats, Rothem | Joods Rothem | binnen_naamvariant | open |
+| `jb-loc-513` | Oud Joodse begraafplaats, Roermond | Oude Joodse | binnen_naamvariant | open |
+| `jb-loc-562` | Nieuw Joodse begraafplaats, Roermond | Nieuwe Joodse | binnen_naamvariant | open |
+| `jb-ger-43` | Joodse begraafplaats op Fort Sanderbout, Sittard (geruimd) | Joodse begraafplaats Fort Sanderbout, Sittard | binnen_naamvariant | open |
+| `jb-loc-580` | Joodse begraafplaats, Sittard | Joodse begraafplaats Lahrhof, Sittard | binnen_naamvariant | open |
+| `jb-loc-648` | Joodse begraafplaats, Valkenburg | Joods Valkenburg | binnen_naamvariant | open |
 | `jb-loc-2175` | Joodse begraafplaats, Heusden | Joodse begraafplaats Heesbeen, Heusden | binnen_naamvariant | open |
 | `jb-loc-192` | Sombre Hadas, Putte | Shomre Hadas, Putte | binnen_naamvariant | open |
 | `jb-loc-2801` | Begraafplaats Psychiatrisch Ziekenhuis, Bloemendaal | Joodse begraafplaats Psych ziekenhuis, Bloemendaal | binnen_naamvariant | open |
@@ -131,6 +138,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 
 - `jb-ver-105` Oude Joodse Begraafplaats, Leiden — na 1758 geruimd, overgebracht naar Katwijk. Nu Sterrenwacht
 - `jb-ver-107` Joodse armenbegraafplaats, Leiden — in 1961 geruimd
+- `jb-ver-12` Joodse begraafplaats op Alg. Begraafplaats, Sittard — na 1889, geruimd, overgebracht naar Vrangendael
 - `jb-ver-168` Joodse begraafplaats, Hoorn — 1762-1970, weg overheen aangelegd
 - `jb-ver-177` Joodse Begraafplaats, Schiedam — Bij de Burcht van Mathenesse, geruimd 1962, overgebracht naar Toepad in Rotterdam
 - `jb-ver-182` Oude Joodse begraafplaats, Dordrecht — In 1871 gesloten. In 1958 geruimd. Overgebracht naar Strijen (maar ook nieuwe begraafplaats en Rotterdam?)
@@ -145,6 +153,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-293` Oude Joodse begraafplaats, Vianen — 1720-1810
 - `jb-ver-294` Joodse begraafplaats Walsland, Vianen — 1807-1820, nu overbouwd
 - `jb-ver-296` Joodse begraafplaats, Culemborg — 1764-1869, overbouwd
+- `jb-ver-301` Oude Begraafplaats, Heerlen — tot 1898 in gebruik, later synagoge overheen gebouwd!
 - `jb-ver-306` Joodse begraafplaats, Ede — Gebruikt tot 1863, 1925-1930 verdwenen, nadien bebouwd
 - `jb-ver-354` Oude Israëlitische begraafplaats, Deventer — 1870 gesloten, geruimd in 1961, 620 m2
 - `jb-ver-357` Nieuwe Joodse begraafplaats, Cuijk — Geruimd in 1963, al in 1924 werden hier de graven v/d Smidstraat (1761) overgebracht
@@ -153,6 +162,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-369` Nieuwe Joodse begraafplaats, Arnhem — tot 1858 gebruik, resten overgebracht naar Moscowa
 - `jb-ver-395` Portugees Israëlitische Begraafplaats, Groet — 1602-1634 geen zerken, resten overgebracht naar Ouderkerk
 - `jb-ver-417` Oude Joodse begraafplaats, Hasselt — In 1825 weggespoeld
+- `jb-ver-418` Joodse Begraafplaats, Linne — Heeft waarschijnlijk nooit bestaan, zou van 1828-1860 zijn gebruikt
 - `jb-ver-425` Joodse begraafplaats, Maassluis — In 1950 geruimd, overgebracht naar gemeentelijke begraafplaats
 - `jb-ver-436` Joodse Begraafplaats, Losser — Gesloten in 1954, geruimd in 1964, overgebracht naar Enschede
 - `jb-ver-440` Joodse Begraafplaats de Hagen, Rijssen — Niet meer gebruikt na 1878, in 1949 resten overgebracht naar Arend Baanstraat
@@ -174,14 +184,17 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-678` Joodse begraafplaats buiten de Meipoort, Doesburg — In 1963 overgebracht naar Doetinchem
 - `jb-ver-710` Joodse begraafplaats, s-Hertogenbosch — Niet duidelijk of het terrein gebruikt is
 - `jb-ver-723` Joodse begraafplaats, Hilvarenbeek — 
+- `jb-ver-74` Oude Joodse begraafplaats Den Dries, Maastricht — Gebruikt tot ca. 1812
 - `jb-ver-75` Oude Joodse begraafplaats, Nijmegen — 1683-1961, Laatste begraving 1890, nu parkeergarage
 - `jb-ver-753` Joodse begraafplaats, Wijk bij Duurstede — Exacte locatie niet duidelijk….
 - `jb-ver-774` Oude Joodse begraafplaats, Leerdam — 
+- `jb-ver-825` Eerste Joodse begraafplaats, Heerlen — Tot 1811 in gebruik geweest
 - `jb-ver-872` Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877), Rotterdam — Eind 19de eeuw verdwenen
 - `jb-ver-874` Oude Joodse begraafplaats, Hilversum — 1751-1863, haventerrein, later bebouwd
 - `jb-ver-880` Joodse begraafplaats Horst, Kaatsheuvel — Tot 1825 gebruikt
 - `jb-ver-881` Joodse begraafplaats Besoyen, Waalwijk — gebruikt tot 1853
 - `jb-ver-895` Oude Joodse begraafplaats, Naarden — Begin 20ste eeuw bebouwd
 - `jb-ver-896` Joodse Begraafplaats, Beverwijk — 1809-1943. in 1950 geruimd, resten overgebracht naar Duinhof
+- `jb-ver-9` Joodse begraafplaats, Vaals — Na WO II overgebracht naar Linderweg
 - `jb-ver-918` Joodse begraafplaats, Woudrichem — Na 1798 al niet meer gebruikt (zie archief)
 - `jb-ver-98` Oude Joodse begraafplaats, Haarlem — 1770-1833, 1960 geruimd
