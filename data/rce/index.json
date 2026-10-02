@@ -39,6 +39,11 @@
       "gezichten": "data/rce/beschermde-gezichten-noord-brabant.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-noord-brabant.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-noord-brabant.geojson"
+    },
+    "Limburg": {
+      "gezichten": "data/rce/beschermde-gezichten-limburg.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-limburg.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-limburg.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -82,6 +87,11 @@
       "gezichten": 48,
       "rijksmonumenten": 29,
       "archeologisch": 0
+    },
+    "Limburg": {
+      "gezichten": 45,
+      "rijksmonumenten": 49,
+      "archeologisch": 2
     }
   }
 }
