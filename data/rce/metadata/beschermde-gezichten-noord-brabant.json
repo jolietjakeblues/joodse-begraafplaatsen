@@ -1,0 +1,23 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/beschermde-gezichten.sparql",
+  "retrieved_at": "2026-10-02T20:38:55.416122+00:00",
+  "provincies": [
+    "Noord-Brabant"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 4.1701,
+    "MAX_LON": 6.0681,
+    "MIN_LAT": 51.2009,
+    "MAX_LAT": 51.8508
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 48,
+  "stats": {
+    "rows_from_endpoint": 472,
+    "features_in_gebied": 48,
+    "buiten_gebied": 424
+  },
+  "notes": "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens."
+}

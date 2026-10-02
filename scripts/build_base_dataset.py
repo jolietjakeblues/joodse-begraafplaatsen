@@ -102,6 +102,7 @@ STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": 
 #   Gelderland 2026-10-02: alle 45 in gebruik gekoppeld; alleen naamvarianten in schrijfwijze.
 #   Overijssel 2026-10-02: alles gekoppeld; Enschede jb-loc-3027 en jb-loc-3002 via
 #     data/terrein_koppelingen.csv (naamtoets faalt op Israelitisch <-> Joods, oppervlak klopt).
+#   Noord-Brabant 2026-10-02: alles gekoppeld; Putte "Sombre Hadas" = KMZ-tikfout (vraag B8).
 INVARIANTEN = {
     "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
     "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
@@ -110,6 +111,7 @@ INVARIANTEN = {
     "Flevoland": {"totaal": 1, "in_gebruik": 1, "geruimd": 0, "verdwenen": 0, "terreinen": 1},
     "Gelderland": {"totaal": 61, "in_gebruik": 45, "geruimd": 0, "verdwenen": 16, "terreinen": 45},
     "Overijssel": {"totaal": 43, "in_gebruik": 34, "geruimd": 1, "verdwenen": 8, "terreinen": 35},
+    "Noord-Brabant": {"totaal": 31, "in_gebruik": 21, "geruimd": 0, "verdwenen": 10, "terreinen": 21},
 }
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.

@@ -34,6 +34,11 @@
       "gezichten": "data/rce/beschermde-gezichten-overijssel.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-overijssel.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-overijssel.geojson"
+    },
+    "Noord-Brabant": {
+      "gezichten": "data/rce/beschermde-gezichten-noord-brabant.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-noord-brabant.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-noord-brabant.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -71,6 +76,11 @@
     "Overijssel": {
       "gezichten": 23,
       "rijksmonumenten": 35,
+      "archeologisch": 0
+    },
+    "Noord-Brabant": {
+      "gezichten": 48,
+      "rijksmonumenten": 29,
       "archeologisch": 0
     }
   }
