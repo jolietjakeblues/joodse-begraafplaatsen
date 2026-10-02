@@ -24,11 +24,12 @@ MAX_BESTAND = 25 * 1024 * 1024  # Cloudflare-limiet per bestand
 # gebruiken {{SITE_URL}}. Bij een eigen domein (bv. kaart.dodenakkers.nl)
 # alleen hier aanpassen.
 SITE_URL = "https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev"
-TEMPLATED = ["index.html", "methode.html", "robots.txt", "sitemap.xml"]
+TEMPLATED = ["index.html", "methode.html", "lezen.html", "robots.txt", "sitemap.xml"]
 
 DATA_FILES = [
     "data/generated/begraafplaatsen.geojson",
     "data/generated/terreinen.geojson",
+    "data/generated/leeslijst.json",
     "data/pdok/provincies.geojson",
     "data/pdok/gemeenten.geojson",
     "data/rce/index.json",

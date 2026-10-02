@@ -3,3 +3,4 @@ openpyxl
 shapely==2.1.2
 pyproj==3.7.2
 requests==2.34.2
+beautifulsoup4

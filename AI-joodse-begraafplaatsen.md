@@ -14,16 +14,18 @@ Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 - Verdwenen: plek **bij benadering**. Geen terrein, geen afstandsrelaties.
 - Contextlagen: provincie- en gemeentegrenzen, beschermde gezichten (hele provincie), rijksmonumenten gebouwd én archeologisch — **beide alleen ≤ 100 m** van een bestaande/geruimde begraafplaats. **Geen** archeologische onderzoeksgebieden, geen CHS. Aantal per laag naast de laagnaam.
 - Ondergronden zoals dodenakkers-zh: PDOK grijs, luchtfoto, BGT (≥ z17), BRK-percelen als overlay (≥ z17).
-- Popup: eigenaar en postadres mogen; `NA` (bij/tegenover) vóór het adres; `Met` = metaheerhuis (huisje-icoon); `MIP` = Monumenten Inventarisatie Project.
+- Popup: eigenaar en postadres mogen; `NA` = nader adres (bij/tegenover/achter) vóór het adres; `Met` = metaheerhuis (huisje-icoon); `Muur` = muur rondom; `Kadaster` = geregistreerd bij het Kadaster (getoond als ja/nee); `MIP` = Monumenten Inventarisatie Project.
+- Bevestigde uitzonderingen staan in de code: `GEEN_TERREIN_BEVESTIGD` (build_base_dataset.py) en `BEOORDEELDE_RELATIES` (analyse_spatial.py), elk met bron en vraagcode.
 - Hosting: Worker met static assets (`wrangler.jsonc`, assets = `site/`); deploy `python scripts/build_site.py && npx wrangler deploy`. Domein op één plek: `SITE_URL` in `scripts/build_site.py`.
 - Mobiel is een eis: paneel dicht + mini-legenda, aanraakdoelen ~44 px, testen op 375 px.
 
 ## Pipeline (zie README)
-`fetch_pdok.py` → `build_base_dataset.py --provincie …` → `fetch_rce.py --provincie …` → `analyse_spatial.py` → `make_og_image.py` → `build_site.py` → `wrangler deploy`.
+`fetch_pdok.py` → `build_base_dataset.py --provincie …` → `fetch_rce.py --provincie …` → `analyse_spatial.py` → `fetch_leeslijst.py` → `make_og_image.py` → `build_site.py` → `wrangler deploy`.
+Leespagina: alleen titels en links van dodenakkers.nl, nooit artikeltekst overnemen; eigen korte beschrijvingen alleen in `data/leeslijst_uitgelicht.json`.
 Draai `build_base_dataset.py` altijd met **alle** provincies die op de kaart moeten (de output wordt overschreven).
 
 ## Correctielagen (nooit de bron wijzigen)
-- `data/corrections.csv` — veldcorrecties (id, veld, waarde, reden, datum, bron).
+- `data/corrections.csv` — veldcorrecties (id, veld, waarde, reden, datum, bron); de oorspronkelijke waarde blijft bewaard als `<veld>_bron`.
 - `data/terrein_koppelingen.csv` — handmatige terreinkoppeling als de naamtoets faalt (nu: Vlissingen `jb-loc-9`).
 - `INVARIANTEN` in `build_base_dataset.py` — gecontroleerde tellingen per provincie.
 
