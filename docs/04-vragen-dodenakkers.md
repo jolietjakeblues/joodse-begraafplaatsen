@@ -1,6 +1,6 @@
 # 04 – Vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-02, na West-Nederland (91) en Gelderland (61): 152 begraafplaatsen.
+Stand: 2026-10-02, na West-Nederland (91), Gelderland (61) en Overijssel (43): 195 begraafplaatsen.
 Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
@@ -86,6 +86,16 @@ Alle 61 Gelderse begraafplaatsen zijn gekoppeld (45 in gebruik, elk met terrein;
 
 **G3. Moscowa, Arnhem** (`jb-loc-2615`). Volgens RCE liggen op het terrein 516728 (begraafplaatsaula) en 516729 (muur). Horen die bij het Joodse deel, of bij de algemene begraafplaats Moscowa?
 *Nu:* getoond als "op het terrein".
+
+## O. Overijssel (nieuw, 2026-10-02)
+
+Alle 43 Overijsselse begraafplaatsen zijn gekoppeld (34 in gebruik, 1 geruimd, 8 verdwenen; 35 terreinen). Enschede Kneedweg (`jb-loc-3027`) en Esmarkerrondweg (`jb-loc-3002`) zijn handmatig aan hun terrein gekoppeld: het punt ligt erin en de oppervlakte klopt, alleen de namen verschillen (Israëlitisch ↔ Joods). Herbegravingen op de kaart: Kampen → IJsselmuiden, Losser → Enschede (Kneedweg), Rijssen De Hagen → Arend Baanstraat, Zwolle Luurderschans → Kuyerhuislaan.
+
+**O1. Denekamp** (`jb-loc-2459`). In de Excel staat geen rijksmonument, maar RCE-monument 12342 "Begraafplaats en -onderdelen" overlapt het terrein. Is dat de Joodse begraafplaats zelf, of een andere begraafplaats ernaast?
+*Nu:* getoond als "overlapt het terrein".
+
+**O2. Dedemsvaart** (`jb-loc-4021`, Joodse begraafplaats op de gemeentelijke begraafplaats). RCE-monument 515827 "De Mulderij" (begraafplaats) overlapt het terrein. Is dat de algemene begraafplaats waar het Joodse deel bij hoort, zoals in Bussum?
+*Nu:* getoond als "overlapt het terrein".
 
 Nog open hieronder: alles zonder ✅. Nog helemaal onbeantwoord: A1, D3 (René kijkt nog), E2, E5–E9, F1–F3.
 

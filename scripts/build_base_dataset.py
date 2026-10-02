@@ -100,6 +100,8 @@ STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": 
 #   Noord-Holland, Zeeland, Flevoland 2026-10-02: alle bestaande gekoppeld
 #     (Vlissingen jb-loc-9 via data/terrein_koppelingen.csv; Ouderkerk via Excel-naam "Beth Haim").
 #   Gelderland 2026-10-02: alle 45 in gebruik gekoppeld; alleen naamvarianten in schrijfwijze.
+#   Overijssel 2026-10-02: alles gekoppeld; Enschede jb-loc-3027 en jb-loc-3002 via
+#     data/terrein_koppelingen.csv (naamtoets faalt op Israelitisch <-> Joods, oppervlak klopt).
 INVARIANTEN = {
     "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
     "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
@@ -107,6 +109,7 @@ INVARIANTEN = {
     "Zeeland": {"totaal": 6, "in_gebruik": 6, "geruimd": 0, "verdwenen": 0, "terreinen": 6},
     "Flevoland": {"totaal": 1, "in_gebruik": 1, "geruimd": 0, "verdwenen": 0, "terreinen": 1},
     "Gelderland": {"totaal": 61, "in_gebruik": 45, "geruimd": 0, "verdwenen": 16, "terreinen": 45},
+    "Overijssel": {"totaal": 43, "in_gebruik": 34, "geruimd": 1, "verdwenen": 8, "terreinen": 35},
 }
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.
