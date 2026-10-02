@@ -39,6 +39,13 @@ PDOK_DIR = REPO_ROOT / "data" / "pdok"
 RAPPORT = REPO_ROOT / "docs" / "data" / "erfgoedrelaties.md"
 
 RM_NABIJ_M = 100  # besluit 2026-10-02 (zelfde grens als de rijksmonumentenlaag)
+# Door Dodenakkers beoordeelde relaties: (begraafplaats-id, rijksmonumentnummer)
+# -> relatie die de berekende overschrijft. De berekende relatie blijft bewaard
+# als `relatie_berekend`; de afstand blijft de echte (meetkundige) afstand.
+BEOORDEELDE_RELATIES = {
+    ("jb-loc-819", "454310"): ("net_buiten", "Leon/René 2026-10-02 (vraag A7): valt er net buiten"),
+}
+
 # Spelling Excel -> officiele PDOK-naam (zelfde gemeente, geen afwijking)
 GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage"}
 
@@ -155,7 +162,7 @@ def main() -> None:
     # Rmon kan een rijksmonument- of een complexnummer zijn (scripts/fetch_rce.py)
     rmon_lookup = json.loads((RCE_DIR / "rmon-lookup.json").read_text(encoding="utf-8"))["nummers"]
 
-    rapport = {"gemeente_afwijkend": [], "rmon_niet_in_rce": [], "rmon_is_complex": [], "rce_op_terrein_niet_in_excel": [], "fallback": []}
+    rapport = {"beoordeeld": [], "gemeente_afwijkend": [], "rmon_niet_in_rce": [], "rmon_is_complex": [], "rce_op_terrein_niet_in_excel": [], "fallback": []}
     out = []
     for f in punten:
         p = dict(f["properties"])
@@ -183,6 +190,12 @@ def main() -> None:
             p["gezichten"] = gezicht_relaties(geom, gezichten)
             p["rijksmonumenten_nabij"] = monument_relaties(geom, rm, RM_NABIJ_M)
             p["archeologisch_nabij"] = monument_relaties(geom, arch, RM_NABIJ_M)
+            for r in p["rijksmonumenten_nabij"] + p["archeologisch_nabij"]:
+                oordeel = BEOORDEELDE_RELATIES.get((p["id"], r["rijksmonumentnummer"]))
+                if oordeel:
+                    r["relatie_berekend"], r["relatie"] = r["relatie"], oordeel[0]
+                    r["beoordeling"] = oordeel[1]
+                    rapport["beoordeeld"].append((p["id"], p["naam"], p["plaats"], r))
             p["relaties_berekend"] = True
             excel_nrs = {str(nr)} if nr else set()
             if p["rijksmonument_rce"]:
@@ -241,6 +254,11 @@ def write_rapport(stats: dict, rapport: dict) -> None:
     L += [
         f"- `{i}` {n}, {pl}: [{r['rijksmonumentnummer']}]({r['url']}) {r['naam'] or ''} ({r['functie'] or '–'}, {r['relatie']})"
         for i, n, pl, r in rapport["rce_op_terrein_niet_in_excel"]
+    ] or ["Geen."]
+    L += ["", "## Door Dodenakkers beoordeelde relaties", ""]
+    L += [
+        f"- `{i}` {n}, {pl}: {r['rijksmonumentnummer']} — berekend `{r['relatie_berekend']}`, beoordeeld `{r['relatie']}` ({r['beoordeling']})"
+        for i, n, pl, r in rapport["beoordeeld"]
     ] or ["Geen."]
     L += ["", "## Gemeente in Excel wijkt af van ruimtelijke ligging (PDOK, actuele indeling)", ""]
     L += [f"- `{i}` {n}, {pl}: Excel {gb} → PDOK {g}" for i, n, pl, gb, g in rapport["gemeente_afwijkend"]] or ["Geen."]

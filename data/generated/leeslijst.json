@@ -1,0 +1,482 @@
+{
+ "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
+ "opgehaald": "2026-10-02T13:39:49.690046+00:00",
+ "uitgelicht": [
+  {
+   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel I)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-i.html",
+   "datum": "2026-03-31",
+   "beschrijving": "Waarom een geruimde Joodse begraafplaats niet 'leeg' hoeft te zijn. Aan de hand van Winschoten, Kampen en Amersfoort, waar bij werkzaamheden toch nog stoffelijke resten werden gevonden, en een voorstel voor een archeologische aanpak die rekening houdt met de Joodse voorschriften over eeuwige grafrust."
+  },
+  {
+   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel II)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-ii.html",
+   "datum": "2026-09-13",
+   "beschrijving": "Vervolg met voorbeelden van geruimde en verdwenen begraafplaatsen: de Dijkstraat in Rotterdam-Kralingen, Loppersum, Borne, De Maten en Roswinkel. Het onderzoek telt minimaal 82 geruimde of verdwenen Joodse begraafplaatsen in Nederland."
+  }
+ ],
+ "artikelen": [
+  {
+   "titel": "Als bloemen bij het graf - Winschoten II",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/grafpoezie/als-bloemen-bij-het-graf/als-bloemen-bij-het-graf-winschoten-ii.html",
+   "provincie": null,
+   "rubriek": "Grafpoëzie",
+   "plaats": "Als bloemen bij het graf",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Amsterdam - De Joodse begraafplaats Zeeburg",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/zeeburg.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Amsterdam",
+   "kaart": {
+    "lon": 4.947261,
+    "lat": 52.3614684,
+    "id": "jb-loc-1437",
+    "naam": "Joodse Begraafplaats Zeeburg"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Asperen - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/asperen-joodse-begraafplaats.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Asperen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Bad Nieuweschans - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-groningen/bad-nieuweschans-joodse-begraafplaats.html",
+   "provincie": "Groningen",
+   "rubriek": null,
+   "plaats": "Bad Nieuweschans",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Borger - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/drenthe/borger-joodse-begraafplaats.html",
+   "provincie": "Drenthe",
+   "rubriek": null,
+   "plaats": "Borger",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Dalfsen – De Israëlitische begraafplaats in het buurtschap Gerner",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/dalfsen-de-israelitische-begraafplaats-in-het-buurtschap-gerner.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Dalfsen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "De funeraire plek(ken) van... Eduard Huisman",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/extra-s/de-funeraire-plek-van/de-funeraire-plekken-van-eduard-huisman.html",
+   "provincie": null,
+   "rubriek": "Extra's",
+   "plaats": null,
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "De Pol – Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/de-pol-joodse-begraafplaats.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "De Pol",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Den Nul - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/den-nul-joodse-begraafplaats.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Den Nul",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Deventer - De verdwenen Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/deventer-de-verdwenen-joodse-begraafplaats.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Deventer",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Dieren - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/dieren-joodse-begraafplaats.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Dieren",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Doesburg - De verdwenen Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/doesburg-de-verdwenen-joodse-begraafplaatsen.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Doesburg",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Dordrecht - Joodse begraafplaats(en)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-zuid-holland/dordrecht-joodse-begraafplaatsen.html",
+   "provincie": "Zuid-Holland",
+   "rubriek": null,
+   "plaats": "Dordrecht",
+   "kaart": {
+    "lon": 4.6779896,
+    "lat": 51.8012888,
+    "id": "jb-loc-1912",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Eindhoven - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-brabant/eindhoven-joodse-begraafplaats.html",
+   "provincie": "Noord-Brabant",
+   "rubriek": null,
+   "plaats": "Eindhoven",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Gennep - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-limburg/gennep-joodse-begraafplaats.html",
+   "provincie": "Limburg",
+   "rubriek": null,
+   "plaats": "Gennep",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Groet/Schoorl - De verdwenen Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/groet-schoorl-de-verdwenen-joodse-begraafplaats.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Groet/Schoorl",
+   "kaart": {
+    "lon": 4.6909352,
+    "lat": 52.7023944,
+    "id": "jb-ver-395",
+    "naam": "Portugees Israëlitische Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Groningen - De Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-groningen/de-joodse-begraafplaatsen-van-de-stad-groningen.html",
+   "provincie": "Groningen",
+   "rubriek": null,
+   "plaats": "Groningen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Groningen - De verdwenen Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-groningen/groningen-de-verdwenen-joodse-begraafplaats.html",
+   "provincie": "Groningen",
+   "rubriek": null,
+   "plaats": "Groningen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Haarlem - Joodse begraafplaats aan de Kleverlaan",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/kleverlaanjoods.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Haarlem",
+   "kaart": {
+    "lon": 4.6399623,
+    "lat": 52.3956746,
+    "id": "jb-loc-1361",
+    "naam": "Joods begraafplaats op gemeentelijke begraafplaats Kleverlaan"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Hardenberg - \"Jodenbergje\"",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/hardenbergjoods.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Hardenberg",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Hardenberg - Joodse begraafplaats ‘Mulopaadje’",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/hardenberg-mulo.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Hardenberg",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel I)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-i.html",
+   "provincie": null,
+   "rubriek": "Algemeen",
+   "plaats": null,
+   "kaart": null,
+   "uitgelicht": true
+  },
+  {
+   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel II)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-ii.html",
+   "provincie": null,
+   "rubriek": "Algemeen",
+   "plaats": null,
+   "kaart": null,
+   "uitgelicht": true
+  },
+  {
+   "titel": "Kampen - De plechtige herbegrafenis van een middenhandsbeentje",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-overijssel/kampen-de-plechtige-herbegrafenis-van-een-middenhandsbeentje.html",
+   "provincie": "Overijssel",
+   "rubriek": null,
+   "plaats": "Kampen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Leerdam - Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-utrecht/leerdam-joodse-begraafplaatsen.html",
+   "provincie": "Utrecht",
+   "rubriek": null,
+   "plaats": "Leerdam",
+   "kaart": {
+    "lon": 5.0840322,
+    "lat": 51.8808774,
+    "id": "jb-loc-366",
+    "naam": "Joodse Begraafplaats op Algemene Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Lekkerkerk - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-zuid-holland/lekkerkerk-joodse-begraafplaats.html",
+   "provincie": "Zuid-Holland",
+   "rubriek": null,
+   "plaats": "Lekkerkerk",
+   "kaart": {
+    "lon": 4.6837425,
+    "lat": 51.9026238,
+    "id": "jb-loc-3452",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Maarssen - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-utrecht/maarssen-joodse-begraafplaats.html",
+   "provincie": "Utrecht",
+   "rubriek": null,
+   "plaats": "Maarssen",
+   "kaart": {
+    "lon": 5.0459287,
+    "lat": 52.1563514,
+    "id": "jb-loc-1643",
+    "naam": "Joodse Begraafplaats Tienhoven"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Middelburg - Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-zeeland/middelburg.html",
+   "provincie": "Zeeland",
+   "rubriek": null,
+   "plaats": "Middelburg",
+   "kaart": {
+    "lon": 3.6037578,
+    "lat": 51.5006557,
+    "id": "jb-loc-17",
+    "naam": "Portugees-Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Muiderberg - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/muiderberg-joods.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Muiderberg",
+   "kaart": {
+    "lon": 5.10835,
+    "lat": 52.3261605,
+    "id": "jb-loc-3369",
+    "naam": "Israelitische Begraafplaats Amsterdam"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Nijmegen – Joodse begraafplaats(en)",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/nijmegen-joodse-begraafplaatsen.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Nijmegen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Noordwolde - \"Jeuds Karkhof\"",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/fryslan/noordwoldejoods.html",
+   "provincie": "Fryslân",
+   "rubriek": null,
+   "plaats": "Noordwolde",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Ouderkerk aan de Amstel - Portugees-Israëlitische begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/ouderkerkjoods.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Ouderkerk aan de Amstel",
+   "kaart": {
+    "lon": 4.9051102,
+    "lat": 52.2953118,
+    "id": "jb-loc-1439",
+    "naam": "Portugees Isr. begraafplaats Beth Haim"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Overveen - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-noord-holland/overveenjoods.html",
+   "provincie": "Noord-Holland",
+   "rubriek": null,
+   "plaats": "Overveen",
+   "kaart": {
+    "lon": 4.5997724,
+    "lat": 52.3914849,
+    "id": "jb-loc-4201",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Rotterdam - Joodse begraafplaats Het Toepad",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-zuid-holland/rotterdam-joodse-begraafplaats-het-toepad.html",
+   "provincie": "Zuid-Holland",
+   "rubriek": null,
+   "plaats": "Rotterdam",
+   "kaart": {
+    "lon": 4.5330266,
+    "lat": 51.9100747,
+    "id": "jb-loc-4200",
+    "naam": "Begraafplaats Toepad"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Tacozijl – De Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/fryslan/tacozijl-joodse-begraafplaats.html",
+   "provincie": "Fryslân",
+   "rubriek": null,
+   "plaats": "Tacozijl",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Veenendaal - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-utrecht/veenendaal-joodse-begraafplaats.html",
+   "provincie": "Utrecht",
+   "rubriek": null,
+   "plaats": "Veenendaal",
+   "kaart": {
+    "lon": 5.5543408,
+    "lat": 52.0135508,
+    "id": "jb-loc-4171",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Veenhuizen - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/drenthe/veenhuizen-joods.html",
+   "provincie": "Drenthe",
+   "rubriek": null,
+   "plaats": "Veenhuizen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Vianen - De Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-utrecht/vianen-de-joodse-begraafplaatsen.html",
+   "provincie": "Utrecht",
+   "rubriek": null,
+   "plaats": "Vianen",
+   "kaart": {
+    "lon": 5.0873032,
+    "lat": 51.9863641,
+    "id": "jb-loc-1856",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  },
+  {
+   "titel": "Vorden - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/vorden-joodse-begraafplaats.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Vorden",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Wageningen – De tragische dood van Esther en Betje Cohen, april 1943",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/oorlog/grafmonumenten/esther-en-betje-cohen.html",
+   "provincie": null,
+   "rubriek": "Oorlog",
+   "plaats": "Wageningen",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Workum - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/fryslan/workum-joodse-begraafplaats.html",
+   "provincie": "Fryslân",
+   "rubriek": null,
+   "plaats": "Workum",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Zevenaar - Joodse begraafplaatsen",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/gelderland/zevenaar-joodse-begraafplaatsen.html",
+   "provincie": "Gelderland",
+   "rubriek": null,
+   "plaats": "Zevenaar",
+   "kaart": null,
+   "uitgelicht": false
+  },
+  {
+   "titel": "Zuidland - Joodse begraafplaats",
+   "url": "https://www.dodenakkers.nl/artikelen-overzicht/begraafplaatsen/begraafplaatsen-in-zuid-holland/zuidland-joodse-begraafplaats.html",
+   "provincie": "Zuid-Holland",
+   "rubriek": null,
+   "plaats": "Zuidland",
+   "kaart": {
+    "lon": 4.253308,
+    "lat": 51.8209924,
+    "id": "jb-loc-1713",
+    "naam": "Joodse Begraafplaats"
+   },
+   "uitgelicht": false
+  }
+ ]
+}

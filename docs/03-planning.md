@@ -30,6 +30,7 @@ P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --prov
 python scripts/build_base_dataset.py $P
 python scripts/fetch_rce.py $P        # alleen nodig voor nieuwe provincies of verse RCE-data
 python scripts/analyse_spatial.py
+python scripts/fetch_leeslijst.py
 python scripts/make_og_image.py
 python scripts/build_site.py && npx wrangler deploy
 ```
@@ -53,6 +54,8 @@ python scripts/build_site.py && npx wrangler deploy
 - [x] Filters met tellingen, zoeken, lijst, deelbare positie, inbedden (`?embed=1`)
 - [x] Front-end kwaliteitscontrole: mobiel (mini-legenda, aanraakdoelen), lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
 - [x] Dateringsfilter (klikbare balkjes, zoals dodenakkers-zh; indeling is vraag C9)
+- [x] Leespagina `lezen.html`: 43 artikelen van dodenakkers.nl (tag "Joodse begraafplaats"), per provincie, 2 uitgelicht (archeologie verdwenen begraafplaatsen), 15 met "Bekijk op de kaart" (`scripts/fetch_leeslijst.py`, uitgelicht in `data/leeslijst_uitgelicht.json`)
+- [x] Directe link naar een begraafplaats: `?id=<kenmerk>` (nog visueel te controleren)
 - [ ] CSV/GeoJSON-export van de selectie
 - [ ] Screenreadertest (NVDA/VoiceOver)
 - [ ] Wensen uit de vragenlijst (layout, legenda, teksten)

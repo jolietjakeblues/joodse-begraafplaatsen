@@ -125,3 +125,10 @@ Na Zuid-Holland zijn Utrecht, Noord-Holland, Zeeland en Flevoland verwerkt (91 b
 - Kolomwaarden: `NA` ∈ {bij, tegenover, achter, to}; `Muur` leeg in heel West; `Grondvorm` overal "Recht"; `Gemeentelijk monument` soms "Geen".
 
 Alle open punten: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
+
+## 8. Antwoorden Dodenakkers (2026-10-02)
+
+- `NA` = nader adres; `Muur` = muur rondom (ja/nee); `Kadaster` = als begraafplaats geregistreerd bij het Kadaster (ja/nee); `Met` = metaheerhuis; `MIP` = Monumenten Inventarisatie Project.
+- Verdwenen begraafplaatsen: alleen een puntlocatie beschikbaar. Bilthoven (`jb-loc-4368`): alleen punt, geen terrein.
+- Een complexnummer in `Rmon` kan voorkomen.
+- Weergavenamen vastgesteld voor Toepad, Oud-Rijswijk en Schiedam (via `data/corrections.csv`).

@@ -1,7 +1,7 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 14:55.
-Provincie(s): **Zuid-Holland, Utrecht, Zeeland, Noord-Holland, Flevoland**. Excel-rijen landelijk: 315.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 15:33.
+Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
 
@@ -15,7 +15,7 @@ Provincie(s): **Zuid-Holland, Utrecht, Zeeland, Noord-Holland, Flevoland**. Exce
 |---|---|
 | binnen_naam_gelijk | 53 |
 | binnen_naamvariant | 13 |
-| geen_terrein | 1 |
+| geen_terrein_bevestigd | 1 |
 | handmatig | 1 |
 | nabij_naam_gelijk | 1 |
 | niet_van_toepassing | 22 |
@@ -24,22 +24,22 @@ Provincie(s): **Zuid-Holland, Utrecht, Zeeland, Noord-Holland, Flevoland**. Exce
 
 Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de provincie-KMZ wijkt af van het label van het punt.
 
-| id | label punt | naam terrein | koppelwijze |
-|---|---|---|---|
-| `jb-loc-2801` | Begraafplaats Psychiatrisch Ziekenhuis, Bloemendaal | Joodse begraafplaats Psych ziekenhuis, Bloemendaal | binnen_naamvariant |
-| `jb-loc-1381` | Joodse begraafplaats, Diemen | Joodse begraafplaats A'dam, Diemen | binnen_naamvariant |
-| `jb-loc-3369` | Joodse begraafplaats, Muiderberg | Joodse begraafplaats A'dam, Muiderberg | binnen_naamvariant |
-| `jb-loc-1439` | Portugees-Joodse begraafplaats, Ouderkerk aan de Amstel | Beth Haim, Ouderkerk aan de Amstel | binnen_naamvariant |
-| `jb-loc-2523` | Joodse begraafplaats, Monnickendam | Joodse begraafplaats, Monnickendam | nabij_naam_gelijk |
-| `jb-loc-1458` | Oud Joodse begraafplaats, Amersfoort | Oude joodse begraafplaats, Amersfoort | binnen_naamvariant |
-| `jb-loc-1459` | Nieuw Joodse begraafplaats, Amersfoort | Nieuwe joodse begraafplaats, Amersfoort | binnen_naamvariant |
-| `jb-loc-1643` | Joodse begraafplaats, Maarssen | Joods Maarssen | binnen_naamvariant |
-| `jb-loc-4171` | Joodse begraafplaats, Veenendaal | Joods veenendaal | binnen_naamvariant |
-| `jb-loc-21` | Hoogduitse begraafplaats, Middelburg | Hoogduitse Joodse begraafplaats, Middelburg | binnen_naamvariant |
-| `jb-loc-908` | Joodse begraafplaats, Vlissingen | Nieuwe Joodse begraafplaats, Vlissingen | binnen_naamvariant |
-| `jb-loc-874` | Joods deel begraafplaats Oud-Rijswijk, Rijswijk | Joods deel op Oud Rijswijk, Rijswijk | binnen_naamvariant |
-| `jb-loc-4200` | Joodse begraafplaats Toepad, Rotterdam | Joodse begraafplaats Het Toepad, Rotterdam | binnen_naamvariant |
-| `jb-ger-64` | Joodse begraafplaats, Schiedam (geruimd) | Nieuwe Joodse begraafplaats, Schiedam (geruimd) | binnen_naamvariant |
+| id | label punt | naam terrein | koppelwijze | status |
+|---|---|---|---|---|
+| `jb-loc-2801` | Begraafplaats Psychiatrisch Ziekenhuis, Bloemendaal | Joodse begraafplaats Psych ziekenhuis, Bloemendaal | binnen_naamvariant | open |
+| `jb-loc-1381` | Joodse begraafplaats, Diemen | Joodse begraafplaats A'dam, Diemen | binnen_naamvariant | open |
+| `jb-loc-3369` | Joodse begraafplaats, Muiderberg | Joodse begraafplaats A'dam, Muiderberg | binnen_naamvariant | open |
+| `jb-loc-1439` | Portugees-Joodse begraafplaats, Ouderkerk aan de Amstel | Beth Haim, Ouderkerk aan de Amstel | binnen_naamvariant | open |
+| `jb-loc-2523` | Joodse begraafplaats, Monnickendam | Joodse begraafplaats, Monnickendam | nabij_naam_gelijk | open |
+| `jb-loc-1458` | Oud Joodse begraafplaats, Amersfoort | Oude joodse begraafplaats, Amersfoort | binnen_naamvariant | open |
+| `jb-loc-1459` | Nieuw Joodse begraafplaats, Amersfoort | Nieuwe joodse begraafplaats, Amersfoort | binnen_naamvariant | open |
+| `jb-loc-1643` | Joodse begraafplaats, Maarssen | Joods Maarssen | binnen_naamvariant | open |
+| `jb-loc-4171` | Joodse begraafplaats, Veenendaal | Joods veenendaal | binnen_naamvariant | open |
+| `jb-loc-21` | Hoogduitse begraafplaats, Middelburg | Hoogduitse Joodse begraafplaats, Middelburg | binnen_naamvariant | open |
+| `jb-loc-908` | Joodse begraafplaats, Vlissingen | Nieuwe Joodse begraafplaats, Vlissingen | binnen_naamvariant | open |
+| `jb-loc-874` | Joods deel begraafplaats Oud-Rijswijk, Rijswijk | Joods deel op Oud Rijswijk, Rijswijk | binnen_naamvariant | naam vastgesteld: Joods deel op Oud-Rijswijk (Leon/René) |
+| `jb-loc-4200` | Joodse begraafplaats Toepad, Rotterdam | Joodse begraafplaats Het Toepad, Rotterdam | binnen_naamvariant | naam vastgesteld: Begraafplaats Toepad (Leon/René) |
+| `jb-ger-64` | Joodse begraafplaats, Schiedam (geruimd) | Nieuwe Joodse begraafplaats, Schiedam (geruimd) | binnen_naamvariant | naam vastgesteld: Nieuwe Joodse begraafplaats (Leon/René) |
 
 ## Oppervlakte terrein wijkt sterk af van Excel-kolom `Grootte`
 
@@ -61,9 +61,13 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 - Joodse begraafplaats, Rhenen en Joodse begraafplaats, Edam: 372 m² (afstand 70313 m)
 - Oude joodse begraafplaats, Vlissingen en Nieuwe Joodse begraafplaats, Vlissingen: 694 m² (afstand 551 m)
 
-## Zonder terrein (status in gebruik / geruimd)
+## Bevestigd zonder terrein (alleen puntlocatie)
 
-- `jb-loc-4368` Joodse begraafplaats, Bilthoven — kandidaten: Gem. begraafplaats Brandenburg, Bilthoven (9.7 m, ratio 0.24)
+- `jb-loc-4368` Bilthoven: alleen puntlocatie beschikbaar (Leon/René 2026-10-02, vraag B1)
+
+## Zonder terrein (status in gebruik / geruimd) — open
+
+Geen.
 
 ## Joodse polygonen in de provincie-KMZ zonder record
 
@@ -87,7 +91,9 @@ Geen.
 
 ## Toegepaste correcties (`data/corrections.csv`)
 
-Geen.
+- `jb-loc-4200` naam: 'Het Toepad' -> 'Begraafplaats Toepad' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
+- `jb-loc-874` naam: 'Joodse Begraafplaats op Algemene Begraafplaats' -> 'Joods deel op Oud-Rijswijk' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
+- `jb-ger-64` naam: 'Joodse begraafplaats' -> 'Nieuwe Joodse begraafplaats' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
 
 ## Verdwenen begraafplaatsen
 

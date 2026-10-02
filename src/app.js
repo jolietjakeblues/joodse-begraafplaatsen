@@ -259,6 +259,7 @@ const RELATIE = {
   "0-25m": "binnen 25 m",
   "25-100m": "25–100 m",
   "100-250m": "100–250 m",
+  net_buiten: "net buiten het terrein",
 };
 
 function begraafplaatsPopup(p) {
@@ -317,6 +318,7 @@ function begraafplaatsPopup(p) {
       ["Grondvorm", p.grondvorm],
       ["Rijksmonument", rm],
       ["Metaheerhuis", p.met === true ? raw(`${HUISJE} aanwezig`) : null],
+      ["Muur rondom", p.muur === true ? "ja" : null],
       ["Gemeentelijk monument", p.gemeentelijk_monument === true ? "ja" : null],
       ["Monumenten Inventarisatie Project (MIP)", p.mip === true ? "opgenomen" : null],
       ["Beschermd deel", p.beschermd_deel],
@@ -324,6 +326,7 @@ function begraafplaatsPopup(p) {
       ["Bijzonderheden", p.bijzonderheden],
       ["Beschermd gezicht", gezicht],
       ["Rijksmonumenten ≤ 100 m", nabijHtml],
+      ["Geregistreerd bij Kadaster", jaNee(p.kadaster)],
       ["Laatste bezoek", p.laatste_bezoek],
       ["Kenmerk", p.id],
     ])}</dl>`;
@@ -630,6 +633,15 @@ async function main() {
   // schermen direct inklappen tot het (i)-knopje.
   if (IS_SMAL()) {
     map.once("idle", () => document.querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show"));
+  }
+  // ?id=jb-loc-4200 opent direct die begraafplaats (links vanaf de leespagina, delen)
+  const startId = params.get("id");
+  if (startId && byId.has(startId)) {
+    const f = byId.get(startId);
+    map.jumpTo({ center: f.geometry.coordinates, zoom: 16 });
+    openBegraafplaats(f, false);
+    statusEl.textContent = "";
+    return;
   }
   if (!START_HASH) map.fitBounds(boundsOf(begraafplaatsen), { padding: IS_SMAL() ? 24 : 60, maxZoom: 12, duration: 0 });
   statusEl.textContent = "";
