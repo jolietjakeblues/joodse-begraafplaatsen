@@ -36,9 +36,29 @@ python scripts/build_site.py
 python -m http.server -d site 8765                # lokaal bekijken
 ```
 
-Live: **https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev** (Cloudflare Worker met static assets, `wrangler.jsonc`). Deploy:
+Live: **https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev** (Cloudflare Worker met static assets, `wrangler.jsonc`).
+
+## Deploy: alleen via een merge op GitHub
+
+Wat live staat = wat op `main` staat. Niet meer handmatig deployen vanaf een werkmap.
+
+Eenmalig instellen in Cloudflare (Workers Builds, Git-koppeling):
+
+1. Cloudflare-dashboard → **Workers & Pages** → `joodse-begraafplaatsen` → **Settings** → **Builds** → **Connect** → GitHub-repo `jolietjakeblues/joodse-begraafplaatsen`.
+2. **Production branch:** `main`.
+3. **Build command:** `python3 scripts/build_site.py` (alleen standaard-Python nodig; de data staat al in git).
+4. **Deploy command:** `npx wrangler deploy` (leest `wrangler.jsonc`, publiceert `site/`).
+5. Optioneel: **builds for non-production branches** aan → elke pull request krijgt een preview-adres om te controleren vóór de merge.
+
+Daarna: branch → pull request → merge op `main` → Cloudflare bouwt en zet live (± 1 minuut). De status zie je bij de commit op GitHub en onder **Deployments** in Cloudflare.
+
+Data bijwerken (RCE, PDOK, leeslijst, nieuwe provincie) gebeurt lokaal met de scripts hieronder; het resultaat gaat via een commit + merge live.
+
+Noodgeval (Cloudflare-build stuk): lokaal vanaf een schone kopie van `origin/main` bouwen en deployen:
 
 ```bash
+git worktree add ../jb-deploy origin/main --detach
+cd ../jb-deploy
 python scripts/build_site.py
 npx wrangler deploy
 ```
