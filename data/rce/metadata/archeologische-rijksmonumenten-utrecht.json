@@ -1,0 +1,27 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/archeologische-rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T12:46:57.356469+00:00",
+  "provincies": [
+    "Utrecht"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 4.7721,
+    "MAX_LON": 5.6473,
+    "MIN_LAT": 51.8374,
+    "MAX_LAT": 52.3237
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 0,
+  "stats": {
+    "point_rows_from_endpoint": 176,
+    "polygon_rows_from_endpoint": 137,
+    "distinct_cho": 176,
+    "buiten_gebied": 63,
+    "features": 113,
+    "in_provincie": 113,
+    "binnen_zone": 0
+  },
+  "notes": "Rijksmonumenten met heeftMonumentAard = archeologisch (concept-URI, geen trefwoord), binnen 100 m van een bestaande of geruimde Joodse begraafplaats."
+}

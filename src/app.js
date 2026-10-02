@@ -431,18 +431,55 @@ async function toonLaagAantallen() {
 // ---------------------------------------------------------------- filters
 
 let alle = [];
+// Datering: klikbare balkjes zoals in dodenakkers-zh (zelfde indeling, zonder
+// "Middeleeuws" -- komt in deze data niet voor). Op `jaartal` uit de Excel van
+// Dodenakkers; "ca." telt gewoon mee. Of deze indeling past bij Joodse
+// begraafplaatsen is een open vraag aan Dodenakkers (docs/04, vraag C9).
+const DATERING = [
+  { id: "voor1829", label: "vóór 1829", test: (j) => j < 1829 },
+  { id: "1829", label: "1829–1849", test: (j) => j >= 1829 && j < 1850 },
+  { id: "1850", label: "1850–1899", test: (j) => j >= 1850 && j < 1900 },
+  { id: "1900", label: "1900–1949", test: (j) => j >= 1900 && j < 1950 },
+  { id: "1950", label: "1950–1999", test: (j) => j >= 1950 && j < 2000 },
+  { id: "2000", label: "2000–heden", test: (j) => j >= 2000 },
+];
+const actieveDatering = new Set();
+const dateringMatch = (p, ids = actieveDatering) =>
+  ids.size === 0 || (p.jaartal != null && DATERING.some((b) => ids.has(b.id) && b.test(p.jaartal)));
+
+function bouwDateringFilter() {
+  const wrap = document.getElementById("datering-filter");
+  wrap.replaceChildren(
+    ...DATERING.map((b) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "histogram-row-button";
+      btn.dataset.datering = b.id;
+      btn.setAttribute("aria-pressed", "false");
+      btn.innerHTML = `<span class="histogram-label">${esc(b.label)}</span><span class="histogram-bar-wrap"><span class="histogram-bar"></span></span><span class="histogram-count"></span>`;
+      btn.addEventListener("click", () => {
+        actieveDatering.has(b.id) ? actieveDatering.delete(b.id) : actieveDatering.add(b.id);
+        applyFilters();
+      });
+      return btn;
+    })
+  );
+}
+
 function selectie() {
   const statussen = new Set([...document.querySelectorAll(".filter-status:checked")].map((el) => el.value));
   const q = document.getElementById("search").value.trim().toLowerCase();
   const alleenRm = document.getElementById("filter-rijksmonument").checked;
   const alleenGezicht = document.getElementById("filter-gezicht").checked;
   const zoek = (p) => !q || [p.naam, p.plaats, p.gemeente, p.label_punt].some((v) => v && v.toLowerCase().includes(q));
-  const basis = (p) => zoek(p) && (!alleenRm || p.rijksmonument === true) && (!alleenGezicht || !!p.in_gezicht);
-  return { statussen, basis, match: (p) => statussen.has(p.status) && basis(p) };
+  // zonderDatering: alle filters behalve datering (voor de balkjestellingen)
+  const zonderDatering = (p) => zoek(p) && (!alleenRm || p.rijksmonument === true) && (!alleenGezicht || !!p.in_gezicht);
+  const basis = (p) => zonderDatering(p) && dateringMatch(p);
+  return { statussen, basis, zonderDatering, match: (p) => statussen.has(p.status) && basis(p) };
 }
 
 function applyFilters() {
-  const { statussen, basis, match } = selectie();
+  const { statussen, basis, zonderDatering, match } = selectie();
   const ids = alle.filter((f) => match(f.properties)).map((f) => f.properties.id);
   const filter = ["in", ["get", "id"], ["literal", ids]];
   map.setFilter("begraafplaatsen-symbol", filter);
@@ -459,6 +496,25 @@ function applyFilters() {
     `(${alle.filter((f) => inStatus(f.properties) && f.properties.rijksmonument === true).length})`;
   document.querySelector('[data-count="gezicht"]').textContent =
     `(${alle.filter((f) => inStatus(f.properties) && f.properties.in_gezicht).length})`;
+  // Datering-balkjes: per balk het aantal als je die balk (ook) aanklikt
+  const inStatusEnRest = alle.map((f) => f.properties).filter((p) => statussen.has(p.status) && zonderDatering(p));
+  const tellingen = DATERING.map((b) => {
+    const hyp = new Set(actieveDatering).add(b.id);
+    return inStatusEnRest.filter((p) => dateringMatch(p, hyp)).length;
+  });
+  const max = Math.max(1, ...tellingen);
+  DATERING.forEach((b, i) => {
+    const btn = document.querySelector(`[data-datering="${b.id}"]`);
+    btn.querySelector(".histogram-bar").style.width = `${Math.round((tellingen[i] / max) * 100)}%`;
+    btn.querySelector(".histogram-count").textContent = tellingen[i];
+    btn.setAttribute("aria-pressed", String(actieveDatering.has(b.id)));
+    btn.setAttribute("aria-label", `${b.label}: ${tellingen[i]} begraafplaatsen${actieveDatering.has(b.id) ? ", geselecteerd" : ""}`);
+  });
+  const getoond = alle.filter((f) => match(f.properties));
+  document.getElementById("datering-summary").textContent =
+    `${getoond.filter((f) => f.properties.jaartal != null).length} van ${getoond.length} getoonde begraafplaatsen hebben een jaartal.` +
+    (actieveDatering.size ? " Klik nogmaals op een balk om hem uit te zetten." : "");
+
   document.getElementById("search-count").textContent = ids.length
     ? `${ids.length} van ${alle.length} begraafplaatsen getoond.`
     : "Geen begraafplaatsen gevonden. Pas de zoekterm of de filters aan.";
@@ -510,7 +566,10 @@ async function main() {
   const byId = new Map(alle.map((f) => [f.properties.id, f]));
 
   const provs = [...new Set(alle.map((f) => f.properties.provincie))].sort();
-  document.getElementById("scope-label").textContent = provs.length > 3 ? "Nederland" : provs.join(", ");
+  // Alleen "Nederland" als alle 12 provincies erin zitten; anders eerlijk het aantal.
+  const scopeEl = document.getElementById("scope-label");
+  scopeEl.textContent = provs.length === 12 ? "Nederland" : provs.length > 3 ? `${provs.length} van 12 provincies` : provs.join(", ");
+  scopeEl.title = provs.join(", ");
 
   for (const [s, cfg] of Object.entries(STATUS)) map.addImage(`sym-${s}`, makeSymbol(cfg.vorm, cfg.kleur), { pixelRatio: 2 });
 
@@ -565,6 +624,7 @@ async function main() {
   });
 
   toonLaagAantallen();
+  bouwDateringFilter();
   applyFilters();
   // MapLibre toont de compacte bronvermelding eerst uitgeklapt; op smalle
   // schermen direct inklappen tot het (i)-knopje.

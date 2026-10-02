@@ -1,0 +1,28 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T12:57:41.177762+00:00",
+  "provincies": [
+    "Flevoland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 5.0404,
+    "MAX_LON": 6.0373,
+    "MIN_LAT": 52.2295,
+    "MAX_LAT": 52.864
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 0,
+  "stats": {
+    "point_rows_from_endpoint": 7133,
+    "polygon_rows_from_endpoint": 709,
+    "distinct_cho": 4003,
+    "buiten_gebied": 3468,
+    "features": 535,
+    "gebouwd_in_provincie": 508,
+    "binnen_zone": 0,
+    "begraafplaatsen_in_zone": 1
+  },
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
+}
