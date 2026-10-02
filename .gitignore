@@ -1,0 +1,6 @@
+# Editor/IDE config
+.claude/
+
+# Aangeleverd brondmateriaal om uit te selecteren (bv. screenshots) - de
+# gekozen bestanden gaan bewust los naar public/, deze map zelf niet.
+/data-dodenakkers/
