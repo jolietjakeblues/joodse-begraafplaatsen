@@ -1,0 +1,71 @@
+{
+  "retrieved_at": "2026-10-02T12:09:37.179020+00:00",
+  "gezocht": [
+    "18067",
+    "23527",
+    "32923",
+    "522272",
+    "524542",
+    "525108",
+    "9377"
+  ],
+  "niet_gevonden": [],
+  "nummers": {
+    "524542": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/65275",
+      "naam": "Begraafplaats Kerkehout",
+      "onderdelen": [
+        "524543",
+        "524544"
+      ],
+      "hoofdobject": "524543"
+    },
+    "525108": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/64848",
+      "naam": "Joodse begraafplaats",
+      "onderdelen": [
+        "525109",
+        "525110",
+        "525111"
+      ],
+      "hoofdobject": "525109"
+    },
+    "18067": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/28303",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "23527": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/60084",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "32923": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/26672",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "522272": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/21570",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "9377": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/48477",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    }
+  }
+}

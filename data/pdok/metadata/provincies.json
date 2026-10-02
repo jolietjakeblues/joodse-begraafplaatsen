@@ -1,0 +1,8 @@
+{
+  "source": "PDOK bestuurlijkegebieden WFS (Kadaster)",
+  "endpoint": "https://service.pdok.nl/kadaster/bestuurlijkegebieden/wfs/v1_0",
+  "layer": "bestuurlijkegebieden:Provinciegebied",
+  "retrieved_at": "2026-10-02T12:03:28.693180+00:00",
+  "feature_count": 12,
+  "bewerking": "vereenvoudigd 5e-05 graad, afgerond op 6 decimalen"
+}
