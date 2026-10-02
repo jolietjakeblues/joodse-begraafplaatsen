@@ -1,5 +1,8 @@
+# Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond
+# (René, Dodenakkers 2026-10-02, vraag F4). Crawlen mag wel, zodat zoekmachines
+# de noindex-kop (X-Robots-Tag in _headers, meta robots) zien.
+# Bij publicatie: noindex weghalen en de Sitemap-regel terugzetten:
+#   Sitemap: {{SITE_URL}}/sitemap.xml
 User-agent: *
 Allow: /
 Disallow: /data/
-
-Sitemap: {{SITE_URL}}/sitemap.xml
