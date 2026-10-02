@@ -4,11 +4,11 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 ## Samenvatting
 
-- 91 begraafplaatsen, waarvan 69 met berekende relaties.
-- Binnen of deels in een rijksbeschermd gezicht: **20**.
-- Gebouwd rijksmonument binnen 100 m: **33**.
+- 152 begraafplaatsen, waarvan 114 met berekende relaties.
+- Binnen of deels in een rijksbeschermd gezicht: **29**.
+- Gebouwd rijksmonument binnen 100 m: **50**.
 - Archeologisch rijksmonument binnen 100 m: **0**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **19**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **30**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -18,6 +18,10 @@ Geen.
 
 Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakkers.
 
+- `jb-loc-1868` Joodse Begraafplaats, Tiel: complex 520650 "Joodse begraafplaats" — onderdelen 520651 (Begraafplaats), 520652 (Baarhuisje), 520653 (Toegangshek)
+- `jb-loc-2792` Nieuwe Israelitische Begraafplaats, Winterswijk: complex 523430 "Joodse Begraafplaats" — onderdelen 523431 (Begraafplaats), 523432 (Baarhuisje)
+- `jb-loc-2826` Oude Israelitische Begraafplaats, Winterswijk: complex 523457 "None" — onderdelen 39057 (Synagoge), 523458 (Onderwijzerswoning), 523459 (Schoolgebouw), 523460 (Begraafplaatshek)
+- `jb-loc-3210` Joodse Begraafplaats, Zutphen: complex 523405 "Joodse Begraafplaats" — onderdelen 523406 (Begraafplaats), 523407 (Poortgebouw)
 - `jb-loc-2923` Joodse Begraafplaats, Alkmaar: complex 524892 "Israëlitische begraafplaats" — onderdelen 524893 (Baarhuisje), 524894 (Begraafplaatshek)
 - `jb-loc-1503` Joodse Begraafplaats op Algemene Begraafplaats Naarden, Bussum: complex 513219 "Joodse Begraafplaats" — onderdelen 513220 (Baarhuisje), 513221 (Begraafplaatshek), 513222 (Grafmonument), 513223 (Grafmonument)
 - `jb-loc-3369` Israelitische Begraafplaats Amsterdam, Muiderberg: complex 511938 "Joodse begraafplaats" — onderdelen 30135 (Begraafplaats en -onderdelen), 511939 (Begraafplaatsaula), 511940 (Baarhuisje)
@@ -31,6 +35,13 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 
 Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftekens) — ter beoordeling.
 
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516729](https://monumentenregister.cultureelerfgoed.nl/monumenten/516729)  (Muur(D), op_terrein)
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516728](https://monumentenregister.cultureelerfgoed.nl/monumenten/516728)  (Begraafplaatsaula, op_terrein)
+- `jb-loc-2936` Joodse Begraafplaats, Elburg: [430531](https://monumentenregister.cultureelerfgoed.nl/monumenten/430531)  (Fort, vesting en -onderdelen, overlapt)
+- `jb-loc-2623` Joodse Begraafplaats Bossche Poort, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
+- `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40288](https://monumentenregister.cultureelerfgoed.nl/monumenten/40288)  (Omwalling, overlapt)
+- `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40287](https://monumentenregister.cultureelerfgoed.nl/monumenten/40287)  (Omwalling, overlapt)
+- `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
 - `jb-loc-2923` Joodse Begraafplaats, Alkmaar: [7464](https://monumentenregister.cultureelerfgoed.nl/monumenten/7464)  (Begraafplaats en -onderdelen, op_terrein)
 
 ## Door Dodenakkers beoordeelde relaties
