@@ -17,9 +17,17 @@ Archeologische onderzoeksgebieden worden bewust NIET opgehaald (besluit
 opdrachtgever 2026-10-02).
 
 Na ophalen wordt alles geknipt op de echte provinciegrens (+ BUFFER_M), want
-een bbox bevat ook stukken buurprovincie / België / Duitsland.
+een bbox bevat ook stukken buurprovincie / België / Duitsland. Gebouwde
+rijksmonumenten worden daarna beperkt tot RM_NABIJ_M rond de begraafplaatsen
+(besluit 2026-10-02: landelijk ~60k monumenten tonen heeft geen zin).
 
-Output: data/rce/<naam>.geojson + data/rce/metadata/<naam>.json
+Per provincie een eigen bestand; data/rce/index.json (manifest) zegt welke
+bestanden er per provincie zijn. De viewer en analyse_spatial.py lezen dat.
+
+Volgorde: build_base_dataset.py moet eerst gedraaid zijn (zone + Rmon-nummers).
+
+Output: data/rce/<laag>-<provincie>.geojson + metadata/, data/rce/index.json,
+        data/rce/rmon-lookup.json
 
 Gebruik
   python scripts/fetch_rce.py                       # Zuid-Holland
@@ -48,6 +56,7 @@ METADATA_DIR = OUTPUT_DIR / "metadata"
 PDOK_DIR = REPO_ROOT / "data" / "pdok"
 
 BUFFER_M = 1000
+RM_NABIJ_M = 100  # besluit 2026-10-02: rijksmonumenten alleen binnen 100 m van een begraafplaats
 BBOX_MARGE_DEG = 0.02
 ARCHEOLOGISCH_AARD = "https://data.cultureelerfgoed.nl/term/id/rn/2/b673c8c1-5d93-496d-8f9e-89133d579d77"
 
@@ -237,32 +246,94 @@ def build_rmon_lookup() -> dict:
     return out
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--provincie", action="append", help="herhaalbaar; standaard Zuid-Holland")
-    provincies = ap.parse_args().provincie or ["Zuid-Holland"]
-    clip, bbox = gebied(provincies)
+def slug(provincie: str) -> str:
+    return normalize_slug(provincie)
+
+
+def normalize_slug(text: str) -> str:
+    import unicodedata
+    t = unicodedata.normalize("NFKD", text)
+    t = "".join(c for c in t if not unicodedata.combining(c)).lower()
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+
+def begraafplaats_zone(provincie: str):
+    """Zone van RM_NABIJ_M rond de terreinen (of punten zonder terrein) van de
+    begraafplaatsen in deze provincie, in WGS84. Verdwenen begraafplaatsen
+    tellen niet mee: hun plek is bij benadering."""
+    gen = REPO_ROOT / "data" / "generated"
+    punten = json.loads((gen / "joodse-begraafplaatsen.geojson").read_text(encoding="utf-8"))["features"]
+    terreinen = {f["properties"]["id"]: f for f in
+                 json.loads((gen / "terreinen.geojson").read_text(encoding="utf-8"))["features"]}
+    geoms = []
+    for f in punten:
+        p = f["properties"]
+        if p["provincie"] != provincie or p["status"] == "verdwenen":
+            continue
+        g = shape((terreinen.get(p["id"]) or f)["geometry"])
+        geoms.append(transform(to_rd, g).buffer(RM_NABIJ_M))
+    assert geoms, f"geen begraafplaatsen voor {provincie} in data/generated -- eerst build_base_dataset.py draaien"
+    return transform(to_wgs, unary_union(geoms)), len(geoms)
+
+
+def update_manifest(provincie: str, bestanden: dict, aantallen: dict) -> None:
+    path = OUTPUT_DIR / "index.json"
+    manifest = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"provincies": {}}
+    manifest["provincies"][provincie] = bestanden
+    manifest.setdefault("aantallen", {})[provincie] = aantallen
+    manifest["rijksmonumenten_binnen_m"] = RM_NABIJ_M
+    path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def fetch_provincie(provincie: str) -> None:
+    clip, bbox = gebied([provincie])
+    s = slug(provincie)
+    bestanden = {}
 
     fc, stats = build_gezichten(clip)
-    write_extract("beschermde-gezichten", fc, QUERIES_DIR / "beschermde-gezichten.sparql", stats, provincies, bbox,
+    naam = f"beschermde-gezichten-{s}"
+    write_extract(naam, fc, QUERIES_DIR / "beschermde-gezichten.sparql", stats, [provincie], bbox,
                   "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens.")
+    bestanden["gezichten"] = f"data/rce/{naam}.geojson"
 
+    zone, n_bp = begraafplaats_zone(provincie)
     q = QUERIES_DIR / "rijksmonumenten.sparql"
     fc, stats = build_rijksmonumenten(q, bbox, clip, "rijksmonumenten")
     # De gebouwd-laag bevat geen archeologische monumenten (die hebben een eigen extract).
-    zonder_aard = sum(1 for f in fc["features"] if f["properties"]["monument_aard"] is None)
     fc["features"] = [f for f in fc["features"] if f["properties"]["monument_aard"] != "archeologisch"]
-    stats["na_uitsluiten_archeologisch"] = len(fc["features"])
-    stats["zonder_monument_aard"] = zonder_aard
-    write_extract("rijksmonumenten", fc, q, stats, provincies, bbox,
-                  "Rijksmonumenten (juridische status rijksmonument) exclusief monumentaard archeologisch. "
-                  "Monumenten zonder monumentaard blijven in deze laag (aantal in stats).")
+    stats["gebouwd_in_provincie"] = len(fc["features"])
+    # Besluit 2026-10-02: niet alle rijksmonumenten (landelijk ~60k), alleen die
+    # binnen RM_NABIJ_M van een begraafplaats.
+    fc["features"] = [f for f in fc["features"] if shape(f["geometry"]).intersects(zone)]
+    stats["binnen_zone"] = len(fc["features"])
+    stats["begraafplaatsen_in_zone"] = n_bp
+    naam = f"rijksmonumenten-{s}"
+    write_extract(naam, fc, q, stats, [provincie], bbox,
+                  f"Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen {RM_NABIJ_M} m van een "
+                  "bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is).")
+    bestanden["rijksmonumenten"] = f"data/rce/{naam}.geojson"
 
     q = QUERIES_DIR / "archeologische-rijksmonumenten.sparql"
     fc, stats = build_rijksmonumenten(q, bbox, clip, "archeologische_rijksmonumenten")
-    write_extract("archeologische-rijksmonumenten", fc, q, stats, provincies, bbox,
-                  "Rijksmonumenten met heeftMonumentAard = archeologisch (concept-URI, geen trefwoord).")
+    stats["in_provincie"] = len(fc["features"])
+    # Zelfde 100 m-grens als de gebouwde monumenten (besluit 2026-10-02).
+    fc["features"] = [f for f in fc["features"] if shape(f["geometry"]).intersects(zone)]
+    stats["binnen_zone"] = len(fc["features"])
+    naam = f"archeologische-rijksmonumenten-{s}"
+    write_extract(naam, fc, q, stats, [provincie], bbox,
+                  "Rijksmonumenten met heeftMonumentAard = archeologisch (concept-URI, geen trefwoord), "
+                  f"binnen {RM_NABIJ_M} m van een bestaande of geruimde Joodse begraafplaats.")
+    bestanden["archeologisch"] = f"data/rce/{naam}.geojson"
 
+    aantallen = {k: len(json.loads((REPO_ROOT / v).read_text(encoding="utf-8"))["features"]) for k, v in bestanden.items()}
+    update_manifest(provincie, bestanden, aantallen)
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--provincie", action="append", help="herhaalbaar; standaard Zuid-Holland")
+    for provincie in ap.parse_args().provincie or ["Zuid-Holland"]:
+        fetch_provincie(provincie)
     build_rmon_lookup()
 
 

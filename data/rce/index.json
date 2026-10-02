@@ -1,0 +1,17 @@
+{
+  "provincies": {
+    "Zuid-Holland": {
+      "gezichten": "data/rce/beschermde-gezichten-zuid-holland.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-zuid-holland.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-zuid-holland.geojson"
+    }
+  },
+  "rijksmonumenten_binnen_m": 100,
+  "aantallen": {
+    "Zuid-Holland": {
+      "gezichten": 67,
+      "rijksmonumenten": 24,
+      "archeologisch": 0
+    }
+  }
+}

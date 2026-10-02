@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/beschermde-gezichten.sparql",
-  "retrieved_at": "2026-10-02T12:07:20.303347+00:00",
+  "retrieved_at": "2026-10-02T12:41:32.987020+00:00",
   "provincies": [
     "Zuid-Holland"
   ],

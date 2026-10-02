@@ -5,6 +5,19 @@
   <title>Joodse Begraafplaatsen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Kaart van Joodse begraafplaatsen in Nederland: bestaand, geruimd en verdwenen. Inventarisatie stichting Dodenakkers." />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="canonical" href="{{SITE_URL}}/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:site_name" content="Joodse Begraafplaatsen" />
+  <meta property="og:title" content="Joodse Begraafplaatsen" />
+  <meta property="og:description" content="Kaart van bestaande, geruimde en verdwenen Joodse begraafplaatsen, uit de inventarisatie van stichting Dodenakkers." />
+  <meta property="og:url" content="{{SITE_URL}}/" />
+  <meta property="og:image" content="{{SITE_URL}}/images/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Kaart van Zuid-Holland met Joodse begraafplaatsen als blauwe rondjes, oranje ruiten en open ringen" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
   <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css" />
   <link rel="stylesheet" href="style.css" />
@@ -12,6 +25,16 @@
 <body>
   <a class="skip-link" href="#panel">Ga naar het bedieningspaneel</a>
   <div id="map" role="region" aria-label="Kaart van Joodse begraafplaatsen"></div>
+
+  <button id="mini-legenda" type="button" aria-controls="panel" hidden>
+    <span class="mini-titel">Joodse Begraafplaatsen</span>
+    <span class="mini-items">
+      <span><span class="sym sym-in_gebruik" aria-hidden="true"></span> Bestaand</span>
+      <span><span class="sym sym-geruimd" aria-hidden="true"></span> Geruimd</span>
+      <span><span class="sym sym-verdwenen" aria-hidden="true"></span> Verdwenen</span>
+    </span>
+    <span class="mini-fout" id="mini-fout" role="alert"></span>
+  </button>
 
   <button id="panel-toggle" type="button" aria-label="Paneel sluiten" aria-expanded="true" aria-controls="panel">&times;</button>
 
@@ -43,7 +66,7 @@
     <details class="panel-section" open>
       <summary>Zoeken en filteren</summary>
       <label for="search">Naam, plaats of gemeente</label>
-      <input type="search" id="search" placeholder="Bijvoorbeeld Rotterdam" aria-describedby="search-count" />
+      <input type="search" id="search" autocomplete="off" placeholder="Bijvoorbeeld Rotterdam" aria-describedby="search-count" />
       <label><input type="checkbox" id="filter-rijksmonument" /> Alleen rijksmonumenten <span class="count" data-count="rijksmonument"></span></label>
       <label><input type="checkbox" id="filter-gezicht" /> In beschermd gezicht <span class="count" data-count="gezicht"></span></label>
       <p class="hint" id="search-count" aria-live="polite" aria-atomic="true"></p>
@@ -51,7 +74,9 @@
 
     <details class="panel-section" id="lijst-sectie">
       <summary>Lijst</summary>
+      <p class="hint">Ook te gebruiken met het toetsenbord: kies een begraafplaats om hem op de kaart te openen.</p>
       <ol id="resultatenlijst"></ol>
+      <p class="hint leeg" id="lijst-leeg" hidden>Geen begraafplaatsen gevonden. Pas de zoekterm of de filters aan.</p>
     </details>
 
     <details class="panel-section">
@@ -59,15 +84,19 @@
       <label><input type="checkbox" class="toggle-layer" value="terreinen" checked /> Terreinen begraafplaatsen</label>
       <label><input type="checkbox" class="toggle-layer" value="provincies" checked /> <span class="sym-line sym-provincie" aria-hidden="true"></span> Provinciegrenzen</label>
       <label><input type="checkbox" class="toggle-layer" value="gemeenten" /> <span class="sym-line sym-gemeente" aria-hidden="true"></span> Gemeentegrenzen</label>
-      <label><input type="checkbox" class="toggle-layer" value="gezichten" /> <span class="sym-area sym-gezicht" aria-hidden="true"></span> Beschermde stads- en dorpsgezichten</label>
-      <label><input type="checkbox" class="toggle-layer" value="rijksmonumenten" /> <span class="sym-dot sym-rm" aria-hidden="true"></span> Rijksmonumenten (gebouwd) <span class="hint" id="rm-hint">(groot bestand)</span></label>
-      <label><input type="checkbox" class="toggle-layer" value="archeologisch" /> <span class="sym-area sym-arch" aria-hidden="true"></span> Archeologische rijksmonumenten</label>
+      <label><input type="checkbox" class="toggle-layer" value="gezichten" /> <span class="sym-area sym-gezicht" aria-hidden="true"></span> Beschermde stads- en dorpsgezichten <span class="count" data-laag-count="gezichten"></span></label>
+      <label><input type="checkbox" class="toggle-layer" value="rijksmonumenten" /> <span class="sym-dot sym-rm" aria-hidden="true"></span> Rijksmonumenten (gebouwd) <span class="count" data-laag-count="rijksmonumenten"></span></label>
+      <label><input type="checkbox" class="toggle-layer" value="archeologisch" /> <span class="sym-area sym-arch" aria-hidden="true"></span> Archeologische rijksmonumenten <span class="count" data-laag-count="archeologisch"></span></label>
+      <p class="hint">Rijksmonumenten alleen binnen 100 m van een bestaande of geruimde begraafplaats.</p>
     </details>
 
     <details class="panel-section">
       <summary>Ondergrond</summary>
       <label><input type="radio" name="basemap" value="grijs" checked /> Topografisch (grijs)</label>
       <label><input type="radio" name="basemap" value="luchtfoto" /> Luchtfoto</label>
+      <label><input type="radio" name="basemap" value="bgt" /> BGT (grootschalig) <span class="hint">vanaf sterk ingezoomd</span></label>
+      <label><input type="checkbox" id="toggle-brk" /> Kadastrale percelen (BRK) <span class="hint">vanaf sterk ingezoomd</span></label>
+      <p class="hint">BGT en kadastrale percelen tonen pas beeld op straatniveau; daarboven geeft PDOK bewust een lege kaart.</p>
     </details>
 
     <p id="status" role="status" aria-live="polite" aria-atomic="true">Data laden…</p>
