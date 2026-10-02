@@ -1,0 +1,28 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T20:56:06.320333+00:00",
+  "provincies": [
+    "Limburg"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 5.546,
+    "MAX_LON": 6.2468,
+    "MIN_LAT": 50.7304,
+    "MAX_LAT": 51.7986
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 49,
+  "stats": {
+    "point_rows_from_endpoint": 8929,
+    "polygon_rows_from_endpoint": 3676,
+    "distinct_cho": 6607,
+    "buiten_gebied": 1086,
+    "features": 5521,
+    "gebouwd_in_provincie": 5406,
+    "binnen_zone": 49,
+    "begraafplaatsen_in_zone": 19
+  },
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
+}
