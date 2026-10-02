@@ -1,0 +1,25 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/archeologische-rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T12:08:03.589210+00:00",
+  "provincies": [
+    "Zuid-Holland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 3.7537,
+    "MAX_LON": 5.0514,
+    "MIN_LAT": 51.6238,
+    "MAX_LAT": 52.3525
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 60,
+  "stats": {
+    "point_rows_from_endpoint": 91,
+    "polygon_rows_from_endpoint": 69,
+    "distinct_cho": 91,
+    "buiten_gebied": 31,
+    "features": 60
+  },
+  "notes": "Rijksmonumenten met heeftMonumentAard = archeologisch (concept-URI, geen trefwoord)."
+}

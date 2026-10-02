@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Joodse Begraafplaatsen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Kaart van Joodse begraafplaatsen in Nederland: bestaand, geruimd en verdwenen. Inventarisatie stichting Dodenakkers." />
+  <link rel="icon" href="images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
+  <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#panel">Ga naar het bedieningspaneel</a>
+  <div id="map" role="region" aria-label="Kaart van Joodse begraafplaatsen"></div>
+
+  <button id="panel-toggle" type="button" aria-label="Paneel sluiten" aria-expanded="true" aria-controls="panel">&times;</button>
+
+  <main id="panel" tabindex="-1">
+    <div class="brand">
+      <a href="https://www.dodenakkers.nl/" class="brand-link" target="_blank" rel="noopener">
+        <img src="images/Dodenakkers-logo-68015ff5.webp" alt="Dodenakkers" class="logo" />
+      </a>
+    </div>
+    <h1>Joodse Begraafplaatsen</h1>
+    <p class="subtitle">
+      <span id="scope-label">Zuid-Holland</span> &middot; <a href="methode.html">Methode en bronnen</a>
+      <a href="./" class="embed-only" id="open-volledig" target="_blank" rel="noopener">&middot; Open volledige kaart</a>
+    </p>
+    <p class="intro" id="intro">
+      Bestaande, geruimde en verdwenen Joodse begraafplaatsen, uit de inventarisatie van stichting Dodenakkers.
+    </p>
+
+    <section class="panel-section status-section" aria-labelledby="status-heading">
+      <h2 id="status-heading" class="section-heading">Status</h2>
+      <label class="status-row"><input type="checkbox" class="filter-status" value="in_gebruik" checked />
+        <span class="sym sym-in_gebruik" aria-hidden="true"></span> Bestaand <span class="count" data-count="in_gebruik"></span></label>
+      <label class="status-row"><input type="checkbox" class="filter-status" value="geruimd" checked />
+        <span class="sym sym-geruimd" aria-hidden="true"></span> Geruimd <span class="count" data-count="geruimd"></span></label>
+      <label class="status-row"><input type="checkbox" class="filter-status" value="verdwenen" checked />
+        <span class="sym sym-verdwenen" aria-hidden="true"></span> Verdwenen <span class="hint">(plek bij benadering)</span> <span class="count" data-count="verdwenen"></span></label>
+    </section>
+
+    <details class="panel-section" open>
+      <summary>Zoeken en filteren</summary>
+      <label for="search">Naam, plaats of gemeente</label>
+      <input type="search" id="search" placeholder="Bijvoorbeeld Rotterdam" aria-describedby="search-count" />
+      <label><input type="checkbox" id="filter-rijksmonument" /> Alleen rijksmonumenten <span class="count" data-count="rijksmonument"></span></label>
+      <label><input type="checkbox" id="filter-gezicht" /> In beschermd gezicht <span class="count" data-count="gezicht"></span></label>
+      <p class="hint" id="search-count" aria-live="polite" aria-atomic="true"></p>
+    </details>
+
+    <details class="panel-section" id="lijst-sectie">
+      <summary>Lijst</summary>
+      <ol id="resultatenlijst"></ol>
+    </details>
+
+    <details class="panel-section">
+      <summary>Kaartlagen</summary>
+      <label><input type="checkbox" class="toggle-layer" value="terreinen" checked /> Terreinen begraafplaatsen</label>
+      <label><input type="checkbox" class="toggle-layer" value="provincies" checked /> <span class="sym-line sym-provincie" aria-hidden="true"></span> Provinciegrenzen</label>
+      <label><input type="checkbox" class="toggle-layer" value="gemeenten" /> <span class="sym-line sym-gemeente" aria-hidden="true"></span> Gemeentegrenzen</label>
+      <label><input type="checkbox" class="toggle-layer" value="gezichten" /> <span class="sym-area sym-gezicht" aria-hidden="true"></span> Beschermde stads- en dorpsgezichten</label>
+      <label><input type="checkbox" class="toggle-layer" value="rijksmonumenten" /> <span class="sym-dot sym-rm" aria-hidden="true"></span> Rijksmonumenten (gebouwd) <span class="hint" id="rm-hint">(groot bestand)</span></label>
+      <label><input type="checkbox" class="toggle-layer" value="archeologisch" /> <span class="sym-area sym-arch" aria-hidden="true"></span> Archeologische rijksmonumenten</label>
+    </details>
+
+    <details class="panel-section">
+      <summary>Ondergrond</summary>
+      <label><input type="radio" name="basemap" value="grijs" checked /> Topografisch (grijs)</label>
+      <label><input type="radio" name="basemap" value="luchtfoto" /> Luchtfoto</label>
+    </details>
+
+    <p id="status" role="status" aria-live="polite" aria-atomic="true">Data laden…</p>
+    <p class="hint credits">Inventarisatie: stichting Dodenakkers. Context: RCE, PDOK/Kadaster. <a href="methode.html">Meer</a></p>
+  </main>
+
+  <script src="vendor/maplibre-gl/maplibre-gl.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

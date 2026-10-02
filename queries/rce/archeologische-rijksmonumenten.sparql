@@ -1,0 +1,132 @@
+# Q3. Archeologische rijksmonumenten
+#
+# Doel: dezelfde basisvelden als Q2 (queries/rce/rijksmonumenten.sparql),
+# maar beperkt tot rijksmonumenten met monumentaard "archeologisch"
+# (ceo:heeftMonumentAard = concept-URI hieronder), binnen dezelfde
+# bounding box ({MIN_LON}.. placeholders, ingevuld door scripts/fetch_rce.py).
+#
+# Belangrijk (zie sectie 13 van de briefing): dit is een semantische
+# selectie op de vaste concept-URI voor "archeologisch"
+# (ceo:heeftMonumentAard), niet een tekst-/keyword-match op naam of
+# omschrijving. Nationaal zijn er 1.499 archeologische rijksmonumenten
+# (1.492 met puntcoordinaten), geverifieerd via de RCE-MCP semantics-topic
+# "monument_aard" op 2026-08-18.
+#
+# Let op het onderscheid met de bredere archeologische registerclasses
+# (ceo:ArcheologischTerrein, ceo:ArcheologischComplex, etc. -- zie
+# semantics-topic "archaeology"): dit zijn aparte classes naast
+# ceo:Rijksmonument, gekoppeld via ceo:bevatObject/ceo:ligtInObject. Deze
+# query haalt uitsluitend de rijksmonumenten-subset op (het is deze
+# subset die de briefing "archeologische rijksmonumenten" noemt); de
+# bredere archeologische registerdata is een mogelijke latere uitbreiding,
+# geen onderdeel van deze extractie.
+#
+# Zelfde bbox-redenering, Point/Polygon-opsplitsing, heeftNaam-beperking,
+# functies/type-aanpak en aanwijzingsinformatie-keuze (datumInschrijving
+# i.p.v. de vrijwel lege aanwijzingenmonumenten-graph -- zie de uitgebreide
+# toelichting in queries/rce/rijksmonumenten.sparql) als Q2. Relevant hier:
+# ook een archeologisch rijksmonument (bv. een grafheuvel of grafveld) kan
+# als oorspronkelijke functie "begraafplaats"/"kerkhof" hebben.
+
+# --- QUERY: points ---
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?cho ?rijksmonumentnummer ?naam ?datumInschrijving ?oorspronkelijkeFunctie ?huidigeFunctie ?type ?wkt WHERE {
+  GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+    ?cho a ceo:Rijksmonument ;
+      ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/2/b2d9a59a-fe1e-4552-9a05-3c2acddff864> ;
+      ceo:heeftMonumentAard <https://data.cultureelerfgoed.nl/term/id/rn/2/b673c8c1-5d93-496d-8f9e-89133d579d77> ;
+      ceo:rijksmonumentnummer ?rijksmonumentnummer ;
+      ceo:heeftGeometrie ?geom .
+    OPTIONAL {
+      ?cho ceo:heeftNaam ?naamObj .
+      ?naamObj ceo:naam ?naam .
+    }
+    OPTIONAL { ?cho ceo:datumInschrijvingInMonumentenregister ?datumInschrijving . }
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftOorspronkelijkeFunctie ?fObj .
+      ?fObj ceo:heeftFunctieNaam ?fConcept .
+    }
+    ?fConcept skos:prefLabel ?oorspronkelijkeFunctie .
+    FILTER(lang(?oorspronkelijkeFunctie) = "nl")
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftHuidigeFunctie ?hfObj .
+      ?hfObj ceo:heeftFunctieNaam ?hfConcept .
+    }
+    ?hfConcept skos:prefLabel ?huidigeFunctie .
+    FILTER(lang(?huidigeFunctie) = "nl")
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftType ?typeObj .
+      ?typeObj ceo:heeftTypeNaam ?typeConcept .
+    }
+    ?typeConcept skos:prefLabel ?type .
+    FILTER(lang(?type) = "nl")
+  }
+  ?geom geo:asWKT ?wkt .
+  FILTER(STRSTARTS(STR(?wkt), "Point"))
+  BIND(STRBEFORE(STRAFTER(STR(?wkt), "("), ")") AS ?inner)
+  BIND(xsd:double(STRBEFORE(?inner, " ")) AS ?lon)
+  BIND(xsd:double(STRAFTER(?inner, " ")) AS ?lat)
+  FILTER(?lon >= {MIN_LON} && ?lon <= {MAX_LON} && ?lat >= {MIN_LAT} && ?lat <= {MAX_LAT})
+}
+
+# --- QUERY: polygons ---
+PREFIX ceo: <https://linkeddata.cultureelerfgoed.nl/def/ceo#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?cho ?rijksmonumentnummer ?naam ?datumInschrijving ?oorspronkelijkeFunctie ?huidigeFunctie ?type ?wkt WHERE {
+  GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+    ?cho a ceo:Rijksmonument ;
+      ceo:heeftJuridischeStatus <https://data.cultureelerfgoed.nl/term/id/rn/2/b2d9a59a-fe1e-4552-9a05-3c2acddff864> ;
+      ceo:heeftMonumentAard <https://data.cultureelerfgoed.nl/term/id/rn/2/b673c8c1-5d93-496d-8f9e-89133d579d77> ;
+      ceo:rijksmonumentnummer ?rijksmonumentnummer ;
+      ceo:heeftGeometrie ?geom .
+    OPTIONAL {
+      ?cho ceo:heeftNaam ?naamObj .
+      ?naamObj ceo:naam ?naam .
+    }
+    OPTIONAL { ?cho ceo:datumInschrijvingInMonumentenregister ?datumInschrijving . }
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftOorspronkelijkeFunctie ?fObj .
+      ?fObj ceo:heeftFunctieNaam ?fConcept .
+    }
+    ?fConcept skos:prefLabel ?oorspronkelijkeFunctie .
+    FILTER(lang(?oorspronkelijkeFunctie) = "nl")
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftHuidigeFunctie ?hfObj .
+      ?hfObj ceo:heeftFunctieNaam ?hfConcept .
+    }
+    ?hfConcept skos:prefLabel ?huidigeFunctie .
+    FILTER(lang(?huidigeFunctie) = "nl")
+  }
+  OPTIONAL {
+    GRAPH <https://linkeddata.cultureelerfgoed.nl/graph/instanties-rce> {
+      ?cho ceo:heeftType ?typeObj .
+      ?typeObj ceo:heeftTypeNaam ?typeConcept .
+    }
+    ?typeConcept skos:prefLabel ?type .
+    FILTER(lang(?type) = "nl")
+  }
+  ?geom geo:asWKT ?wkt .
+  FILTER(STRSTARTS(STR(?wkt), "Polygon"))
+  BIND(STRAFTER(STRAFTER(STR(?wkt), "("), "(") AS ?rest)
+  BIND(STRBEFORE(?rest, ",") AS ?firstVertex)
+  BIND(xsd:double(STRBEFORE(?firstVertex, " ")) AS ?lon)
+  BIND(xsd:double(STRAFTER(?firstVertex, " ")) AS ?lat)
+  FILTER(?lon >= {MIN_LON} && ?lon <= {MAX_LON} && ?lat >= {MIN_LAT} && ?lat <= {MAX_LAT})
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Methode en bronnen – Joodse Begraafplaatsen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pagina.css" />
+</head>
+<body class="pagina">
+  <main>
+    <p><a href="./">&larr; Terug naar de kaart</a></p>
+    <img src="images/Dodenakkers-logo-68015ff5.webp" alt="Dodenakkers" class="logo" />
+    <h1>Methode en bronnen</h1>
+
+    <h2>Wat staat er op de kaart?</h2>
+    <p>Joodse begraafplaatsen uit de inventarisatie van <a href="https://www.dodenakkers.nl/">stichting Dodenakkers</a>, in drie soorten:</p>
+    <ul class="legenda">
+      <li><span class="sym sym-in_gebruik" aria-hidden="true"></span> <strong>Bestaand</strong> (in de bron: &ldquo;in gebruik&rdquo;) &ndash; de begraafplaats bestaat nog. Punt bij de ingang, met het terrein als vlak.</li>
+      <li><span class="sym sym-geruimd" aria-hidden="true"></span> <strong>Geruimd</strong> &ndash; de graven zijn geruimd, maar de plek is bekend. Punt plus terrein.</li>
+      <li><span class="sym sym-verdwenen" aria-hidden="true"></span> <strong>Verdwenen</strong> &ndash; de begraafplaats bestaat niet meer. De plek is <strong>bij benadering</strong> aangegeven, op basis van (archief)onderzoek. Daarom geen terrein en geen berekende afstanden tot monumenten.</li>
+    </ul>
+    <p>Elke soort heeft een eigen kleur &eacute;n een eigen vorm (rondje, ruit, open ring), zodat de kaart ook bij kleurenblindheid leesbaar is.</p>
+
+    <h2>Hoe is de kaart gemaakt?</h2>
+    <ol>
+      <li><strong>Lijst.</strong> De Excel-lijst van Dodenakkers bepaalt welke begraafplaatsen Joods zijn. Er wordt niet op trefwoorden in namen gezocht.</li>
+      <li><strong>Punt.</strong> Het nummer in de lijst is alleen uniek binnen een soort. Bestaande, verdwenen en geruimde begraafplaatsen hebben elk een eigen nummerreeks en een eigen puntenbestand. Elke begraafplaats is gekoppeld via soort + nummer; het kenmerk op de kaart (bijv. <code>jb-loc-1559</code>) volgt daaruit.</li>
+      <li><strong>Terrein.</strong> De terreinen staan in de provinciebestanden van Dodenakkers, alleen op naam. Een terrein is gekoppeld als het punt erin ligt &eacute;n de naam overeenkomt. Ligt een punt in meerdere terreinen (een Joods deel op een algemene begraafplaats), dan is het kleinste gekozen. Naamsverschillen staan in het koppelrapport voor Dodenakkers.</li>
+      <li><strong>Gemeente en provincie</strong> zijn bepaald op basis van de ligging (PDOK, actuele indeling), niet overgenomen uit de lijst.</li>
+      <li><strong>Erfgoed.</strong> Rijksmonumenten, archeologische rijksmonumenten en beschermde stads- en dorpsgezichten komen uit de Linked Data van de Rijksdienst voor het Cultureel Erfgoed. Per begraafplaats is berekend of hij in een gezicht ligt en welke rijksmonumenten binnen 250 m liggen. Het rijksmonumentnummer uit de lijst is opgezocht; soms bleek dat een complexnummer, en dan zijn de onderdelen van het complex getoond.</li>
+    </ol>
+
+    <h2>Bronnen</h2>
+    <table>
+      <thead><tr><th>Laag</th><th>Bron</th></tr></thead>
+      <tbody>
+        <tr><td>Joodse begraafplaatsen, terreinen, kenmerken</td><td>Stichting Dodenakkers (inventarisatie)</td></tr>
+        <tr><td>Rijksmonumenten, archeologische rijksmonumenten, beschermde gezichten</td><td><a href="https://linkeddata.cultureelerfgoed.nl/">RCE Linked Data</a> (CHO)</td></tr>
+        <tr><td>Provincie- en gemeentegrenzen</td><td><a href="https://www.pdok.nl/">PDOK</a> &ndash; Bestuurlijke gebieden (Kadaster)</td></tr>
+        <tr><td>Ondergrond</td><td>PDOK &ndash; BRT-achtergrondkaart en luchtfoto (Beeldmateriaal.nl)</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Beperkingen</h2>
+    <ul>
+      <li>De plek van verdwenen begraafplaatsen is bij benadering.</li>
+      <li>Afstanden tot rijksmonumenten zijn rechte-lijnafstanden vanaf de rand van het terrein, berekend in het Rijksdriehoekstelsel.</li>
+      <li>De RCE-gegevens zijn een momentopname; de datum van ophalen staat in de metadata bij de data.</li>
+    </ul>
+
+    <h2>Inbedden en hergebruik</h2>
+    <p>De kaart kan op een andere website worden getoond, bijvoorbeeld op dodenakkers.nl:</p>
+    <pre><code>&lt;iframe src="https://&lt;adres-van-de-kaart&gt;/?embed=1"
+        title="Kaart Joodse begraafplaatsen" width="100%" height="600"
+        style="border:0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
+    <p>De data zelf staat als open GeoJSON in <code>data/generated/begraafplaatsen.geojson</code> (punten met alle kenmerken) en <code>data/generated/terreinen.geojson</code>. De kaart en de verwerking vallen onder <a href="https://creativecommons.org/licenses/by/4.0/deed.nl">CC BY 4.0</a>; de onderliggende bronnen onder hun eigen voorwaarden.</p>
+  </main>
+</body>
+</html>
