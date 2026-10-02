@@ -19,7 +19,7 @@ from shapely.geometry import shape
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 STATUS = {  # zelfde als src/app.js
-    "in_gebruik": ("Bestaand", "#0072B2", "o", "#0072B2"),
+    "in_gebruik": ("In gebruik", "#0072B2", "o", "#0072B2"),
     "geruimd": ("Geruimd", "#E69F00", "D", "#E69F00"),
     "verdwenen": ("Verdwenen", "#3A3A3A", "o", "white"),
 }
@@ -52,9 +52,9 @@ def main() -> None:
     ax.set_xlim(minx - 0.05, maxx + 0.05)
     ax.set_ylim(miny - 0.03, maxy + 0.03)
 
-    fig.text(0.05, 0.78, "Joodse\nBegraafplaatsen", fontsize=46, fontweight="bold", color="#212529", va="top", linespacing=1.05)
+    fig.text(0.05, 0.78, "Joodse\nBegraafplaatsen", fontsize=46, fontweight="bold", color="#8d161c", va="top", linespacing=1.05)
     scope = ("Nederland" if len(provs) == 12 else f"{len(provs)} van 12 provincies") if len(provs) > 3 else ", ".join(sorted(provs))
-    fig.text(0.05, 0.47, f"Bestaand, geruimd en verdwenen\n{scope}", fontsize=20, color="#444", va="top", linespacing=1.4)
+    fig.text(0.05, 0.47, f"In gebruik, geruimd en verdwenen\n{scope}", fontsize=20, color="#444", va="top", linespacing=1.4)
     y = 0.27
     for s, (label, kleur, marker, vul) in STATUS.items():
         n = sum(1 for f in punten if f["properties"]["status"] == s)

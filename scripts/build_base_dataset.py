@@ -189,11 +189,16 @@ def name_ratio(a: str | None, b: str | None) -> float:
 
 
 def ja_nee(value):
-    """'Ja'/'ja'/'Nee'/'nee' -> True/False; overige waarden ongewijzigd (ruw blijft ook bewaard)."""
+    """'Ja'/'ja'/'Nee'/'nee' -> True/False; overige waarden ongewijzigd (ruw blijft ook bewaard).
+    "Geen" = "Nee" (verspringing tussen de delen van de Excel; Leon 2026-10-02, vraag A3)."""
     v = clean(value)
-    if isinstance(v, str) and v.lower() in ("ja", "nee"):
+    if isinstance(v, str) and v.lower() in ("ja", "nee", "geen"):
         return v.lower() == "ja"
     return v
+
+
+# Excel "NA" (nader adres): "to" = "tegenover" (Leon 2026-10-02, vraag A3)
+ADRES_AANDUIDING = {"to": "tegenover"}
 
 
 def as_int(value):
@@ -432,6 +437,9 @@ def build(provincies: list[str]) -> None:
         rmon_bron = as_text(r["Rmon"])
         adres = " ".join(x for x in [as_text(r["Bezoekadres"]), as_text(r["Huisnummer"])] if x) or None
 
+        # Niet overgenomen (Leon 2026-10-02, vragen A3/C1/C2): Eigenaar + postadres
+        # (onvolledig, "helemaal niet tonen"), Grondvorm, Muur (onvolledig),
+        # Kadaster en Laatste bezoek. Ze komen dus ook niet in de open data.
         rec = {
             "id": sleutel,
             "reeks": reeks,
@@ -441,7 +449,9 @@ def build(provincies: list[str]) -> None:
             "status": status,
             "status_bron": status_bron,
             "adres": adres,
-            "adres_aanduiding": as_text(r["NA"]),  # NA = nader adres: "bij" / "tegenover" / "achter" het adres (Leon/René 2026-10-02)
+            # NA = nader adres: "bij" / "tegenover" / "achter" het adres (Leon/René 2026-10-02)
+            "adres_aanduiding": ADRES_AANDUIDING.get(as_text(r["NA"]), as_text(r["NA"])),
+            "adres_aanduiding_bron": as_text(r["NA"]),
             "postcode": as_text(r["PC"]),
             "plaats": clean(r["Plaats"]),
             "gemeente_bron": clean(r["Gemeente"]),
@@ -450,25 +460,18 @@ def build(provincies: list[str]) -> None:
             "mip": ja_nee(r["MIP"]),        # MIP = Monumenten Inventarisatie Project
             "rijksmonument": ja_nee(r["Rijksmonument"]),
             "gemeentelijk_monument": ja_nee(r["Gemeentelijk monument"]),
+            "gemeentelijk_monument_bron": as_text(r["Gemeentelijk monument"]),
             "rijksmonumentnummer": as_int(r["Rmon"]),
             "rmon_bron": rmon_bron,
             "link": clean(r["Link"]),
             "beschermd_deel": clean(r["Beschermd deel"]),
-            "eigenaar": clean(r["Eigenaar"]),
-            "eigenaar_postadres": as_text(r["Postadres"]),
-            "eigenaar_postcode": as_text(r["PC Eig."]),
-            "eigenaar_plaats": clean(r["Plaats.1"]),
             "jaartal": as_int(r["Jaartal"]),
             "jaartal_bron": jaartal_bron,
             "circa": clean(r["Circa"]),
-            "grondvorm": (clean(r["Grondvorm"]) or "").capitalize() or None,
             "met": ja_nee(r["Met"]),        # Met = metaheerhuis(je) aanwezig
-            "muur": ja_nee(r["Muur"]),      # Muur = muur rondom ja/nee (Leon/René 2026-10-02)
             "bijzonderheden": clean(r["Bijzonderheden"]),
             "grootte_m2": as_int(r["Grootte"]),
             "grootte_bron": grootte_bron,
-            "kadaster": ja_nee(r["Kadaster"]),  # Kadaster = als begraafplaats geregistreerd bij het Kadaster ja/nee (Leon/René 2026-10-02)
-            "laatste_bezoek": as_int(r["Laatste bezoek"]),
             "locatie_precisie": "bij_benadering" if status == "verdwenen" else "ingang",
             "terrein_koppelwijze": koppelwijze,
             "terrein_naam_kml": terrein["naam"] if terrein else None,

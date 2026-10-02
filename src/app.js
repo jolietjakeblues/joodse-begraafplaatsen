@@ -11,6 +11,7 @@
 const DATA = {
   begraafplaatsen: "data/generated/begraafplaatsen.geojson",
   terreinen: "data/generated/terreinen.geojson",
+  herbegravingen: "data/generated/herbegravingen.geojson",
   provincies: "data/pdok/provincies.geojson",
   gemeenten: "data/pdok/gemeenten.geojson",
   // RCE-lagen staan per provincie in aparte bestanden; dit manifest
@@ -40,17 +41,22 @@ async function loadRce(soort) {
 // Kleuren gekozen op onderscheidbaarheid bij protanopie, deuteranopie en
 // tritanopie (gesimuleerd, minimale kleurafstand >= 38 Delta-E), en daarnaast
 // een eigen VORM per status zodat kleur nooit de enige drager is.
+// "In gebruik" (niet "Bestaand"): Joodse begraafplaatsen worden in principe
+// niet gesloten (Leon 2026-10-02, vragen A4/E3).
 const STATUS = {
-  in_gebruik: { label: "Bestaand", kleur: "#0072B2", vorm: "cirkel" },
+  in_gebruik: { label: "In gebruik", kleur: "#0072B2", vorm: "cirkel" },
   geruimd: { label: "Geruimd", kleur: "#E69F00", vorm: "ruit" },
   verdwenen: { label: "Verdwenen", kleur: "#3A3A3A", vorm: "ring" },
 };
 const KLEUR = {
   provincie: "#4a4a4a",
   gemeente: "#8a8a8a",
-  gezicht: "#7a5195",
+  // donker paars, zonder lichte vlakvulling: René ziet lichtroze slecht en
+  // vraagt om harde contrasten (vraag D1)
+  gezicht: "#5b2a86",
   rijksmonument: "#3d3d3d",
   archeologisch: "#8b5a2b",
+  herbegraving: "#3A3A3A",
 };
 
 const params = new URLSearchParams(location.search);
@@ -124,7 +130,6 @@ function rows(pairs) {
 const HUISJE =
   '<svg class="icoon-huisje" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1.5 1 7.5h2v7h4v-4h2v4h4v-7h2z" fill="currentColor"/></svg>';
 const fmtInt = (n) => (n == null ? null : Number(n).toLocaleString("nl-NL"));
-const jaNee = (v) => (v === true ? "ja" : v === false ? "nee" : v);
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -260,7 +265,19 @@ const RELATIE = {
   "25-100m": "25–100 m",
   "100-250m": "100–250 m",
   net_buiten: "net buiten het terrein",
+  hoort_bij: "hoort bij de begraafplaats",
+  algemene_begraafplaats: "de algemene begraafplaats waar dit deel bij hoort",
 };
+
+// Herbegravingen (data/herbegravingen.csv): knoppen openen de andere begraafplaats.
+function herbegravingHtml(lijst) {
+  if (!lijst || !lijst.length) return null;
+  return raw(
+    lijst
+      .map((h) => `<button type="button" class="link-knop" data-open-id="${esc(h.id)}">${esc(h.naam)}</button>, ${esc(h.plaats || "")}`)
+      .join("<br>")
+  );
+}
 
 function begraafplaatsPopup(p) {
   const st = STATUS[p.status];
@@ -282,10 +299,6 @@ function begraafplaatsPopup(p) {
   } else if (p.rijksmonument === true) {
     rm = "ja";
   }
-
-  const eigenaar = [p.eigenaar, p.eigenaar_postadres, [p.eigenaar_postcode, p.eigenaar_plaats].filter(Boolean).join(" ")]
-    .filter(Boolean)
-    .join(", ");
 
   const gezicht = (p.gezichten || []).map((g) => `${g.naam || g.gezichtsnummer} (${g.relatie === "binnen" ? "binnen" : "deels"})`).join("; ");
   // monumenten die al onder "Rijksmonument" staan (het monument zelf of de
@@ -315,19 +328,16 @@ function begraafplaatsPopup(p) {
       ["Adres", adres],
       ["Sinds", jaartal],
       ["Grootte", p.grootte_m2 ? `${fmtInt(p.grootte_m2)} m²` : p.grootte_bron],
-      ["Grondvorm", p.grondvorm],
       ["Rijksmonument", rm],
       ["Metaheerhuis", p.met === true ? raw(`${HUISJE} aanwezig`) : null],
-      ["Muur rondom", p.muur === true ? "ja" : null],
       ["Gemeentelijk monument", p.gemeentelijk_monument === true ? "ja" : null],
       ["Monumenten Inventarisatie Project (MIP)", p.mip === true ? "opgenomen" : null],
       ["Beschermd deel", p.beschermd_deel],
-      ["Eigenaar", eigenaar],
       ["Bijzonderheden", p.bijzonderheden],
+      ["Overgebracht naar", herbegravingHtml(p.herbegraven_naar)],
+      ["Herbegraven vanuit", herbegravingHtml(p.herbegraven_van)],
       ["Beschermd gezicht", gezicht],
       ["Rijksmonumenten ≤ 100 m", nabijHtml],
-      ["Geregistreerd bij Kadaster", jaNee(p.kadaster)],
-      ["Laatste bezoek", p.laatste_bezoek],
       ["Kenmerk", p.id],
     ])}</dl>`;
 }
@@ -366,8 +376,9 @@ const LAZY_LAYERS = {
   },
   gezichten: async () => {
     map.addSource("gezichten", { type: "geojson", data: await loadRce("gezichten") });
-    map.addLayer({ id: "gezichten-fill", type: "fill", source: "gezichten", paint: { "fill-color": KLEUR.gezicht, "fill-opacity": 0.12 } }, "terreinen-fill");
-    map.addLayer({ id: "gezichten-line", type: "line", source: "gezichten", paint: { "line-color": KLEUR.gezicht, "line-width": 1.5, "line-dasharray": [2, 1] } }, "terreinen-fill");
+    // Vlak onzichtbaar (alleen om op te kunnen klikken); de rand draagt het beeld.
+    map.addLayer({ id: "gezichten-fill", type: "fill", source: "gezichten", paint: { "fill-color": KLEUR.gezicht, "fill-opacity": 0 } }, "terreinen-fill");
+    map.addLayer({ id: "gezichten-line", type: "line", source: "gezichten", paint: { "line-color": KLEUR.gezicht, "line-width": 2.5, "line-dasharray": [2, 1] } }, "terreinen-fill");
     return ["gezichten-fill", "gezichten-line"];
   },
   rijksmonumenten: async () => {
@@ -386,6 +397,15 @@ const LAZY_LAYERS = {
       },
     }, "begraafplaatsen-symbol");
     return ["rm-fill", "rm-point"];
+  },
+  herbegravingen: async () => {
+    map.addSource("herbegravingen", { type: "geojson", data: await loadJson(DATA.herbegravingen) });
+    map.addLayer({
+      id: "herbegravingen-line", type: "line", source: "herbegravingen",
+      layout: { "line-cap": "round" },
+      paint: { "line-color": KLEUR.herbegraving, "line-width": 2.5, "line-dasharray": [1, 2] },
+    }, "begraafplaatsen-symbol");
+    return ["herbegravingen-line"];
   },
   archeologisch: async () => {
     map.addSource("arch", { type: "geojson", data: await loadRce("archeologisch") });
@@ -434,17 +454,17 @@ async function toonLaagAantallen() {
 // ---------------------------------------------------------------- filters
 
 let alle = [];
-// Datering: klikbare balkjes zoals in dodenakkers-zh (zelfde indeling, zonder
-// "Middeleeuws" -- komt in deze data niet voor). Op `jaartal` uit de Excel van
-// Dodenakkers; "ca." telt gewoon mee. Of deze indeling past bij Joodse
-// begraafplaatsen is een open vraag aan Dodenakkers (docs/04, vraag C9).
+// Datering: klikbare balkjes zoals in dodenakkers-zh, met een generieke
+// indeling: 1829 is voor Joodse begraafplaatsen geen zinvolle grens en een
+// aparte oorlogsperiode is niet gewenst (Leon 2026-10-02, vraag C9).
+// `jaartal` = jaar van aanleg of eerste begraving; "ca." telt gewoon mee.
 const DATERING = [
-  { id: "voor1829", label: "vóór 1829", test: (j) => j < 1829 },
-  { id: "1829", label: "1829–1849", test: (j) => j >= 1829 && j < 1850 },
+  { id: "voor1700", label: "vóór 1700", test: (j) => j < 1700 },
+  { id: "1700", label: "1700–1799", test: (j) => j >= 1700 && j < 1800 },
+  { id: "1800", label: "1800–1849", test: (j) => j >= 1800 && j < 1850 },
   { id: "1850", label: "1850–1899", test: (j) => j >= 1850 && j < 1900 },
   { id: "1900", label: "1900–1949", test: (j) => j >= 1900 && j < 1950 },
-  { id: "1950", label: "1950–1999", test: (j) => j >= 1950 && j < 2000 },
-  { id: "2000", label: "2000–heden", test: (j) => j >= 2000 },
+  { id: "1950", label: "1950–heden", test: (j) => j >= 1950 },
 ];
 const actieveDatering = new Set();
 const dateringMatch = (p, ids = actieveDatering) =>
@@ -592,11 +612,18 @@ async function main() {
       "icon-size": ["interpolate", ["linear"], ["zoom"], 7, 0.7, 12, 0.95, 16, 1.15],
       "icon-allow-overlap": true,
       "icon-ignore-placement": true,
-      // bestaand bovenop, verdwenen onderop
+      // in gebruik bovenop, verdwenen onderop
       "symbol-sort-key": ["match", ["get", "status"], "in_gebruik", 3, "geruimd", 2, 1],
       // Geen tekstlabels: die vereisen een externe glyph-server (CSP). Namen
       // staan in de lijst en de popup.
     },
+  });
+
+  // Knoppen in de popup (herbegravingen) openen de andere begraafplaats.
+  document.getElementById("map").addEventListener("click", (e) => {
+    const knop = e.target.closest("[data-open-id]");
+    const f = knop && byId.get(knop.dataset.openId);
+    if (f) openBegraafplaats(f, true);
   });
 
   map.on("click", (e) => {
