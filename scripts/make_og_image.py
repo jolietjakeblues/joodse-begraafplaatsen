@@ -53,7 +53,7 @@ def main() -> None:
     ax.set_ylim(miny - 0.03, maxy + 0.03)
 
     fig.text(0.05, 0.78, "Joodse\nBegraafplaatsen", fontsize=46, fontweight="bold", color="#212529", va="top", linespacing=1.05)
-    scope = "Nederland" if len(provs) > 3 else ", ".join(sorted(provs))
+    scope = ("Nederland" if len(provs) == 12 else f"{len(provs)} van 12 provincies") if len(provs) > 3 else ", ".join(sorted(provs))
     fig.text(0.05, 0.47, f"Bestaand, geruimd en verdwenen\n{scope}", fontsize=20, color="#444", va="top", linespacing=1.4)
     y = 0.27
     for s, (label, kleur, marker, vul) in STATUS.items():

@@ -69,6 +69,10 @@
       <input type="search" id="search" autocomplete="off" placeholder="Bijvoorbeeld Rotterdam" aria-describedby="search-count" />
       <label><input type="checkbox" id="filter-rijksmonument" /> Alleen rijksmonumenten <span class="count" data-count="rijksmonument"></span></label>
       <label><input type="checkbox" id="filter-gezicht" /> In beschermd gezicht <span class="count" data-count="gezicht"></span></label>
+      <h3 class="filter-heading">Datering <span class="hint">(meerdere aanklikken toont ze samen)</span></h3>
+      <p class="hint">Jaartal uit de inventarisatie van Dodenakkers (voorlopig gelezen als jaar van aanleg; &ldquo;ca.&rdquo; telt mee).</p>
+      <div id="datering-filter" role="group" aria-label="Filter op datering"></div>
+      <p class="hint" id="datering-summary"></p>
       <p class="hint" id="search-count" aria-live="polite" aria-atomic="true"></p>
     </details>
 

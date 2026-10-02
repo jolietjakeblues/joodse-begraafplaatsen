@@ -64,6 +64,9 @@ BRON_DIR = REPO_ROOT / "data-dodenakkers"
 GENERATED_DIR = REPO_ROOT / "data" / "generated"
 PDOK_DIR = REPO_ROOT / "data" / "pdok"
 CORRECTIONS = REPO_ROOT / "data" / "corrections.csv"
+# Handmatige terreinkoppelingen (id, terrein_naam, reden, datum, bron) voor
+# gevallen waar de naamtoets faalt maar de koppeling vaststaat.
+TERREIN_KOPPELINGEN = REPO_ROOT / "data" / "terrein_koppelingen.csv"
 RAPPORT = REPO_ROOT / "docs" / "data" / "koppelrapport.md"
 
 EXCEL = BRON_DIR / "Joodse begraafplaatsen totaal voor Joop.xlsx"
@@ -89,6 +92,20 @@ PROVINCIE_KMZ = {
 
 STATUS_REEKS = {"in gebruik": "loc", "verdwenen": "ver", "geruimd": "ger"}
 STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": "geruimd"}
+
+# Gecontroleerde tellingen per provincie (zie docs/data/koppelrapport.md).
+#   Zuid-Holland 2026-10-02: alle terreinen gekoppeld.
+#   Utrecht 2026-10-02: Bilthoven (jb-loc-4368, Progressieve joodse begraafplaats)
+#     heeft geen eigen terrein in Funerair Utrecht.kmz -> 13 van 14 bestaand.
+#   Noord-Holland, Zeeland, Flevoland 2026-10-02: alle bestaande gekoppeld
+#     (Vlissingen jb-loc-9 via data/terrein_koppelingen.csv; Ouderkerk via Excel-naam "Beth Haim").
+INVARIANTEN = {
+    "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
+    "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
+    "Noord-Holland": {"totaal": 28, "in_gebruik": 22, "geruimd": 0, "verdwenen": 6, "terreinen": 22},
+    "Zeeland": {"totaal": 6, "in_gebruik": 6, "geruimd": 0, "verdwenen": 0, "terreinen": 6},
+    "Flevoland": {"totaal": 1, "in_gebruik": 1, "geruimd": 0, "verdwenen": 0, "terreinen": 1},
+}
 
 TERREIN_NABIJ_M = 25     # punt net buiten de polygoon (ingang op de rand)
 NAAM_MIN_RATIO = 0.6     # difflib-ratio op genormaliseerde namen
@@ -129,18 +146,40 @@ GENERIEKE_WOORDEN = {
 }
 
 
+def split_plaats(text: str) -> tuple[str, str | None]:
+    """"Naam, Plaats" -> (naam, plaats). Valt terug op ". " als scheidingsteken
+    ("Joodse begraafplaats. Almere" in Funerair Flevoland/Noord-Holland/Zeeland)."""
+    if "," in text:
+        naam, plaats = text.rsplit(",", 1)
+        return naam, plaats
+    m = re.match(r"^(.*\S)\.\s+([^.]+)$", text)
+    if m:
+        return m.group(1), m.group(2)
+    return text, None
+
+
 def name_core(text: str | None) -> str:
-    """Naam zonder plaats (deel na de laatste komma), statussuffix en generieke woorden."""
+    """Naam zonder plaats, statussuffix en generieke woorden."""
     if not text:
         return ""
     text = re.sub(r"\((geruimd|verdwenen)\)", "", text, flags=re.I)
-    if "," in text:
-        text = text.rsplit(",", 1)[0]
+    text = split_plaats(text)[0]
     return " ".join(w for w in normalize_name(text).split() if w not in GENERIEKE_WOORDEN)
 
 
 def name_ratio(a: str | None, b: str | None) -> float:
-    return difflib.SequenceMatcher(None, name_core(a), name_core(b)).ratio()
+    """a = label van het punt ("Naam, Plaats"), b = naam van de polygoon.
+    De plaats uit a wordt ook uit b gehaald als die daar zonder komma in staat
+    ("Joods veenendaal", Utrecht-KMZ)."""
+    plaats = set(normalize_name(split_plaats(a)[1] or "").split()) if a else set()
+    ca = " ".join(w for w in name_core(a).split() if w not in plaats)
+    cb = " ".join(w for w in name_core(b).split() if w not in plaats)
+    ratio = difflib.SequenceMatcher(None, ca, cb).ratio()
+    # Alle kernwoorden van de terreinnaam komen in de andere naam voor
+    # ("Beth Haim" in "Portugees Isr. begraafplaats Beth Haim") -> telt als goed.
+    if cb and len(cb) >= 5 and set(cb.split()) <= set(ca.split()):
+        ratio = max(ratio, 0.9)
+    return ratio
 
 
 def ja_nee(value):
@@ -265,10 +304,17 @@ def provincie_van(point: Point, feats, geoms, tree) -> str | None:
     return feats[tree.nearest(point)]["properties"]["naam"]  # kustlijn / afronding
 
 
-def koppel_terrein(point: Point, label: str, terreinen: list[dict], tree: STRtree | None):
-    """Geeft (terrein | None, koppelwijze, kandidaten-info)."""
+def koppel_terrein(point: Point, labels: list[str], terreinen: list[dict], tree: STRtree | None,
+                   handmatig: dict | None = None):
+    """Geeft (terrein | None, koppelwijze, kandidaten-info).
+
+    labels: het label van het punt en de Excel-naam ("Naam, Plaats"); de beste
+    naam-ratio telt ("Beth Haim" staat alleen in de Excel-naam, Ouderkerk).
+    handmatig: regel uit data/terrein_koppelingen.csv -> die terreinnaam,
+    mits het terrein binnen TERREIN_NABIJ_M van het punt ligt."""
     if tree is None:
         return None, "geen_terrein", []
+    label = labels[0]
     pt_rd = transform(to_rd, point)
     kandidaten = []
     for i in tree.query(pt_rd.buffer(TERREIN_NABIJ_M)):
@@ -276,7 +322,7 @@ def koppel_terrein(point: Point, label: str, terreinen: list[dict], tree: STRtre
         afstand = t["rd"].distance(pt_rd)
         if afstand > TERREIN_NABIJ_M:
             continue
-        kandidaten.append((t, round(afstand, 1), round(name_ratio(label, t["naam"]), 2)))
+        kandidaten.append((t, round(afstand, 1), round(max(name_ratio(l, t["naam"]) for l in labels if l), 2)))
     # Beste: binnen (afstand 0) gaat voor nabij; daarna het KLEINSTE terrein.
     # Geneste terreinen komen voor ("Joods deel op Oud Rijswijk" ligt binnen
     # "Begraafplaats Oud-Rijswijk"); het kleinste is het meest specifieke.
@@ -284,6 +330,10 @@ def koppel_terrein(point: Point, label: str, terreinen: list[dict], tree: STRtre
     # scoort daar soms net hoger. De naamtoets is een drempel, geen ranking.
     kandidaten.sort(key=lambda k: (k[1] > 0, k[1], k[0]["rd"].area, -k[2]))
     info = [{"naam": t["naam"], "afstand_m": d, "naam_ratio": r, "opp_m2": round(t["rd"].area)} for t, d, r in kandidaten]
+    if handmatig:
+        keuze = [k for k in kandidaten if k[0]["naam"] == handmatig["terrein_naam"]]
+        assert keuze, f"handmatige koppeling {handmatig}: terrein niet binnen {TERREIN_NABIJ_M} m van het punt"
+        return keuze[0][0], "handmatig", info
     goed = [k for k in kandidaten if k[2] >= NAAM_MIN_RATIO]
     if not goed:
         return None, "geen_terrein", info
@@ -327,9 +377,13 @@ def build(provincies: list[str]) -> None:
     terreinen = load_terreinen(provincies)
     terrein_tree = STRtree([t["rd"] for t in terreinen]) if terreinen else None
 
+    handmatige = {}
+    if TERREIN_KOPPELINGEN.exists():
+        with TERREIN_KOPPELINGEN.open(encoding="utf-8", newline="") as f:
+            handmatige = {r["id"]: r for r in csv.DictReader(f) if r.get("id")}
     records: dict[str, dict] = {}
     terrein_features: dict[str, dict] = {}
-    rapport = {"naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": []}
+    rapport = {"oppervlak": [], "naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": []}
     alle_excel = 0
 
     for r in df.to_dict("records"):
@@ -361,7 +415,10 @@ def build(provincies: list[str]) -> None:
         status = STATUS_CODE[status_key]
         terrein, koppelwijze, terrein_info = (None, "niet_van_toepassing", [])
         if status != "verdwenen":
-            terrein, koppelwijze, terrein_info = koppel_terrein(punt["point"], punt["label"], terreinen, terrein_tree)
+            excel_label = f"{clean(r['Naam'])}, {clean(r['Plaats'])}"
+            terrein, koppelwijze, terrein_info = koppel_terrein(
+                punt["point"], [punt["label"], excel_label], terreinen, terrein_tree, handmatige.get(sleutel)
+            )
 
         jaartal_bron = as_text(r["Jaartal"])
         grootte_bron = as_text(r["Grootte"])
@@ -423,6 +480,10 @@ def build(provincies: list[str]) -> None:
                 "properties": {"id": sleutel, "status": status, "naam": rec["naam"], "terrein_naam_kml": terrein["naam"]},
                 "geometry": mapping(terrein["geom"]),
             }
+        if terrein and rec["grootte_m2"]:
+            verhouding = rec["terrein_opp_m2"] / rec["grootte_m2"]
+            if not 0.75 <= verhouding <= 1.33:
+                rapport["oppervlak"].append((sleutel, punt["label"], terrein["naam"], rec["terrein_opp_m2"], rec["grootte_m2"]))
         if koppelwijze.endswith("naamvariant") or koppelwijze.startswith("nabij"):
             rapport["naamvariant"].append((sleutel, punt["label"], terrein["naam"], koppelwijze, terrein_info))
         binnen_ok = [k for k in terrein_info if k["afstand_m"] == 0 and k["naam_ratio"] >= NAAM_MIN_RATIO]
@@ -438,6 +499,12 @@ def build(provincies: list[str]) -> None:
     jood_re = re.compile(r"jood|joden|isra|portug|hoogduits", re.I)
     ongeclaimd = [t["naam"] for t in terreinen if jood_re.search(t["naam"] or "") and id(t) not in claimed]
 
+    joodse_t = [t for t in terreinen if jood_re.search(t["naam"] or "")]
+    rapport["zelfde_opp"] = [
+        (a["naam"], b["naam"], round(a["rd"].area), round(a["rd"].distance(b["rd"])))
+        for i, a in enumerate(joodse_t) for b in joodse_t[i + 1:]
+        if round(a["rd"].area) == round(b["rd"].area) and not a["geom"].equals(b["geom"])
+    ]
     write_outputs(records, list(terrein_features.values()))
     write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correctie_log)
 
@@ -447,13 +514,20 @@ def build(provincies: list[str]) -> None:
     print(f"  naamvarianten/nabij: {len(rapport['naamvariant'])}; ongeclaimde Joodse polygonen: {len(ongeclaimd)}")
     print(f"  provincie Excel != ruimtelijk: {len(rapport['provincie_afwijkend'])}; correcties: {len(correctie_log)}")
 
-    if provincies == ["Zuid-Holland"]:
-        # Invarianten Zuid-Holland (docs/01-data-analyse.md, 2026-10-02). Wijzigt
-        # de bron, dan bewust bijwerken -- niet stil laten meebewegen.
-        assert len(records) == 36, len(records)
-        assert tel == {"in_gebruik": 24, "geruimd": 2, "verdwenen": 10}, tel
-        assert len(terrein_features) == 26, len(terrein_features)
-        assert not ongeclaimd, ongeclaimd
+    # Invarianten per provincie (vastgesteld na handmatige controle). Wijzigt de
+    # bron, dan bewust bijwerken -- niet stil laten meebewegen.
+    for prov in provincies:
+        verwacht = INVARIANTEN.get(prov)
+        if not verwacht:
+            continue
+        recs = [r for r in records.values() if r["provincie"] == prov]
+        werkelijk = {
+            "totaal": len(recs),
+            **{s_: sum(1 for r in recs if r["status"] == s_) for s_ in ("in_gebruik", "geruimd", "verdwenen")},
+            "terreinen": sum(1 for r in recs if r["terrein_naam_kml"]),
+        }
+        assert werkelijk == verwacht, f"{prov}: verwacht {verwacht}, gevonden {werkelijk}"
+    assert not ongeclaimd, f"ongekoppelde Joodse polygonen: {ongeclaimd}"
 
 
 def write_outputs(records: dict[str, dict], terrein_features: list[dict]) -> None:
@@ -510,6 +584,21 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
         L.append(f"| `{sleutel}` | {label} | {tnaam} | {wijze} |")
     if not rapport["naamvariant"]:
         L.append("| – | – | – | – |")
+
+    L += ["", "## Oppervlakte terrein wijkt sterk af van Excel-kolom `Grootte`", "",
+          "Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk verkeerd terrein, "
+          "of een verouderde/afwijkende maat in de Excel.", "",
+          "| id | label punt | terrein | terrein m² | Grootte m² |", "|---|---|---|---|---|"]
+    nl = lambda n: f"{n:,}".replace(",", ".")
+    L += [f"| `{a}` | {b} | {c} | {nl(d)} | {nl(e)} |" for a, b, c, d, e in rapport["oppervlak"]] or ["| – | – | – | – | – |"]
+
+    L += ["", "## Handmatige terreinkoppelingen (`data/terrein_koppelingen.csv`)", ""]
+    hand = [r for r in records.values() if r["terrein_koppelwijze"] == "handmatig"]
+    L += [f"- `{r['id']}` {r['label_punt']} → {r['terrein_naam_kml']} ({r['terrein_opp_m2']} m², Grootte {r['grootte_m2']})"
+          for r in hand] or ["Geen."]
+
+    L += ["", "## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)", ""]
+    L += [f"- {a} en {b}: {opp} m² (afstand {afst} m)" for a, b, opp, afst in rapport.get("zelfde_opp", [])] or ["Geen."]
 
     L += ["", "## Zonder terrein (status in gebruik / geruimd)", ""]
     for sleutel, label, info in rapport["geen_terrein"]:

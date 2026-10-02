@@ -4,6 +4,26 @@
       "gezichten": "data/rce/beschermde-gezichten-zuid-holland.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-zuid-holland.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-zuid-holland.geojson"
+    },
+    "Utrecht": {
+      "gezichten": "data/rce/beschermde-gezichten-utrecht.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-utrecht.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-utrecht.geojson"
+    },
+    "Noord-Holland": {
+      "gezichten": "data/rce/beschermde-gezichten-noord-holland.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-noord-holland.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-noord-holland.geojson"
+    },
+    "Zeeland": {
+      "gezichten": "data/rce/beschermde-gezichten-zeeland.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-zeeland.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-zeeland.geojson"
+    },
+    "Flevoland": {
+      "gezichten": "data/rce/beschermde-gezichten-flevoland.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-flevoland.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-flevoland.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -11,6 +31,26 @@
     "Zuid-Holland": {
       "gezichten": 67,
       "rijksmonumenten": 24,
+      "archeologisch": 0
+    },
+    "Utrecht": {
+      "gezichten": 51,
+      "rijksmonumenten": 26,
+      "archeologisch": 0
+    },
+    "Noord-Holland": {
+      "gezichten": 56,
+      "rijksmonumenten": 75,
+      "archeologisch": 0
+    },
+    "Zeeland": {
+      "gezichten": 19,
+      "rijksmonumenten": 14,
+      "archeologisch": 0
+    },
+    "Flevoland": {
+      "gezichten": 6,
+      "rijksmonumenten": 0,
       "archeologisch": 0
     }
   }

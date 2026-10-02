@@ -110,3 +110,18 @@ Alle 26 Joodse polygonen in Zuid-Holland.kmz zijn hiermee gekoppeld; er blijven 
 
 36 objecten: 24 in gebruik (met terrein), 2 geruimd (met terrein), 10 verdwenen (alleen punt), verspreid over o.a. Rotterdam (7), Leiden (2), Gouda (2), Dordrecht (2), Schiedam (2), Rijswijk (2), Maassluis (2).
 De verdwenen-records bevatten verwijzingen naar elkaar ("overgebracht naar Toepad", "naar Katwijk", "naar Strijen") — mogelijke latere feature: herbegravingslijnen.
+
+## 7. Bevindingen bij uitbreiding naar West-Nederland (2026-10-02)
+
+Na Zuid-Holland zijn Utrecht, Noord-Holland, Zeeland en Flevoland verwerkt (91 begraafplaatsen). Alle tellingen per provincie kloppen met de Excel. Nieuw geleerd over de bron:
+
+- **Polygoonnamen volgen niet altijd "Naam, Plaats"** — Utrecht-KMZ heeft o.a. "Joods veenendaal", "Joods Maarssen". De naamtoets haalt de plaats daarom ook zonder komma weg.
+- **Excel-naam is soms de enige brug**: Ouderkerk heet in het puntbestand "Portugees-Joodse begraafplaats", in de KMZ "Beth Haim"; alleen de Excel-naam ("… Beth Haim") verbindt ze. De naamtoets gebruikt nu puntlabel én Excel-naam, en telt het als goed als alle kernwoorden van de terreinnaam in de andere naam staan.
+- **Oppervlakte als controle**: terreinoppervlak (RD) vs `Grootte` — 64 van 68 terreinen binnen 75–133 %. Afwijkers: Beverwijk (137 vs 870), Almere (2.854 vs 4.875), Goes (1.057 vs 670), Vlissingen Leeuwentrap (694 vs 350).
+- **Waarschijnlijk gekopieerde polygonen**: Vlissingen oud/nieuw (beide exact 694 m², 551 m uit elkaar); Rhenen/Edam (beide 372 m²) mogelijk toeval.
+- **Ontbrekend terrein**: Bilthoven, Progressieve joodse begraafplaats — geen polygoon in de KMZ.
+- **`Rmon` is vaak een complexnummer** (8 van 19) — opgelost via RCE (`ceo:complexnummer` → onderdelen).
+- **"In gebruik" omvat ook gesloten begraafplaatsen** (Haarlem Kleverlaan "1969 gesloten") → op de kaart "Bestaand".
+- Kolomwaarden: `NA` ∈ {bij, tegenover, achter, to}; `Muur` leeg in heel West; `Grondvorm` overal "Recht"; `Gemeentelijk monument` soms "Geen".
+
+Alle open punten: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).

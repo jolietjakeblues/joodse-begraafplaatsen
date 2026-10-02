@@ -1,22 +1,24 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 14:45.
-Provincie(s): **Zuid-Holland, Utrecht**. Excel-rijen landelijk: 315.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 14:55.
+Provincie(s): **Zuid-Holland, Utrecht, Zeeland, Noord-Holland, Flevoland**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
 
-- 56 begraafplaatsen: 38 in gebruik, 2 geruimd, 16 verdwenen.
+- 91 begraafplaatsen: 67 in gebruik, 2 geruimd, 22 verdwenen.
 - Elk record is via (reeks, Nr) aan precies één punt gekoppeld; sleutel `jb-<reeks>-<Nr>`.
-- Terreinen gekoppeld: 38.
+- Terreinen gekoppeld: 68.
 
 ## Koppelwijze terrein
 
 | koppelwijze | aantal |
 |---|---|
-| binnen_naam_gelijk | 32 |
-| binnen_naamvariant | 6 |
-| geen_terrein | 2 |
-| niet_van_toepassing | 16 |
+| binnen_naam_gelijk | 53 |
+| binnen_naamvariant | 13 |
+| geen_terrein | 1 |
+| handmatig | 1 |
+| nabij_naam_gelijk | 1 |
+| niet_van_toepassing | 22 |
 
 ## Ter controle voor Dodenakkers: naamvarianten
 
@@ -24,21 +26,48 @@ Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de p
 
 | id | label punt | naam terrein | koppelwijze |
 |---|---|---|---|
+| `jb-loc-2801` | Begraafplaats Psychiatrisch Ziekenhuis, Bloemendaal | Joodse begraafplaats Psych ziekenhuis, Bloemendaal | binnen_naamvariant |
+| `jb-loc-1381` | Joodse begraafplaats, Diemen | Joodse begraafplaats A'dam, Diemen | binnen_naamvariant |
+| `jb-loc-3369` | Joodse begraafplaats, Muiderberg | Joodse begraafplaats A'dam, Muiderberg | binnen_naamvariant |
+| `jb-loc-1439` | Portugees-Joodse begraafplaats, Ouderkerk aan de Amstel | Beth Haim, Ouderkerk aan de Amstel | binnen_naamvariant |
+| `jb-loc-2523` | Joodse begraafplaats, Monnickendam | Joodse begraafplaats, Monnickendam | nabij_naam_gelijk |
 | `jb-loc-1458` | Oud Joodse begraafplaats, Amersfoort | Oude joodse begraafplaats, Amersfoort | binnen_naamvariant |
 | `jb-loc-1459` | Nieuw Joodse begraafplaats, Amersfoort | Nieuwe joodse begraafplaats, Amersfoort | binnen_naamvariant |
 | `jb-loc-1643` | Joodse begraafplaats, Maarssen | Joods Maarssen | binnen_naamvariant |
+| `jb-loc-4171` | Joodse begraafplaats, Veenendaal | Joods veenendaal | binnen_naamvariant |
+| `jb-loc-21` | Hoogduitse begraafplaats, Middelburg | Hoogduitse Joodse begraafplaats, Middelburg | binnen_naamvariant |
+| `jb-loc-908` | Joodse begraafplaats, Vlissingen | Nieuwe Joodse begraafplaats, Vlissingen | binnen_naamvariant |
 | `jb-loc-874` | Joods deel begraafplaats Oud-Rijswijk, Rijswijk | Joods deel op Oud Rijswijk, Rijswijk | binnen_naamvariant |
 | `jb-loc-4200` | Joodse begraafplaats Toepad, Rotterdam | Joodse begraafplaats Het Toepad, Rotterdam | binnen_naamvariant |
 | `jb-ger-64` | Joodse begraafplaats, Schiedam (geruimd) | Nieuwe Joodse begraafplaats, Schiedam (geruimd) | binnen_naamvariant |
 
+## Oppervlakte terrein wijkt sterk af van Excel-kolom `Grootte`
+
+Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk verkeerd terrein, of een verouderde/afwijkende maat in de Excel.
+
+| id | label punt | terrein | terrein m² | Grootte m² |
+|---|---|---|---|---|
+| `jb-loc-2369` | Joodse begraafplaats, Almere | Joodse begraafplaats, Almere | 2.854 | 4.875 |
+| `jb-loc-2804` | Joodse begraafplaats, Beverwijk | Joodse begraafplaats, Beverwijk | 137 | 870 |
+| `jb-loc-238` | Joodse begraafplaats, Goes | Joodse begraafplaats, Goes | 1.057 | 670 |
+| `jb-loc-9` | Joodse begraafplaats bij de Leeuwentrap, Vlissingen | Oude joodse begraafplaats, Vlissingen | 694 | 350 |
+
+## Handmatige terreinkoppelingen (`data/terrein_koppelingen.csv`)
+
+- `jb-loc-9` Joodse begraafplaats bij de Leeuwentrap, Vlissingen → Oude joodse begraafplaats, Vlissingen (694 m², Grootte 350)
+
+## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)
+
+- Joodse begraafplaats, Rhenen en Joodse begraafplaats, Edam: 372 m² (afstand 70313 m)
+- Oude joodse begraafplaats, Vlissingen en Nieuwe Joodse begraafplaats, Vlissingen: 694 m² (afstand 551 m)
+
 ## Zonder terrein (status in gebruik / geruimd)
 
 - `jb-loc-4368` Joodse begraafplaats, Bilthoven — kandidaten: Gem. begraafplaats Brandenburg, Bilthoven (9.7 m, ratio 0.24)
-- `jb-loc-4171` Joodse begraafplaats, Veenendaal — kandidaten: Joods veenendaal (0.0 m, ratio 0.55)
 
 ## Joodse polygonen in de provincie-KMZ zonder record
 
-- Joods veenendaal
+Geen.
 
 ## Provincie in Excel wijkt af van ruimtelijke ligging (PDOK)
 
@@ -50,7 +79,7 @@ Geen.
 
 ## Punt ligt in meerdere terreinen (genest) — kleinste gekozen
 
-- `jb-loc-874` Joods deel begraafplaats Oud-Rijswijk, Rijswijk: Joods deel op Oud Rijswijk, Rijswijk (112 m², ratio 1.0); Begraafplaats Oud-Rijswijk, Rijswijk (29510 m², ratio 0.69) → gekozen: Joods deel op Oud Rijswijk, Rijswijk
+- `jb-loc-1361` Joodse begraafplaats Kleverlaan, Haarlem: Joodse begraafplaats Kleverlaan, Haarlem (1198 m², ratio 1.0); Gem. begraafplaats Kleverlaan, Haarlem (82050 m², ratio 0.9) → gekozen: Joodse begraafplaats Kleverlaan, Haarlem
 
 ## Eén terrein door meerdere records geclaimd
 
@@ -66,6 +95,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 
 - `jb-ver-105` Oude Joodse Begraafplaats, Leiden — na 1758 geruimd, overgebracht naar Katwijk. Nu Sterrenwacht
 - `jb-ver-107` Joodse armenbegraafplaats, Leiden — in 1961 geruimd
+- `jb-ver-168` Joodse begraafplaats, Hoorn — 1762-1970, weg overheen aangelegd
 - `jb-ver-177` Joodse Begraafplaats, Schiedam — Bij de Burcht van Mathenesse, geruimd 1962, overgebracht naar Toepad in Rotterdam
 - `jb-ver-182` Joodse begraafplaats, Dordrecht — In 1871 gesloten. In 1958 geruimd. Overgebracht naar Strijen (maar ook nieuwe begraafplaats en Rotterdam?)
 - `jb-ver-280` Joodse Begraafplaats, Gouda — In 1976 ivm hoge waterstand geruimd en overgebracht naar Wageningen
@@ -73,6 +103,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-293` Oude Joodse begraafplaats, Vianen — 1720-1810
 - `jb-ver-294` Joodse begraafplaats Walsland, Vianen — 1807-1820, nu overbouwd
 - `jb-ver-361` Joodse begraafplaats Dijkstraat, Rotterdam — -1940, overgebracht naar Toepad
+- `jb-ver-395` Portugees Israëlitische Begraafplaats, Groet — 1602-1634 geen zerken, resten overgebracht naar Ouderkerk
 - `jb-ver-425` Joodse begraafplaats, Maassluis — In 1950 geruimd, overgebracht naar gemeentelijke begraafplaats
 - `jb-ver-471` Portugees Israëlitische Begraafplaats Crooswijk, Rotterdam — -1807. Later RK begraafplaats Crooswijk
 - `jb-ver-491` Joodse begraafplaats, De Bilt — - 1807, verder gegaan in Utrecht, nu winkelcentrum
@@ -80,3 +111,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-753` Joodse begraafplaats, Wijk bij Duurstede — Exacte locatie niet duidelijk….
 - `jb-ver-774` Oude Joodse begraafplaats, Leerdam — 
 - `jb-ver-872` Portugees Israëlitische Begraafplaats Crooswijk, Rotterdam — Eind 19de eeuw verdwenen
+- `jb-ver-874` Oude Joodse begraafplaats, Hilversum — 1751-1863, haventerrein, later bebouwd
+- `jb-ver-895` Oude Joodse begraafplaats, Naarden — Begin 20ste eeuw bebouwd
+- `jb-ver-896` Joodse Begraafplaats, Beverwijk — 1809-1943. in 1950 geruimd, resten overgebracht naar Duinhof
+- `jb-ver-98` Oude Joodse begraafplaats, Haarlem — 1770-1833, 1960 geruimd
