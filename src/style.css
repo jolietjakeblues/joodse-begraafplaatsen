@@ -1,0 +1,192 @@
+/* Joodse Begraafplaatsen - basis overgenomen uit het dodenakkers-project
+   (WCAG AA: contrast >= 4.5:1 voor kleine tekst, focus-visible, skip-link). */
+
+:root {
+  --in-gebruik: #0072b2;
+  --geruimd: #e69f00;
+  --verdwenen: #3a3a3a;
+  --tekst: #212529;
+  --muted: #5f5f5f;
+  --rand: #ddd;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--tekst);
+  background: #f4f4f2;
+}
+
+.skip-link {
+  position: fixed;
+  top: 8px;
+  left: 8px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: #fff;
+  color: var(--tekst);
+  border: 2px solid var(--tekst);
+  transform: translateY(-150%);
+}
+.skip-link:focus { transform: translateY(0); }
+
+:focus-visible {
+  outline: 3px solid #005fcc;
+  outline-offset: 2px;
+}
+
+#map {
+  position: absolute;
+  inset: 0;
+}
+
+#panel {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 8px;
+  padding: 14px 16px;
+  width: 290px;
+  box-sizing: border-box;
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 13px;
+  transition: transform 0.25s ease;
+}
+#panel.collapsed { transform: translateX(calc(-100% - 24px)); }
+
+#panel-toggle {
+  position: absolute;
+  bottom: 28px;
+  left: 12px;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--tekst);
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 700px) {
+  #panel { width: calc(100% - 24px); }
+  #panel-toggle { left: auto; right: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #panel { transition: none; }
+}
+
+.brand .logo { height: 34px; width: auto; display: block; margin-bottom: 8px; }
+#panel h1 { font-size: 18px; margin: 0 0 2px; }
+.subtitle { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
+.intro {
+  margin: 0 0 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--rand);
+  color: #444;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.section-heading,
+#panel details.panel-section summary {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #333;
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+#panel details.panel-section summary {
+  border-top: 1px solid var(--rand);
+  padding-top: 10px;
+  cursor: pointer;
+}
+.status-section .section-heading { margin-top: 0; }
+
+#panel label { display: block; margin: 5px 0; cursor: pointer; }
+#panel input[type="search"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  margin: 4px 0 6px;
+  font-size: 13px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.count, .muted { color: var(--muted); font-size: 11px; }
+.hint { color: var(--muted); font-size: 11px; font-style: italic; }
+p.hint { margin: 6px 0 0; line-height: 1.4; }
+#status { font-size: 11px; color: var(--muted); margin: 10px 0 0; min-height: 1em; }
+.credits { border-top: 1px solid var(--rand); padding-top: 8px; }
+
+/* Statussymbolen: zelfde vorm en kleur als op de kaart (app.js makeSymbol) */
+.sym {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  vertical-align: -1px;
+  box-sizing: border-box;
+  flex: none;
+}
+.sym-in_gebruik { background: var(--in-gebruik); border-radius: 50%; }
+.sym-geruimd { background: var(--geruimd); transform: rotate(45deg) scale(0.8); }
+.sym-verdwenen { border: 3px solid var(--verdwenen); border-radius: 50%; background: #fff; }
+
+.sym-line { display: inline-block; width: 18px; height: 0; vertical-align: middle; }
+.sym-provincie { border-top: 2px solid #4a4a4a; }
+.sym-gemeente { border-top: 1px dashed #8a8a8a; }
+.sym-area { display: inline-block; width: 14px; height: 10px; vertical-align: -1px; }
+.sym-gezicht { background: rgba(122, 81, 149, 0.15); border: 1.5px dashed #7a5195; }
+.sym-arch { background: rgba(139, 90, 43, 0.3); border: 1px solid #8b5a2b; }
+.sym-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: 1px; }
+.sym-rm { background: #6f6f6f; }
+
+.status-row { display: flex !important; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+/* Resultatenlijst */
+#resultatenlijst { list-style: none; padding: 0; margin: 0; max-height: 40vh; overflow-y: auto; }
+.lijst-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 6px 2px;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.lijst-item:hover { background: #f1f5f9; }
+.lijst-item .sym { margin-top: 3px; }
+
+/* Popups */
+.maplibregl-popup-content { font-size: 12px; line-height: 1.4; padding: 12px 14px; }
+.maplibregl-popup-content h3 { font-size: 14px; margin: 0 22px 4px 0; }
+.popup-status { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; color: #333; }
+.popup-note { margin: 0 0 6px; padding: 4px 6px; background: #f1f1f1; border-left: 3px solid var(--verdwenen); font-size: 11px; }
+.maplibregl-popup-content dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 10px; margin: 0; }
+.maplibregl-popup-content dt { color: var(--muted); }
+.maplibregl-popup-content dd { margin: 0; overflow-wrap: anywhere; }
+.maplibregl-popup-content a { color: #005fcc; }
+
+/* Inbedden (?embed=1) */
+.embed-only { display: none; }
+body.embed .embed-only { display: inline; }
+body.embed .intro { display: none; }
