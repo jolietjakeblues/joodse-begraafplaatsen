@@ -1,6 +1,6 @@
 # 04 – Vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-02, na West-Nederland (91), Gelderland (61), Overijssel (43) en Noord-Brabant (31): 226 begraafplaatsen.
+Stand: 2026-10-02, na West-Nederland (91), Gelderland (61), Overijssel (43), Noord-Brabant (31) en Limburg (25): 251 begraafplaatsen.
 Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
@@ -106,6 +106,19 @@ Alle 31 Brabantse begraafplaatsen zijn gekoppeld (21 in gebruik, elk met terrein
 
 **NB2. Eindhoven Tongelre → "Woensel".** `jb-ver-21` zegt "lijken overgebracht naar Woensel". De enige Joodse begraafplaats in gebruik in Eindhoven is `jb-loc-986` (Groenewoudseweg). Is dat de bedoelde plek in Woensel, of zijn ze naar een algemene begraafplaats gegaan?
 *Nu:* alleen als tekst in Bijzonderheden.
+
+## L. Limburg (nieuw, 2026-10-02)
+
+Alle 25 Limburgse begraafplaatsen zijn gekoppeld (18 in gebruik, 1 geruimd, 6 verdwenen; 19 terreinen). Herbegraving op de kaart: Vaals Gemmenicherweg → Linderweg.
+
+**L1. Sittard: waar is "Vrangendael"?** Fort Sanderbout (`jb-ger-43`) en de oude begraafplaats op de algemene begraafplaats (`jb-ver-12`) zijn "overgebracht naar Vrangendael". In de lijst staat geen Vrangendael; wel `jb-loc-580` op begraafplaats Lahrhof ("1962 herbegraven, ca 80 zerken"). Is dat dezelfde plek, of ontbreekt Vrangendael?
+*Nu:* alleen als tekst in Bijzonderheden.
+
+**L2. Venlo, Nieuwe Begraafplaats** (`jb-loc-1110`). In de Excel staat geen rijksmonument, maar RCE-monument 37192 "Begraafplaats en -onderdelen" ligt helemaal binnen het terrein (667 m²). Is dat de Joodse begraafplaats zelf?
+*Nu:* getoond als "rijksmonument op het terrein".
+
+**L3. Linne** (`jb-ver-418`). In de bijzonderheden staat "Heeft waarschijnlijk nooit bestaan". Moet deze op de kaart blijven als verdwenen begraafplaats?
+*Nu:* getoond als verdwenen, met die tekst in de popup.
 
 Nog open hieronder: alles zonder ✅. Nog helemaal onbeantwoord: A1, D3 (René kijkt nog), E2, E5–E9, F1–F3.
 
