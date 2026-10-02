@@ -16,7 +16,7 @@ Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 - Ondergronden zoals dodenakkers-zh: PDOK grijs, luchtfoto, BGT (≥ z17), BRK-percelen als overlay (≥ z17).
 - Popup: eigenaar en postadres mogen; `NA` = nader adres (bij/tegenover/achter) vóór het adres; `Met` = metaheerhuis (huisje-icoon); `Muur` = muur rondom; `Kadaster` = geregistreerd bij het Kadaster (getoond als ja/nee); `MIP` = Monumenten Inventarisatie Project.
 - Bevestigde uitzonderingen staan in de code: `GEEN_TERREIN_BEVESTIGD` (build_base_dataset.py) en `BEOORDEELDE_RELATIES` (analyse_spatial.py), elk met bron en vraagcode.
-- Hosting: Worker met static assets (`wrangler.jsonc`, assets = `site/`); deploy `python scripts/build_site.py && npx wrangler deploy`. Domein op één plek: `SITE_URL` in `scripts/build_site.py`.
+- Hosting: Worker met static assets (`wrangler.jsonc`, assets = `site/`). **Deploy alleen via merge op `main`** (Cloudflare Workers Builds: build `python3 scripts/build_site.py`, deploy `npx wrangler deploy`; zie README). Niet handmatig deployen vanuit een werkmap; alleen in een noodgeval vanaf een schone `origin/main`-worktree. Domein op één plek: `SITE_URL` in `scripts/build_site.py`.
 - Mobiel is een eis: paneel dicht + mini-legenda, aanraakdoelen ~44 px, testen op 375 px.
 
 ## Pipeline (zie README)
