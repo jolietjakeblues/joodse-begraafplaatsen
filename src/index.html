@@ -4,14 +4,16 @@
   <meta charset="utf-8" />
   <title>Joodse Begraafplaatsen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Kaart van Joodse begraafplaatsen in Nederland: bestaand, geruimd en verdwenen. Inventarisatie stichting Dodenakkers." />
-  <meta name="theme-color" content="#ffffff" />
+  <!-- Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond (René 2026-10-02, vraag F4) -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Kaart van Joodse begraafplaatsen in Nederland: in gebruik, geruimd en verdwenen. Inventarisatie stichting Dodenakkers." />
+  <meta name="theme-color" content="#8d161c" />
   <link rel="canonical" href="{{SITE_URL}}/" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="nl_NL" />
   <meta property="og:site_name" content="Joodse Begraafplaatsen" />
   <meta property="og:title" content="Joodse Begraafplaatsen" />
-  <meta property="og:description" content="Kaart van bestaande, geruimde en verdwenen Joodse begraafplaatsen, uit de inventarisatie van stichting Dodenakkers." />
+  <meta property="og:description" content="Kaart van Joodse begraafplaatsen in gebruik, geruimd en verdwenen, uit de inventarisatie van stichting Dodenakkers." />
   <meta property="og:url" content="{{SITE_URL}}/" />
   <meta property="og:image" content="{{SITE_URL}}/images/og-image.png" />
   <meta property="og:image:width" content="1200" />
@@ -29,7 +31,7 @@
   <button id="mini-legenda" type="button" aria-controls="panel" hidden>
     <span class="mini-titel">Joodse Begraafplaatsen</span>
     <span class="mini-items">
-      <span><span class="sym sym-in_gebruik" aria-hidden="true"></span> Bestaand</span>
+      <span><span class="sym sym-in_gebruik" aria-hidden="true"></span> In gebruik</span>
       <span><span class="sym sym-geruimd" aria-hidden="true"></span> Geruimd</span>
       <span><span class="sym sym-verdwenen" aria-hidden="true"></span> Verdwenen</span>
     </span>
@@ -41,7 +43,7 @@
   <main id="panel" tabindex="-1">
     <div class="brand">
       <a href="https://www.dodenakkers.nl/" class="brand-link" target="_blank" rel="noopener">
-        <img src="images/Dodenakkers-logo-68015ff5.webp" alt="Dodenakkers" class="logo" />
+        <img src="images/dodenakkers-logo.webp" alt="Dodenakkers – funerair erfgoed" class="logo" width="480" height="146" />
       </a>
     </div>
     <h1>Joodse Begraafplaatsen</h1>
@@ -50,13 +52,13 @@
       <a href="./" class="embed-only" id="open-volledig" target="_blank" rel="noopener">&middot; Open volledige kaart</a>
     </p>
     <p class="intro" id="intro">
-      Bestaande, geruimde en verdwenen Joodse begraafplaatsen, uit de inventarisatie van stichting Dodenakkers.
+      Joodse begraafplaatsen in gebruik, geruimd en verdwenen, uit de inventarisatie van stichting Dodenakkers.
     </p>
 
     <section class="panel-section status-section" aria-labelledby="status-heading">
       <h2 id="status-heading" class="section-heading">Status</h2>
       <label class="status-row"><input type="checkbox" class="filter-status" value="in_gebruik" checked />
-        <span class="sym sym-in_gebruik" aria-hidden="true"></span> Bestaand <span class="count" data-count="in_gebruik"></span></label>
+        <span class="sym sym-in_gebruik" aria-hidden="true"></span> In gebruik <span class="count" data-count="in_gebruik"></span></label>
       <label class="status-row"><input type="checkbox" class="filter-status" value="geruimd" checked />
         <span class="sym sym-geruimd" aria-hidden="true"></span> Geruimd <span class="count" data-count="geruimd"></span></label>
       <label class="status-row"><input type="checkbox" class="filter-status" value="verdwenen" checked />
@@ -70,7 +72,7 @@
       <label><input type="checkbox" id="filter-rijksmonument" /> Alleen rijksmonumenten <span class="count" data-count="rijksmonument"></span></label>
       <label><input type="checkbox" id="filter-gezicht" /> In beschermd gezicht <span class="count" data-count="gezicht"></span></label>
       <h3 class="filter-heading">Datering <span class="hint">(meerdere aanklikken toont ze samen)</span></h3>
-      <p class="hint">Jaartal uit de inventarisatie van Dodenakkers (voorlopig gelezen als jaar van aanleg; &ldquo;ca.&rdquo; telt mee).</p>
+      <p class="hint">Jaar van aanleg of eerste begraving, uit de inventarisatie van Dodenakkers (&ldquo;ca.&rdquo; telt mee).</p>
       <div id="datering-filter" role="group" aria-label="Filter op datering"></div>
       <p class="hint" id="datering-summary"></p>
       <p class="hint" id="search-count" aria-live="polite" aria-atomic="true"></p>
@@ -86,12 +88,13 @@
     <details class="panel-section">
       <summary>Kaartlagen</summary>
       <label><input type="checkbox" class="toggle-layer" value="terreinen" checked /> Terreinen begraafplaatsen</label>
+      <label><input type="checkbox" class="toggle-layer" value="herbegravingen" /> <span class="sym-line sym-herbegraving" aria-hidden="true"></span> Herbegravingen <span class="hint">(van oude naar nieuwe plek)</span></label>
       <label><input type="checkbox" class="toggle-layer" value="provincies" checked /> <span class="sym-line sym-provincie" aria-hidden="true"></span> Provinciegrenzen</label>
       <label><input type="checkbox" class="toggle-layer" value="gemeenten" /> <span class="sym-line sym-gemeente" aria-hidden="true"></span> Gemeentegrenzen</label>
       <label><input type="checkbox" class="toggle-layer" value="gezichten" /> <span class="sym-area sym-gezicht" aria-hidden="true"></span> Beschermde stads- en dorpsgezichten <span class="count" data-laag-count="gezichten"></span></label>
       <label><input type="checkbox" class="toggle-layer" value="rijksmonumenten" /> <span class="sym-dot sym-rm" aria-hidden="true"></span> Rijksmonumenten (gebouwd) <span class="count" data-laag-count="rijksmonumenten"></span></label>
       <label><input type="checkbox" class="toggle-layer" value="archeologisch" /> <span class="sym-area sym-arch" aria-hidden="true"></span> Archeologische rijksmonumenten <span class="count" data-laag-count="archeologisch"></span></label>
-      <p class="hint">Rijksmonumenten alleen binnen 100 m van een bestaande of geruimde begraafplaats.</p>
+      <p class="hint">Rijksmonumenten alleen binnen 100 m van een begraafplaats in gebruik of geruimd.</p>
     </details>
 
     <details class="panel-section">

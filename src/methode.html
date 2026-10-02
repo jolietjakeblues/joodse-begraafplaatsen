@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <title>Methode en bronnen – Joodse Begraafplaatsen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond (René 2026-10-02, vraag F4) -->
+  <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content="Hoe de kaart van Joodse begraafplaatsen is gemaakt: bronnen, koppelmethode, kleuren en beperkingen." />
   <link rel="canonical" href="{{SITE_URL}}/methode" />
   <meta property="og:type" content="article" />
@@ -18,13 +20,13 @@
 <body class="pagina">
   <main>
     <p><a href="./">&larr; Terug naar de kaart</a></p>
-    <img src="images/Dodenakkers-logo-68015ff5.webp" alt="Dodenakkers" class="logo" />
+    <img src="images/dodenakkers-logo.webp" alt="Dodenakkers – funerair erfgoed" class="logo" width="480" height="146" />
     <h1>Methode en bronnen</h1>
 
     <h2>Wat staat er op de kaart?</h2>
     <p>Joodse begraafplaatsen uit de inventarisatie van <a href="https://www.dodenakkers.nl/">stichting Dodenakkers</a>, in drie soorten:</p>
     <ul class="legenda">
-      <li><span class="sym sym-in_gebruik" aria-hidden="true"></span> <strong>Bestaand</strong> (in de bron: &ldquo;in gebruik&rdquo;) &ndash; de begraafplaats bestaat nog. Punt bij de ingang, met het terrein als vlak.</li>
+      <li><span class="sym sym-in_gebruik" aria-hidden="true"></span> <strong>In gebruik</strong> &ndash; de begraafplaats bestaat nog. Ook als er al lang niet meer begraven wordt: een Joodse begraafplaats wordt in principe niet gesloten, en zolang hij niet vol is kan er begraven worden. Of en wanneer er het laatst begraven is, staat bij de bijzonderheden. Punt bij de ingang, met het terrein als vlak.</li>
       <li><span class="sym sym-geruimd" aria-hidden="true"></span> <strong>Geruimd</strong> &ndash; de graven zijn geruimd, maar de plek is bekend. Punt plus terrein.</li>
       <li><span class="sym sym-verdwenen" aria-hidden="true"></span> <strong>Verdwenen</strong> &ndash; de begraafplaats bestaat niet meer. De plek is <strong>bij benadering</strong> aangegeven, op basis van (archief)onderzoek. Daarom geen terrein en geen berekende afstanden tot monumenten.</li>
     </ul>
@@ -33,10 +35,11 @@
     <h2>Hoe is de kaart gemaakt?</h2>
     <ol>
       <li><strong>Lijst.</strong> De Excel-lijst van Dodenakkers bepaalt welke begraafplaatsen Joods zijn. Er wordt niet op trefwoorden in namen gezocht.</li>
-      <li><strong>Punt.</strong> Het nummer in de lijst is alleen uniek binnen een soort. Bestaande, verdwenen en geruimde begraafplaatsen hebben elk een eigen nummerreeks en een eigen puntenbestand. Elke begraafplaats is gekoppeld via soort + nummer; het kenmerk op de kaart (bijv. <code>jb-loc-1559</code>) volgt daaruit.</li>
+      <li><strong>Punt.</strong> Het nummer in de lijst is alleen uniek binnen een soort. Begraafplaatsen in gebruik, verdwenen en geruimd hebben elk een eigen nummerreeks en een eigen puntenbestand. Elke begraafplaats is gekoppeld via soort + nummer; het kenmerk op de kaart (bijv. <code>jb-loc-1559</code>) volgt daaruit.</li>
       <li><strong>Terrein.</strong> De terreinen staan in de provinciebestanden van Dodenakkers, alleen op naam. Een terrein is gekoppeld als het punt erin ligt &eacute;n de naam overeenkomt. Ligt een punt in meerdere terreinen (een Joods deel op een algemene begraafplaats), dan is het kleinste gekozen. Naamsverschillen staan in het koppelrapport voor Dodenakkers.</li>
+      <li><strong>Herbegravingen.</strong> Bij verschillende verdwenen begraafplaatsen staat in de inventarisatie dat de resten zijn overgebracht naar een andere begraafplaats. Waar die bestemming eenduidig een begraafplaats op de kaart is, staat in de popup een verwijzing (in beide richtingen) en kan de laag &ldquo;Herbegravingen&rdquo; een lijn van de oude naar de nieuwe plek tonen. De lijn is een verwijzing, geen route.</li>
       <li><strong>Gemeente en provincie</strong> zijn bepaald op basis van de ligging (PDOK, actuele indeling), niet overgenomen uit de lijst.</li>
-      <li><strong>Erfgoed.</strong> Rijksmonumenten, archeologische rijksmonumenten en beschermde stads- en dorpsgezichten komen uit de Linked Data van de Rijksdienst voor het Cultureel Erfgoed. Per begraafplaats is berekend of hij in een gezicht ligt en welke rijksmonumenten binnen 100 m liggen. Op de kaart staan ook alleen de rijksmonumenten (gebouwd en archeologisch) binnen 100 m van een bestaande of geruimde begraafplaats; beschermde gezichten staan er voor de hele provincie op. Het rijksmonumentnummer uit de lijst is opgezocht; soms bleek dat een complexnummer, en dan zijn de onderdelen van het complex getoond.</li>
+      <li><strong>Erfgoed.</strong> Rijksmonumenten, archeologische rijksmonumenten en beschermde stads- en dorpsgezichten komen uit de Linked Data van de Rijksdienst voor het Cultureel Erfgoed. Per begraafplaats is berekend of hij in een gezicht ligt en welke rijksmonumenten binnen 100 m liggen. Op de kaart staan ook alleen de rijksmonumenten (gebouwd en archeologisch) binnen 100 m van een begraafplaats in gebruik of geruimd; beschermde gezichten staan er voor de hele provincie op. Het rijksmonumentnummer uit de lijst is opgezocht; soms bleek dat een complexnummer, en dan zijn de onderdelen van het complex getoond.</li>
     </ol>
 
     <p>Achtergrond over afzonderlijke begraafplaatsen en over het onderzoek naar geruimde en verdwenen begraafplaatsen: zie <a href="lezen.html">Lezen over Joodse begraafplaatsen</a>.</p>
@@ -54,7 +57,8 @@
 
     <h2>Beperkingen</h2>
     <ul>
-      <li>De plek van verdwenen begraafplaatsen is bij benadering.</li>
+      <li>De plek van verdwenen begraafplaatsen is bij benadering: meestal ligt het punt waar de begraafplaats echt lag, maar het zegt niets over de grootte.</li>
+      <li>De terreinen zijn getekend in Google Earth, de eerste al vroeg in de inventarisatie en met beperkte nauwkeurigheid. De grootte in de popup is de oppervlakte van die tekening.</li>
       <li>Afstanden tot rijksmonumenten zijn rechte-lijnafstanden vanaf de rand van het terrein, berekend in het Rijksdriehoekstelsel.</li>
       <li>De RCE-gegevens zijn een momentopname; de datum van ophalen staat in de metadata bij de data.</li>
     </ul>

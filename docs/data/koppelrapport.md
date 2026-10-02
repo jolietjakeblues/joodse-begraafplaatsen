@@ -1,6 +1,6 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 15:33.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 21:48.
 Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
@@ -94,6 +94,9 @@ Geen.
 - `jb-loc-4200` naam: 'Het Toepad' -> 'Begraafplaats Toepad' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
 - `jb-loc-874` naam: 'Joodse Begraafplaats op Algemene Begraafplaats' -> 'Joods deel op Oud-Rijswijk' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
 - `jb-ger-64` naam: 'Joodse begraafplaats' -> 'Nieuwe Joodse begraafplaats' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
+- `jb-ver-471` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (1696–1807)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
+- `jb-ver-872` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
+- `jb-ver-182` naam: 'Joodse begraafplaats' -> 'Oude Joodse begraafplaats' (De geruimde Dordtse begraafplaats mag Oude Joodse begraafplaats heten (vraag B7), Leon, 2026-10-02)
 
 ## Verdwenen begraafplaatsen
 
@@ -103,7 +106,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-107` Joodse armenbegraafplaats, Leiden — in 1961 geruimd
 - `jb-ver-168` Joodse begraafplaats, Hoorn — 1762-1970, weg overheen aangelegd
 - `jb-ver-177` Joodse Begraafplaats, Schiedam — Bij de Burcht van Mathenesse, geruimd 1962, overgebracht naar Toepad in Rotterdam
-- `jb-ver-182` Joodse begraafplaats, Dordrecht — In 1871 gesloten. In 1958 geruimd. Overgebracht naar Strijen (maar ook nieuwe begraafplaats en Rotterdam?)
+- `jb-ver-182` Oude Joodse begraafplaats, Dordrecht — In 1871 gesloten. In 1958 geruimd. Overgebracht naar Strijen (maar ook nieuwe begraafplaats en Rotterdam?)
 - `jb-ver-280` Joodse Begraafplaats, Gouda — In 1976 ivm hoge waterstand geruimd en overgebracht naar Wageningen
 - `jb-ver-281` Oude Joodse Begraafplaats, Gouda — In 1976 ivm hoge waterstand geruimd en overgebracht naar Wageningen
 - `jb-ver-293` Oude Joodse begraafplaats, Vianen — 1720-1810
@@ -111,12 +114,12 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-361` Joodse begraafplaats Dijkstraat, Rotterdam — -1940, overgebracht naar Toepad
 - `jb-ver-395` Portugees Israëlitische Begraafplaats, Groet — 1602-1634 geen zerken, resten overgebracht naar Ouderkerk
 - `jb-ver-425` Joodse begraafplaats, Maassluis — In 1950 geruimd, overgebracht naar gemeentelijke begraafplaats
-- `jb-ver-471` Portugees Israëlitische Begraafplaats Crooswijk, Rotterdam — -1807. Later RK begraafplaats Crooswijk
+- `jb-ver-471` Portugees Israëlitische Begraafplaats Crooswijk (1696–1807), Rotterdam — -1807. Later RK begraafplaats Crooswijk
 - `jb-ver-491` Joodse begraafplaats, De Bilt — - 1807, verder gegaan in Utrecht, nu winkelcentrum
 - `jb-ver-498` Joodse begraafplaats, Leerdam — Bebouwd, resten overgebracht naar voorste begraafplaats op Dijk (opgehoogd)
 - `jb-ver-753` Joodse begraafplaats, Wijk bij Duurstede — Exacte locatie niet duidelijk….
 - `jb-ver-774` Oude Joodse begraafplaats, Leerdam — 
-- `jb-ver-872` Portugees Israëlitische Begraafplaats Crooswijk, Rotterdam — Eind 19de eeuw verdwenen
+- `jb-ver-872` Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877), Rotterdam — Eind 19de eeuw verdwenen
 - `jb-ver-874` Oude Joodse begraafplaats, Hilversum — 1751-1863, haventerrein, later bebouwd
 - `jb-ver-895` Oude Joodse begraafplaats, Naarden — Begin 20ste eeuw bebouwd
 - `jb-ver-896` Joodse Begraafplaats, Beverwijk — 1809-1943. in 1950 geruimd, resten overgebracht naar Duinhof
