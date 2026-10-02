@@ -1,60 +1,74 @@
-# 03 – Planning Joodse begraafplaatsen (start: Zuid-Holland)
+# 03 – Planning Joodse begraafplaatsen
 
-Opdracht (Leon / Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief verdwenen en geruimd. We bouwen het eerst voor Zuid-Holland en zorgen dat de pipeline per provincie uitbreidbaar is.
+Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief geruimd en verdwenen. Gebouwd per provincie.
 
-Stand 2026-10-02: fase 0–4 klaar; live op https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev (review Leon/René volgt).
+**Stand 2026-10-02: West-Nederland klaar** — Zuid-Holland, Utrecht, Noord-Holland, Zeeland en Flevoland (91 begraafplaatsen). Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
 
-## Fase 0 – Fundament ✅
-- [x] Repo (bestond al, remote `jolietjakeblues/joodse-begraafplaatsen`), `.gitignore` (data-dodenakkers/ buiten git), `requirements.txt`, `LICENSE` (CC BY 4.0)
-- [x] `AI-joodse-begraafplaatsen.md` (werkafspraken), `README.md`
-- [x] Mapstructuur: `scripts/`, `data/{generated,pdok,rce}/`, `data/corrections.csv`, `queries/rce/`, `src/`, `docs/`
+## Voortgang per provincie
 
-## Fase 1 – Basisdataset Zuid-Holland ✅
-- [x] `scripts/build_base_dataset.py`: Excel (alleen tabblad *Joodse begraafplaatsen*) + Locaties/Verdwenen/Geruimd + provincie-KMZ (stdlib zipfile + ElementTree)
-- [x] Sleutel `jb-<loc|ver|ger>-<Nr>`; asserts uniek en "elke rij vindt een punt"
-- [x] Terrein: punt in polygoon (of ≤ 25 m) **én** naamtoets op kernwoorden; bij geneste terreinen wint het kleinste (Rijswijk: Joods deel in Oud-Rijswijk); verdwenen = alleen punt
-- [x] Normaliseren met ruwe waarde ernaast (`*_bron`)
-- [x] Correctielaag `data/corrections.csv` (nog leeg)
-- [x] Output + `docs/data/koppelrapport.md`
-- [x] Asserts ZH: 36 = 24/2/10; 26 terreinen; 0 ongekoppelde Joodse polygonen
+| Provincie | Status | Totaal | Bestaand | Geruimd | Verdwenen | Terreinen | Bijzonderheden |
+|---|---|---|---|---|---|---|---|
+| Zuid-Holland | ✅ | 36 | 24 | 2 | 10 | 26 | Rijswijk: Joods deel genest in Oud-Rijswijk |
+| Utrecht | ✅ | 20 | 14 | 0 | 6 | 13 | Bilthoven zonder terrein in KMZ |
+| Noord-Holland | ✅ | 28 | 22 | 0 | 6 | 22 | Ouderkerk via Excel-naam "Beth Haim"; Beverwijk terrein veel kleiner dan `Grootte` |
+| Zeeland | ✅ | 6 | 6 | 0 | 0 | 6 | Vlissingen: handmatige koppeling; twee polygonen met identieke oppervlakte |
+| Flevoland | ✅ | 1 | 1 | 0 | 0 | 1 | Almere terrein kleiner dan `Grootte` |
+| Gelderland | ⏳ | 61 | | | | | |
+| Overijssel | ⏳ | 43 | | | | | |
+| Noord-Brabant | ⏳ | 31 | | | | | |
+| Groningen | ⏳ | 27 | | | | | |
+| Limburg | ⏳ | 25 | | | | | |
+| Drenthe | ⏳ | 21 | | | | | |
+| Fryslân | ⏳ | 16 | | | | | |
 
-## Fase 2 – Verrijking + contextlagen ✅
+Tellingen staan vast in `INVARIANTEN` (`scripts/build_base_dataset.py`).
 
-Besluit opdrachtgever (2026-10-02): wel gemeente- en provinciegrenzen, rijksmonumenten (gebouwd én archeologisch) en beschermde gezichten; **geen** archeologische onderzoeksgebieden, geen CHS.
+Draaien (alle provincies die op de kaart moeten, in één keer):
 
-- [x] `scripts/fetch_pdok.py`: provincies (12) + gemeenten (342), landelijk, vereenvoudigd
-- [x] `scripts/fetch_rce.py`: gezichten (67), gebouwde rijksmonumenten (9.127), archeologische rijksmonumenten (60) voor ZH, bbox als parameter, geknipt op provinciegrens
-- [x] Rmon-opzoeking: 7 nummers, waarvan 2 **complexnummers** (Gorinchem, Wassenaar) → onderdelen gekoppeld
-- [x] `scripts/analyse_spatial.py`: gemeente, gezicht, rijksmonumenten ≤ 250 m (niet voor verdwenen) + `docs/data/erfgoedrelaties.md`
-- [ ] Oppervlakte terrein (RD) vs Excel `Grootte` vergelijken
+```bash
+P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --provincie Zeeland --provincie Flevoland"
+python scripts/build_base_dataset.py $P
+python scripts/fetch_rce.py $P        # alleen nodig voor nieuwe provincies of verse RCE-data
+python scripts/analyse_spatial.py
+python scripts/make_og_image.py
+python scripts/build_site.py && npx wrangler deploy
+```
+
+## Fasen
+
+### Fase 0–2 – Fundament, basisdataset, verrijking ✅
+- [x] Repo, `.gitignore` (bronmap buiten git), `requirements.txt`, `LICENSE` (CC BY 4.0), README, werkafspraken
+- [x] `build_base_dataset.py`: sleutel `jb-<reeks>-<Nr>`; terrein via punt-in-polygoon + naamtoets (puntlabel én Excel-naam, kernwoorden, plaats ook zonder komma, woordinsluiting); genest → kleinste; verdwenen = alleen punt
+- [x] Correctielagen: `data/corrections.csv` (velden) en `data/terrein_koppelingen.csv` (handmatige terreinkoppeling, nu 1: Vlissingen)
+- [x] Controles in het koppelrapport: naamvarianten, oppervlakte vs `Grootte` (75–133 %), genest, identieke oppervlaktes, provincie Excel vs ligging
+- [x] `fetch_pdok.py` (provincies + gemeenten), `fetch_rce.py` per provincie met manifest `data/rce/index.json`
+- [x] Rijksmonumenten (gebouwd + archeologisch) alleen ≤ 100 m van een bestaande/geruimde begraafplaats; gezichten hele provincie
+- [x] Rmon-opzoeking als rijksmonument- óf complexnummer (8 van 19 zijn complexnummers)
 - [ ] Optioneel: RCE-objecten met functie "Joodse begraafplaats" die níet in de Excel staan → lijst voor Leon
 
-## Fase 3 – Viewer ✅ (eerste versie)
-- [x] MapLibre 4.7.1 (gevendord) + PDOK grijs/luchtfoto + `_headers`
-- [x] Terreinen per status; punten met kleur + vorm (● bestaand, ◆ geruimd, ○ verdwenen)
-- [x] Popup met alle kenmerken incl. eigenaar, rijksmonument/complex, gezicht, monumenten ≤ 100 m
-- [x] Statusfilter met tellingen, zoeken, rijksmonument-/gezichtfilter, lijst, deelbare kaartpositie (hash)
-- [x] Contextlagen: provincies, gemeenten, gezichten, rijksmonumenten (lazy), archeologisch
-- [x] Inbedbaar: `?embed=1`, `frame-ancestors` dodenakkers.nl, CORS op `/data/*`
-- [x] `methode.html`
-- [ ] CSV/GeoJSON-export van de selectie (uit dodenakkers overnemen)
-- [x] Front-end kwaliteitscontrole (2026-10-02): mobiel/tablet/desktop, mini-legenda, lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
-- [x] Ondergronden zoals dodenakkers-zh: grijs, luchtfoto, BGT, BRK-percelen (vanaf z17)
-- [x] Popup: NA (bij/tegenover) bij adres, metaheerhuis met huisje-icoon, MIP
-- [ ] Screenreadertest met echte schermlezer (NVDA/VoiceOver)
+### Fase 3 – Viewer ✅
+- [x] MapLibre 4.7.1 (gevendord), ondergronden PDOK grijs/luchtfoto/BGT + BRK-percelen
+- [x] Kleur + vorm per status (● bestaand, ◆ geruimd, ○ verdwenen), kleurenblind getest
+- [x] Popup (adres met NA, metaheerhuis 🏠, MIP, rijksmonument/complex, gezicht, monumenten ≤ 100 m, eigenaar)
+- [x] Filters met tellingen, zoeken, lijst, deelbare positie, inbedden (`?embed=1`)
+- [x] Front-end kwaliteitscontrole: mobiel (mini-legenda, aanraakdoelen), lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
+- [x] Dateringsfilter (klikbare balkjes, zoals dodenakkers-zh; indeling is vraag C9)
+- [ ] CSV/GeoJSON-export van de selectie
+- [ ] Screenreadertest (NVDA/VoiceOver)
+- [ ] Wensen uit de vragenlijst (layout, legenda, teksten)
 
-## Fase 4 – Oplevering ZH
-- [x] Gedeployed als Worker met static assets (Wrangler 4.147 zet `pages project create` om naar Workers); `npx wrangler deploy`
-- [ ] Eigen domein (bv. kaart.dodenakkers.nl) → `SITE_URL` in `scripts/build_site.py` aanpassen
-- [ ] Review door Leon/René; feedback via `data/corrections.csv`
+### Fase 4 – Oplevering ✅ (doorlopend)
+- [x] Live als Cloudflare Worker met static assets (`npx wrangler deploy`)
+- [ ] Eigen domein → `SITE_URL` in `scripts/build_site.py`
+- [ ] Review Leon/René → antwoorden verwerken via correctielagen
 
-## Fase 5 – Landelijk (per provincie ½ dag)
-- [ ] `--provincie X` voor de overige 11 provincies; per provincie koppelrapport + asserts
-- [ ] Proefrun `--alle` (2026-10-02): 315 records, 228 terreinen, **18 zonder terrein** en **16 ongekoppelde Joodse polygonen** → per provincie uitzoeken
-- [x] Rijksmonumenten: besluit 2026-10-02 — alleen ≤ 100 m van een begraafplaats, per provincie een bestand (`data/rce/index.json`)
-- [ ] Volgorde voorstel: Utrecht, Noord-Holland, Gelderland, Overijssel, rest
+### Fase 5 – Rest van Nederland
+- [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: Gelderland, Overijssel, Noord-Brabant, Limburg, Groningen, Drenthe, Fryslân
+- [ ] Proefrun `--alle` (2026-10-02, vóór de verbeteringen van West): 18 zonder terrein, 16 ongekoppelde Joodse polygonen → per provincie uitzoeken
+- [ ] Bij landelijke dekking: label "Nederland", deelafbeelding opnieuw
 
 ## Risico's
-- Naamsafwijkingen KML ↔ Excel (opgevangen door ruimtelijke koppeling + rapport).
+- Naamsafwijkingen KMZ ↔ Excel: opgevangen door ruimtelijke koppeling + rapport + handmatige koppelingen.
+- Fouten in de KMZ zelf (gekopieerde polygoon Vlissingen, te klein terrein Beverwijk) kunnen we signaleren maar niet oplossen → Dodenakkers.
 - Persoonsgegevens: tabblad *Dank en informeren* wordt nooit gelezen; eigenaar/postadres mogen in de popup (akkoord 2026-10-02).
-- Terrein kan in een ander provinciebestand liggen (grensgevallen) → bij landelijk alle KMZ's samen doorzoeken (`--alle` doet dat al).
+- Grensgevallen: een terrein kan in het bestand van de buurprovincie staan → buurprovincies samen draaien.

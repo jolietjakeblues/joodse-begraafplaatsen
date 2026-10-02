@@ -55,7 +55,13 @@ Stack: Python (pandas, shapely, pyproj, requests; KML met stdlib `zipfile` + `El
 | `fetch_provinciegrens.py` / `fetch_gemeentegrenzen.py` | Hergebruiken, provinciefilter generiek |
 | `compute_statistics.py` | Aanpassen op statusenum |
 | Frontend (`app.js`, `style.css`, vendor MapLibre, `_headers`, `methode.html`) | Hergebruiken als basis, sterk vereenvoudigen |
-| `build_site.py` + Cloudflare Pages | Hergebruiken, nieuw Pages-project |
+| `build_site.py` + Cloudflare | Hergebruikt, vereenvoudigd (geen padherschrijving); gehost als Worker met static assets (`npx wrangler deploy`) |
 | `fetch_chs_archeologie.py`, alle `fix_*`/`add_tijdelijk_*`, kandidatenpagina | **Niet** meenemen |
 
 **Niet automatisch overnemen:** de data van dodenakkers (CSV, KML, gegenereerde GeoJSON). De nieuwe bron is Leons Excel + KMZ's. Wel later vergelijken: de ongetrackte pipe-CSV `dodenakkers/data/Begraafplaatsen Zuid-Holland.csv` bevat 26 rijen `Sign=Joods` en heeft hetzelfde nummerprobleem (geruimd-reeks overlapt) — bevestigt het reeks-model.
+
+## Achteraf (2026-10-02, na West-Nederland)
+
+- Overgenomen en aangepast: KMZ-parsing, normalize/RD-transformer, `fetch_rce.py` (nu per provincie + manifest + Rmon-opzoeking), `analyse_spatial.py` (100 m, geen archeologische onderzoeksgebieden), PDOK-grenzen (landelijk), viewer-basis (MapLibre, ondergronden incl. BGT/BRK, escapeHtml-popups, facet-tellingen, `_headers`).
+- Nieuw t.o.v. dodenakkers: koppeling via (reeks, Nr), naamtoets op kernwoorden met Excel-naam, geneste terreinen, oppervlaktecontrole, twee correctielagen, `INVARIANTEN` per provincie, mini-legenda en mobiele bediening, embed-modus, 404/robots/sitemap/Open Graph.
+- Niet overgenomen: fix-scripts, CHS, onderzoeksgebieden, kandidatenpagina, statistiekpagina (nog niet gevraagd), tekstlabels.

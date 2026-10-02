@@ -1,0 +1,23 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/beschermde-gezichten.sparql",
+  "retrieved_at": "2026-10-02T12:57:13.541833+00:00",
+  "provincies": [
+    "Flevoland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 5.0404,
+    "MAX_LON": 6.0373,
+    "MIN_LAT": 52.2295,
+    "MAX_LAT": 52.864
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 6,
+  "stats": {
+    "rows_from_endpoint": 472,
+    "features_in_gebied": 6,
+    "buiten_gebied": 466
+  },
+  "notes": "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens."
+}
