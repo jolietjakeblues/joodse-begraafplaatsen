@@ -32,7 +32,7 @@ python scripts/fetch_rce.py $P        # alleen nodig voor nieuwe provincies of v
 python scripts/analyse_spatial.py
 python scripts/fetch_leeslijst.py
 python scripts/make_og_image.py
-python scripts/build_site.py && npx wrangler deploy
+# daarna: branch → pull request → merge op main → Cloudflare deployt (zie README)
 ```
 
 ## Fasen
@@ -61,7 +61,8 @@ python scripts/build_site.py && npx wrangler deploy
 - [ ] Wensen uit de vragenlijst (layout, legenda, teksten)
 
 ### Fase 4 – Oplevering ✅ (doorlopend)
-- [x] Live als Cloudflare Worker met static assets (`npx wrangler deploy`)
+- [x] Live als Cloudflare Worker met static assets
+- [ ] Deploy koppelen aan merge op `main` (Cloudflare Workers Builds, instellen in dashboard — zie README)
 - [ ] Eigen domein → `SITE_URL` in `scripts/build_site.py`
 - [ ] Review Leon/René → antwoorden verwerken via correctielagen
 
