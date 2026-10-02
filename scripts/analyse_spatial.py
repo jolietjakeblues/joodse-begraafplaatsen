@@ -56,7 +56,7 @@ BEOORDEELDE_RELATIES = {
 HERBEGRAVINGEN = REPO_ROOT / "data" / "herbegravingen.csv"
 
 # Spelling Excel -> officiele PDOK-naam (zelfde gemeente, geen afwijking)
-GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage", "Hengelo": "Hengelo (O)"}
+GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage", "Hengelo": "Hengelo (O)", "s-Hertogenbosch": "'s-Hertogenbosch"}
 
 to_rd = Transformer.from_crs("EPSG:4326", "EPSG:28992", always_xy=True).transform
 
