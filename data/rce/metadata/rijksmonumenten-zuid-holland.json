@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/rijksmonumenten.sparql",
-  "retrieved_at": "2026-10-02T12:08:02.312414+00:00",
+  "retrieved_at": "2026-10-02T12:41:34.127156+00:00",
   "provincies": [
     "Zuid-Holland"
   ],
@@ -13,15 +13,16 @@
     "MAX_LAT": 52.3525
   },
   "clip": "provinciegrens PDOK + 1000 m",
-  "feature_count": 9127,
+  "feature_count": 24,
   "stats": {
     "point_rows_from_endpoint": 23190,
     "polygon_rows_from_endpoint": 2018,
     "distinct_cho": 12923,
     "buiten_gebied": 3736,
     "features": 9187,
-    "na_uitsluiten_archeologisch": 9127,
-    "zonder_monument_aard": 0
+    "gebouwd_in_provincie": 9127,
+    "binnen_zone": 24,
+    "begraafplaatsen_in_zone": 26
   },
-  "notes": "Rijksmonumenten (juridische status rijksmonument) exclusief monumentaard archeologisch. Monumenten zonder monumentaard blijven in deze laag (aantal in stats)."
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
 }

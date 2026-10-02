@@ -58,12 +58,15 @@ html, body {
   font-size: 13px;
   transition: transform 0.25s ease;
 }
+#panel:focus { outline: none; } /* alleen sprongdoel (skip-link / mini-legenda) */
 #panel.collapsed { transform: translateX(calc(-100% - 24px)); }
 
+/* Desktop: knop rechts naast het open paneel (overlapte eerder de onderkant
+   van het paneel); bij een dicht paneel linksboven naast de mini-legenda. */
 #panel-toggle {
   position: absolute;
-  bottom: 28px;
-  left: 12px;
+  top: 12px;
+  left: 314px;
   z-index: 2;
   width: 44px;
   height: 44px;
@@ -80,9 +83,53 @@ html, body {
   justify-content: center;
 }
 
+body.panel-dicht #panel-toggle { left: 12px; }
+
+/* Mini-legenda: altijd zichtbaar als het paneel dicht is (mobiel, embed). */
+#mini-legenda {
+  position: absolute;
+  top: 12px;
+  left: 66px;
+  z-index: 1;
+  max-width: calc(100% - 130px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font: inherit;
+  color: var(--tekst);
+  text-align: left;
+  cursor: pointer;
+}
+#mini-legenda[hidden] { display: none; }
+.mini-titel { font-weight: 600; font-size: 13px; }
+.mini-items { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12px; }
+.mini-items > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.mini-fout:empty { display: none; }
+.mini-fout { color: #b00020; font-size: 12px; }
+
 @media (max-width: 700px) {
-  #panel { width: calc(100% - 24px); }
-  #panel-toggle { left: auto; right: 12px; }
+  /* Open paneel ligt boven de kaartknoppen (schaal, bronvermelding);
+     de menuknop daar weer boven. */
+  #panel { z-index: 3; }
+  #panel-toggle { z-index: 4; }
+  /* Ruimte rechts laten voor de zoomknoppen van de kaart */
+  #panel { width: calc(100% - 66px); max-height: calc(100% - 24px); }
+  #panel-toggle { top: auto; left: auto; bottom: 16px; right: 12px; width: 48px; height: 48px; }
+  body.panel-dicht #panel-toggle { left: auto; }
+  #mini-legenda { left: 12px; max-width: calc(100% - 66px); }
+  /* Aanraakdoelen minimaal ~44px hoog */
+  #panel label { padding: 9px 0; margin: 0; }
+  #panel input[type="checkbox"], #panel input[type="radio"] { width: 18px; height: 18px; vertical-align: -4px; }
+  #panel input[type="search"] { font-size: 16px; padding: 10px; } /* 16px voorkomt inzoomen op iOS */
+  #panel details.panel-section summary { padding: 12px 0 6px; }
+  .lijst-item { padding: 10px 2px; }
+  .maplibregl-ctrl-bottom-right { margin-bottom: 70px; } /* schaal + (i) boven de menuknop */
 }
 @media (prefers-reduced-motion: reduce) {
   #panel { transition: none; }
@@ -130,7 +177,8 @@ html, body {
 .count, .muted { color: var(--muted); font-size: 11px; }
 .hint { color: var(--muted); font-size: 11px; font-style: italic; }
 p.hint { margin: 6px 0 0; line-height: 1.4; }
-#status { font-size: 11px; color: var(--muted); margin: 10px 0 0; min-height: 1em; }
+#status { font-size: 11px; color: var(--muted); margin: 10px 0 0; }
+#status:empty { display: none; }
 .credits { border-top: 1px solid var(--rand); padding-top: 8px; }
 
 /* Statussymbolen: zelfde vorm en kleur als op de kaart (app.js makeSymbol) */
@@ -153,7 +201,7 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .sym-gezicht { background: rgba(122, 81, 149, 0.15); border: 1.5px dashed #7a5195; }
 .sym-arch { background: rgba(139, 90, 43, 0.3); border: 1px solid #8b5a2b; }
 .sym-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: 1px; }
-.sym-rm { background: #6f6f6f; }
+.sym-rm { background: #3d3d3d; box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px #bbb; }
 
 .status-row { display: flex !important; align-items: center; gap: 6px; flex-wrap: wrap; }
 
@@ -190,3 +238,5 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .embed-only { display: none; }
 body.embed .embed-only { display: inline; }
 body.embed .intro { display: none; }
+
+.icoon-huisje { vertical-align: -2px; color: #5a4632; }

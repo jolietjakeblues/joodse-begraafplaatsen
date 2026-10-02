@@ -6,9 +6,7 @@ Input
   data/generated/joodse-begraafplaatsen.geojson   (scripts/build_base_dataset.py)
   data/generated/terreinen.geojson
   data/pdok/gemeenten.geojson                      (scripts/fetch_pdok.py)
-  data/rce/beschermde-gezichten.geojson            (scripts/fetch_rce.py)
-  data/rce/rijksmonumenten.geojson
-  data/rce/archeologische-rijksmonumenten.geojson
+  data/rce/index.json + de per-provincie RCE-bestanden (scripts/fetch_rce.py)
 
 Output
   data/generated/begraafplaatsen.geojson   punten + alle velden + relaties (voor de viewer)
@@ -40,7 +38,7 @@ RCE_DIR = REPO_ROOT / "data" / "rce"
 PDOK_DIR = REPO_ROOT / "data" / "pdok"
 RAPPORT = REPO_ROOT / "docs" / "data" / "erfgoedrelaties.md"
 
-RM_NABIJ_M = 250
+RM_NABIJ_M = 100  # besluit 2026-10-02 (zelfde grens als de rijksmonumentenlaag)
 # Spelling Excel -> officiele PDOK-naam (zelfde gemeente, geen afwijking)
 GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage"}
 
@@ -96,10 +94,8 @@ def monument_relaties(geom, laag: Laag, max_m: float):
             r = "op_terrein" if geom.contains(g) else "grenst_aan" if geom.touches(g) else "overlapt"
         elif d <= 25:
             r = "0-25m"
-        elif d <= 100:
-            r = "25-100m"
         else:
-            r = "100-250m"
+            r = "25-100m"
         p = laag.features[i]["properties"]
         rel.append(
             {
@@ -137,9 +133,22 @@ def main() -> None:
     punten = load(GENERATED_DIR / "joodse-begraafplaatsen.geojson")
     terreinen = {f["properties"]["id"]: f for f in load(GENERATED_DIR / "terreinen.geojson")}
     gemeenten = Laag(load(PDOK_DIR / "gemeenten.geojson"))
-    gezichten = Laag(load(RCE_DIR / "beschermde-gezichten.geojson"))
-    rm = Laag(load(RCE_DIR / "rijksmonumenten.geojson"))
-    arch = Laag(load(RCE_DIR / "archeologische-rijksmonumenten.geojson"))
+    manifest = json.loads((RCE_DIR / "index.json").read_text(encoding="utf-8"))["provincies"]
+    provs_nodig = {f["properties"]["provincie"] for f in punten}
+    ontbreekt = provs_nodig - set(manifest)
+    assert not ontbreekt, f"geen RCE-data voor {ontbreekt}: draai scripts/fetch_rce.py --provincie ..."
+
+    def laag(soort: str) -> Laag:
+        feats, gezien = [], set()
+        for prov in sorted(provs_nodig):
+            for f in load(REPO_ROOT / manifest[prov][soort]):
+                key = f["properties"].get("cho_uri") or f["properties"].get("gezicht_uri")
+                if key not in gezien:  # grensobjecten staan in twee provinciebestanden
+                    gezien.add(key)
+                    feats.append(f)
+        return Laag(feats)
+
+    gezichten, rm, arch = laag("gezichten"), laag("rijksmonumenten"), laag("archeologisch")
     rm_op_nummer = {
         f["properties"]["rijksmonumentnummer"]: f["properties"] for f in rm.features + arch.features
     }
@@ -193,9 +202,8 @@ def main() -> None:
         "records": len(out),
         "relaties_berekend": len(berekend),
         "in_gezicht": sum(1 for p in berekend if p["in_gezicht"]),
-        "rm_100m": sum(1 for p in berekend if any(r["afstand_m"] <= 100 for r in p["rijksmonumenten_nabij"])),
-        "rm_250m": sum(1 for p in berekend if p["rijksmonumenten_nabij"]),
-        "arch_250m": sum(1 for p in berekend if p["archeologisch_nabij"]),
+        "rm_nabij": sum(1 for p in berekend if p["rijksmonumenten_nabij"]),
+        "arch_nabij": sum(1 for p in berekend if p["archeologisch_nabij"]),
         "rmon_gekoppeld": sum(1 for f in out if f["properties"]["rijksmonument_rce"]),
     }
     print(f"{path.relative_to(REPO_ROOT)}: {stats}")
@@ -213,8 +221,8 @@ def write_rapport(stats: dict, rapport: dict) -> None:
         "",
         f"- {stats['records']} begraafplaatsen, waarvan {stats['relaties_berekend']} met berekende relaties.",
         f"- Binnen of deels in een rijksbeschermd gezicht: **{stats['in_gezicht']}**.",
-        f"- Gebouwd rijksmonument binnen 100 m: **{stats['rm_100m']}**; binnen {RM_NABIJ_M} m: **{stats['rm_250m']}**.",
-        f"- Archeologisch rijksmonument binnen {RM_NABIJ_M} m: **{stats['arch_250m']}**.",
+        f"- Gebouwd rijksmonument binnen {RM_NABIJ_M} m: **{stats['rm_nabij']}**.",
+        f"- Archeologisch rijksmonument binnen {RM_NABIJ_M} m: **{stats['arch_nabij']}**.",
         f"- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **{stats['rmon_gekoppeld']}**.",
         "",
         "## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten",
