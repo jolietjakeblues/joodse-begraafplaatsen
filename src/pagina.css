@@ -1,10 +1,11 @@
 /* Tekstpagina's (methode.html) */
 body.pagina { background: #fff; overflow: auto; height: auto; }
 body.pagina main { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; font-size: 15px; line-height: 1.6; }
-body.pagina .logo { height: 40px; width: auto; display: block; margin: 12px 0; }
-body.pagina h1 { font-size: 26px; margin: 0 0 12px; }
+body.pagina .logo { height: 56px; width: auto; display: block; margin: 12px 0; }
+body.pagina h1 { font-size: 26px; margin: 0 0 12px; color: var(--huisstijl); }
+body.pagina main { border-top: 4px solid var(--huisstijl); }
 body.pagina h2 { font-size: 18px; margin: 28px 0 8px; }
-body.pagina a { color: #005fcc; }
+body.pagina a { color: var(--huisstijl); }
 body.pagina .legenda { list-style: none; padding: 0; }
 body.pagina .legenda li { margin: 8px 0; }
 body.pagina table { border-collapse: collapse; width: 100%; font-size: 14px; }
@@ -19,6 +20,6 @@ body.pagina .lees-kaart h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35
 body.pagina .lees-kaart p { margin: 6px 0; }
 body.pagina .lees-lijst { padding-left: 20px; margin: 4px 0 12px; }
 body.pagina .lees-lijst li { margin: 6px 0; }
-body.pagina .lees-kaartlink { font-size: 13px; white-space: nowrap; color: #0b5f95; }
+body.pagina .lees-kaartlink { font-size: 13px; white-space: nowrap; color: var(--huisstijl); }
 body.pagina h3 { font-size: 15px; margin: 18px 0 4px; }
 body.pagina .lees-bron { margin-top: 28px; border-top: 1px solid #ddd; padding-top: 10px; }

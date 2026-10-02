@@ -8,6 +8,11 @@
   --tekst: #212529;
   --muted: #5f5f5f;
   --rand: #ddd;
+  /* Huisstijlkleur Dodenakkers (aangeleverd door René 2026-10-02). Alleen voor
+     de vormgeving (titel, links, knoppen), nooit als datakleur: de statuskleuren
+     hierboven blijven de enige dragers van betekenis op de kaart. Contrast op
+     wit 9,7:1. */
+  --huisstijl: #8d161c;
 }
 
 html, body {
@@ -55,6 +60,7 @@ html, body {
   max-height: calc(100% - 24px);
   overflow-y: auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  border-top: 4px solid var(--huisstijl);
   font-size: 13px;
   transition: transform 0.25s ease;
 }
@@ -72,7 +78,7 @@ html, body {
   height: 44px;
   border-radius: 50%;
   border: none;
-  background: var(--tekst);
+  background: var(--huisstijl);
   color: #fff;
   font-size: 22px;
   line-height: 1;
@@ -107,7 +113,7 @@ body.panel-dicht #panel-toggle { left: 12px; }
   cursor: pointer;
 }
 #mini-legenda[hidden] { display: none; }
-.mini-titel { font-weight: 600; font-size: 13px; }
+.mini-titel { font-weight: 600; font-size: 13px; color: var(--huisstijl); }
 .mini-items { display: flex; flex-wrap: wrap; gap: 4px 10px; font-size: 12px; }
 .mini-items > span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 .mini-fout:empty { display: none; }
@@ -135,8 +141,9 @@ body.panel-dicht #panel-toggle { left: 12px; }
   #panel { transition: none; }
 }
 
-.brand .logo { height: 34px; width: auto; display: block; margin-bottom: 8px; }
-#panel h1 { font-size: 18px; margin: 0 0 2px; }
+.brand .logo { height: 48px; width: auto; display: block; margin-bottom: 8px; }
+#panel h1 { font-size: 18px; margin: 0 0 2px; color: var(--huisstijl); }
+#panel a { color: var(--huisstijl); }
 .subtitle { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
 .intro {
   margin: 0 0 10px;
@@ -198,7 +205,8 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .sym-provincie { border-top: 2px solid #4a4a4a; }
 .sym-gemeente { border-top: 1px dashed #8a8a8a; }
 .sym-area { display: inline-block; width: 14px; height: 10px; vertical-align: -1px; }
-.sym-gezicht { background: rgba(122, 81, 149, 0.15); border: 1.5px dashed #7a5195; }
+.sym-gezicht { border: 2px dashed #5b2a86; }
+.sym-herbegraving { border-top: 3px dotted #3a3a3a; }
 .sym-arch { background: rgba(139, 90, 43, 0.3); border: 1px solid #8b5a2b; }
 .sym-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; vertical-align: 1px; }
 .sym-rm { background: #3d3d3d; box-shadow: 0 0 0 1.5px #fff, 0 0 0 2.5px #bbb; }
@@ -232,7 +240,9 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .maplibregl-popup-content dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 10px; margin: 0; }
 .maplibregl-popup-content dt { color: var(--muted); }
 .maplibregl-popup-content dd { margin: 0; overflow-wrap: anywhere; }
-.maplibregl-popup-content a { color: #005fcc; }
+.maplibregl-popup-content a { color: var(--huisstijl); }
+/* Knop die eruitziet als link (herbegravingen: open de andere begraafplaats) */
+.link-knop { background: none; border: none; padding: 0; font: inherit; color: var(--huisstijl); text-decoration: underline; cursor: pointer; text-align: left; }
 
 /* Inbedden (?embed=1) */
 .embed-only { display: none; }

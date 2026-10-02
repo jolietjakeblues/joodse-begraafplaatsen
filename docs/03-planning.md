@@ -62,9 +62,10 @@ python scripts/make_og_image.py
 
 ### Fase 4 – Oplevering ✅ (doorlopend)
 - [x] Live als Cloudflare Worker met static assets
-- [ ] Deploy koppelen aan merge op `main` (Cloudflare Workers Builds, instellen in dashboard — zie README)
+- [x] Deploy gekoppeld aan merge op `main` (Cloudflare Workers Builds; eerste automatische build bij PR #6, 2026-10-02, geslaagd)
 - [ ] Eigen domein → `SITE_URL` in `scripts/build_site.py`
-- [ ] Review Leon/René → antwoorden verwerken via correctielagen
+- [x] Review Leon/René ronde 1 en 2 verwerkt (2026-10-02; zie docs/04, navragen N1–N4 open)
+- [ ] Nieuwe bronbestanden van Leon verwerken (N4) en herbegravingen aanvullen (N3)
 
 ### Fase 5 – Rest van Nederland
 - [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: Gelderland, Overijssel, Noord-Brabant, Limburg, Groningen, Drenthe, Fryslân

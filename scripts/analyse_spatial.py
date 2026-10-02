@@ -24,6 +24,7 @@ Werkwijze (overgenomen uit dodenakkers/analyse_spatial.py)
 """
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
 
@@ -44,7 +45,15 @@ RM_NABIJ_M = 100  # besluit 2026-10-02 (zelfde grens als de rijksmonumentenlaag)
 # als `relatie_berekend`; de afstand blijft de echte (meetkundige) afstand.
 BEOORDEELDE_RELATIES = {
     ("jb-loc-819", "454310"): ("net_buiten", "Leon/René 2026-10-02 (vraag A7): valt er net buiten"),
+    ("jb-loc-1503", "527225"): ("algemene_begraafplaats", "Leon 2026-10-02 (vraag A7): maakt deel uit van de gemeentelijke begraafplaats"),
+    ("jb-loc-4201", "529524"): ("hoort_bij", "Leon 2026-10-02 (vraag A7): toegangspoort tot de begraafplaats"),
+    ("jb-loc-21", "508330"): ("hoort_bij", "Leon 2026-10-02 (vraag A7): dit moet een metaheerhuisje zijn"),
 }
+
+# Herbegravingen (vraag C6): expliciete koppeltabel, niet uit de tekst geraden.
+# De tekst in Bijzonderheden blijft de bron; hier alleen gevallen waarin de
+# bestemming eenduidig een begraafplaats op de kaart is.
+HERBEGRAVINGEN = REPO_ROOT / "data" / "herbegravingen.csv"
 
 # Spelling Excel -> officiele PDOK-naam (zelfde gemeente, geen afwijking)
 GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage"}
@@ -206,6 +215,8 @@ def main() -> None:
         p["in_gezicht"] = p["gezichten"][0]["relatie"] if p["gezichten"] else None
         out.append({"type": "Feature", "properties": p, "geometry": f["geometry"]})
 
+    herbegravingen = koppel_herbegravingen(out)
+
     fc = {"type": "FeatureCollection", "name": "joodse_begraafplaatsen", "features": out}
     path = GENERATED_DIR / "begraafplaatsen.geojson"
     path.write_text(json.dumps(fc, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -220,7 +231,37 @@ def main() -> None:
         "rmon_gekoppeld": sum(1 for f in out if f["properties"]["rijksmonument_rce"]),
     }
     print(f"{path.relative_to(REPO_ROOT)}: {stats}")
+    lijnen = {"type": "FeatureCollection", "name": "herbegravingen", "features": herbegravingen}
+    (GENERATED_DIR / "herbegravingen.geojson").write_text(json.dumps(lijnen, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    print(f"herbegravingen: {len(herbegravingen)} lijnen")
     write_rapport(stats, rapport)
+
+
+def koppel_herbegravingen(out: list[dict]) -> list[dict]:
+    """Zet herbegraven_naar / herbegraven_van op de records en geef lijnen
+    (van -> naar) terug. Rijen waarvan een kant (nog) niet op de kaart staat
+    (andere provincie), worden overgeslagen."""
+    by_id = {f["properties"]["id"]: f for f in out}
+    for f in out:
+        f["properties"]["herbegraven_naar"] = []
+        f["properties"]["herbegraven_van"] = []
+    with HERBEGRAVINGEN.open(encoding="utf-8", newline="") as fh:
+        rijen = [r for r in csv.DictReader(fh) if r.get("van_id")]
+    lijnen = []
+    for r in rijen:
+        van, naar = by_id.get(r["van_id"]), by_id.get(r["naar_id"])
+        if not van or not naar:
+            continue
+        pv, pn = van["properties"], naar["properties"]
+        assert pv["id"] != pn["id"], f"herbegraving naar zichzelf: {r}"
+        pv["herbegraven_naar"].append({"id": pn["id"], "naam": pn["naam"], "plaats": pn["plaats"]})
+        pn["herbegraven_van"].append({"id": pv["id"], "naam": pv["naam"], "plaats": pv["plaats"]})
+        lijnen.append({
+            "type": "Feature",
+            "properties": {"van_id": pv["id"], "naar_id": pn["id"], "tekst_bron": r["tekst_bron"]},
+            "geometry": {"type": "LineString", "coordinates": [van["geometry"]["coordinates"], naar["geometry"]["coordinates"]]},
+        })
+    return lijnen
 
 
 def write_rapport(stats: dict, rapport: dict) -> None:

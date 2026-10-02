@@ -29,6 +29,7 @@ TEMPLATED = ["index.html", "methode.html", "lezen.html", "robots.txt", "sitemap.
 DATA_FILES = [
     "data/generated/begraafplaatsen.geojson",
     "data/generated/terreinen.geojson",
+    "data/generated/herbegravingen.geojson",
     "data/generated/leeslijst.json",
     "data/pdok/provincies.geojson",
     "data/pdok/gemeenten.geojson",
