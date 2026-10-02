@@ -5,6 +5,21 @@ Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
 
+## Beantwoord (Leon/René, 2026-10-02)
+
+| Vraag | Antwoord | Verwerkt |
+|---|---|---|
+| A3 `NA` | Nader adres | Toelichting aangepast; "bij/tegenover/achter" vóór het adres |
+| A3 `Muur` | Muur rondom ja/nee | Als ja/nee gelezen; popup "Muur rondom: ja" (in West-NL nog overal leeg) |
+| A3 `Kadaster` | Aldaar geregistreerd ja/nee | Popup "Geregistreerd bij Kadaster: ja/nee" |
+| A5 / B1 | Van verdwenen is alleen een puntlocatie beschikbaar; Bilthoven ook alleen punt | Bilthoven vastgelegd als *bevestigd zonder terrein* |
+| A6 | Complexnummer in `Rmon` kan voorkomen | Blijft zo: complex opgezocht, onderdelen getoond |
+| A7 Wijk bij Duurstede | 454310 "Historische aanleg" valt er net buiten | Relatie vastgelegd als "net buiten het terrein" |
+| B5 | Toepad → "Begraafplaats Toepad"; Rijswijk → "Joods deel op Oud-Rijswijk"; Schiedam → "Nieuwe Joodse begraafplaats" | Weergavenaam via `data/corrections.csv` (Excel-naam bewaard) |
+| B8 | Juiste spelling is "Shomre Hadas" (Putte) | Excel klopt al; KMZ-tikfout, geen actie (Noord-Brabant volgt) |
+
+Nog open hieronder: alles zonder ✅.
+
 ---
 
 ## A. Voor Leon – de bronbestanden
@@ -14,15 +29,15 @@ Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerk
 
 **A2. Dubbel nummer in Geruimd.kmz.** Nr 245 staat twee keer in `Geruimd.kmz`: "NH kerkhof, Puttershoek" en "H Martinuskerkhof, Pannerden". Niet Joods, dus niet op onze kaart, maar wel een fout in de bron?
 
-**A3. Betekenis van kolommen.** Wat we nu aannemen:
+**A3. Betekenis van kolommen.** ✅ deels — `NA`, `Muur`, `Kadaster` beantwoord. Nog open: `Circa`, `Jaartal`, `Grondvorm`, `Gemeentelijk monument` ("Geen"), `Grootte`, `Laatste bezoek`.
 
 | Kolom | Onze aanname | Vraag |
 |---|---|---|
-| `NA` | Nadere aanduiding bij het adres | Waarden zijn "bij", "tegenover", één keer "achter" (Enkhuizen `jb-loc-2781`) en één keer "to" (Beverwijk `jb-ver-896`). Is "to" = "tegenover"? |
+| `NA` | ✅ Nader adres | Nog open: is de waarde "to" (Beverwijk `jb-ver-896`) = "tegenover"? |
 | `MIP` | Opgenomen in het Monumenten Inventarisatie Project | Klopt. Wil je dit in de popup? (nu: "opgenomen" als Ja) |
 | `Met` | Metaheerhuis(je) aanwezig | Klopt dit? (nu: huisje-icoon + "Metaheerhuis: aanwezig") |
-| `Muur` | ? | In heel West-Nederland leeg. Wat betekent het en is het nog in gebruik? |
-| `Kadaster` | ? | Ja/Nee/leeg. Betekent het "als begraafplaats bekend bij het Kadaster", "perceel gecontroleerd", of iets anders? (nu: niet getoond) |
+| `Muur` | ✅ Muur rondom ja/nee | — |
+| `Kadaster` | ✅ Aldaar geregistreerd ja/nee | — (wordt nu getoond) |
 | `Circa` | Jaartal is bij benadering | Klopt? (nu: "ca. 1750") |
 | `Jaartal` | Jaar van aanleg / eerste begraving | Of iets anders? Voor verdwenen staat het eindjaar vaak alleen in Bijzonderheden. |
 | `Grondvorm` | ? | Overal "Recht". Welke andere waarden zijn er? Tonen we dit? |
@@ -33,12 +48,12 @@ Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerk
 
 **A4. Status "In gebruik".** Daaronder vallen ook begraafplaatsen die gesloten zijn maar nog bestaan, zoals Haarlem Kleverlaan ("1969 gesloten") en Rotterdam Delfshaven ("1865–1898"). Op de kaart noemen we de status daarom **"Bestaand"**. Willen jullie onderscheid tussen *in gebruik* en *gesloten*? Dan hebben we die informatie per begraafplaats nodig, bijvoorbeeld als extra kolom.
 
-**A5. Verdwenen: hoe precies is de plek?** We tonen verdwenen begraafplaatsen als open ring met de tekst "plek bij benadering", en berekenen er geen afstanden tot monumenten voor.
+**A5. Verdwenen: hoe precies is de plek?** ✅ deels — er is alleen een puntlocatie. Nog open: waar is die op gebaseerd, en de twee "onbekend"-jaartallen. We tonen verdwenen begraafplaatsen als open ring met de tekst "plek bij benadering", en berekenen er geen afstanden tot monumenten voor.
 - Waar is de plek op gebaseerd (archief, kadastrale minuut, overlevering)?
 - Kunnen jullie per verdwenen begraafplaats aangeven hoe zeker de plek is (bv. *exact* / *straat* / *alleen de plaats*)? Dan kunnen we dat zichtbaar maken.
 - Twee verdwenen begraafplaatsen hebben jaartal "onbekend": `jb-ver-774` (Oude Joodse begraafplaats, Leerdam) en `jb-ver-425` (Maassluis).
 
-**A6. Rmon bevat vaak een complexnummer.** Van de 19 rijksmonumentnummers in West-Nederland zijn er 8 een complexnummer: Alkmaar, Bussum, Muiderberg, Amersfoort (nieuw), Leerdam, Utrecht, Gorinchem en Wassenaar. We zoeken het complex op en tonen de onderdelen (begraafplaats, baarhuisje, hek …) in de popup.
+**A6. Rmon bevat vaak een complexnummer.** ✅ Kan voorkomen; blijft zo. Nog open: Wassenaar/Kerkehout. Van de 19 rijksmonumentnummers in West-Nederland zijn er 8 een complexnummer: Alkmaar, Bussum, Muiderberg, Amersfoort (nieuw), Leerdam, Utrecht, Gorinchem en Wassenaar. We zoeken het complex op en tonen de onderdelen (begraafplaats, baarhuisje, hek …) in de popup.
 - Is dat de bedoeling, of moet het het monumentnummer van de begraafplaats zelf zijn?
 - Wassenaar (`jb-loc-1343`) verwijst naar complex 524542 **"Begraafplaats Kerkehout"**. Is dat de algemene begraafplaats waar het Joodse deel bij hoort?
 
@@ -46,12 +61,12 @@ Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerk
 - Alkmaar `jb-loc-2923`: 7464 "Begraafplaats en -onderdelen" (op het terrein). In de Excel staat complex 524892.
 - Bussum `jb-loc-1503`: 527225 "Begraafplaats" (overlapt)
 - Overveen `jb-loc-4201`: 529524 "Poortgebouw" (overlapt)
-- Wijk bij Duurstede `jb-loc-819`: 454310 "Historische aanleg" (overlapt)
+- ✅ Wijk bij Duurstede `jb-loc-819`: 454310 "Historische aanleg" — valt er net buiten
 - Middelburg `jb-loc-21`: 508330 "Baarhuisje" (op het terrein)
 
 ## B. Voor Leon – specifieke begraafplaatsen
 
-**B1. Bilthoven, Progressieve joodse begraafplaats** (`jb-loc-4368`, 300 m²). In `Funerair Utrecht.kmz` staat geen terrein voor deze begraafplaats. Het punt ligt 10 m naast "Gem. begraafplaats Brandenburg". Kunnen jullie het terrein aanleveren, of is het een deel van Brandenburg zonder eigen grens?
+**B1. ✅ Bilthoven, Progressieve joodse begraafplaats** — alleen puntlocatie, geen terrein. (`jb-loc-4368`, 300 m²). In `Funerair Utrecht.kmz` staat geen terrein voor deze begraafplaats. Het punt ligt 10 m naast "Gem. begraafplaats Brandenburg". Kunnen jullie het terrein aanleveren, of is het een deel van Brandenburg zonder eigen grens?
 *Nu:* alleen een punt, geen terrein.
 
 **B2. Vlissingen.** Twee aparte polygonen, 551 m uit elkaar, met **exact dezelfde oppervlakte (694 m²)**. Dat wijst op een gekopieerde vorm.
@@ -76,10 +91,10 @@ Ter vergelijking: de andere 64 terreinen liggen allemaal binnen 75–133 % van `
 
 **B4. Rhenen en Edam.** Beide terreinen zijn exact 372 m² groot (70 km uit elkaar). Toeval, of ook een gekopieerde vorm?
 
-**B5. Naamsverschillen KMZ ↔ puntbestand.** Het punt ligt in het terrein en we hebben gekoppeld, maar de namen verschillen. Zijn het alleen schrijfvarianten?
-- `jb-loc-874` Joods deel begraafplaats Oud-Rijswijk ↔ Joods deel op Oud Rijswijk
-- `jb-loc-4200` Joodse begraafplaats Toepad ↔ Joodse begraafplaats Het Toepad
-- `jb-ger-64` Joodse begraafplaats, Schiedam (geruimd) ↔ **Nieuwe** Joodse begraafplaats, Schiedam
+**B5. Naamsverschillen KMZ ↔ puntbestand.** ✅ deels — Toepad, Oud-Rijswijk en Schiedam vastgesteld. De rest is nog open. Het punt ligt in het terrein en we hebben gekoppeld, maar de namen verschillen. Zijn het alleen schrijfvarianten?
+- ✅ `jb-loc-874` → **Joods deel op Oud-Rijswijk**
+- ✅ `jb-loc-4200` → **Begraafplaats Toepad**
+- ✅ `jb-ger-64` → **Nieuwe Joodse begraafplaats** (Schiedam)
 - `jb-loc-21` Hoogduitse begraafplaats, Middelburg ↔ Hoogduitse **Joodse** begraafplaats
 - `jb-loc-908` Joodse begraafplaats, Vlissingen ↔ **Nieuwe** Joodse begraafplaats
 - `jb-loc-1381` / `jb-loc-3369` Diemen / Muiderberg ↔ "Joodse begraafplaats **A'dam**, …"
@@ -93,7 +108,7 @@ Ter vergelijking: de andere 64 terreinen liggen allemaal binnen 75–133 % van `
 **B7. Dordrecht.** De verdwenen `jb-ver-182` (1738, geruimd 1958) en de bestaande `jb-loc-1912` hebben exact dezelfde naam. Wij houden ze apart. Klopt dat?
 
 **B8. Kleine fouten in de bronbestanden** (we passen niets aan, ter info):
-- `Locaties.kmz`: "Sombre Hadas, Putte" ↔ Excel "Shomre Hadas" (Noord-Brabant, komt later)
+- ✅ `Locaties.kmz`: "Sombre Hadas, Putte" — juist is "Shomre Hadas" (zoals in de Excel)
 - `Verdwenen.kmz`: "Joodse begraafplats, Maassluis" (tikfout)
 - `jb-ger-64` Schiedam: Grootte "?"
 
