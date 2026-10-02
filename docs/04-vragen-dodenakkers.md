@@ -1,6 +1,6 @@
 # 04 – Vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-02, na West-Nederland (91), Gelderland (61) en Overijssel (43): 195 begraafplaatsen.
+Stand: 2026-10-02, na West-Nederland (91), Gelderland (61), Overijssel (43) en Noord-Brabant (31): 226 begraafplaatsen.
 Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
@@ -96,6 +96,16 @@ Alle 43 Overijsselse begraafplaatsen zijn gekoppeld (34 in gebruik, 1 geruimd, 8
 
 **O2. Dedemsvaart** (`jb-loc-4021`, Joodse begraafplaats op de gemeentelijke begraafplaats). RCE-monument 515827 "De Mulderij" (begraafplaats) overlapt het terrein. Is dat de algemene begraafplaats waar het Joodse deel bij hoort, zoals in Bussum?
 *Nu:* getoond als "overlapt het terrein".
+
+## NB. Noord-Brabant (nieuw, 2026-10-02)
+
+Alle 31 Brabantse begraafplaatsen zijn gekoppeld (21 in gebruik, elk met terrein; 10 verdwenen). Herbegravingen op de kaart: Breda → Oosterhout (Vrachelse Heide; Breda noemt 1961, Oosterhout 1958), Cuijk Smidstraat → Wilhelminastraat (1924) → Kouwenberg (1963).
+
+**NB1. Putte: bij welke begraafplaats hoort rijksmonument 516689?** In de Excel staat complex 516689 ("Israëlitische begraafplaats") bij Mahsike Hadas (`jb-loc-189`). Maar de onderdelen van dat complex (aula 525638, grafmonumenten 516691 en 525640, 525639) liggen volgens de RCE allemaal op het terrein van de **Frechie Foundation** (`jb-loc-195`), ruim 200 m van het terrein van Mahsike Hadas. Hoort het nummer bij de Frechie Foundation, of staan de monumenten bij de RCE op de verkeerde plek?
+*Nu:* het complex staat in de popup van Mahsike Hadas; bij de Frechie Foundation staan de onderdelen als "op het terrein".
+
+**NB2. Eindhoven Tongelre → "Woensel".** `jb-ver-21` zegt "lijken overgebracht naar Woensel". De enige Joodse begraafplaats in gebruik in Eindhoven is `jb-loc-986` (Groenewoudseweg). Is dat de bedoelde plek in Woensel, of zijn ze naar een algemene begraafplaats gegaan?
+*Nu:* alleen als tekst in Bijzonderheden.
 
 Nog open hieronder: alles zonder ✅. Nog helemaal onbeantwoord: A1, D3 (René kijkt nog), E2, E5–E9, F1–F3.
 

@@ -1,0 +1,28 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T20:39:33.945118+00:00",
+  "provincies": [
+    "Noord-Brabant"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 4.1701,
+    "MAX_LON": 6.0681,
+    "MIN_LAT": 51.2009,
+    "MAX_LAT": 51.8508
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 29,
+  "stats": {
+    "point_rows_from_endpoint": 15244,
+    "polygon_rows_from_endpoint": 2052,
+    "distinct_cho": 8834,
+    "buiten_gebied": 2455,
+    "features": 6379,
+    "gebouwd_in_provincie": 6268,
+    "binnen_zone": 29,
+    "begraafplaatsen_in_zone": 21
+  },
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
+}
