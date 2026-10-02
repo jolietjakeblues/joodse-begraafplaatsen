@@ -377,13 +377,13 @@ def build(provincies: list[str]) -> None:
             "status": status,
             "status_bron": status_bron,
             "adres": adres,
-            "adres_aanduiding": as_text(r["NA"]),  # bv. "bij" = bij dit adres
+            "adres_aanduiding": as_text(r["NA"]),  # NA = nadere aanduiding: "bij" / "tegenover" het adres
             "postcode": as_text(r["PC"]),
             "plaats": clean(r["Plaats"]),
             "gemeente_bron": clean(r["Gemeente"]),
             "provincie_bron": provincie_excel,
             "provincie": provincie_ruimtelijk,
-            "mip": ja_nee(r["MIP"]),
+            "mip": ja_nee(r["MIP"]),        # MIP = Monumenten Inventarisatie Project
             "rijksmonument": ja_nee(r["Rijksmonument"]),
             "gemeentelijk_monument": ja_nee(r["Gemeentelijk monument"]),
             "rijksmonumentnummer": as_int(r["Rmon"]),
@@ -398,7 +398,7 @@ def build(provincies: list[str]) -> None:
             "jaartal_bron": jaartal_bron,
             "circa": clean(r["Circa"]),
             "grondvorm": (clean(r["Grondvorm"]) or "").capitalize() or None,
-            "met": ja_nee(r["Met"]),        # betekenis navragen bij Dodenakkers
+            "met": ja_nee(r["Met"]),        # Met = metaheerhuis(je) aanwezig (opdrachtgever 2026-10-02, nog te bevestigen)
             "muur": clean(r["Muur"]),
             "bijzonderheden": clean(r["Bijzonderheden"]),
             "grootte_m2": as_int(r["Grootte"]),

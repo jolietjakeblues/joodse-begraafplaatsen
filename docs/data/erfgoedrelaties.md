@@ -6,8 +6,8 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 - 36 begraafplaatsen, waarvan 26 met berekende relaties.
 - Binnen of deels in een rijksbeschermd gezicht: **5**.
-- Gebouwd rijksmonument binnen 100 m: **9**; binnen 250 m: **16**.
-- Archeologisch rijksmonument binnen 250 m: **0**.
+- Gebouwd rijksmonument binnen 100 m: **9**.
+- Archeologisch rijksmonument binnen 100 m: **0**.
 - Rijksmonumentnummer uit de Excel teruggevonden in RCE: **7**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten

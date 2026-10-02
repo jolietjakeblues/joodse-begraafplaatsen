@@ -2,7 +2,7 @@
 
 Opdracht (Leon / Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief verdwenen en geruimd. We bouwen het eerst voor Zuid-Holland en zorgen dat de pipeline per provincie uitbreidbaar is.
 
-Stand 2026-10-02: fase 0–3 gebouwd en lokaal getest; fase 4 (deploy) wacht op akkoord.
+Stand 2026-10-02: fase 0–4 klaar; live op https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev (review Leon/René volgt).
 
 ## Fase 0 – Fundament ✅
 - [x] Repo (bestond al, remote `jolietjakeblues/joodse-begraafplaatsen`), `.gitignore` (data-dodenakkers/ buiten git), `requirements.txt`, `LICENSE` (CC BY 4.0)
@@ -38,16 +38,20 @@ Besluit opdrachtgever (2026-10-02): wel gemeente- en provinciegrenzen, rijksmonu
 - [x] Inbedbaar: `?embed=1`, `frame-ancestors` dodenakkers.nl, CORS op `/data/*`
 - [x] `methode.html`
 - [ ] CSV/GeoJSON-export van de selectie (uit dodenakkers overnemen)
-- [ ] Toegankelijkheidscheck (toetsenbord, screenreader) zoals bij dodenakkers
+- [x] Front-end kwaliteitscontrole (2026-10-02): mobiel/tablet/desktop, mini-legenda, lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
+- [x] Ondergronden zoals dodenakkers-zh: grijs, luchtfoto, BGT, BRK-percelen (vanaf z17)
+- [x] Popup: NA (bij/tegenover) bij adres, metaheerhuis met huisje-icoon, MIP
+- [ ] Screenreadertest met echte schermlezer (NVDA/VoiceOver)
 
 ## Fase 4 – Oplevering ZH
-- [ ] Cloudflare Pages-project `joodse-begraafplaatsen` aanmaken; deploy met `--branch main` (of Git-integratie)
+- [x] Gedeployed als Worker met static assets (Wrangler 4.147 zet `pages project create` om naar Workers); `npx wrangler deploy`
+- [ ] Eigen domein (bv. kaart.dodenakkers.nl) → `SITE_URL` in `scripts/build_site.py` aanpassen
 - [ ] Review door Leon/René; feedback via `data/corrections.csv`
 
 ## Fase 5 – Landelijk (per provincie ½ dag)
 - [ ] `--provincie X` voor de overige 11 provincies; per provincie koppelrapport + asserts
 - [ ] Proefrun `--alle` (2026-10-02): 315 records, 228 terreinen, **18 zonder terrein** en **16 ongekoppelde Joodse polygonen** → per provincie uitzoeken
-- [ ] Rijksmonumenten landelijk ≈ 60k objecten: per provincie een bestand en lazy laden, of alleen monumenten ≤ 250 m van een begraafplaats tonen (keuze voorleggen)
+- [x] Rijksmonumenten: besluit 2026-10-02 — alleen ≤ 100 m van een begraafplaats, per provincie een bestand (`data/rce/index.json`)
 - [ ] Volgorde voorstel: Utrecht, Noord-Holland, Gelderland, Overijssel, rest
 
 ## Risico's
