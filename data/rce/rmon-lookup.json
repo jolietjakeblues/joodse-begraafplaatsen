@@ -1,20 +1,31 @@
 {
-  "retrieved_at": "2026-10-02T12:57:42.790728+00:00",
+  "retrieved_at": "2026-10-02T20:12:19.248522+00:00",
   "gezocht": [
     "18067",
+    "18162",
     "23527",
     "29015",
     "29477",
     "31967",
     "32923",
+    "34551",
+    "38211",
+    "40282",
     "509013",
     "511938",
     "513219",
     "513294",
     "514446",
     "514992",
+    "515462",
+    "516727",
     "517678",
+    "520650",
     "522272",
+    "522935",
+    "523405",
+    "523430",
+    "523457",
     "524542",
     "524892",
     "525108",
@@ -27,6 +38,13 @@
       "soort": "rijksmonument",
       "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/78839",
       "naam": "Joodse Begraafplaats",
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "522935": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/69355",
+      "naam": "Israelitische Begraafplaats aanleg",
       "onderdelen": [],
       "hoofdobject": null
     },
@@ -86,6 +104,37 @@
       ],
       "hoofdobject": "517679"
     },
+    "520650": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/63965",
+      "naam": "Joodse begraafplaats",
+      "onderdelen": [
+        "520651",
+        "520652",
+        "520653"
+      ],
+      "hoofdobject": "520651"
+    },
+    "523405": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/63112",
+      "naam": "Joodse Begraafplaats",
+      "onderdelen": [
+        "523406",
+        "523407"
+      ],
+      "hoofdobject": "523406"
+    },
+    "523430": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/65280",
+      "naam": "Joodse Begraafplaats",
+      "onderdelen": [
+        "523431",
+        "523432"
+      ],
+      "hoofdobject": "523431"
+    },
     "524542": {
       "soort": "complex",
       "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/65275",
@@ -119,7 +168,14 @@
     },
     "18067": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/28303",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/06bd0156-fa2d-5b5d-125e-13b445f2b2c0",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "18162": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/38892",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -159,9 +215,44 @@
       "onderdelen": [],
       "hoofdobject": null
     },
+    "34551": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/19935",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "38211": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/57480",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "40282": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/40112",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
     "509013": {
       "soort": "rijksmonument",
       "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/66654",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "515462": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/68429",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "516727": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/68391",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -186,6 +277,18 @@
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
+    },
+    "523457": {
+      "soort": "complex",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/complex/65154",
+      "naam": null,
+      "onderdelen": [
+        "39057",
+        "523458",
+        "523459",
+        "523460"
+      ],
+      "hoofdobject": "523458"
     }
   }
 }

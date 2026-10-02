@@ -24,6 +24,11 @@
       "gezichten": "data/rce/beschermde-gezichten-flevoland.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-flevoland.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-flevoland.geojson"
+    },
+    "Gelderland": {
+      "gezichten": "data/rce/beschermde-gezichten-gelderland.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-gelderland.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-gelderland.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -51,6 +56,11 @@
     "Flevoland": {
       "gezichten": 6,
       "rijksmonumenten": 0,
+      "archeologisch": 0
+    },
+    "Gelderland": {
+      "gezichten": 54,
+      "rijksmonumenten": 56,
       "archeologisch": 0
     }
   }
