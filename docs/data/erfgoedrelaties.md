@@ -4,11 +4,11 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 ## Samenvatting
 
-- 152 begraafplaatsen, waarvan 114 met berekende relaties.
-- Binnen of deels in een rijksbeschermd gezicht: **29**.
-- Gebouwd rijksmonument binnen 100 m: **50**.
+- 195 begraafplaatsen, waarvan 149 met berekende relaties.
+- Binnen of deels in een rijksbeschermd gezicht: **32**.
+- Gebouwd rijksmonument binnen 100 m: **74**.
 - Archeologisch rijksmonument binnen 100 m: **0**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **30**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **48**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -25,6 +25,7 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 - `jb-loc-2923` Joodse Begraafplaats, Alkmaar: complex 524892 "Israëlitische begraafplaats" — onderdelen 524893 (Baarhuisje), 524894 (Begraafplaatshek)
 - `jb-loc-1503` Joodse Begraafplaats op Algemene Begraafplaats Naarden, Bussum: complex 513219 "Joodse Begraafplaats" — onderdelen 513220 (Baarhuisje), 513221 (Begraafplaatshek), 513222 (Grafmonument), 513223 (Grafmonument)
 - `jb-loc-3369` Israelitische Begraafplaats Amsterdam, Muiderberg: complex 511938 "Joodse begraafplaats" — onderdelen 30135 (Begraafplaats en -onderdelen), 511939 (Begraafplaatsaula), 511940 (Baarhuisje)
+- `jb-loc-3002` Israëlitische Begraafplaats, Enschede: complex 510581 "Begraafplaats" — onderdelen 510582 (Toegangshek), 510583 (Begraafplaatsaula)
 - `jb-loc-1459` Nieuwe Israelitische Begraafplaats, Amersfoort: complex 517678 "Israëlitische Begraafplaats" — onderdelen 517679 (Poortgebouw), 517680 (Beheerderswoning), 517681 (Grafzerk)
 - `jb-loc-366` Joodse Begraafplaats op Algemene Begraafplaats, Leerdam: complex 514992 "Begraafplaats" — onderdelen 514993 (Toegangshek), 514994 (Baarhuisje), 514995 (Begraafplaats)
 - `jb-loc-1854` Joodse Begraafplaats aan de Vecht, Utrecht: complex 514446 "Joodse begraafplaats" — onderdelen 514447 (Begraafplaats), 514448 (Baarhuisje), 514449 (Baarhuisje)
@@ -43,6 +44,10 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40287](https://monumentenregister.cultureelerfgoed.nl/monumenten/40287)  (Omwalling, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
 - `jb-loc-2923` Joodse Begraafplaats, Alkmaar: [7464](https://monumentenregister.cultureelerfgoed.nl/monumenten/7464)  (Begraafplaats en -onderdelen, op_terrein)
+- `jb-loc-4021` Joodse Begraafplaats op Gemeentelijke Begraafplaats, Dedemsvaart: [515827](https://monumentenregister.cultureelerfgoed.nl/monumenten/515827) De Mulderij (Begraafplaats, overlapt)
+- `jb-loc-2994` Joodse Begraafplaats, Delden: [507546](https://monumentenregister.cultureelerfgoed.nl/monumenten/507546)  (Historische aanleg, overlapt)
+- `jb-loc-2459` Joodse Begraafplaats, Denekamp: [12342](https://monumentenregister.cultureelerfgoed.nl/monumenten/12342)  (Begraafplaats en -onderdelen, overlapt)
+- `jb-loc-2412` Joodse Begraafplaats op de Kuiperberg, Ootmarsum: [513204](https://monumentenregister.cultureelerfgoed.nl/monumenten/513204)  (Watertoren, overlapt)
 
 ## Door Dodenakkers beoordeelde relaties
 
@@ -53,4 +58,4 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 
 ## Gemeente in Excel wijkt af van ruimtelijke ligging (PDOK, actuele indeling)
 
-Geen.
+- `jb-ver-260` Oude Joodse begraafplaats, Borne: Excel Borne → PDOK Hengelo (O)
