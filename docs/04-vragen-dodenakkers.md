@@ -1,6 +1,6 @@
 # 04 – Vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-02, na West-Nederland (Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland; 91 begraafplaatsen).
+Stand: 2026-10-02, na West-Nederland (91) en Gelderland (61): 152 begraafplaatsen.
 Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
@@ -73,6 +73,19 @@ Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerk
   - `jb-ver-182` Dordrecht → Strijen staat erin; de tekst noemt ook "nieuwe begraafplaats en Rotterdam?". Alleen Strijen?
   - Gouda (`jb-ver-280`, `jb-ver-281`) → Wageningen volgt met Gelderland.
 - **N4 (A2/A3/B8).** Leon heeft bronbestanden gecorrigeerd (Puttershoek, Maassluis) en noemt een eindjaar bij verdwenen begraafplaatsen; in onze Excel staat geen kolom eindjaar. Kunnen we de nieuwste Excel en KMZ's krijgen?
+
+## G. Gelderland (nieuw, 2026-10-02)
+
+Alle 61 Gelderse begraafplaatsen zijn gekoppeld (45 in gebruik, elk met terrein; 16 verdwenen). Herbegravingen op de kaart: Arnhem (2×) → Moscowa, Hengelo → Zutphen, Afferden → Nijmegen (Huis der Levenden), Bredevoort oud → nieuw, Doesburg Ooipoortwal en Veerpoortwal → buiten de Meipoort → Doetinchem.
+
+**G1. Gouda → Wageningen.** `jb-ver-280` en `jb-ver-281` (Gouda) zijn in 1976 "overgebracht naar Wageningen". Wageningen heeft er twee: `jb-loc-2887` (vanaf 1913) en `jb-loc-4219` (Kerkhofpad, 1668–1929). Naar welke?
+*Nu:* alleen als tekst in Bijzonderheden.
+
+**G2. Winterswijk, Oude Israëlitische Begraafplaats** (`jb-loc-2826`). `Rmon` verwijst naar complex 523457, met als onderdelen synagoge (39057), onderwijzerswoning, schoolgebouw en begraafplaatshek. Dat lijkt het synagogecomplex. Klopt het nummer, of hoort hier een ander nummer?
+*Nu:* het complex en de onderdelen staan in de popup.
+
+**G3. Moscowa, Arnhem** (`jb-loc-2615`). Volgens RCE liggen op het terrein 516728 (begraafplaatsaula) en 516729 (muur). Horen die bij het Joodse deel, of bij de algemene begraafplaats Moscowa?
+*Nu:* getoond als "op het terrein".
 
 Nog open hieronder: alles zonder ✅. Nog helemaal onbeantwoord: A1, D3 (René kijkt nog), E2, E5–E9, F1–F3.
 

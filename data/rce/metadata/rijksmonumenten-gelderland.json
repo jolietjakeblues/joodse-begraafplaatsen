@@ -1,0 +1,28 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T20:12:16.194973+00:00",
+  "provincies": [
+    "Gelderland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 4.9739,
+    "MAX_LON": 6.8528,
+    "MIN_LAT": 51.7136,
+    "MAX_LAT": 52.542
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 56,
+  "stats": {
+    "point_rows_from_endpoint": 26079,
+    "polygon_rows_from_endpoint": 6145,
+    "distinct_cho": 16994,
+    "buiten_gebied": 9073,
+    "features": 7921,
+    "gebouwd_in_provincie": 7616,
+    "binnen_zone": 56,
+    "begraafplaatsen_in_zone": 45
+  },
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
+}

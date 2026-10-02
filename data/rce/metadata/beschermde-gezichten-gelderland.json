@@ -1,0 +1,23 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/beschermde-gezichten.sparql",
+  "retrieved_at": "2026-10-02T20:11:21.931606+00:00",
+  "provincies": [
+    "Gelderland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 4.9739,
+    "MAX_LON": 6.8528,
+    "MIN_LAT": 51.7136,
+    "MAX_LAT": 52.542
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 54,
+  "stats": {
+    "rows_from_endpoint": 472,
+    "features_in_gebied": 54,
+    "buiten_gebied": 418
+  },
+  "notes": "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens."
+}
