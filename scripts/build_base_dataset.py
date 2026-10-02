@@ -107,6 +107,12 @@ INVARIANTEN = {
     "Flevoland": {"totaal": 1, "in_gebruik": 1, "geruimd": 0, "verdwenen": 0, "terreinen": 1},
 }
 
+# Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.
+# Telt in het rapport niet meer als open punt.
+GEEN_TERREIN_BEVESTIGD = {
+    "jb-loc-4368": "Bilthoven: alleen puntlocatie beschikbaar (Leon/René 2026-10-02, vraag B1)",
+}
+
 TERREIN_NABIJ_M = 25     # punt net buiten de polygoon (ingang op de rand)
 NAAM_MIN_RATIO = 0.6     # difflib-ratio op genormaliseerde namen
 
@@ -362,6 +368,7 @@ def apply_corrections(records: dict[str, dict], corrections: list[dict]) -> list
             log.append(f"- correctie voor onbekend id `{c['id']}` overgeslagen")
             continue
         oud = rec.get(c["veld"])
+        rec.setdefault(f"{c['veld']}_bron", oud)  # oorspronkelijke waarde blijft zichtbaar
         rec[c["veld"]] = c["waarde"] or None
         rec.setdefault("correcties", []).append({k: c[k] for k in ("veld", "reden", "datum", "bron")} | {"oud": oud})
         log.append(f"- `{c['id']}` {c['veld']}: {oud!r} -> {c['waarde']!r} ({c['reden']}, {c['bron']}, {c['datum']})")
@@ -434,7 +441,7 @@ def build(provincies: list[str]) -> None:
             "status": status,
             "status_bron": status_bron,
             "adres": adres,
-            "adres_aanduiding": as_text(r["NA"]),  # NA = nadere aanduiding: "bij" / "tegenover" het adres
+            "adres_aanduiding": as_text(r["NA"]),  # NA = nader adres: "bij" / "tegenover" / "achter" het adres (Leon/René 2026-10-02)
             "postcode": as_text(r["PC"]),
             "plaats": clean(r["Plaats"]),
             "gemeente_bron": clean(r["Gemeente"]),
@@ -455,12 +462,12 @@ def build(provincies: list[str]) -> None:
             "jaartal_bron": jaartal_bron,
             "circa": clean(r["Circa"]),
             "grondvorm": (clean(r["Grondvorm"]) or "").capitalize() or None,
-            "met": ja_nee(r["Met"]),        # Met = metaheerhuis(je) aanwezig (opdrachtgever 2026-10-02, nog te bevestigen)
-            "muur": clean(r["Muur"]),
+            "met": ja_nee(r["Met"]),        # Met = metaheerhuis(je) aanwezig
+            "muur": ja_nee(r["Muur"]),      # Muur = muur rondom ja/nee (Leon/René 2026-10-02)
             "bijzonderheden": clean(r["Bijzonderheden"]),
             "grootte_m2": as_int(r["Grootte"]),
             "grootte_bron": grootte_bron,
-            "kadaster": ja_nee(r["Kadaster"]),
+            "kadaster": ja_nee(r["Kadaster"]),  # Kadaster = als begraafplaats geregistreerd bij het Kadaster ja/nee (Leon/René 2026-10-02)
             "laatste_bezoek": as_int(r["Laatste bezoek"]),
             "locatie_precisie": "bij_benadering" if status == "verdwenen" else "ingang",
             "terrein_koppelwijze": koppelwijze,
@@ -489,6 +496,8 @@ def build(provincies: list[str]) -> None:
         binnen_ok = [k for k in terrein_info if k["afstand_m"] == 0 and k["naam_ratio"] >= NAAM_MIN_RATIO]
         if len(binnen_ok) > 1:
             rapport["genest"].append((sleutel, punt["label"], binnen_ok))
+        if koppelwijze == "geen_terrein" and sleutel in GEEN_TERREIN_BEVESTIGD:
+            koppelwijze = rec["terrein_koppelwijze"] = "geen_terrein_bevestigd"
         if koppelwijze == "geen_terrein":
             rapport["geen_terrein"].append((sleutel, punt["label"], terrein_info))
 
@@ -579,11 +588,13 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
 
     L += ["", "## Ter controle voor Dodenakkers: naamvarianten", "",
           "Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de provincie-KMZ wijkt af van het label van het punt.", "",
-          "| id | label punt | naam terrein | koppelwijze |", "|---|---|---|---|"]
+          "| id | label punt | naam terrein | koppelwijze | status |", "|---|---|---|---|---|"]
     for sleutel, label, tnaam, wijze, _ in rapport["naamvariant"]:
-        L.append(f"| `{sleutel}` | {label} | {tnaam} | {wijze} |")
+        vast = next((c for c in records[sleutel].get("correcties", []) if c["veld"] == "naam"), None)
+        status = f"naam vastgesteld: {records[sleutel]['naam']} ({vast['bron']})" if vast else "open"
+        L.append(f"| `{sleutel}` | {label} | {tnaam} | {wijze} | {status} |")
     if not rapport["naamvariant"]:
-        L.append("| – | – | – | – |")
+        L.append("| – | – | – | – | – |")
 
     L += ["", "## Oppervlakte terrein wijkt sterk af van Excel-kolom `Grootte`", "",
           "Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk verkeerd terrein, "
@@ -600,7 +611,10 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
     L += ["", "## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)", ""]
     L += [f"- {a} en {b}: {opp} m² (afstand {afst} m)" for a, b, opp, afst in rapport.get("zelfde_opp", [])] or ["Geen."]
 
-    L += ["", "## Zonder terrein (status in gebruik / geruimd)", ""]
+    L += ["", "## Bevestigd zonder terrein (alleen puntlocatie)", ""]
+    L += [f"- `{k}` {v}" for k, v in GEEN_TERREIN_BEVESTIGD.items() if k in records] or ["Geen."]
+
+    L += ["", "## Zonder terrein (status in gebruik / geruimd) — open", ""]
     for sleutel, label, info in rapport["geen_terrein"]:
         kand = "; ".join(f"{k['naam']} ({k['afstand_m']} m, ratio {k['naam_ratio']})" for k in info[:3]) or "geen polygoon binnen bereik"
         L.append(f"- `{sleutel}` {label} — kandidaten: {kand}")

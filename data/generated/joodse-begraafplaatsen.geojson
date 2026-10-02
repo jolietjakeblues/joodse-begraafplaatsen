@@ -1,7 +1,7 @@
 {
  "type": "FeatureCollection",
  "name": "joodse_begraafplaatsen",
- "generated_at": "2026-10-02T12:55:57.295698+00:00",
+ "generated_at": "2026-10-02T13:33:47.706591+00:00",
  "features": [
   {
    "type": "Feature",
@@ -1771,7 +1771,7 @@
     "kadaster": false,
     "laatste_bezoek": 2024,
     "locatie_precisie": "ingang",
-    "terrein_koppelwijze": "geen_terrein",
+    "terrein_koppelwijze": "geen_terrein_bevestigd",
     "terrein_naam_kml": null,
     "terrein_opp_m2": null,
     "lon": 5.1886787,
@@ -4059,7 +4059,7 @@
     "id": "jb-loc-874",
     "reeks": "loc",
     "nr": 874,
-    "naam": "Joodse Begraafplaats op Algemene Begraafplaats",
+    "naam": "Joods deel op Oud-Rijswijk",
     "label_punt": "Joods deel begraafplaats Oud-Rijswijk, Rijswijk",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
@@ -4097,7 +4097,17 @@
     "terrein_naam_kml": "Joods deel op Oud Rijswijk, Rijswijk",
     "terrein_opp_m2": 112,
     "lon": 4.3377479,
-    "lat": 52.0469267
+    "lat": 52.0469267,
+    "naam_bron": "Joodse Begraafplaats op Algemene Begraafplaats",
+    "correcties": [
+     {
+      "veld": "naam",
+      "reden": "Weergavenaam volgens Dodenakkers (vraag B5)",
+      "datum": "2026-10-02",
+      "bron": "Leon/René",
+      "oud": "Joodse Begraafplaats op Algemene Begraafplaats"
+     }
+    ]
    },
    "geometry": {
     "type": "Point",
@@ -4167,7 +4177,7 @@
     "id": "jb-loc-4200",
     "reeks": "loc",
     "nr": 4200,
-    "naam": "Het Toepad",
+    "naam": "Begraafplaats Toepad",
     "label_punt": "Joodse begraafplaats Toepad, Rotterdam",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
@@ -4205,7 +4215,17 @@
     "terrein_naam_kml": "Joodse begraafplaats Het Toepad, Rotterdam",
     "terrein_opp_m2": 28026,
     "lon": 4.5330266,
-    "lat": 51.9100747
+    "lat": 51.9100747,
+    "naam_bron": "Het Toepad",
+    "correcties": [
+     {
+      "veld": "naam",
+      "reden": "Weergavenaam volgens Dodenakkers (vraag B5)",
+      "datum": "2026-10-02",
+      "bron": "Leon/René",
+      "oud": "Het Toepad"
+     }
+    ]
    },
    "geometry": {
     "type": "Point",
@@ -4599,7 +4619,7 @@
     "id": "jb-ger-64",
     "reeks": "ger",
     "nr": 64,
-    "naam": "Joodse begraafplaats",
+    "naam": "Nieuwe Joodse begraafplaats",
     "label_punt": "Joodse begraafplaats, Schiedam (geruimd)",
     "status": "geruimd",
     "status_bron": "Geruimd",
@@ -4637,7 +4657,17 @@
     "terrein_naam_kml": "Nieuwe Joodse begraafplaats, Schiedam (geruimd)",
     "terrein_opp_m2": 693,
     "lon": 4.3765687,
-    "lat": 51.9143058
+    "lat": 51.9143058,
+    "naam_bron": "Joodse begraafplaats",
+    "correcties": [
+     {
+      "veld": "naam",
+      "reden": "Weergavenaam volgens Dodenakkers (vraag B5)",
+      "datum": "2026-10-02",
+      "bron": "Leon/René",
+      "oud": "Joodse begraafplaats"
+     }
+    ]
    },
    "geometry": {
     "type": "Point",

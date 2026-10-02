@@ -10,3 +10,15 @@ body.pagina .legenda li { margin: 8px 0; }
 body.pagina table { border-collapse: collapse; width: 100%; font-size: 14px; }
 body.pagina th, body.pagina td { text-align: left; border-bottom: 1px solid #ddd; padding: 6px 8px; vertical-align: top; }
 body.pagina pre { background: #f4f4f2; padding: 12px; overflow-x: auto; font-size: 13px; }
+
+/* Leespagina (lezen.html) */
+body.pagina .lees-intro { font-size: 16px; color: #333; }
+body.pagina .lees-uitgelicht { display: grid; gap: 14px; }
+body.pagina .lees-kaart { border: 1px solid #ddd; border-left: 4px solid #3a3a3a; border-radius: 6px; padding: 12px 16px; background: #fafaf8; }
+body.pagina .lees-kaart h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; }
+body.pagina .lees-kaart p { margin: 6px 0; }
+body.pagina .lees-lijst { padding-left: 20px; margin: 4px 0 12px; }
+body.pagina .lees-lijst li { margin: 6px 0; }
+body.pagina .lees-kaartlink { font-size: 13px; white-space: nowrap; color: #0b5f95; }
+body.pagina h3 { font-size: 15px; margin: 18px 0 4px; }
+body.pagina .lees-bron { margin-top: 28px; border-top: 1px solid #ddd; padding-top: 10px; }

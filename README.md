@@ -16,6 +16,7 @@ data-dodenakkers/  (aangeleverd, niet in git)
   │                                    (rijksmonumenten alleen ≤ 100 m van een begraafplaats)
   ├─ scripts/analyse_spatial.py     → data/generated/begraafplaatsen.geojson  (viewer-data)
   │                                    + docs/data/erfgoedrelaties.md
+  ├─ scripts/fetch_leeslijst.py     → data/generated/leeslijst.json  (artikelen dodenakkers.nl, tag "Joodse begraafplaats")
   ├─ scripts/make_og_image.py       → src/images/og-image.png  (deelafbeelding)
   └─ scripts/build_site.py          → site/  (gitignored, voor Cloudflare)
 ```
@@ -29,6 +30,7 @@ P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --prov
 python scripts/build_base_dataset.py $P           # altijd ALLE provincies die op de kaart moeten
 python scripts/fetch_rce.py $P                    # alleen nodig voor nieuwe provincies / verse RCE-data
 python scripts/analyse_spatial.py
+python scripts/fetch_leeslijst.py                # leespagina actueel houden (na analyse_spatial: kaartlinks)
 python scripts/make_og_image.py
 python scripts/build_site.py
 python -m http.server -d site 8765                # lokaal bekijken
@@ -63,6 +65,8 @@ Productiedomein staat op één plek: `SITE_URL` in `scripts/build_site.py` (cano
 | [docs/data/koppelrapport.md](docs/data/koppelrapport.md) | Gegenereerd: koppeling punten/terreinen, afwijkingen |
 | [docs/data/erfgoedrelaties.md](docs/data/erfgoedrelaties.md) | Gegenereerd: gezichten, rijksmonumenten, complexen |
 | [AI-joodse-begraafplaatsen.md](AI-joodse-begraafplaatsen.md) | Werkafspraken en besluiten |
+
+Pagina's van de site: `index.html` (kaart; `?id=jb-loc-4200` opent een begraafplaats, `?embed=1` voor inbedden), `lezen.html` (leeslijst met artikelen van dodenakkers.nl), `methode.html`.
 
 ## Inbedden
 
