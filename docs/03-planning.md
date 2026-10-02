@@ -2,49 +2,55 @@
 
 Opdracht (Leon / Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief verdwenen en geruimd. We bouwen het eerst voor Zuid-Holland en zorgen dat de pipeline per provincie uitbreidbaar is.
 
-## Fase 0 – Fundament (½ dag)
-- [ ] `git init`, `.gitignore` (data-dodenakkers/ blijft buiten git), `requirements.txt`, `LICENSE` (CC BY 4.0?)
-- [ ] `AI-joodse-begraafplaatsen.md` briefing (afgeleid van `AI-dodenakkers.md`)
-- [ ] Mapstructuur: `scripts/`, `data/generated/`, `data/pdok/`, `data/corrections.csv`, `src/`, `docs/`
+Stand 2026-10-02: fase 0–3 gebouwd en lokaal getest; fase 4 (deploy) wacht op akkoord.
 
-## Fase 1 – Basisdataset Zuid-Holland (1 dag)
-- [ ] `scripts/load_sources.py`: Excel (alleen tabblad *Joodse begraafplaatsen*) + Locaties/Verdwenen/Geruimd/provincie-KMZ inlezen (stdlib zipfile + ElementTree)
-- [ ] Sleutel `jb-<loc|ver|ger>-<Nr>`; assert uniek; assert elke rij vindt een punt
-- [ ] Terrein koppelen (alleen in gebruik + geruimd): punt-in-polygoon in de provincie-KMZ **én** naamcheck; verdwenen = alleen punt
-- [ ] Normaliseren: status (3 waarden), ja/nee-velden, jaartal/circa, grootte; ruwe waarden bewaren naast genormaliseerde
-- [ ] Correctielaag `data/corrections.csv` (reden, datum, bron) i.p.v. fix-scripts
-- [ ] Output: `data/generated/joodse-begraafplaatsen.geojson` + `.csv` + `docs/data/koppelrapport-zuid-holland.md` (naamsafwijkingen, twijfelgevallen voor Leon)
-- [ ] Asserts ZH: 36 rijen = 24/10/2; 26 terreinen; 0 ongekoppelde Joodse polygonen
+## Fase 0 – Fundament ✅
+- [x] Repo (bestond al, remote `jolietjakeblues/joodse-begraafplaatsen`), `.gitignore` (data-dodenakkers/ buiten git), `requirements.txt`, `LICENSE` (CC BY 4.0)
+- [x] `AI-joodse-begraafplaatsen.md` (werkafspraken), `README.md`
+- [x] Mapstructuur: `scripts/`, `data/{generated,pdok,rce}/`, `data/corrections.csv`, `queries/rce/`, `src/`, `docs/`
 
-## Fase 2 – Verrijking + contextlagen (½–1 dag)
+## Fase 1 – Basisdataset Zuid-Holland ✅
+- [x] `scripts/build_base_dataset.py`: Excel (alleen tabblad *Joodse begraafplaatsen*) + Locaties/Verdwenen/Geruimd + provincie-KMZ (stdlib zipfile + ElementTree)
+- [x] Sleutel `jb-<loc|ver|ger>-<Nr>`; asserts uniek en "elke rij vindt een punt"
+- [x] Terrein: punt in polygoon (of ≤ 25 m) **én** naamtoets op kernwoorden; bij geneste terreinen wint het kleinste (Rijswijk: Joods deel in Oud-Rijswijk); verdwenen = alleen punt
+- [x] Normaliseren met ruwe waarde ernaast (`*_bron`)
+- [x] Correctielaag `data/corrections.csv` (nog leeg)
+- [x] Output + `docs/data/koppelrapport.md`
+- [x] Asserts ZH: 36 = 24/2/10; 26 terreinen; 0 ongekoppelde Joodse polygonen
 
-Besluit opdrachtgever (2026-10-02): **wel** gemeente- en provinciegrenzen, rijksmonumenten en beschermde gezichten; **geen** archeologische onderzoeksgebieden (en geen CHS-laag).
+## Fase 2 – Verrijking + contextlagen ✅
 
-- [ ] Lagen gemeentegrenzen + provinciegrenzen (PDOK WFS bestuurlijke gebieden) — `fetch_gemeentegrenzen.py`/`fetch_provinciegrens.py` uit dodenakkers, provinciefilter generiek
-- [ ] Laag rijksmonumenten + laag beschermde gezichten (RCE CHO SPARQL, `fetch_rce.py` + `queries/rce/` uit dodenakkers, bbox als parameter); relatie per begraafplaats via `analyse_spatial.py` (in gezicht / rijksmonument binnen X m)
-- [ ] Provincie/gemeente ruimtelijk via PDOK (herindelingen signaleren t.o.v. Excel)
-- [ ] Rijksmonument via `Rmon` → RCE CHO (naam, URI, monumentenregister-link); controleren tegen kolom `Link`
-- [ ] Oppervlakte terrein in RD vs Excel-kolom `Grootte` (verschillen signaleren)
-- [ ] Optioneel: RCE-objecten met functie "Joodse begraafplaats" die níet in de Excel staan → lijst voor Leon (niet op de kaart)
+Besluit opdrachtgever (2026-10-02): wel gemeente- en provinciegrenzen, rijksmonumenten (gebouwd én archeologisch) en beschermde gezichten; **geen** archeologische onderzoeksgebieden, geen CHS.
 
-## Fase 3 – Viewer (1–2 dagen)
-- [ ] MapLibre + PDOK-ondergronden + `_headers` uit dodenakkers
-- [ ] Lagen: terreinen (fill per status), punten per status (in gebruik / geruimd / verdwenen — kleurenblind-veilig)
-- [ ] Popup: naam, plaats, status, jaartal, bijzonderheden, monumentstatus + link, laatste bezoek
-- [ ] Filters status/provincie/monument, zoeken, permalink, CSV/GeoJSON-export, toegankelijke lijst
-- [ ] `methode.html`: bronnen, koppelmethode, beperkingen
+- [x] `scripts/fetch_pdok.py`: provincies (12) + gemeenten (342), landelijk, vereenvoudigd
+- [x] `scripts/fetch_rce.py`: gezichten (67), gebouwde rijksmonumenten (9.127), archeologische rijksmonumenten (60) voor ZH, bbox als parameter, geknipt op provinciegrens
+- [x] Rmon-opzoeking: 7 nummers, waarvan 2 **complexnummers** (Gorinchem, Wassenaar) → onderdelen gekoppeld
+- [x] `scripts/analyse_spatial.py`: gemeente, gezicht, rijksmonumenten ≤ 250 m (niet voor verdwenen) + `docs/data/erfgoedrelaties.md`
+- [ ] Oppervlakte terrein (RD) vs Excel `Grootte` vergelijken
+- [ ] Optioneel: RCE-objecten met functie "Joodse begraafplaats" die níet in de Excel staan → lijst voor Leon
 
-## Fase 4 – Oplevering ZH (½ dag)
-- [ ] `build_site.py`, nieuw Cloudflare Pages-project, `--branch main`
-- [ ] Review door Leon; feedback in correctielaag
+## Fase 3 – Viewer ✅ (eerste versie)
+- [x] MapLibre 4.7.1 (gevendord) + PDOK grijs/luchtfoto + `_headers`
+- [x] Terreinen per status; punten met kleur + vorm (● bestaand, ◆ geruimd, ○ verdwenen)
+- [x] Popup met alle kenmerken incl. eigenaar, rijksmonument/complex, gezicht, monumenten ≤ 100 m
+- [x] Statusfilter met tellingen, zoeken, rijksmonument-/gezichtfilter, lijst, deelbare kaartpositie (hash)
+- [x] Contextlagen: provincies, gemeenten, gezichten, rijksmonumenten (lazy), archeologisch
+- [x] Inbedbaar: `?embed=1`, `frame-ancestors` dodenakkers.nl, CORS op `/data/*`
+- [x] `methode.html`
+- [ ] CSV/GeoJSON-export van de selectie (uit dodenakkers overnemen)
+- [ ] Toegankelijkheidscheck (toetsenbord, screenreader) zoals bij dodenakkers
+
+## Fase 4 – Oplevering ZH
+- [ ] Cloudflare Pages-project `joodse-begraafplaatsen` aanmaken; deploy met `--branch main` (of Git-integratie)
+- [ ] Review door Leon/René; feedback via `data/corrections.csv`
 
 ## Fase 5 – Landelijk (per provincie ½ dag)
-- [ ] Zelfde pipeline voor de overige 11 provincies; Excel `Provincie` ↔ bestandsnaam mapping (Fryslân↔Friesland, Zeeland1)
-- [ ] Per provincie koppelrapport + asserts; daarna één landelijke kaart
+- [ ] `--provincie X` voor de overige 11 provincies; per provincie koppelrapport + asserts
+- [ ] Proefrun `--alle` (2026-10-02): 315 records, 228 terreinen, **18 zonder terrein** en **16 ongekoppelde Joodse polygonen** → per provincie uitzoeken
+- [ ] Rijksmonumenten landelijk ≈ 60k objecten: per provincie een bestand en lazy laden, of alleen monumenten ≤ 250 m van een begraafplaats tonen (keuze voorleggen)
 - [ ] Volgorde voorstel: Utrecht, Noord-Holland, Gelderland, Overijssel, rest
 
 ## Risico's
 - Naamsafwijkingen KML ↔ Excel (opgevangen door ruimtelijke koppeling + rapport).
-- Verdwenen punten: precisie onbekend (plek of alleen plaats?) → navragen.
-- Persoonsgegevens in Excel (tabblad *Dank en informeren*, eventueel `Eigenaar`/`Postadres`) → uitsluiten.
-- Terrein in provincie-KMZ kan in een ander provinciebestand liggen (grensgevallen) → bij landelijk alle KMZ's samen doorzoeken.
+- Persoonsgegevens: tabblad *Dank en informeren* wordt nooit gelezen; eigenaar/postadres mogen in de popup (akkoord 2026-10-02).
+- Terrein kan in een ander provinciebestand liggen (grensgevallen) → bij landelijk alle KMZ's samen doorzoeken (`--alle` doet dat al).

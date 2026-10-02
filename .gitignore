@@ -1,6 +1,13 @@
 # Editor/IDE config
 .claude/
 
-# Aangeleverd brondmateriaal om uit te selecteren (bv. screenshots) - de
-# gekozen bestanden gaan bewust los naar public/, deze map zelf niet.
+# Aangeleverd bronmateriaal (Leon / Dodenakkers) - bevat o.a. persoonsgegevens
+# in de Excel (tabblad "Dank en informeren"); blijft buiten git.
 /data-dodenakkers/
+
+# Build-output en tooling
+site/
+.wrangler/
+node_modules/
+__pycache__/
+*.pyc

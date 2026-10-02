@@ -1,0 +1,27 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-02T12:08:02.312414+00:00",
+  "provincies": [
+    "Zuid-Holland"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 3.7537,
+    "MAX_LON": 5.0514,
+    "MIN_LAT": 51.6238,
+    "MAX_LAT": 52.3525
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 9127,
+  "stats": {
+    "point_rows_from_endpoint": 23190,
+    "polygon_rows_from_endpoint": 2018,
+    "distinct_cho": 12923,
+    "buiten_gebied": 3736,
+    "features": 9187,
+    "na_uitsluiten_archeologisch": 9127,
+    "zonder_monument_aard": 0
+  },
+  "notes": "Rijksmonumenten (juridische status rijksmonument) exclusief monumentaard archeologisch. Monumenten zonder monumentaard blijven in deze laag (aantal in stats)."
+}
