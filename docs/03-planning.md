@@ -2,7 +2,7 @@
 
 Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief geruimd en verdwenen. Gebouwd per provincie.
 
-**Stand 2026-10-02: West-Nederland en Gelderland klaar** — Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland en Gelderland (152 begraafplaatsen). Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
+**Stand 2026-10-02: West-Nederland, Gelderland en Overijssel klaar** — 7 provincies, 195 begraafplaatsen. Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
 
 ## Voortgang per provincie
 
@@ -14,7 +14,7 @@ Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen va
 | Zeeland | ✅ | 6 | 6 | 0 | 0 | 6 | Vlissingen: handmatige koppeling; twee polygonen met identieke oppervlakte |
 | Flevoland | ✅ | 1 | 1 | 0 | 0 | 1 | Almere terrein kleiner dan `Grootte` |
 | Gelderland | ✅ | 61 | 45 | 0 | 16 | 45 | Alles gekoppeld; 8 herbegravingen (o.a. Doesburg in twee stappen) |
-| Overijssel | ⏳ | 43 | | | | | |
+| Overijssel | ✅ | 43 | 34 | 1 | 8 | 35 | Enschede (2×) handmatig gekoppeld (Israëlitisch ↔ Joods); 4 herbegravingen |
 | Noord-Brabant | ⏳ | 31 | | | | | |
 | Groningen | ⏳ | 27 | | | | | |
 | Limburg | ⏳ | 25 | | | | | |
@@ -68,7 +68,7 @@ python scripts/make_og_image.py
 - [ ] Nieuwe bronbestanden van Leon verwerken (N4) en herbegravingen aanvullen (N3)
 
 ### Fase 5 – Rest van Nederland
-- [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: ✅ Gelderland, Overijssel, Noord-Brabant, Limburg, Groningen, Drenthe, Fryslân
+- [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: ✅ Gelderland, ✅ Overijssel, Noord-Brabant, Limburg, Groningen, Drenthe, Fryslân
 - [ ] Proefrun `--alle` (2026-10-02, vóór de verbeteringen van West): 18 zonder terrein, 16 ongekoppelde Joodse polygonen → per provincie uitzoeken
 - [ ] Bij landelijke dekking: label "Nederland", deelafbeelding opnieuw
 

@@ -1,0 +1,23 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/beschermde-gezichten.sparql",
+  "retrieved_at": "2026-10-02T20:26:41.179490+00:00",
+  "provincies": [
+    "Overijssel"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 5.7578,
+    "MAX_LON": 7.0928,
+    "MIN_LAT": 52.0981,
+    "MAX_LAT": 52.8742
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 23,
+  "stats": {
+    "rows_from_endpoint": 472,
+    "features_in_gebied": 23,
+    "buiten_gebied": 449
+  },
+  "notes": "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens."
+}
