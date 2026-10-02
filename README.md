@@ -12,8 +12,8 @@ data-dodenakkers/  (aangeleverd, niet in git)
   ├─ scripts/fetch_pdok.py          → data/pdok/provincies.geojson, gemeenten.geojson
   ├─ scripts/build_base_dataset.py  → data/generated/joodse-begraafplaatsen.geojson/.csv, terreinen.geojson
   │                                    + docs/data/koppelrapport.md
-  ├─ scripts/fetch_rce.py           → data/rce/beschermde-gezichten, rijksmonumenten,
-  │                                    archeologische-rijksmonumenten (.geojson), rmon-lookup.json
+  ├─ scripts/fetch_rce.py           → data/rce/<laag>-<provincie>.geojson + index.json, rmon-lookup.json
+  │                                    (gebouwde rijksmonumenten alleen ≤ 100 m van een begraafplaats)
   ├─ scripts/analyse_spatial.py     → data/generated/begraafplaatsen.geojson  (viewer-data)
   │                                    + docs/data/erfgoedrelaties.md
   └─ scripts/build_site.py          → site/  (gitignored, voor Cloudflare Pages)
@@ -31,11 +31,14 @@ python scripts/build_site.py
 python -m http.server -d site 8765                # lokaal bekijken
 ```
 
-Deploy (nieuw Cloudflare Pages-project, nog niet aangemaakt):
+Live: **https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev** (Cloudflare Worker met static assets, `wrangler.jsonc`). Deploy:
 
 ```bash
-npx wrangler pages deploy site --project-name joodse-begraafplaatsen --branch main
+python scripts/build_site.py
+npx wrangler deploy
 ```
+
+Productiedomein staat op één plek: `SITE_URL` in `scripts/build_site.py` (canonical, og:url, robots.txt, sitemap.xml). Open Graph-afbeelding: `python scripts/make_og_image.py`.
 
 ## Kernregels
 

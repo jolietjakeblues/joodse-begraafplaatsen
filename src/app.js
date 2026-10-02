@@ -13,10 +13,29 @@ const DATA = {
   terreinen: "data/generated/terreinen.geojson",
   provincies: "data/pdok/provincies.geojson",
   gemeenten: "data/pdok/gemeenten.geojson",
-  gezichten: "data/rce/beschermde-gezichten.geojson",
-  rijksmonumenten: "data/rce/rijksmonumenten.geojson",
-  archeologisch: "data/rce/archeologische-rijksmonumenten.geojson",
+  // RCE-lagen staan per provincie in aparte bestanden; dit manifest
+  // (scripts/fetch_rce.py) zegt welke. Rijksmonumenten: alleen binnen 100 m
+  // van een begraafplaats (besluit 2026-10-02).
+  rceManifest: "data/rce/index.json",
 };
+
+let manifestPromise = null;
+async function loadRce(soort) {
+  manifestPromise = manifestPromise || loadJson(DATA.rceManifest);
+  const provincies = (await manifestPromise).provincies;
+  const collecties = await Promise.all(Object.values(provincies).map((b) => loadJson(b[soort])));
+  const gezien = new Set();
+  const features = [];
+  for (const fc of collecties) {
+    for (const f of fc.features) {
+      const key = f.properties.cho_uri || f.properties.gezicht_uri;
+      if (gezien.has(key)) continue; // grensobjecten staan in twee provinciebestanden
+      gezien.add(key);
+      features.push(f);
+    }
+  }
+  return { type: "FeatureCollection", features };
+}
 
 // Kleuren gekozen op onderscheidbaarheid bij protanopie, deuteranopie en
 // tritanopie (gesimuleerd, minimale kleurafstand >= 38 Delta-E), en daarnaast
@@ -30,7 +49,7 @@ const KLEUR = {
   provincie: "#4a4a4a",
   gemeente: "#8a8a8a",
   gezicht: "#7a5195",
-  rijksmonument: "#6f6f6f",
+  rijksmonument: "#3d3d3d",
   archeologisch: "#8b5a2b",
 };
 
@@ -47,8 +66,14 @@ const panelToggleEl = document.getElementById("panel-toggle");
 // ---------------------------------------------------------------- paneel
 
 let panelOpen = !(EMBED || window.matchMedia("(max-width: 700px)").matches);
+
+const miniLegendaEl = document.getElementById("mini-legenda");
 function updatePanelToggle() {
   panelEl.classList.toggle("collapsed", !panelOpen);
+  document.body.classList.toggle("panel-dicht", !panelOpen);
+  // Met dichtgeklapt paneel blijft een mini-legenda zichtbaar (titel + symbolen).
+  miniLegendaEl.hidden = panelOpen;
+  panelEl.inert = !panelOpen; // dichtgeklapt paneel niet bereikbaar met Tab
   panelToggleEl.textContent = panelOpen ? "×" : "☰";
   panelToggleEl.setAttribute("aria-label", panelOpen ? "Paneel sluiten" : "Paneel openen");
   panelToggleEl.setAttribute("aria-expanded", String(panelOpen));
@@ -57,6 +82,16 @@ panelToggleEl.addEventListener("click", () => {
   panelOpen = !panelOpen;
   updatePanelToggle();
 });
+miniLegendaEl.addEventListener("click", () => {
+  panelOpen = true;
+  updatePanelToggle();
+  panelEl.focus();
+});
+function toonFout(tekst) {
+  statusEl.textContent = tekst;
+  document.getElementById("mini-fout").textContent = tekst;
+}
+const IS_SMAL = () => window.matchMedia("(max-width: 700px)").matches;
 updatePanelToggle();
 if (EMBED) {
   const link = document.getElementById("open-volledig");
@@ -85,6 +120,9 @@ function rows(pairs) {
     .map(([k, v]) => `<dt>${esc(k)}</dt><dd>${v instanceof SafeHtml ? v.html : esc(v)}</dd>`)
     .join("");
 }
+// Huisje-icoon voor een metaheerhuis(je) (Excel-kolom "Met"); inline SVG, geen externe bron.
+const HUISJE =
+  '<svg class="icoon-huisje" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M8 1.5 1 7.5h2v7h4v-4h2v4h4v-7h2z" fill="currentColor"/></svg>';
 const fmtInt = (n) => (n == null ? null : Number(n).toLocaleString("nl-NL"));
 const jaNee = (v) => (v === true ? "ja" : v === false ? "nee" : v);
 
@@ -162,13 +200,32 @@ const BASEMAPS = {
     ],
     attribution: 'Luchtfoto: <a href="https://www.pdok.nl/">PDOK</a> · Beeldmateriaal.nl',
   },
+  bgt: {
+    tiles: [
+      "https://service.pdok.nl/kadaster/bgt/wmts/v1_0?service=WMTS&request=GetTile&version=1.0.0&layer=standaardvisualisatie&style=default&tilematrixset=EPSG:3857&format=image/png&tilematrix={z}&tilerow={y}&tilecol={x}",
+    ],
+    attribution: 'Kaart: <a href="https://www.pdok.nl/">PDOK</a> · BGT Kadaster',
+    // PDOK geeft tot en met zoom 16 een lege (geldige) tegel; pas vanaf 17 beeld
+    // (vastgesteld in het dodenakkers-project).
+    minzoom: 17,
+  },
+};
+// Overlay (transparant), geen eigen ondergrond. Zelfde zoomgrens als BGT.
+const BRK_PERCELEN = {
+  tiles: [
+    "https://service.pdok.nl/kadaster/kadastralekaart/wmts/v5_0?service=WMTS&request=GetTile&version=1.0.0&layer=Kadastralekaart&style=default&tilematrixset=EPSG:3857&format=image/png&tilematrix={z}&tilerow={y}&tilecol={x}",
+  ],
+  attribution: 'Percelen: <a href="https://www.pdok.nl/">PDOK</a> · BRK Kadaster',
+  minzoom: 17,
 };
 
 const style = { version: 8, sources: {}, layers: [] };
 for (const [id, cfg] of Object.entries(BASEMAPS)) {
-  style.sources[`base-${id}`] = { type: "raster", tiles: cfg.tiles, tileSize: 256, maxzoom: 19, attribution: cfg.attribution };
+  style.sources[`base-${id}`] = { type: "raster", tiles: cfg.tiles, tileSize: 256, minzoom: cfg.minzoom || 0, maxzoom: 19, attribution: cfg.attribution };
   style.layers.push({ id: `base-${id}`, type: "raster", source: `base-${id}`, layout: { visibility: id === "grijs" ? "visible" : "none" } });
 }
+style.sources["overlay-brk"] = { type: "raster", tiles: BRK_PERCELEN.tiles, tileSize: 256, minzoom: BRK_PERCELEN.minzoom, maxzoom: 19, attribution: BRK_PERCELEN.attribution };
+style.layers.push({ id: "overlay-brk", type: "raster", source: "overlay-brk", layout: { visibility: "none" } });
 
 const map = new maplibregl.Map({
   container: "map",
@@ -176,11 +233,15 @@ const map = new maplibregl.Map({
   center: [4.5, 52.0],
   zoom: 8.5,
   hash: true,
-  attributionControl: { customAttribution: "Inventarisatie: stichting Dodenakkers · RCE" },
+  // compact: op smalle schermen ingeklapt tot een (i)-knop
+  attributionControl: { compact: true, customAttribution: "Inventarisatie: stichting Dodenakkers · RCE" },
 });
 map.addControl(new maplibregl.NavigationControl(), "top-right");
 map.addControl(new maplibregl.ScaleControl({ unit: "metric" }), "bottom-right");
 
+document.getElementById("toggle-brk").addEventListener("change", (e) =>
+  map.setLayoutProperty("overlay-brk", "visibility", e.target.checked ? "visible" : "none")
+);
 document.querySelectorAll('input[name="basemap"]').forEach((el) =>
   el.addEventListener("change", () => {
     for (const id of Object.keys(BASEMAPS)) {
@@ -203,7 +264,8 @@ const RELATIE = {
 function begraafplaatsPopup(p) {
   const st = STATUS[p.status];
   const jaartal = p.jaartal ? `${p.circa ? "ca. " : ""}${p.jaartal}` : p.jaartal_bron;
-  const adres = [p.adres_aanduiding, p.adres, p.postcode].filter(Boolean).join(" ");
+  // adres_aanduiding = Excel "NA" (nadere aanduiding): "bij" of "tegenover" het adres
+  const adres = [[p.adres_aanduiding, p.adres].filter(Boolean).join(" "), p.postcode].filter(Boolean).join(", ");
 
   let rm = null;
   const r = p.rijksmonument_rce;
@@ -254,7 +316,9 @@ function begraafplaatsPopup(p) {
       ["Grootte", p.grootte_m2 ? `${fmtInt(p.grootte_m2)} m²` : p.grootte_bron],
       ["Grondvorm", p.grondvorm],
       ["Rijksmonument", rm],
+      ["Metaheerhuis", p.met === true ? raw(`${HUISJE} aanwezig`) : null],
       ["Gemeentelijk monument", p.gemeentelijk_monument === true ? "ja" : null],
+      ["Monumenten Inventarisatie Project (MIP)", p.mip === true ? "opgenomen" : null],
       ["Beschermd deel", p.beschermd_deel],
       ["Eigenaar", eigenaar],
       ["Bijzonderheden", p.bijzonderheden],
@@ -298,27 +362,33 @@ const LAZY_LAYERS = {
     return ["gemeenten-line"];
   },
   gezichten: async () => {
-    map.addSource("gezichten", { type: "geojson", data: await loadJson(DATA.gezichten) });
+    map.addSource("gezichten", { type: "geojson", data: await loadRce("gezichten") });
     map.addLayer({ id: "gezichten-fill", type: "fill", source: "gezichten", paint: { "fill-color": KLEUR.gezicht, "fill-opacity": 0.12 } }, "terreinen-fill");
     map.addLayer({ id: "gezichten-line", type: "line", source: "gezichten", paint: { "line-color": KLEUR.gezicht, "line-width": 1.5, "line-dasharray": [2, 1] } }, "terreinen-fill");
     return ["gezichten-fill", "gezichten-line"];
   },
   rijksmonumenten: async () => {
-    statusEl.textContent = "Rijksmonumenten laden…";
-    map.addSource("rm", { type: "geojson", data: await loadJson(DATA.rijksmonumenten) });
-    map.addLayer({ id: "rm-fill", type: "fill", source: "rm", filter: ["==", ["geometry-type"], "Polygon"], minzoom: 12, paint: { "fill-color": KLEUR.rijksmonument, "fill-opacity": 0.3 } }, "terreinen-fill");
+    map.addSource("rm", { type: "geojson", data: await loadRce("rijksmonumenten") });
+    // Boven de terreinen (de monumenten liggen er per definitie binnen 100 m
+    // van, vaak óp), onder de begraafplaatssymbolen. Groot genoeg om naast
+    // een begraafplaatssymbool op te vallen.
+    map.addLayer({ id: "rm-fill", type: "fill", source: "rm", filter: ["==", ["geometry-type"], "Polygon"], paint: { "fill-color": KLEUR.rijksmonument, "fill-opacity": 0.45 } }, "begraafplaatsen-symbol");
     map.addLayer({
-      id: "rm-point", type: "circle", source: "rm", filter: ["==", ["geometry-type"], "Point"], minzoom: 11,
-      paint: { "circle-color": KLEUR.rijksmonument, "circle-radius": ["interpolate", ["linear"], ["zoom"], 11, 1.5, 16, 4], "circle-stroke-color": "#fff", "circle-stroke-width": 0.5 },
+      id: "rm-point", type: "circle", source: "rm", filter: ["==", ["geometry-type"], "Point"],
+      paint: {
+        "circle-color": KLEUR.rijksmonument,
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 3.5, 13, 5, 17, 7],
+        "circle-stroke-color": "#fff",
+        "circle-stroke-width": 1.5,
+      },
     }, "begraafplaatsen-symbol");
-    statusEl.textContent = "";
     return ["rm-fill", "rm-point"];
   },
   archeologisch: async () => {
-    map.addSource("arch", { type: "geojson", data: await loadJson(DATA.archeologisch) });
-    map.addLayer({ id: "arch-fill", type: "fill", source: "arch", filter: ["==", ["geometry-type"], "Polygon"], paint: { "fill-color": KLEUR.archeologisch, "fill-opacity": 0.25 } }, "terreinen-fill");
-    map.addLayer({ id: "arch-line", type: "line", source: "arch", filter: ["==", ["geometry-type"], "Polygon"], paint: { "line-color": KLEUR.archeologisch, "line-width": 1 } }, "terreinen-fill");
-    map.addLayer({ id: "arch-point", type: "circle", source: "arch", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-color": KLEUR.archeologisch, "circle-radius": 4, "circle-stroke-color": "#fff", "circle-stroke-width": 1 } }, "begraafplaatsen-symbol");
+    map.addSource("arch", { type: "geojson", data: await loadRce("archeologisch") });
+    map.addLayer({ id: "arch-fill", type: "fill", source: "arch", filter: ["==", ["geometry-type"], "Polygon"], paint: { "fill-color": KLEUR.archeologisch, "fill-opacity": 0.35 } }, "begraafplaatsen-symbol");
+    map.addLayer({ id: "arch-line", type: "line", source: "arch", filter: ["==", ["geometry-type"], "Polygon"], paint: { "line-color": KLEUR.archeologisch, "line-width": 1.5 } }, "begraafplaatsen-symbol");
+    map.addLayer({ id: "arch-point", type: "circle", source: "arch", filter: ["==", ["geometry-type"], "Point"], paint: { "circle-color": KLEUR.archeologisch, "circle-radius": 5, "circle-stroke-color": "#fff", "circle-stroke-width": 1.5 } }, "begraafplaatsen-symbol");
     return ["arch-fill", "arch-line", "arch-point"];
   },
 };
@@ -332,12 +402,30 @@ async function setLayer(name, visible) {
     try {
       ids = await lazy[name];
     } catch (err) {
-      statusEl.textContent = `Laag kon niet laden: ${err.message}`;
+      toonFout(`Kaartlaag kon niet worden geladen (${err.message}). Probeer het later opnieuw.`);
+      document.querySelector(`.toggle-layer[value="${name}"]`).checked = false;
       delete lazy[name];
       return;
     }
   }
   ids.forEach((id) => map.setLayoutProperty(id, "visibility", visible ? "visible" : "none"));
+}
+
+// Aantallen per RCE-laag (uit het manifest) naast de laagnaam, zodat een lege
+// laag ("0") niet voor een storing wordt aangezien.
+async function toonLaagAantallen() {
+  try {
+    manifestPromise = manifestPromise || loadJson(DATA.rceManifest);
+    const aantallen = Object.values((await manifestPromise).aantallen || {});
+    for (const soort of ["gezichten", "rijksmonumenten", "archeologisch"]) {
+      const el = document.querySelector(`[data-laag-count="${soort}"]`);
+      if (!el || !aantallen.length) continue;
+      const n = aantallen.reduce((som, a) => som + (a[soort] || 0), 0);
+      el.textContent = `(${n.toLocaleString("nl-NL")})`;
+    }
+  } catch {
+    /* aantallen zijn een extraatje; de lagen zelf melden hun fouten */
+  }
 }
 
 // ---------------------------------------------------------------- filters
@@ -371,7 +459,10 @@ function applyFilters() {
     `(${alle.filter((f) => inStatus(f.properties) && f.properties.rijksmonument === true).length})`;
   document.querySelector('[data-count="gezicht"]').textContent =
     `(${alle.filter((f) => inStatus(f.properties) && f.properties.in_gezicht).length})`;
-  document.getElementById("search-count").textContent = `${ids.length} van ${alle.length} begraafplaatsen getoond.`;
+  document.getElementById("search-count").textContent = ids.length
+    ? `${ids.length} van ${alle.length} begraafplaatsen getoond.`
+    : "Geen begraafplaatsen gevonden. Pas de zoekterm of de filters aan.";
+  document.getElementById("lijst-leeg").hidden = ids.length > 0;
   renderLijst(alle.filter((f) => match(f.properties)));
 }
 
@@ -384,7 +475,7 @@ function renderLijst(features) {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className = "lijst-item";
-      btn.innerHTML = `<span class="sym sym-${esc(p.status)}" aria-hidden="true"></span> <span>${esc(p.naam)}<br><span class="muted">${esc(p.plaats || "")} · ${esc(STATUS[p.status].label.toLowerCase())}</span></span>`;
+      btn.innerHTML = `<span class="sym sym-${esc(p.status)}" aria-hidden="true"></span> <span>${esc(p.naam)}${p.met === true ? ` <span class="muted" title="met metaheerhuis">${HUISJE}</span>` : ""}<br><span class="muted">${esc(p.plaats || "")} · ${esc(STATUS[p.status].label.toLowerCase())}</span></span>`;
       btn.addEventListener("click", () => openBegraafplaats(f, true));
       li.append(btn);
       return li;
@@ -396,10 +487,12 @@ let popup = null;
 function openBegraafplaats(feature, vliegen) {
   const p = feature.properties;
   const lngLat = feature.geometry.coordinates;
-  if (vliegen) map.flyTo({ center: lngLat, zoom: Math.max(map.getZoom(), 16) });
+  // Op smalle schermen het punt lager in beeld, zodat de popup erboven niet
+  // onder de mini-legenda valt.
+  if (vliegen) map.flyTo({ center: lngLat, zoom: Math.max(map.getZoom(), 16), offset: IS_SMAL() ? [0, 160] : [0, 80] });
   popup?.remove();
   popup = new maplibregl.Popup({ maxWidth: "340px", focusAfterOpen: true }).setLngLat(lngLat).setHTML(begraafplaatsPopup(p)).addTo(map);
-  if (EMBED || window.matchMedia("(max-width: 700px)").matches) {
+  if (EMBED || IS_SMAL()) {
     panelOpen = false;
     updatePanelToggle();
   }
@@ -471,14 +564,20 @@ async function main() {
     if (el.checked && LAZY_LAYERS[el.value]) setLayer(el.value, true);
   });
 
+  toonLaagAantallen();
   applyFilters();
-  if (!START_HASH) map.fitBounds(boundsOf(begraafplaatsen), { padding: 60, maxZoom: 12, duration: 0 });
+  // MapLibre toont de compacte bronvermelding eerst uitgeklapt; op smalle
+  // schermen direct inklappen tot het (i)-knopje.
+  if (IS_SMAL()) {
+    map.once("idle", () => document.querySelector(".maplibregl-ctrl-attrib")?.classList.remove("maplibregl-compact-show"));
+  }
+  if (!START_HASH) map.fitBounds(boundsOf(begraafplaatsen), { padding: IS_SMAL() ? 24 : 60, maxZoom: 12, duration: 0 });
   statusEl.textContent = "";
 }
 
 map.on("load", () =>
   main().catch((err) => {
     console.error(err);
-    statusEl.textContent = `Laden mislukt: ${err.message}`;
+    toonFout(`De kaartgegevens konden niet worden geladen (${err.message}). Controleer de verbinding en herlaad de pagina.`);
   })
 );

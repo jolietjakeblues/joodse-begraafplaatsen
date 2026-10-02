@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Statische site als Worker met static assets (Wrangler maakte dit aan bij
+  // `pages project create`, 2026-10-02). Bouwen: python scripts/build_site.py
+  "name": "joodse-begraafplaatsen",
+  "compatibility_date": "2026-10-01",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "site",
+    "not_found_handling": "404-page"
+  }
+}
