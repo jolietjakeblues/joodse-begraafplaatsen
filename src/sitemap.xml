@@ -3,4 +3,5 @@
   <url><loc>{{SITE_URL}}/</loc></url>
   <url><loc>{{SITE_URL}}/methode</loc></url>
   <url><loc>{{SITE_URL}}/lezen</loc></url>
+  <url><loc>{{SITE_URL}}/statistieken</loc></url>
 </urlset>

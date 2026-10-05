@@ -1,6 +1,6 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-02 22:55.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-05 10:11.
 Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland, Gelderland, Overijssel, Noord-Brabant, Limburg**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
@@ -13,8 +13,9 @@ Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland, Gelder
 
 | koppelwijze | aantal |
 |---|---|
-| binnen_naam_gelijk | 153 |
+| binnen_naam_gelijk | 151 |
 | binnen_naamvariant | 29 |
+| correctie_kmz | 2 |
 | geen_terrein_bevestigd | 1 |
 | handmatig | 3 |
 | nabij_naam_gelijk | 3 |
@@ -66,6 +67,7 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 | id | label punt | terrein | terrein m² | Grootte m² |
 |---|---|---|---|---|
 | `jb-loc-2369` | Joodse begraafplaats, Almere | Joodse begraafplaats, Almere | 2.854 | 4.875 |
+| `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | Oude Joodse begraafplaats, Venlo | 248 | 45 |
 | `jb-loc-2804` | Joodse begraafplaats, Beverwijk | Joodse begraafplaats, Beverwijk | 137 | 870 |
 | `jb-loc-2399` | Joodse begraafplaats, Borne | Joodse begraafplaats, Borne | 3.721 | 2.065 |
 | `jb-loc-2297` | Joodse begraafplaats, Dalfsen | Joodse begraafplaats, Dalfsen | 420 | 830 |
@@ -82,6 +84,13 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 - `jb-loc-3002` Israelitische begraafplaats, Enschede → Nw. Joodse begraafplaats, Enschede (16023 m², Grootte 18800)
 - `jb-loc-9` Joodse begraafplaats bij de Leeuwentrap, Vlissingen → Oude joodse begraafplaats, Vlissingen (694 m², Grootte 350)
 
+## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`)
+
+| id | terrein | oud m² | nieuw m² | ingang verschoven |
+|---|---|---|---|---|
+| `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | 43 | 248 | 9.9 m |
+| `jb-loc-4021` | Joodse begraafplaats, Dedemsvaart | 796 | 641 | 34.6 m |
+
 ## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)
 
 - Joodse begraafplaats, Delft en Oude joodse begraafplaats, Delden: 781 m² (afstand 163576 m)
@@ -90,6 +99,7 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 - Joodse begraafplaats, Rhenen en Joodse begraafplaats, Edam: 372 m² (afstand 70313 m)
 - Joodse begraafplaats, Wijk bij Duurstede en Joodse begraafplaats, Elburg: 579 m² (afstand 62509 m)
 - Joodse begraafplaats, Wijk bij Duurstede en Joodse begraafplaats, Werkendam: 579 m² (afstand 35530 m)
+- Oude Joodse begraafplaats, Wijk bij Duurstede en Oude Joodse begraafplaats, Venlo: 248 m² (afstand 89175 m)
 - Joodse begraafplaats, Den Helder en Nieuwe joodse begraafplaats, IJsselmuiden: 1584 m² (afstand 91241 m)
 - Oude joodse begraafplaats, Vlissingen en Nieuwe Joodse begraafplaats, Vlissingen: 694 m² (afstand 551 m)
 - Joodse begraafplaats, Elburg en Joodse begraafplaats, Werkendam: 579 m² (afstand 95778 m)

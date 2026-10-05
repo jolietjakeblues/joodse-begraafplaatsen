@@ -12,6 +12,9 @@ const DATA = {
   begraafplaatsen: "data/generated/begraafplaatsen.geojson",
   terreinen: "data/generated/terreinen.geojson",
   herbegravingen: "data/generated/herbegravingen.geojson",
+  // Artikelen op dodenakkers.nl (scripts/fetch_leeslijst.py); popup_ids zegt
+  // bij welke begraafplaatsen het artikel in de popup staat.
+  leeslijst: "data/generated/leeslijst.json",
   provincies: "data/pdok/provincies.geojson",
   gemeenten: "data/pdok/gemeenten.geojson",
   // RCE-lagen staan per provincie in aparte bestanden; dit manifest
@@ -266,8 +269,30 @@ const RELATIE = {
   "100-250m": "100–250 m",
   net_buiten: "net buiten het terrein",
   hoort_bij: "hoort bij de begraafplaats",
+  hoort_bij_andere: "hoort bij een andere begraafplaats (de RCE plaatst het hier)",
   algemene_begraafplaats: "de algemene begraafplaats waar dit deel bij hoort",
 };
+
+// Correcties gaan via een GitHub-issueformulier (.github/ISSUE_TEMPLATE/correctie.yml,
+// vraag F1). Veldnamen kenmerk/naam moeten gelijk blijven aan de id's in dat formulier.
+const REPO_URL = "https://github.com/jolietjakeblues/joodse-begraafplaatsen";
+function correctieUrl(p) {
+  const q = new URLSearchParams({
+    template: "correctie.yml",
+    title: `Correctie: ${p.naam}, ${p.plaats || ""}`.trim(),
+    kenmerk: p.id,
+    naam: [p.naam, p.plaats].filter(Boolean).join(", "),
+  });
+  return `${REPO_URL}/issues/new?${q}`;
+}
+
+// begraafplaats-id -> artikelen op dodenakkers.nl (gevuld in main())
+const artikelenPerId = new Map();
+function artikelenHtml(id) {
+  const lijst = artikelenPerId.get(id);
+  if (!lijst) return null;
+  return raw(lijst.map((a) => link(a.url, a.titel)).join("<br>"));
+}
 
 // Herbegravingen (data/herbegravingen.csv): knoppen openen de andere begraafplaats.
 function herbegravingHtml(lijst) {
@@ -336,10 +361,12 @@ function begraafplaatsPopup(p) {
       ["Bijzonderheden", p.bijzonderheden],
       ["Overgebracht naar", herbegravingHtml(p.herbegraven_naar)],
       ["Herbegraven vanuit", herbegravingHtml(p.herbegraven_van)],
+      ["Lees op Dodenakkers", artikelenHtml(p.id)],
       ["Beschermd gezicht", gezicht],
       ["Rijksmonumenten ≤ 100 m", nabijHtml],
       ["Kenmerk", p.id],
-    ])}</dl>`;
+    ])}</dl>
+    <p class="popup-correctie"><a href="${esc(correctieUrl(p))}" target="_blank" rel="noopener">Klopt er iets niet? Correctie doorgeven</a></p>`;
 }
 
 function monumentPopup(p) {
@@ -586,6 +613,18 @@ async function main() {
     loadJson(DATA.provincies),
   ]);
   alle = begraafplaatsen.features;
+  // Artikelen zijn een extraatje: kan de leeslijst niet laden, dan werkt de kaart gewoon.
+  // Wel wachten voordat een popup via ?id= opent, anders mist die de artikelen.
+  const leeslijstKlaar = loadJson(DATA.leeslijst)
+    .then((ll) => {
+      for (const a of ll.artikelen) {
+        for (const id of a.popup_ids || []) {
+          if (!artikelenPerId.has(id)) artikelenPerId.set(id, []);
+          artikelenPerId.get(id).push(a);
+        }
+      }
+    })
+    .catch((err) => console.warn("leeslijst niet geladen:", err.message));
   const byId = new Map(alle.map((f) => [f.properties.id, f]));
 
   const provs = [...new Set(alle.map((f) => f.properties.provincie))].sort();
@@ -664,6 +703,7 @@ async function main() {
   // ?id=jb-loc-4200 opent direct die begraafplaats (links vanaf de leespagina, delen)
   const startId = params.get("id");
   if (startId && byId.has(startId)) {
+    await leeslijstKlaar;
     const f = byId.get(startId);
     map.jumpTo({ center: f.geometry.coordinates, zoom: 16 });
     openBegraafplaats(f, false);

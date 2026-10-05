@@ -1,0 +1,65 @@
+# Correctieformulier voor stichting Dodenakkers (vraag F1, 2026-10-05).
+# De kaartpopup linkt hierheen met ?template=correctie.yml&kenmerk=...&naam=...
+# zodat kenmerk en naam al zijn ingevuld. Veld-id's niet wijzigen zonder
+# src/app.js (correctieUrl) mee te veranderen.
+name: Correctie doorgeven
+description: Iets klopt niet op de kaart? Geef het hier door, met het kenmerk van de begraafplaats.
+title: "Correctie: "
+labels: ["correctie"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Dank voor je correctie. Kom je vanuit de kaart, dan zijn kenmerk en naam al ingevuld.
+        Het kenmerk staat in de popup onderaan, bijvoorbeeld `jb-loc-1559`. We verwerken de correctie in de kaart en sluiten dan dit issue.
+
+        Let op: wat je hier schrijft is openbaar zichtbaar. Zet er geen persoonsgegevens in.
+  - type: input
+    id: kenmerk
+    attributes:
+      label: Kenmerk
+      description: Staat in de popup onder "Kenmerk", bijvoorbeeld jb-loc-1559. Gaat het om meerdere begraafplaatsen, zet ze dan achter elkaar.
+      placeholder: jb-loc-1559
+    validations:
+      required: true
+  - type: input
+    id: naam
+    attributes:
+      label: Naam en plaats
+      placeholder: Joodse begraafplaats, Plaatsnaam
+    validations:
+      required: false
+  - type: dropdown
+    id: soort
+    attributes:
+      label: Wat moet er anders?
+      multiple: true
+      options:
+        - Naam
+        - Status (in gebruik / geruimd / verdwenen)
+        - Plek of ingang
+        - Terrein (vorm of grootte)
+        - Adres
+        - Jaartal
+        - Rijksmonument of ander erfgoed
+        - Herbegraving (overgebracht naar / vanuit)
+        - Bijzonderheden
+        - Artikel op dodenakkers.nl
+        - Iets anders
+    validations:
+      required: true
+  - type: textarea
+    id: correctie
+    attributes:
+      label: Correctie
+      description: Wat staat er nu, en wat moet het zijn?
+      placeholder: "Nu: ...\nMoet zijn: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: bron
+    attributes:
+      label: Bron of toelichting
+      description: Waar komt de juiste informatie vandaan? Bijvoorbeeld eigen bezoek, archief, artikel. Is de Excel of KMZ al aangepast, vermeld dat dan hier.
+    validations:
+      required: false

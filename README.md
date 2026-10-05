@@ -17,6 +17,7 @@ data-dodenakkers/  (aangeleverd, niet in git)
   ├─ scripts/analyse_spatial.py     → data/generated/begraafplaatsen.geojson  (viewer-data)
   │                                    + docs/data/erfgoedrelaties.md
   ├─ scripts/fetch_leeslijst.py     → data/generated/leeslijst.json  (artikelen dodenakkers.nl, tag "Joodse begraafplaats")
+  ├─ scripts/compute_statistics.py  → data/generated/statistieken.json  (statistiekpagina)
   ├─ scripts/make_og_image.py       → src/images/og-image.png  (deelafbeelding)
   └─ scripts/build_site.py          → site/  (gitignored, voor Cloudflare)
 ```
@@ -26,11 +27,12 @@ Volgorde en commando's:
 ```bash
 pip install -r requirements.txt
 python scripts/fetch_pdok.py
-P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --provincie Zeeland --provincie Flevoland"
+P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --provincie Zeeland --provincie Flevoland --provincie Gelderland --provincie Overijssel --provincie Noord-Brabant --provincie Limburg"
 python scripts/build_base_dataset.py $P           # altijd ALLE provincies die op de kaart moeten
 python scripts/fetch_rce.py $P                    # alleen nodig voor nieuwe provincies / verse RCE-data
 python scripts/analyse_spatial.py
-python scripts/fetch_leeslijst.py                # leespagina actueel houden (na analyse_spatial: kaartlinks)
+python scripts/fetch_leeslijst.py                # na elke nieuwe provincie: kaartlinks + popupverwijzingen
+python scripts/compute_statistics.py
 python scripts/make_og_image.py
 python scripts/build_site.py
 python -m http.server -d site 8765                # lokaal bekijken
@@ -69,7 +71,8 @@ Productiedomein staat op één plek: `SITE_URL` in `scripts/build_site.py` (cano
 
 - **`Nr` in de Excel is niet uniek.** Alleen uniek per reeks: in gebruik → `Locaties.kmz`, verdwenen → `Verdwenen.kmz`, geruimd → `Geruimd.kmz`. Sleutel: `jb-<loc|ver|ger>-<Nr>`.
 - **Terrein** = punt ligt in polygoon (provincie-KMZ) én naam lijkt erop; bij geneste terreinen wint het kleinste. Verdwenen = alleen punt, bij benadering.
-- Correcties alleen via `data/corrections.csv` (velden) en `data/terrein_koppelingen.csv` (handmatige terreinkoppeling), nooit in de bron.
+- Correcties van Dodenakkers komen binnen als GitHub-issue met label `correctie` (formulier `.github/ISSUE_TEMPLATE/correctie.yml`, link "Correctie doorgeven" in elke kaartpopup met kenmerk ingevuld). Verwerken: wijziging in de juiste correctielaag hieronder, PR met "Closes #<nr>", merge → automatische deploy.
+- Correcties alleen via `data/corrections.csv` (velden), `data/terrein_koppelingen.csv` (handmatige terreinkoppeling), `data/herbegravingen.csv` en `data-dodenakkers/funerair_nieuwedata.kmz` (door Dodenakkers nagestuurde terreinen + ingangen; vervangt het terrein met dezelfde naam), nooit in de bron.
 - Gecontroleerde tellingen per provincie in `INVARIANTEN` (`scripts/build_base_dataset.py`).
 - Gemeente/provincie ruimtelijk bepaald (PDOK), Excel-waarde blijft als `_bron`.
 - Het tabblad *Dank en informeren* (persoonsgegevens) wordt nooit gelezen.

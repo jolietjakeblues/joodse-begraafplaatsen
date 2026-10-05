@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Statistieken – Joodse Begraafplaatsen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond (René 2026-10-02, vraag F4) -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Cijfers over de Joodse begraafplaatsen op de kaart: per provincie en gemeente, datering, erfgoed en herbegravingen." />
+  <link rel="canonical" href="{{SITE_URL}}/statistieken" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Statistieken – Joodse Begraafplaatsen" />
+  <meta property="og:description" content="Cijfers over de Joodse begraafplaatsen op de kaart: per provincie en gemeente, datering, erfgoed en herbegravingen." />
+  <meta property="og:url" content="{{SITE_URL}}/statistieken" />
+  <meta property="og:image" content="{{SITE_URL}}/images/og-image.png" />
+  <link rel="icon" href="images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pagina.css" />
+</head>
+<body class="pagina">
+  <a class="skip-link" href="#stats">Ga naar de cijfers</a>
+  <main>
+    <p><a href="./">&larr; Terug naar de kaart</a> &middot; <a href="lezen.html">Lezen</a> &middot; <a href="methode.html">Methode en bronnen</a></p>
+    <img src="images/dodenakkers-logo.webp" alt="Dodenakkers – funerair erfgoed" class="logo" width="480" height="146" />
+    <h1>Statistieken</h1>
+    <p class="lees-intro">Cijfers over de Joodse begraafplaatsen op de kaart, uit de inventarisatie van stichting Dodenakkers. Gemeenten volgen de huidige indeling (PDOK). Oppervlakten zijn die van de getekende terreinen.</p>
+    <p class="hint" id="stats-scope"></p>
+
+    <div id="stats" tabindex="-1">
+      <section id="stats-basis" aria-labelledby="h-basis"></section>
+      <section id="stats-provincie" aria-labelledby="h-provincie"></section>
+      <section id="stats-gemeente" aria-labelledby="h-gemeente"></section>
+      <section id="stats-datering" aria-labelledby="h-datering"></section>
+      <section id="stats-erfgoed" aria-labelledby="h-erfgoed"></section>
+      <section id="stats-herbegraving" aria-labelledby="h-herbegraving"></section>
+    </div>
+
+    <p class="hint lees-bron" id="stats-status" role="status" aria-live="polite">Cijfers laden…</p>
+  </main>
+  <script src="statistieken.js"></script>
+</body>
+</html>

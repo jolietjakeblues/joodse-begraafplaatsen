@@ -35,23 +35,13 @@ async function main() {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
 
-    document.getElementById("uitgelicht").append(
-      ...data.uitgelicht.map((u) =>
-        el("article", { class: "lees-kaart" },
-          el("h3", {}, extern(u.url, u.titel)),
-          el("p", { class: "hint", text: `${u.auteur} · ${datum(u.datum)}` }),
-          el("p", { text: u.beschrijving }),
-          el("p", {}, extern(u.url, "Lees het artikel op dodenakkers.nl")))
-      )
-    );
-
     const perProvincie = document.getElementById("per-provincie");
     for (const prov of PROVINCIE_VOLGORDE) {
       const items = data.artikelen.filter((a) => a.provincie === prov);
       if (!items.length) continue;
       perProvincie.append(el("h3", { text: `${prov} (${items.length})` }), el("ul", { class: "lees-lijst" }, ...items.map(artikelItem)));
     }
-    const overig = data.artikelen.filter((a) => !a.provincie && !a.uitgelicht);
+    const overig = data.artikelen.filter((a) => !a.provincie);
     document.getElementById("overig").append(...overig.map((a) => {
       const li = artikelItem(a);
       li.append(el("span", { class: "hint", text: ` · ${a.rubriek}` }));
