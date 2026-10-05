@@ -14,6 +14,7 @@ from __future__ import annotations
 import json
 import re
 import shutil
+import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -39,6 +40,15 @@ DATA_FILES = [
 
 
 def main() -> None:
+    # Eerst de gegenereerde data controleren: bij een fout niet bouwen (en dus
+    # in de Cloudflare-build ook niet deployen).
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from check_data import check
+    fouten = check()
+    if fouten:
+        sys.exit("Datacontrole mislukt, site niet gebouwd:\n  - " + "\n  - ".join(fouten))
+    print("Datacontrole: in orde")
+
     if SITE_DIR.exists():
         shutil.rmtree(SITE_DIR)
     shutil.copytree(REPO_ROOT / "src", SITE_DIR)

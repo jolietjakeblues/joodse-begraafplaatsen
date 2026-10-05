@@ -119,24 +119,6 @@ body.panel-dicht #panel-toggle { left: 12px; }
 .mini-fout:empty { display: none; }
 .mini-fout { color: #b00020; font-size: 12px; }
 
-@media (max-width: 700px) {
-  /* Open paneel ligt boven de kaartknoppen (schaal, bronvermelding);
-     de menuknop daar weer boven. */
-  #panel { z-index: 3; }
-  #panel-toggle { z-index: 4; }
-  /* Ruimte rechts laten voor de zoomknoppen van de kaart */
-  #panel { width: calc(100% - 66px); max-height: calc(100% - 24px); }
-  #panel-toggle { top: auto; left: auto; bottom: 16px; right: 12px; width: 48px; height: 48px; }
-  body.panel-dicht #panel-toggle { left: auto; }
-  #mini-legenda { left: 12px; max-width: calc(100% - 66px); }
-  /* Aanraakdoelen minimaal ~44px hoog */
-  #panel label { padding: 9px 0; margin: 0; }
-  #panel input[type="checkbox"], #panel input[type="radio"] { width: 18px; height: 18px; vertical-align: -4px; }
-  #panel input[type="search"] { font-size: 16px; padding: 10px; } /* 16px voorkomt inzoomen op iOS */
-  #panel details.panel-section summary { padding: 12px 0 6px; }
-  .lijst-item { padding: 10px 2px; }
-  .maplibregl-ctrl-bottom-right { margin-bottom: 70px; } /* schaal + (i) boven de menuknop */
-}
 @media (prefers-reduced-motion: reduce) {
   #panel { transition: none; }
 }
@@ -283,4 +265,26 @@ body.embed .intro { display: none; }
 .histogram-row-button[aria-pressed="true"] .histogram-label { font-weight: 600; color: #212529; }
 @media (max-width: 700px) {
   .histogram-row-button { padding: 9px 4px; }
+}
+
+/* Mobiel (<= 700 px). Staat bewust ACHTER alle algemene regels: anders
+   overschrijven die (bv. #panel input[type="search"], #panel label) de
+   mobiele waarden weer (review 2026-10-05). */
+@media (max-width: 700px) {
+  /* Open paneel ligt boven de kaartknoppen (schaal, bronvermelding);
+     de menuknop daar weer boven. */
+  #panel { z-index: 3; }
+  #panel-toggle { z-index: 4; }
+  /* Ruimte rechts laten voor de zoomknoppen van de kaart */
+  #panel { width: calc(100% - 66px); max-height: calc(100% - 24px); }
+  #panel-toggle { top: auto; left: auto; bottom: 16px; right: 12px; width: 48px; height: 48px; }
+  body.panel-dicht #panel-toggle { left: auto; }
+  #mini-legenda { left: 12px; max-width: calc(100% - 66px); }
+  /* Aanraakdoelen minimaal ~44px hoog */
+  #panel label { padding: 9px 0; margin: 0; }
+  #panel input[type="checkbox"], #panel input[type="radio"] { width: 18px; height: 18px; vertical-align: -4px; }
+  #panel input[type="search"] { font-size: 16px; padding: 10px; } /* 16px voorkomt inzoomen op iOS */
+  #panel details.panel-section summary { padding: 12px 0 6px; }
+  .lijst-item { padding: 10px 2px; }
+  .maplibregl-ctrl-bottom-right { margin-bottom: 70px; } /* schaal + (i) boven de menuknop */
 }

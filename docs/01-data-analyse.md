@@ -104,7 +104,7 @@ Alle 26 Joodse polygonen in Zuid-Holland.kmz zijn hiermee gekoppeld; er blijven 
 - `Bijzonderheden` bevat historisch waardevolle vrije tekst (sluiting, ruiming, "overgebracht naar ...") → in popup tonen.
 - Provincie "Fryslân" in Excel (Friesland in bestandsnaam).
 - Gemeentelijke herindelingen: Excel-`Gemeente` kan verouderd zijn (vgl. Vijfheerenlanden in dodenakkers) → later checken tegen PDOK-gemeentegrenzen.
-- Eigenaar/Postadres: organisaties (NIG, NIK) maar mogelijk ook personen → niet publiceren zonder akkoord.
+- Eigenaar/Postadres: organisaties (NIG, NIK) maar mogelijk ook personen → niet publiceren. Besluit ronde 2 (C2): helemaal niet tonen en niet in de open data.
 
 ## 6. Zuid-Holland in één oogopslag
 
@@ -121,7 +121,7 @@ Na Zuid-Holland zijn Utrecht, Noord-Holland, Zeeland en Flevoland verwerkt (91 b
 - **Waarschijnlijk gekopieerde polygonen**: Vlissingen oud/nieuw (beide exact 694 m², 551 m uit elkaar); Rhenen/Edam (beide 372 m²) mogelijk toeval.
 - **Ontbrekend terrein**: Bilthoven, Progressieve joodse begraafplaats — geen polygoon in de KMZ.
 - **`Rmon` is vaak een complexnummer** (8 van 19) — opgelost via RCE (`ceo:complexnummer` → onderdelen).
-- **"In gebruik" omvat ook gesloten begraafplaatsen** (Haarlem Kleverlaan "1969 gesloten") → op de kaart "Bestaand".
+- **"In gebruik" omvat ook gesloten begraafplaatsen** (Haarlem Kleverlaan "1969 gesloten") → eerst "Bestaand" genoemd; sinds ronde 2 (A4/E3) weer "In gebruik".
 - Kolomwaarden: `NA` ∈ {bij, tegenover, achter, to}; `Muur` leeg in heel West; `Grondvorm` overal "Recht"; `Gemeentelijk monument` soms "Geen".
 
 Alle open punten: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
@@ -132,3 +132,17 @@ Alle open punten: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
 - Verdwenen begraafplaatsen: alleen een puntlocatie beschikbaar. Bilthoven (`jb-loc-4368`): alleen punt, geen terrein.
 - Een complexnummer in `Rmon` kan voorkomen.
 - Weergavenamen vastgesteld voor Toepad, Oud-Rijswijk en Schiedam (via `data/corrections.csv`).
+
+## 9. Bevindingen rest van Nederland en ronde 2–3 (2026-10-05)
+
+Alle 12 provincies verwerkt; alle 315 Excel-rijen gekoppeld (239 in gebruik, 7 geruimd, 69 verdwenen; 244 terreinen). Nieuw geleerd:
+
+- **Synoniemen en tikfouten breken de naamtoets**: "Israëlitisch" ↔ "Joods" (Enschede 2×), "begraafplats" (Leens). Oplossing: `data/terrein_koppelingen.csv` als het punt in het terrein ligt en het oppervlak ≈ `Grootte`; de drempel nooit verlagen.
+- **"Binnen gaat voor nabij" kan misgaan**: in Uithuizen ligt het punt 1 m buiten het Joodse terrein maar binnen de oude algemene begraafplaats, die toevallig de naamtoets haalde ("joodse" ~ "oude"). Per provincie de lijst kenmerk/label/terrein/oppervlak nalopen.
+- **Gekruiste namen** (Emmen, vraag Dr1): de Excel noemt een ander terrein "Westenesch" dan de KMZ. Gekoppeld op ligging.
+- **Geen terrein**: Loppersum geruimd (vraag Gr1), Bilthoven (bevestigd).
+- **RCE-punten op de verkeerde begraafplaats**: Venlo 37192 en Putte 516689 liggen volgens de RCE op een buurbegraafplaats → `BEOORDEELDE_RELATIES` (`hoort_bij_andere`), niet verplaatsen.
+- **Nagestuurde terreinen** in `funerair_nieuwedata.kmz` (Venlo oud, Dedemsvaart): vervangen het terrein met dezelfde naam; het punt wordt de ingang.
+- **Bijzonderheden kunnen een getal zijn** in de Excel ("-1883", Loppersum) → altijd als tekst inlezen.
+- **Provincie-KMZ kan lege polygonen bevatten** ("Naamloos Polygoon", Groningen 7×).
+- Antwoorden Leon/René: `Grootte` = oppervlakte van de Google Earth-shape; `Jaartal` = aanleg of eerste begraving; `Circa` = bij benadering; "Geen" = "Nee"; Muur, Kadaster, Grondvorm, Laatste bezoek en Eigenaar niet tonen; "In gebruik" blijft de statusnaam (Joodse begraafplaatsen worden niet gesloten).

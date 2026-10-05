@@ -64,4 +64,9 @@ Stack: Python (pandas, shapely, pyproj, requests; KML met stdlib `zipfile` + `El
 
 - Overgenomen en aangepast: KMZ-parsing, normalize/RD-transformer, `fetch_rce.py` (nu per provincie + manifest + Rmon-opzoeking), `analyse_spatial.py` (100 m, geen archeologische onderzoeksgebieden), PDOK-grenzen (landelijk), viewer-basis (MapLibre, ondergronden incl. BGT/BRK, escapeHtml-popups, facet-tellingen, `_headers`).
 - Nieuw t.o.v. dodenakkers: koppeling via (reeks, Nr), naamtoets op kernwoorden met Excel-naam, geneste terreinen, oppervlaktecontrole, twee correctielagen, `INVARIANTEN` per provincie, mini-legenda en mobiele bediening, embed-modus, 404/robots/sitemap/Open Graph.
-- Niet overgenomen: fix-scripts, CHS, onderzoeksgebieden, kandidatenpagina, statistiekpagina (nog niet gevraagd), tekstlabels.
+- Niet overgenomen: fix-scripts, CHS, onderzoeksgebieden, kandidatenpagina, tekstlabels.
+
+## Achteraf (2026-10-05, heel Nederland)
+
+- Later toegevoegd: statistiekpagina (zelfde scheiding rekenen/tonen als dodenakkers-zh: `compute_statistics.py` → `statistieken.json`), herbegravingen (correctielaag + kaartlaag), leespagina met popupverwijzingen, correctieformulier via GitHub-issues, correctie-KMZ voor nagestuurde terreinen.
+- Kwaliteit (review 2026-10-05): invarianten naar `data/invarianten.json`; controleren vóór schrijven; `check_data.py` in de sitebuild zodat inconsistente data niet gedeployd wordt; filtertellingen binnen alle actieve filters; springlink opent het paneel; mobiele CSS achteraan; monumentenstatistiek telt unieke monumenten.
