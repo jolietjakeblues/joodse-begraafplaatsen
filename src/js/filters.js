@@ -35,7 +35,16 @@ export function initFilters(kaart, features, opener) {
   const startProvincie = provincies.find((prov) => zoekNorm(prov) === zoekNorm(gevraagd || ""));
   if (startProvincie) provincieEl().value = startProvincie;
 
-  document.querySelectorAll(".filter-status, #filter-rijksmonument, #filter-gezicht").forEach((el) => el.addEventListener("change", applyFilters));
+  document.querySelectorAll(".filter-status, #filter-rijksmonument, #filter-gezicht, #filter-herbegraving").forEach((el) => el.addEventListener("change", applyFilters));
+  // Filter op herbegravingen zet ook de lijnen met pijlen aan (andersom niet:
+  // de laag blijft een overlay boven elke selectie).
+  document.getElementById("filter-herbegraving").addEventListener("change", (e) => {
+    const laag = document.querySelector('.toggle-layer[value="herbegravingen"]');
+    if (e.target.checked && !laag.checked) {
+      laag.checked = true;
+      laag.dispatchEvent(new Event("change"));
+    }
+  });
   document.getElementById("search").addEventListener("input", applyFilters);
   provincieEl().addEventListener("change", () => {
     applyFilters();
@@ -90,6 +99,7 @@ function selectie() {
   const prov = provincieEl().value;
   const alleenRm = document.getElementById("filter-rijksmonument").checked;
   const alleenGezicht = document.getElementById("filter-gezicht").checked;
+  const alleenHerbegraving = document.getElementById("filter-herbegraving").checked;
   // Een kenmerk ("jb-loc-366") moet exact matchen, anders vindt het ook jb-loc-3663.
   const kenmerk = /^jb (loc|ver|ger) \d+$/.test(varianten[0]) ? varianten[0] : null;
   const zoek = (p) =>
@@ -97,22 +107,28 @@ function selectie() {
   const inProv = (p) => !prov || p.provincie === prov;
   const isRm = (p) => p.rijksmonument === true;
   const inGezicht = (p) => !!p.in_gezicht;
+  const isHerbegraving = (p) => !!(p.herbegraven_naar?.length || p.herbegraven_van?.length);
+  const vinkRm = (p) => !alleenRm || isRm(p);
+  const vinkGezicht = (p) => !alleenGezicht || inGezicht(p);
+  const vinkHerbegraving = (p) => !alleenHerbegraving || isHerbegraving(p);
+  const vinkjes = (p) => vinkRm(p) && vinkGezicht(p) && vinkHerbegraving(p);
   // zonderDatering: alle filters behalve datering (voor de balkjestellingen)
-  const zonderDatering = (p) => zoek(p) && inProv(p) && (!alleenRm || isRm(p)) && (!alleenGezicht || inGezicht(p));
+  const zonderDatering = (p) => zoek(p) && inProv(p) && vinkjes(p);
   // voor de aantallen in de provinciekeuze: alle filters behalve de provincie
-  const zonderProvincie = (p) => statussen.has(p.status) && zoek(p) && dateringMatch(p) && (!alleenRm || isRm(p)) && (!alleenGezicht || inGezicht(p));
+  const zonderProvincie = (p) => statussen.has(p.status) && zoek(p) && dateringMatch(p) && vinkjes(p);
   const basis = (p) => zonderDatering(p) && dateringMatch(p);
   // Facettellingen naast de vinkjes: binnen ALLE overige actieve filters (status,
   // zoekterm, datering, het andere vinkje), zodat het getal is wat je krijgt
   // als je het vinkje aanzet (review 2026-10-05).
   const overig = (p) => statussen.has(p.status) && zoek(p) && inProv(p) && dateringMatch(p);
-  const telRm = (p) => overig(p) && (!alleenGezicht || inGezicht(p)) && isRm(p);
-  const telGezicht = (p) => overig(p) && (!alleenRm || isRm(p)) && inGezicht(p);
-  return { statussen, basis, zonderDatering, zonderProvincie, telRm, telGezicht, match: (p) => statussen.has(p.status) && basis(p) };
+  const telRm = (p) => overig(p) && vinkGezicht(p) && vinkHerbegraving(p) && isRm(p);
+  const telGezicht = (p) => overig(p) && vinkRm(p) && vinkHerbegraving(p) && inGezicht(p);
+  const telHerbegraving = (p) => overig(p) && vinkRm(p) && vinkGezicht(p) && isHerbegraving(p);
+  return { statussen, basis, zonderDatering, zonderProvincie, telRm, telGezicht, telHerbegraving, match: (p) => statussen.has(p.status) && basis(p) };
 }
 
 export function applyFilters() {
-  const { statussen, basis, zonderDatering, zonderProvincie, telRm, telGezicht, match } = selectie();
+  const { statussen, basis, zonderDatering, zonderProvincie, telRm, telGezicht, telHerbegraving, match } = selectie();
   const getoond = alle.filter((f) => match(f.properties));
   const ids = getoond.map((f) => f.properties.id);
   const filter = ["in", ["get", "id"], ["literal", ids]];
@@ -127,6 +143,7 @@ export function applyFilters() {
   }
   document.querySelector('[data-count="rijksmonument"]').textContent = `(${alle.filter((f) => telRm(f.properties)).length})`;
   document.querySelector('[data-count="gezicht"]').textContent = `(${alle.filter((f) => telGezicht(f.properties)).length})`;
+  document.querySelector('[data-count="herbegraving"]').textContent = `(${alle.filter((f) => telHerbegraving(f.properties)).length})`;
   // provinciekeuze: per provincie het aantal binnen de overige filters
   const perProv = new Map();
   for (const f of alle) if (zonderProvincie(f.properties)) perProv.set(f.properties.provincie, (perProv.get(f.properties.provincie) || 0) + 1);

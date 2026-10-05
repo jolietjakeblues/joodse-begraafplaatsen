@@ -20,7 +20,7 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - Datering: vóór 1700 · 1700–1799 · 1800–1849 · 1850–1899 · 1900–1949 · 1950–heden (C9).
 - Pagina's: kaart, `lezen` (artikelen, geen uitgelicht-blok), `statistieken` (E7), `methode`, en een pagina per begraafplaats `/begraafplaats/<kenmerk>` (gegenereerd door `scripts/paginas.py` in de build; vaste link voor het boek, printbaar).
 - Kenmerken zijn permanent: `data/kenmerken.json` (register + `vervallen` met doorverwijzing). Nooit een kenmerk laten verdwijnen zonder doorverwijzing.
-- Kaart: zoeken zonder accenten en met andere namen (`ZOEK_ALIASSEN` in `src/js/config.js`; geen alias Joods↔Israëlitisch), provinciefilter (ook `?provincie=`), pijlen op herbegravingslijnen, "Link kopiëren" (vaste paginalink) in de popup.
+- Kaart: zoeken zonder accenten en met andere namen (`ZOEK_ALIASSEN` in `src/js/config.js`; geen alias Joods↔Israëlitisch), provinciefilter (ook `?provincie=`), filter "Alleen met herbegraving" (zet ook de lijnen aan), pijlen op herbegravingslijnen, "Link kopiëren" (vaste paginalink) in de popup.
 - Correcties van Dodenakkers: GitHub-issueformulier `.github/ISSUE_TEMPLATE/correctie.yml` (label `correctie`); popuplink vult kenmerk en naam in (F1). Verwerken via de correctielagen, PR met "Closes #nr".
 - Hosting: Worker met static assets (`wrangler.jsonc`, assets = `site/`). **Deploy alleen via merge op `main`** (Cloudflare Workers Builds: build `python3 scripts/build_site.py`, deploy `npx wrangler deploy`; zie README). Niet handmatig deployen vanuit een werkmap. Domein op één plek: `SITE_URL` in `scripts/build_site.py`.
 - Mobiel is een eis: paneel dicht + mini-legenda, aanraakdoelen ~44 px, testen op 375 px. Mobiele CSS staat achteraan in `style.css`.
