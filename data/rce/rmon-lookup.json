@@ -1,5 +1,5 @@
 {
-  "retrieved_at": "2026-10-02T20:56:09.669183+00:00",
+  "retrieved_at": "2026-10-05T08:43:48.395799+00:00",
   "gezocht": [
     "10489",
     "12342",
@@ -15,6 +15,7 @@
     "28464",
     "29015",
     "29477",
+    "30486",
     "31770",
     "31967",
     "32923",
@@ -29,10 +30,12 @@
     "508610",
     "509013",
     "510581",
+    "510794",
     "511938",
     "512029",
     "513219",
     "513294",
+    "513631",
     "513679",
     "514446",
     "514992",
@@ -65,6 +68,13 @@
   ],
   "niet_gevonden": [],
   "nummers": {
+    "30486": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/45239",
+      "naam": "Joodse begraafplaats",
+      "onderdelen": [],
+      "hoofdobject": null
+    },
     "513294": {
       "soort": "rijksmonument",
       "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/78839",
@@ -298,7 +308,7 @@
     },
     "12342": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/a2a6ef0d-8f96-94f1-5b05-2579d9da9254",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/51600",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -347,7 +357,7 @@
     },
     "18863": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/43235",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/472755d9-90c3-53dc-85c5-0771217e45dc",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -403,7 +413,7 @@
     },
     "32923": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/26672",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/09c6ffa4-4320-9fc5-102e-ee01940390b2",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -478,9 +488,23 @@
       "onderdelen": [],
       "hoofdobject": null
     },
+    "510794": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/75467",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
     "512029": {
       "soort": "rijksmonument",
       "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/34097",
+      "naam": null,
+      "onderdelen": [],
+      "hoofdobject": null
+    },
+    "513631": {
+      "soort": "rijksmonument",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/73602",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
@@ -550,14 +574,14 @@
     },
     "7548": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/12063",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/38fc3a17-de43-c6c4-5a93-25a20e768035",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null
     },
     "9377": {
       "soort": "rijksmonument",
-      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/beeldbank/id/63235dea-ca94-ea5d-bead-c3f1270acb18",
+      "uri": "https://linkeddata.cultureelerfgoed.nl/cho-kennis/id/rijksmonument/48477",
       "naam": null,
       "onderdelen": [],
       "hoofdobject": null

@@ -1,0 +1,27 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/archeologische-rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-05T08:43:47.046170+00:00",
+  "provincies": [
+    "Groningen"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 6.1474,
+    "MAX_LON": 7.2475,
+    "MIN_LAT": 52.8182,
+    "MAX_LAT": 53.5964
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 1,
+  "stats": {
+    "point_rows_from_endpoint": 285,
+    "polygon_rows_from_endpoint": 244,
+    "distinct_cho": 285,
+    "buiten_gebied": 65,
+    "features": 220,
+    "in_provincie": 220,
+    "binnen_zone": 1
+  },
+  "notes": "Rijksmonumenten met heeftMonumentAard = archeologisch (concept-URI, geen trefwoord), binnen 100 m van een bestaande of geruimde Joodse begraafplaats."
+}
