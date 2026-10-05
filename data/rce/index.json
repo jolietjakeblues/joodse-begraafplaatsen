@@ -44,6 +44,11 @@
       "gezichten": "data/rce/beschermde-gezichten-limburg.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-limburg.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-limburg.geojson"
+    },
+    "Groningen": {
+      "gezichten": "data/rce/beschermde-gezichten-groningen.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-groningen.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-groningen.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -92,6 +97,11 @@
       "gezichten": 45,
       "rijksmonumenten": 49,
       "archeologisch": 2
+    },
+    "Groningen": {
+      "gezichten": 49,
+      "rijksmonumenten": 13,
+      "archeologisch": 1
     }
   }
 }

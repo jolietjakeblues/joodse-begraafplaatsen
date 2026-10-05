@@ -110,6 +110,8 @@ STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": 
 #     data/terrein_koppelingen.csv (naamtoets faalt op Israelitisch <-> Joods, oppervlak klopt).
 #   Noord-Brabant 2026-10-02: alles gekoppeld; Putte "Sombre Hadas" = KMZ-tikfout (vraag B8).
 #   Limburg 2026-10-02: alles gekoppeld; alleen naamvarianten in schrijfwijze ("Joods Maastricht" e.d.).
+#   Groningen 2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via
+#     data/terrein_koppelingen.csv; Loppersum geruimd (jb-ger-247) heeft geen terrein in de KMZ (vraag).
 INVARIANTEN = {
     "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
     "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
@@ -120,6 +122,7 @@ INVARIANTEN = {
     "Overijssel": {"totaal": 43, "in_gebruik": 34, "geruimd": 1, "verdwenen": 8, "terreinen": 35},
     "Noord-Brabant": {"totaal": 31, "in_gebruik": 21, "geruimd": 0, "verdwenen": 10, "terreinen": 21},
     "Limburg": {"totaal": 25, "in_gebruik": 18, "geruimd": 1, "verdwenen": 6, "terreinen": 19},
+    "Groningen": {"totaal": 27, "in_gebruik": 23, "geruimd": 2, "verdwenen": 2, "terreinen": 24},
 }
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.
@@ -518,7 +521,7 @@ def build(provincies: list[str]) -> None:
             "jaartal_bron": jaartal_bron,
             "circa": clean(r["Circa"]),
             "met": ja_nee(r["Met"]),        # Met = metaheerhuis(je) aanwezig
-            "bijzonderheden": clean(r["Bijzonderheden"]),
+            "bijzonderheden": as_text(r["Bijzonderheden"]),  # tekst, ook als de Excel er een getal van maakt ("-1883")
             "grootte_m2": as_int(r["Grootte"]),
             "grootte_bron": grootte_bron,
             "locatie_precisie": "bij_benadering" if status == "verdwenen" else "ingang",

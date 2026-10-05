@@ -105,7 +105,19 @@ Opmerking Joop (2026-10-05): op de leespagina geen "Uitgelicht" meer, alle artik
 - **R2 (O1 Denekamp).** "Onze contour is de daadwerkelijke begraafplaats, niet het hele perceel." Is RCE-monument 12342 dan het rijksmonument van de Joodse begraafplaats (met een ruimere grens)? Dan zou de Excel bij `jb-loc-2459` "rijksmonument ja" moeten hebben.
 - **R3 (NB1, B8).** De gecorrigeerde Excel (Putte, Maassluis, Puttershoek) hebben we nog niet. Graag in de gedeelde map.
 
-Nog open: R1–R3, E8 (later).
+## Gr. Groningen (nieuw, 2026-10-05)
+
+Alle 27 Groningse begraafplaatsen zijn gekoppeld (23 in gebruik, 2 geruimd, 2 verdwenen; 24 terreinen). Leens en Uithuizen zijn handmatig aan hun terrein gekoppeld (`data/terrein_koppelingen.csv`). Herbegraving op de kaart: Jodenkamp → Joodse begraafplaats op de Noorderbegraafplaats (`jb-loc-4068`).
+
+**Gr1. Loppersum, geruimde Oude Joodse begraafplaats** (`jb-ger-247`, Grootte 104 m²). In `Funerair Groningen.kmz` staat geen terrein voor deze begraafplaats; het dichtstbijzijnde Joodse terrein is de huidige begraafplaats op 353 m. Is er een terrein, of blijft het een punt (zoals Bilthoven)?
+*Nu:* alleen een punt.
+
+Ter info (we passen de bron niet aan):
+- `Funerair Groningen.kmz`: "Joodse begraaf**plats**, Leens" (tikfout) en 7 lege "Naamloos Polygoon".
+- `Locaties.kmz`: het label van `jb-loc-3574` is "Joodse begraafplaats, Uithuizen**?**" (met vraagteken).
+- Uithuizen: het punt ligt 1 m buiten het Joodse terrein, binnen de Oude algemene begraafplaats.
+
+Nog open: R1–R3, Gr1, E8 (later).
 
 De gedetailleerde vragen hieronder zijn het archief van ronde 1–2; de tabellen hierboven zijn leidend.
 
