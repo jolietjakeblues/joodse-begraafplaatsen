@@ -1,0 +1,23 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/beschermde-gezichten.sparql",
+  "retrieved_at": "2026-10-05T08:43:13.847687+00:00",
+  "provincies": [
+    "Groningen"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 6.1474,
+    "MAX_LON": 7.2475,
+    "MIN_LAT": 52.8182,
+    "MAX_LAT": 53.5964
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 49,
+  "stats": {
+    "rows_from_endpoint": 472,
+    "features_in_gebied": 49,
+    "buiten_gebied": 423
+  },
+  "notes": "Rijksbeschermde stads- en dorpsgezichten; landelijk opgehaald, geknipt op provinciegrens."
+}

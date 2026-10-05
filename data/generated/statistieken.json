@@ -1,8 +1,9 @@
 {
- "gegenereerd": "2026-10-05T08:19:14.326281+00:00",
+ "gegenereerd": "2026-10-05T08:44:52.923816+00:00",
  "provincies_op_kaart": [
   "Flevoland",
   "Gelderland",
+  "Groningen",
   "Limburg",
   "Noord-Brabant",
   "Noord-Holland",
@@ -12,16 +13,16 @@
   "Zuid-Holland"
  ],
  "basis": {
-  "totaal": 251,
+  "totaal": 278,
   "per_status": {
-   "in_gebruik": 185,
-   "geruimd": 4,
-   "verdwenen": 62
+   "in_gebruik": 208,
+   "geruimd": 6,
+   "verdwenen": 64
   },
-  "provincies": 9,
-  "met_terrein": 188,
-  "totaal_m2": 750122,
-  "mediaan_m2": 781,
+  "provincies": 10,
+  "met_terrein": 212,
+  "totaal_m2": 790882,
+  "mediaan_m2": 795,
   "grootste": {
    "id": "jb-loc-3369",
    "naam": "Israelitische Begraafplaats Amsterdam",
@@ -55,6 +56,15 @@
    "verdwenen": 16,
    "met_terrein": 45,
    "totaal_m2": 69669
+  },
+  {
+   "provincie": "Groningen",
+   "totaal": 27,
+   "in_gebruik": 23,
+   "geruimd": 2,
+   "verdwenen": 2,
+   "met_terrein": 24,
+   "totaal_m2": 40760
   },
   {
    "provincie": "Limburg",
@@ -138,6 +148,14 @@
    "verdwenen": 4
   },
   {
+   "gemeente": "Westerwolde",
+   "provincie": "Groningen",
+   "totaal": 6,
+   "in_gebruik": 5,
+   "geruimd": 0,
+   "verdwenen": 1
+  },
+  {
    "gemeente": "Land van Cuijk",
    "provincie": "Noord-Brabant",
    "totaal": 5,
@@ -162,6 +180,22 @@
    "verdwenen": 2
   },
   {
+   "gemeente": "Eemsdelta",
+   "provincie": "Groningen",
+   "totaal": 4,
+   "in_gebruik": 3,
+   "geruimd": 1,
+   "verdwenen": 0
+  },
+  {
+   "gemeente": "Het Hogeland",
+   "provincie": "Groningen",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  },
+  {
    "gemeente": "Hof van Twente",
    "provincie": "Overijssel",
    "totaal": 4,
@@ -171,30 +205,6 @@
   },
   {
    "gemeente": "Oude IJsselstreek",
-   "provincie": "Gelderland",
-   "totaal": 4,
-   "in_gebruik": 4,
-   "geruimd": 0,
-   "verdwenen": 0
-  },
-  {
-   "gemeente": "Sittard-Geleen",
-   "provincie": "Limburg",
-   "totaal": 4,
-   "in_gebruik": 2,
-   "geruimd": 1,
-   "verdwenen": 1
-  },
-  {
-   "gemeente": "West Betuwe",
-   "provincie": "Gelderland",
-   "totaal": 4,
-   "in_gebruik": 4,
-   "geruimd": 0,
-   "verdwenen": 0
-  },
-  {
-   "gemeente": "Zaltbommel",
    "provincie": "Gelderland",
    "totaal": 4,
    "in_gebruik": 4,
@@ -255,40 +265,40 @@
   }
  ],
  "datering": {
-  "met_jaartal": 235,
+  "met_jaartal": 261,
   "klassen": [
    {
     "label": "vóór 1700",
-    "aantal": 16,
-    "in_gebruik": 11,
+    "aantal": 18,
+    "in_gebruik": 13,
     "geruimd": 0,
     "verdwenen": 5
    },
    {
     "label": "1700–1799",
-    "aantal": 75,
-    "in_gebruik": 48,
-    "geruimd": 2,
-    "verdwenen": 25
+    "aantal": 79,
+    "in_gebruik": 50,
+    "geruimd": 3,
+    "verdwenen": 26
    },
    {
     "label": "1800–1849",
-    "aantal": 54,
-    "in_gebruik": 44,
+    "aantal": 61,
+    "in_gebruik": 51,
     "geruimd": 1,
     "verdwenen": 9
    },
    {
     "label": "1850–1899",
-    "aantal": 64,
-    "in_gebruik": 59,
-    "geruimd": 0,
+    "aantal": 76,
+    "in_gebruik": 70,
+    "geruimd": 1,
     "verdwenen": 5
    },
    {
     "label": "1900–1949",
-    "aantal": 17,
-    "in_gebruik": 14,
+    "aantal": 18,
+    "in_gebruik": 15,
     "geruimd": 1,
     "verdwenen": 2
    },
@@ -350,6 +360,14 @@
     "circa": false
    },
    {
+    "id": "jb-loc-1172",
+    "naam": "Israelitische Begraafplaats van de gemeente Delfzijl",
+    "plaats": "Farmsum",
+    "status": "in_gebruik",
+    "jaartal": 1655,
+    "circa": false
+   },
+   {
     "id": "jb-loc-17",
     "naam": "Portugees-Joodse Begraafplaats",
     "plaats": "Middelburg",
@@ -371,14 +389,6 @@
     "plaats": "Amersfoort",
     "status": "in_gebruik",
     "jaartal": 1670,
-    "circa": false
-   },
-   {
-    "id": "jb-loc-2523",
-    "naam": "Joodse Begraafplaats",
-    "plaats": "Monnickendam",
-    "status": "in_gebruik",
-    "jaartal": 1677,
     "circa": false
    }
   ],
@@ -413,6 +423,14 @@
     "plaats": "Winterswijk",
     "status": "in_gebruik",
     "jaartal": 1647,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-1172",
+    "naam": "Israelitische Begraafplaats van de gemeente Delfzijl",
+    "plaats": "Farmsum",
+    "status": "in_gebruik",
+    "jaartal": 1655,
     "circa": false
    },
    {
@@ -454,25 +472,17 @@
     "status": "in_gebruik",
     "jaartal": 1688,
     "circa": false
-   },
-   {
-    "id": "jb-loc-3888",
-    "naam": "Joodse Begraafplaats Scheveningen (gemengd)",
-    "plaats": "'s-Gravenhage",
-    "status": "in_gebruik",
-    "jaartal": 1694,
-    "circa": false
    }
   ]
  },
  "erfgoed": {
-  "basis": 189,
-  "rijksmonument": 62,
+  "basis": 214,
+  "rijksmonument": 65,
   "gemeentelijk_monument": 50,
   "mip": 40,
-  "metaheerhuis": 71,
-  "in_gezicht": 36,
-  "met_rijksmonument_100m": 96,
+  "metaheerhuis": 80,
+  "in_gezicht": 37,
+  "met_rijksmonument_100m": 102,
   "top_functies_100m": [
    {
     "functie": "Woonhuis(K)",
@@ -480,7 +490,7 @@
    },
    {
     "functie": "Begraafplaats en -onderdelen",
-    "aantal": 42
+    "aantal": 43
    },
    {
     "functie": "Grafmonument",
@@ -488,31 +498,31 @@
    },
    {
     "functie": "Begraafplaats",
-    "aantal": 29
-   },
-   {
-    "functie": "Baarhuisje",
-    "aantal": 15
+    "aantal": 31
    },
    {
     "functie": "Woonhuis",
-    "aantal": 14
+    "aantal": 16
+   },
+   {
+    "functie": "Baarhuisje",
+    "aantal": 16
    },
    {
     "functie": "Omwalling",
-    "aantal": 14
+    "aantal": 15
    },
    {
     "functie": "Boerderij (M)",
     "aantal": 9
    },
    {
-    "functie": "Poortgebouw",
-    "aantal": 7
+    "functie": "Begraafplaatshek",
+    "aantal": 8
    },
    {
-    "functie": "Begraafplaatsaula",
-    "aantal": 6
+    "functie": "Poortgebouw",
+    "aantal": 7
    }
   ],
   "per_provincie": [
@@ -527,6 +537,12 @@
     "rijksmonument": 11,
     "in_gezicht": 9,
     "metaheerhuis": 16
+   },
+   {
+    "provincie": "Groningen",
+    "rijksmonument": 3,
+    "in_gezicht": 1,
+    "metaheerhuis": 9
    },
    {
     "provincie": "Limburg",
@@ -573,8 +589,8 @@
   ]
  },
  "herbegravingen": {
-  "lijnen": 32,
-  "bestemmingen": 26,
+  "lijnen": 33,
+  "bestemmingen": 27,
   "meeste_ontvangen": [
    {
     "id": "jb-loc-2615",
@@ -619,6 +635,6 @@
     "aantal": 2
    }
   ],
-  "met_tekst_overgebracht": 35
+  "met_tekst_overgebracht": 36
  }
 }
