@@ -139,6 +139,7 @@ function renderErfgoed(s) {
       ["Met metaheerhuis", fmt(e.metaheerhuis)],
       ["In of deels in een beschermd gezicht", `${fmt(e.in_gezicht)} van ${fmt(e.basis)}`],
       ["Met een rijksmonument binnen 100 m", `${fmt(e.met_rijksmonument_100m)} van ${fmt(e.basis)}`],
+      ["Rijksmonumenten binnen 100 m van een begraafplaats", `${fmt(e.unieke_monumenten_100m)} (${fmt(e.relaties_100m)} relaties; een monument kan bij meer dan één begraafplaats liggen)`],
     ]),
     el("p", { class: "hint", text: `Gezichten en rijksmonumenten in de buurt zijn alleen berekend voor de ${fmt(e.basis)} begraafplaatsen in gebruik of geruimd; van verdwenen begraafplaatsen is de plek niet precies genoeg bekend.` }),
     tabel("Erfgoed per provincie", [
@@ -147,9 +148,9 @@ function renderErfgoed(s) {
       { kop: "In beschermd gezicht", waarde: (r) => r.in_gezicht, num: true },
       { kop: "Metaheerhuis", waarde: (r) => r.metaheerhuis, num: true },
     ], e.per_provincie),
-    tabel("Meest voorkomende rijksmonumenten binnen 100 m (oorspronkelijke functie)", [
+    tabel("Rijksmonumenten binnen 100 m naar oorspronkelijke functie (elk monument één keer geteld)", [
       { kop: "Functie", waarde: (r) => r.functie },
-      { kop: "Aantal", waarde: (r) => r.aantal, num: true },
+      { kop: "Monumenten", waarde: (r) => r.aantal, num: true },
     ], e.top_functies_100m));
 }
 

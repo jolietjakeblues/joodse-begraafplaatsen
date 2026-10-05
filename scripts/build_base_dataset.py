@@ -99,36 +99,12 @@ PROVINCIE_KMZ = {
 STATUS_REEKS = {"in gebruik": "loc", "verdwenen": "ver", "geruimd": "ger"}
 STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": "geruimd"}
 
-# Gecontroleerde tellingen per provincie (zie docs/data/koppelrapport.md).
-#   Zuid-Holland 2026-10-02: alle terreinen gekoppeld.
-#   Utrecht 2026-10-02: Bilthoven (jb-loc-4368, Progressieve joodse begraafplaats)
-#     heeft geen eigen terrein in Funerair Utrecht.kmz -> 13 van 14 bestaand.
-#   Noord-Holland, Zeeland, Flevoland 2026-10-02: alle bestaande gekoppeld
-#     (Vlissingen jb-loc-9 via data/terrein_koppelingen.csv; Ouderkerk via Excel-naam "Beth Haim").
-#   Gelderland 2026-10-02: alle 45 in gebruik gekoppeld; alleen naamvarianten in schrijfwijze.
-#   Overijssel 2026-10-02: alles gekoppeld; Enschede jb-loc-3027 en jb-loc-3002 via
-#     data/terrein_koppelingen.csv (naamtoets faalt op Israelitisch <-> Joods, oppervlak klopt).
-#   Noord-Brabant 2026-10-02: alles gekoppeld; Putte "Sombre Hadas" = KMZ-tikfout (vraag B8).
-#   Limburg 2026-10-02: alles gekoppeld; alleen naamvarianten in schrijfwijze ("Joods Maastricht" e.d.).
-#   Groningen 2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via
-#     data/terrein_koppelingen.csv; Loppersum geruimd (jb-ger-247) heeft geen terrein in de KMZ (vraag).
-#   Drenthe 2026-10-05: Emmen jb-loc-2183 via terrein_koppelingen.csv; namen Westenesch/Oude gekruist
-#     tussen Excel en KMZ (vraag Dr1). Koppeling volgt de ligging van het punt.
-#   Fryslân 2026-10-05: alles gekoppeld (alleen naamvarianten "Joods Sneek" e.d.). Daarmee landelijk 315/315.
-INVARIANTEN = {
-    "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
-    "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
-    "Noord-Holland": {"totaal": 28, "in_gebruik": 22, "geruimd": 0, "verdwenen": 6, "terreinen": 22},
-    "Zeeland": {"totaal": 6, "in_gebruik": 6, "geruimd": 0, "verdwenen": 0, "terreinen": 6},
-    "Flevoland": {"totaal": 1, "in_gebruik": 1, "geruimd": 0, "verdwenen": 0, "terreinen": 1},
-    "Gelderland": {"totaal": 61, "in_gebruik": 45, "geruimd": 0, "verdwenen": 16, "terreinen": 45},
-    "Overijssel": {"totaal": 43, "in_gebruik": 34, "geruimd": 1, "verdwenen": 8, "terreinen": 35},
-    "Noord-Brabant": {"totaal": 31, "in_gebruik": 21, "geruimd": 0, "verdwenen": 10, "terreinen": 21},
-    "Limburg": {"totaal": 25, "in_gebruik": 18, "geruimd": 1, "verdwenen": 6, "terreinen": 19},
-    "Groningen": {"totaal": 27, "in_gebruik": 23, "geruimd": 2, "verdwenen": 2, "terreinen": 24},
-    "Drenthe": {"totaal": 21, "in_gebruik": 20, "geruimd": 0, "verdwenen": 1, "terreinen": 20},
-    "Fryslân": {"totaal": 16, "in_gebruik": 11, "geruimd": 1, "verdwenen": 4, "terreinen": 12},
-}
+# Gecontroleerde tellingen per provincie, met toelichting: data/invarianten.json
+# (ook gelezen door scripts/check_data.py, vóór elke sitebuild).
+INVARIANTEN_JSON = REPO_ROOT / "data" / "invarianten.json"
+_inv = json.loads(INVARIANTEN_JSON.read_text(encoding="utf-8"))
+INVARIANTEN = {prov: {k: v for k, v in t.items() if k != "toelichting"} for prov, t in _inv["provincies"].items()}
+LANDELIJK_EXCEL_RIJEN = _inv["landelijk_excel_rijen"]
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.
 # Telt in het rapport niet meer als open punt.
@@ -576,17 +552,14 @@ def build(provincies: list[str]) -> None:
         for i, a in enumerate(joodse_t) for b in joodse_t[i + 1:]
         if round(a["rd"].area) == round(b["rd"].area) and not a["geom"].equals(b["geom"])
     ]
-    write_outputs(records, list(terrein_features.values()))
-    write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correctie_log)
-
     tel = {s: sum(1 for r in records.values() if r["status"] == s) for s in ("in_gebruik", "geruimd", "verdwenen")}
     print(f"{len(records)} begraafplaatsen ({', '.join(provincies)}): {tel}")
     print(f"  terreinen gekoppeld: {len(terrein_features)}; zonder terrein (excl. verdwenen): {len(rapport['geen_terrein'])}")
     print(f"  naamvarianten/nabij: {len(rapport['naamvariant'])}; ongeclaimde Joodse polygonen: {len(ongeclaimd)}")
     print(f"  provincie Excel != ruimtelijk: {len(rapport['provincie_afwijkend'])}; correcties: {len(correctie_log)}")
 
-    # Invarianten per provincie (vastgesteld na handmatige controle). Wijzigt de
-    # bron, dan bewust bijwerken -- niet stil laten meebewegen.
+    # Invarianten per provincie (data/invarianten.json). Wijzigt de bron, dan
+    # bewust bijwerken -- niet stil laten meebewegen.
     for prov in provincies:
         verwacht = INVARIANTEN.get(prov)
         if not verwacht:
@@ -599,6 +572,12 @@ def build(provincies: list[str]) -> None:
         }
         assert werkelijk == verwacht, f"{prov}: verwacht {verwacht}, gevonden {werkelijk}"
     assert not ongeclaimd, f"ongekoppelde Joodse polygonen: {ongeclaimd}"
+    assert alle_excel == LANDELIJK_EXCEL_RIJEN, f"Excel heeft {alle_excel} rijen, verwacht {LANDELIJK_EXCEL_RIJEN} (data/invarianten.json)"
+
+    # Pas schrijven als alle controles hierboven geslaagd zijn: een afgekeurde
+    # run laat de vorige (goedgekeurde) uitvoer staan (review 2026-10-05).
+    write_outputs(records, list(terrein_features.values()))
+    write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correctie_log)
 
 
 def write_outputs(records: dict[str, dict], terrein_features: list[dict]) -> None:

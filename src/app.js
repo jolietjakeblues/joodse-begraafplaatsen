@@ -91,10 +91,18 @@ panelToggleEl.addEventListener("click", () => {
   panelOpen = !panelOpen;
   updatePanelToggle();
 });
-miniLegendaEl.addEventListener("click", () => {
+function openPaneelEnFocus() {
   panelOpen = true;
   updatePanelToggle();
   panelEl.focus();
+}
+miniLegendaEl.addEventListener("click", openPaneelEnFocus);
+// Springlink "Ga naar het bedieningspaneel": bij een dicht paneel (mobiel, embed)
+// is #panel inert en niet focusbaar, dus eerst openen. preventDefault houdt
+// #panel uit de URL; die is van de kaartpositie (MapLibre hash).
+document.querySelector(".skip-link").addEventListener("click", (e) => {
+  e.preventDefault();
+  openPaneelEnFocus();
 });
 function toonFout(tekst) {
   statusEl.textContent = tekst;
@@ -522,14 +530,22 @@ function selectie() {
   const alleenRm = document.getElementById("filter-rijksmonument").checked;
   const alleenGezicht = document.getElementById("filter-gezicht").checked;
   const zoek = (p) => !q || [p.naam, p.plaats, p.gemeente, p.label_punt].some((v) => v && v.toLowerCase().includes(q));
+  const isRm = (p) => p.rijksmonument === true;
+  const inGezicht = (p) => !!p.in_gezicht;
   // zonderDatering: alle filters behalve datering (voor de balkjestellingen)
-  const zonderDatering = (p) => zoek(p) && (!alleenRm || p.rijksmonument === true) && (!alleenGezicht || !!p.in_gezicht);
+  const zonderDatering = (p) => zoek(p) && (!alleenRm || isRm(p)) && (!alleenGezicht || inGezicht(p));
   const basis = (p) => zonderDatering(p) && dateringMatch(p);
-  return { statussen, basis, zonderDatering, match: (p) => statussen.has(p.status) && basis(p) };
+  // Facettellingen naast de vinkjes: binnen ALLE overige actieve filters (status,
+  // zoekterm, datering, het andere vinkje), zodat het getal is wat je krijgt
+  // als je het vinkje aanzet (review 2026-10-05).
+  const overig = (p) => statussen.has(p.status) && zoek(p) && dateringMatch(p);
+  const telRm = (p) => overig(p) && (!alleenGezicht || inGezicht(p)) && isRm(p);
+  const telGezicht = (p) => overig(p) && (!alleenRm || isRm(p)) && inGezicht(p);
+  return { statussen, basis, zonderDatering, telRm, telGezicht, match: (p) => statussen.has(p.status) && basis(p) };
 }
 
 function applyFilters() {
-  const { statussen, basis, zonderDatering, match } = selectie();
+  const { statussen, basis, zonderDatering, telRm, telGezicht, match } = selectie();
   const ids = alle.filter((f) => match(f.properties)).map((f) => f.properties.id);
   const filter = ["in", ["get", "id"], ["literal", ids]];
   map.setFilter("begraafplaatsen-symbol", filter);
@@ -541,11 +557,8 @@ function applyFilters() {
     const n = alle.filter((f) => f.properties.status === s && basis(f.properties)).length;
     document.querySelector(`[data-count="${s}"]`).textContent = `(${n})`;
   }
-  const inStatus = (p) => statussen.has(p.status);
-  document.querySelector('[data-count="rijksmonument"]').textContent =
-    `(${alle.filter((f) => inStatus(f.properties) && f.properties.rijksmonument === true).length})`;
-  document.querySelector('[data-count="gezicht"]').textContent =
-    `(${alle.filter((f) => inStatus(f.properties) && f.properties.in_gezicht).length})`;
+  document.querySelector('[data-count="rijksmonument"]').textContent = `(${alle.filter((f) => telRm(f.properties)).length})`;
+  document.querySelector('[data-count="gezicht"]').textContent = `(${alle.filter((f) => telGezicht(f.properties)).length})`;
   // Datering-balkjes: per balk het aantal als je die balk (ook) aanklikt
   const inStatusEnRest = alle.map((f) => f.properties).filter((p) => statussen.has(p.status) && zonderDatering(p));
   const tellingen = DATERING.map((b) => {
