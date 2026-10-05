@@ -60,6 +60,7 @@ python scripts/make_og_image.py
 - [x] Review 2026-10-05: filtertellingen binnen alle actieve filters, springlink opent paneel, mobiele CSS achteraan, controle vóór schrijven + `check_data.py` in de sitebuild, unieke monumenten in de statistiek
 - [x] Directe link naar een begraafplaats: `?id=<kenmerk>` (nog visueel te controleren)
 - [x] CSV/GeoJSON-export van de selectie: niet gewenst (E7)
+- [x] Eigen review 2026-10-05: AVG-opschoning git-geschiedenis; Putte via corrections.csv; contrast geruimd-ruit; focus na popup; linkcontrole; data laden los van de ondergrond; stabiele rapporten; 17 tests; springlinks op alle pagina's; 12 px; favicon; 404 met grafpaaltje; RCE-functies zonder haakjes; verdwenen op 4 decimalen; publicatieschakelaar
 - [ ] Screenreadertest (NVDA/VoiceOver)
 - [x] Wensen uit de vragenlijst (layout, teksten): E2/E5/E6 "prima zo"; Engelse versie later
 
@@ -69,7 +70,8 @@ python scripts/make_og_image.py
 - [ ] Eigen domein → `SITE_URL` in `scripts/build_site.py`
 - [x] Review Leon/René ronde 1–3 verwerkt (2026-10-02 en 2026-10-05; zie docs/04)
 - [ ] Gecorrigeerde Excel van Leon verwerken (R3) en navragen R1, R2, Gr1, Dr1
-- [ ] Publicatie bij het boek: `noindex` weghalen, Sitemap-regel in robots.txt terug, eventueel eigen domein (E9)
+- [ ] Publicatie bij het boek: `PUBLICEREN = True` in `scripts/build_site.py` (haalt noindex weg, zet sitemap aan), licentie/hergebruik volgens P1, eventueel eigen domein (E9)
+- [ ] GitHub Support vragen om oude commits achter PR-verwijzingen (`refs/pull/*`) te verwijderen (AVG)
 
 ### Fase 5 – Rest van Nederland
 - [x] Oost/Noord/Zuid per provincie: ✅ Gelderland, ✅ Overijssel, ✅ Noord-Brabant, ✅ Limburg, ✅ Groningen, ✅ Drenthe, ✅ Fryslân (2026-10-05)

@@ -5,6 +5,8 @@ Lees dit en `docs/` (01-data-analyse, 02-project-analyse, 03-planning, 04-vragen
 ## Opdracht
 Opdrachtgever: stichting Dodenakkers. Eén kaart met alle Joodse begraafplaatsen van Nederland, inclusief geruimd en verdwenen. Gestart 2026-10-02 met Zuid-Holland, daarna per provincie. **Stand 2026-10-05: heel Nederland** — alle 12 provincies, alle 315 begraafplaatsen uit de inventarisatie (239 in gebruik, 7 geruimd, 69 verdwenen).
 
+AVG: de git-geschiedenis is op 2026-10-05 herschreven (eigenaarsgegevens en auteursnaam verwijderd). Nooit persoonsgegevens committen; ook niet in tussenversies.
+
 Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev — de site wordt later bij een boek gepubliceerd.
 
 ## Besluiten
@@ -20,10 +22,16 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - Correcties van Dodenakkers: GitHub-issueformulier `.github/ISSUE_TEMPLATE/correctie.yml` (label `correctie`); popuplink vult kenmerk en naam in (F1). Verwerken via de correctielagen, PR met "Closes #nr".
 - Hosting: Worker met static assets (`wrangler.jsonc`, assets = `site/`). **Deploy alleen via merge op `main`** (Cloudflare Workers Builds: build `python3 scripts/build_site.py`, deploy `npx wrangler deploy`; zie README). Niet handmatig deployen vanuit een werkmap. Domein op één plek: `SITE_URL` in `scripts/build_site.py`.
 - Mobiel is een eis: paneel dicht + mini-legenda, aanraakdoelen ~44 px, testen op 375 px. Mobiele CSS staat achteraan in `style.css`.
-- Toegankelijkheid: springlink opent het paneel en zet de focus; filtertellingen gelden binnen alle overige actieve filters.
+- Toegankelijkheid: springlink opent het paneel en zet de focus (ook op lezen/methode/statistieken/404); filtertellingen gelden binnen alle overige actieve filters; na sluiten van een popup gaat de focus terug naar waar hij vandaan kwam (of de menuknop); geruimd-ruit en -terreinrand donkerbruin `#8a5a00` (contrast ≥ 3:1); kleinste tekst 12 px.
+- Links naar buiten alleen naar bekende domeinen (`link()` in app.js; leeslijst alleen dodenakkers.nl).
+- RCE-functies zonder code tussen haakjes ("Woonhuis(K)" → "Woonhuis"); ruwe waarde in `functie_bron`.
+- Verdwenen begraafplaatsen: coördinaten op 4 decimalen (~10 m) in de open data.
+- Publicatie: één schakelaar `PUBLICEREN` in `scripts/build_site.py` (nu `False`).
 
 ## Pipeline (zie README)
 `fetch_pdok.py` → `build_base_dataset.py --alle` → `fetch_rce.py --provincie …` → `analyse_spatial.py` → `fetch_leeslijst.py` → `compute_statistics.py` → `make_og_image.py` → `build_site.py` (draait eerst `check_data.py`).
+- Tests: `python -m unittest discover -s tests -v` (koppelregels, correcties, datacontrole). Draaien vóór elke PR.
+- Rapporten en data zijn stabiel: geen tijdstempels, vaste sortering; een tweede run verandert niets.
 - `build_base_dataset.py` controleert eerst (invarianten, ongekoppelde Joodse terreinen, 315 Excel-rijen) en schrijft pas daarna; een afgekeurde run laat de vorige uitvoer staan.
 - `check_data.py` (stdlib) controleert de gecommitte viewerdata; `build_site.py` stopt bij een fout, dus ook de Cloudflare-build deployt dan niet.
 - Leespagina: alleen titels en links van dodenakkers.nl, nooit artikeltekst. `popup_ids` bepaalt bij welke begraafplaatsen een artikel in de popup staat.
@@ -33,7 +41,7 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - `data/terrein_koppelingen.csv` — handmatige terreinkoppeling als de naamtoets faalt (Vlissingen, Enschede 2×, Leens, Uithuizen, Emmen).
 - `data/herbegravingen.csv` — herbegravingen (van_id, naar_id, tekst uit de bron, toelichting); alleen als de bestemming eenduidig is.
 - `data-dodenakkers/funerair_nieuwedata.kmz` — door Dodenakkers nagestuurde terreinen + ingangen; vervangt het terrein met dezelfde naam (Venlo oud, Dedemsvaart).
-- `GEEN_TERREIN_BEVESTIGD` (build_base_dataset.py) en `BEOORDEELDE_RELATIES` (analyse_spatial.py) — elk met bron en vraagcode.
+- `data/geen_terrein_bevestigd.csv` en `BEOORDEELDE_RELATIES` (analyse_spatial.py) — elk met bron en vraagcode.
 - `data/invarianten.json` — gecontroleerde tellingen per provincie, met toelichting.
 
 ## Niet doen
@@ -46,4 +54,4 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - Niet committen/pushen: de gebruiker doet dat zelf.
 
 ## Open vragen
-Allemaal in [docs/04-vragen-dodenakkers.md](docs/04-vragen-dodenakkers.md) en op de gedeelde vragenpagina. Nu open: R1 (namen), R2 (Denekamp), R3 (gecorrigeerde Excel), Gr1 (Loppersum), Dr1 (Emmen), E8 (later). Antwoorden verwerken via de correctielagen en daar de vraagcode als `bron` noemen.
+Allemaal in [docs/04-vragen-dodenakkers.md](docs/04-vragen-dodenakkers.md) en op de gedeelde vragenpagina. Nu open: R1 (namen), R2 (Denekamp), R3 (gecorrigeerde Excel, incl. rest van Putte), Gr1 (Loppersum), Dr1 (Emmen), P1 (licentie en hergebruik bij publicatie), E8 (later). Antwoorden verwerken via de correctielagen en daar de vraagcode als `bron` noemen.

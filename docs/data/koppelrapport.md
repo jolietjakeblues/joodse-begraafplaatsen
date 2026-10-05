@@ -1,6 +1,6 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-05 11:14.
+Gegenereerd door `scripts/build_base_dataset.py`.
 Provincie(s): **Drenthe, Flevoland, Fryslân, Gelderland, Groningen, Limburg, Noord-Brabant, Noord-Holland, Overijssel, Utrecht, Zeeland, Zuid-Holland**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
@@ -140,7 +140,7 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 
 ## Bevestigd zonder terrein (alleen puntlocatie)
 
-- `jb-loc-4368` Bilthoven: alleen puntlocatie beschikbaar (Leon/René 2026-10-02, vraag B1)
+- `jb-loc-4368` Bilthoven: alleen puntlocatie beschikbaar, geen terrein in Funerair Utrecht.kmz (Leon/René (vraag B1), 2026-10-02)
 
 ## Zonder terrein (status in gebruik / geruimd) — open
 
@@ -174,6 +174,9 @@ Geen.
 - `jb-ver-471` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (1696–1807)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
 - `jb-ver-872` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
 - `jb-ver-182` naam: 'Joodse begraafplaats' -> 'Oude Joodse begraafplaats' (De geruimde Dordtse begraafplaats mag Oude Joodse begraafplaats heten (vraag B7), Leon, 2026-10-02)
+- `jb-loc-189` rijksmonumentnummer: 516689 -> '' (Nummer 516689 hoort bij de Frechie Foundation, niet bij Mahsike Hadas; in de Excel gecorrigeerd door Leon (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
+- `jb-loc-195` rijksmonumentnummer: None -> '516689' (Nummer 516689 hoort bij de Frechie Foundation; in de Excel gecorrigeerd door Leon (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
+- `jb-loc-195` rijksmonument: False -> 'ja' (Volgt uit het rijksmonumentnummer (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
 
 ## Verdwenen begraafplaatsen
 

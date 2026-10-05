@@ -103,7 +103,9 @@ Opmerking Joop (2026-10-05): op de leespagina geen "Uitgelicht" meer, alle artik
 
 - **R1 (B5, namen).** "Groen is de juiste" — groen waren de terreinnamen uit de KMZ (bv. "Hoogduitse Joodse begraafplaats", "Nieuwe Joodse begraafplaats" Vlissingen, "Beth Haim", "Joodse begraafplaats Diemen/Muiderberg"). In ronde 2 schreef Leon "houd de Excel-naam aan". Past Leon de namen in de Excel aan, of moeten wij de groene namen als weergavenaam instellen?
 - **R2 (O1 Denekamp).** "Onze contour is de daadwerkelijke begraafplaats, niet het hele perceel." Is RCE-monument 12342 dan het rijksmonument van de Joodse begraafplaats (met een ruimere grens)? Dan zou de Excel bij `jb-loc-2459` "rijksmonument ja" moeten hebben.
-- **R3 (NB1, B8).** De gecorrigeerde Excel (Putte, Maassluis, Puttershoek) hebben we nog niet. Graag in de gedeelde map.
+- **R3 (NB1, B8).** De gecorrigeerde Excel (Putte, Maassluis, Puttershoek) hebben we nog niet. Graag in de gedeelde map. Tussentijds verwerkt (2026-10-05): nummer 516689 staat nu bij de Frechie Foundation (`jb-loc-195`, via `corrections.csv`).
+- **R3b (Putte).** Bij Mahsike Hadas (`jb-loc-189`) staan in de Excel ook "rijksmonument: ja" en als beschermd deel "poorten, aula, ontvangstgebouw, grafmonument". Die aula en grafmonumenten liggen volgens de RCE op de Frechie Foundation. Horen die gegevens ook bij de Frechie Foundation? Is Mahsike Hadas zelf een rijksmonument?
+- **P1 (publicatie).** Onder welke voorwaarden mogen anderen de kaart en de gegevens hergebruiken na de publicatie (bijvoorbeeld CC BY 4.0 met naamsvermelding van stichting Dodenakkers, of alleen bekijken)? En mag de kaart dan ook op andere websites getoond worden? Nu staat op de methodepagina alleen dat dit bij de publicatie bekend wordt gemaakt.
 
 ## Gr. Groningen (nieuw, 2026-10-05)
 
@@ -135,7 +137,7 @@ Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". We
 
 Alle 16 Friese begraafplaatsen zijn gekoppeld (11 in gebruik, 1 geruimd, 4 verdwenen; 12 terreinen). Herbegraving op de kaart: Harlingen oud → `jb-loc-1250`. Geen vragen. Daarmee staan alle 315 begraafplaatsen uit de inventarisatie op de kaart.
 
-Nog open: R1–R3, Gr1, Dr1, E8 (later).
+Nog open: R1–R3, R3b, Gr1, Dr1, P1, E8 (later).
 
 De gedetailleerde vragen hieronder zijn het archief van ronde 1–2; de tabellen hierboven zijn leidend.
 

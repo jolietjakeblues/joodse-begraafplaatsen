@@ -17,7 +17,13 @@ function el(tag, attrs = {}, ...kinderen) {
   return e;
 }
 
-const extern = (url, tekst) => el("a", { href: url, target: "_blank", rel: "noopener", text: tekst });
+// Alleen links naar dodenakkers.nl (de leeslijst komt van die site); iets anders
+// wordt gewone tekst, zodat er nooit een javascript:- of vreemde link ontstaat.
+const DODENAKKERS = "https://www.dodenakkers.nl/";
+const extern = (url, tekst) =>
+  typeof url === "string" && url.startsWith(DODENAKKERS)
+    ? el("a", { href: url, target: "_blank", rel: "noopener", text: tekst })
+    : el("span", { text: tekst });
 const datum = (iso) => new Date(iso).toLocaleDateString("nl-NL", { day: "numeric", month: "long", year: "numeric" });
 
 function artikelItem(a) {

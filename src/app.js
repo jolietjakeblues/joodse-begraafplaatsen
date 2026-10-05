@@ -48,7 +48,9 @@ async function loadRce(soort) {
 // niet gesloten (Leon 2026-10-02, vragen A4/E3).
 const STATUS = {
   in_gebruik: { label: "In gebruik", kleur: "#0072B2", vorm: "cirkel" },
-  geruimd: { label: "Geruimd", kleur: "#E69F00", vorm: "ruit" },
+  // Oranje haalt op wit/grijs maar ~2:1; de donkerbruine rand (5,3:1) maakt de
+  // ruit en het terrein toch zichtbaar genoeg (WCAG 1.4.11, review 2026-10-05).
+  geruimd: { label: "Geruimd", kleur: "#E69F00", rand: "#8a5a00", vorm: "ruit" },
   verdwenen: { label: "Verdwenen", kleur: "#3A3A3A", vorm: "ring" },
 };
 const KLEUR = {
@@ -127,8 +129,18 @@ class SafeHtml {
   }
 }
 const raw = (html) => new SafeHtml(html);
+// Externe links alleen naar bekende bronnen (monumentenregister RCE, dodenakkers.nl).
+const LINK_DOMEINEN = ["monumentenregister.cultureelerfgoed.nl", "www.dodenakkers.nl", "linkeddata.cultureelerfgoed.nl"];
+function veiligeUrl(url) {
+  try {
+    const u = new URL(url);
+    return u.protocol === "https:" && LINK_DOMEINEN.includes(u.hostname);
+  } catch {
+    return false;
+  }
+}
 function link(url, text) {
-  if (!url || !/^https:\/\//.test(url)) return text ? esc(text) : "";
+  if (!url || !veiligeUrl(url)) return text ? esc(text) : "";
   return `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(text || url)}</a>`;
 }
 function rows(pairs) {
@@ -157,7 +169,7 @@ function boundsOf(fc) {
 
 // Statussymbolen als bitmap (cirkel / ruit / ring), met witte rand zodat ze
 // op luchtfoto en op elkaar zichtbaar blijven.
-function makeSymbol(vorm, kleur, size = 44) {
+function makeSymbol(vorm, kleur, rand, size = 44) {
   const c = document.createElement("canvas");
   c.width = c.height = size;
   const ctx = c.getContext("2d");
@@ -173,8 +185,12 @@ function makeSymbol(vorm, kleur, size = 44) {
     ctx.closePath();
     ctx.fillStyle = kleur;
     ctx.fill();
-    ctx.lineWidth = size * 0.08;
+    // witte buitenrand (luchtfoto) en daarbinnen een donkere rand (contrast)
+    ctx.lineWidth = size * 0.14;
     ctx.strokeStyle = "#fff";
+    ctx.stroke();
+    ctx.lineWidth = size * 0.07;
+    ctx.strokeStyle = rand || kleur;
     ctx.stroke();
   } else if (vorm === "ring") {
     ctx.beginPath();
@@ -377,13 +393,22 @@ function begraafplaatsPopup(p) {
     <p class="popup-correctie"><a href="${esc(correctieUrl(p))}" target="_blank" rel="noopener">Klopt er iets niet? Correctie doorgeven</a></p>`;
 }
 
+// RCE-functie zonder code tussen haakjes ("Woonhuis(K)" -> "Woonhuis"); zelfde
+// regel als functie_kort() in scripts/analyse_spatial.py.
+const functieKort = (f) => {
+  if (!f) return f;
+  let k = f;
+  while (/\s*\([^()]*\)\s*$/.test(k)) k = k.replace(/\s*\([^()]*\)\s*$/, "");
+  return k || f;
+};
+
 function monumentPopup(p) {
   return `<h3>${p.naam ? esc(p.naam) : "Rijksmonument " + esc(p.rijksmonumentnummer)}</h3>
     <dl>${rows([
       ["Monumentnummer", raw(link(p.monumentenregister_url, p.rijksmonumentnummer))],
       ["Aard", p.monument_aard],
-      ["Oorspronkelijke functie", p.oorspronkelijke_functie],
-      ["Huidige functie", p.huidige_functie],
+      ["Oorspronkelijke functie", functieKort(p.oorspronkelijke_functie)],
+      ["Huidige functie", functieKort(p.huidige_functie)],
     ])}</dl>`;
 }
 
@@ -609,8 +634,23 @@ function openBegraafplaats(feature, vliegen) {
   // Op smalle schermen het punt lager in beeld, zodat de popup erboven niet
   // onder de mini-legenda valt.
   if (vliegen) map.flyTo({ center: lngLat, zoom: Math.max(map.getZoom(), 16), offset: IS_SMAL() ? [0, 160] : [0, 80] });
+  // Waar stond de focus (bv. een lijstitem)? Na sluiten van de popup gaat hij
+  // daarheen terug (WCAG 2.4.3, review 2026-10-05).
+  const terug = document.activeElement instanceof HTMLElement && !map.getContainer().contains(document.activeElement)
+    ? document.activeElement
+    : null;
   popup?.remove();
-  popup = new maplibregl.Popup({ maxWidth: "340px", focusAfterOpen: true }).setLngLat(lngLat).setHTML(begraafplaatsPopup(p)).addTo(map);
+  const deze = new maplibregl.Popup({ maxWidth: "340px", focusAfterOpen: true }).setLngLat(lngLat).setHTML(begraafplaatsPopup(p)).addTo(map);
+  popup = deze;
+  const popupEl = deze.getElement();
+  deze.on("close", () => {
+    // Alleen terugzetten als de focus in deze popup stond (sluitknop) of al
+    // verloren is; niet als intussen iets anders de focus heeft.
+    const actief = document.activeElement;
+    if (actief && actief !== document.body && !popupEl.contains(actief)) return;
+    const doel = terug && terug.isConnected && !terug.closest("[inert]") ? terug : panelToggleEl;
+    doel.focus();
+  });
   if (EMBED || IS_SMAL()) {
     panelOpen = false;
     updatePanelToggle();
@@ -619,16 +659,19 @@ function openBegraafplaats(feature, vliegen) {
 
 // ---------------------------------------------------------------- start
 
+// De data meteen ophalen, tegelijk met het opbouwen van de kaart: niet wachten
+// tot de ondergrond (PDOK-tegels) geladen is (review 2026-10-05).
+const KERNDATA = Promise.all([loadJson(DATA.begraafplaatsen), loadJson(DATA.terreinen), loadJson(DATA.provincies)]);
+const LEESLIJST = loadJson(DATA.leeslijst);
+KERNDATA.catch(() => {}); // fout wordt in main() gemeld
+LEESLIJST.catch(() => {});
+
 async function main() {
-  const [begraafplaatsen, terreinen, provincies] = await Promise.all([
-    loadJson(DATA.begraafplaatsen),
-    loadJson(DATA.terreinen),
-    loadJson(DATA.provincies),
-  ]);
+  const [begraafplaatsen, terreinen, provincies] = await KERNDATA;
   alle = begraafplaatsen.features;
   // Artikelen zijn een extraatje: kan de leeslijst niet laden, dan werkt de kaart gewoon.
   // Wel wachten voordat een popup via ?id= opent, anders mist die de artikelen.
-  const leeslijstKlaar = loadJson(DATA.leeslijst)
+  const leeslijstKlaar = LEESLIJST
     .then((ll) => {
       for (const a of ll.artikelen) {
         for (const id of a.popup_ids || []) {
@@ -646,12 +689,13 @@ async function main() {
   scopeEl.textContent = provs.length === 12 ? "Nederland" : provs.length > 3 ? `${provs.length} van 12 provincies` : provs.join(", ");
   scopeEl.title = provs.join(", ");
 
-  for (const [s, cfg] of Object.entries(STATUS)) map.addImage(`sym-${s}`, makeSymbol(cfg.vorm, cfg.kleur), { pixelRatio: 2 });
+  for (const [s, cfg] of Object.entries(STATUS)) map.addImage(`sym-${s}`, makeSymbol(cfg.vorm, cfg.kleur, cfg.rand), { pixelRatio: 2 });
 
   const statusKleur = ["match", ["get", "status"], ...Object.entries(STATUS).flatMap(([s, c]) => [s, c.kleur]), "#000"];
   map.addSource("terreinen", { type: "geojson", data: terreinen });
   map.addLayer({ id: "terreinen-fill", type: "fill", source: "terreinen", paint: { "fill-color": statusKleur, "fill-opacity": 0.35 } });
-  map.addLayer({ id: "terreinen-line", type: "line", source: "terreinen", paint: { "line-color": statusKleur, "line-width": ["interpolate", ["linear"], ["zoom"], 12, 1, 17, 2.5] } });
+  const randKleur = ["match", ["get", "status"], ...Object.entries(STATUS).flatMap(([s, c]) => [s, c.rand || c.kleur]), "#000"];
+  map.addLayer({ id: "terreinen-line", type: "line", source: "terreinen", paint: { "line-color": randKleur, "line-width": ["interpolate", ["linear"], ["zoom"], 12, 1, 17, 2.5] } });
   addBorders("provincies", provincies, KLEUR.provincie, 1.6, null);
 
   map.addSource("begraafplaatsen", { type: "geojson", data: begraafplaatsen });
@@ -727,9 +771,17 @@ async function main() {
   statusEl.textContent = "";
 }
 
-map.on("load", () =>
+// Lagen toevoegen zodra de kaartstijl klaar is ("style.load"), niet pas na "load"
+// (dat wacht ook op de eerste ondergrondtegels).
+let gestart = false;
+function start() {
+  if (gestart) return;
+  gestart = true;
   main().catch((err) => {
     console.error(err);
     toonFout(`De kaartgegevens konden niet worden geladen (${err.message}). Controleer de verbinding en herlaad de pagina.`);
-  })
-);
+  });
+}
+if (map.isStyleLoaded()) start();
+else map.once("style.load", start);
+map.once("load", start); // vangnet

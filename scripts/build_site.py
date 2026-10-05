@@ -25,6 +25,12 @@ MAX_BESTAND = 25 * 1024 * 1024  # Cloudflare-limiet per bestand
 # gebruiken {{SITE_URL}}. Bij een eigen domein (bv. kaart.dodenakkers.nl)
 # alleen hier aanpassen.
 SITE_URL = "https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev"
+
+# Publicatie (bij het boek): op True zetten. Dan bouwt de site ZONDER noindex
+# (meta robots in de html, X-Robots-Tag in _headers) en MET de Sitemap-regel in
+# robots.txt. Zolang de kaart intern is (vraag F4): False.
+PUBLICEREN = False
+HTML_PAGINAS = ["index.html", "methode.html", "lezen.html", "statistieken.html", "404.html"]
 TEMPLATED = ["index.html", "methode.html", "lezen.html", "statistieken.html", "robots.txt", "sitemap.xml"]
 
 DATA_FILES = [
@@ -65,6 +71,25 @@ def main() -> None:
         text = f.read_text(encoding="utf-8")
         assert "{{SITE_URL}}" in text, f"{rel}: geen {{{{SITE_URL}}}} gevonden"
         f.write_text(text.replace("{{SITE_URL}}", SITE_URL), encoding="utf-8")
+
+    if PUBLICEREN:
+        for rel in HTML_PAGINAS:
+            f = SITE_DIR / rel
+            regels = f.read_text(encoding="utf-8").splitlines(keepends=True)
+            regels = [r for r in regels if 'name="robots"' not in r and "Niet indexeren:" not in r]
+            f.write_text("".join(regels), encoding="utf-8")
+        h = SITE_DIR / "_headers"
+        h.write_text("".join(r for r in h.read_text(encoding="utf-8").splitlines(keepends=True) if "X-Robots-Tag" not in r), encoding="utf-8")
+        r = SITE_DIR / "robots.txt"
+        r.write_text(r.read_text(encoding="utf-8").replace("#   Sitemap: ", "Sitemap: "), encoding="utf-8")
+    # Controle: de html, _headers en robots.txt moeten bij elkaar passen.
+    noindex = [rel for rel in HTML_PAGINAS if 'name="robots"' in (SITE_DIR / rel).read_text(encoding="utf-8")]
+    kop = "X-Robots-Tag" in (SITE_DIR / "_headers").read_text(encoding="utf-8")
+    if PUBLICEREN:
+        assert not noindex and not kop, f"publiceren, maar nog noindex in {noindex or '_headers'}"
+    else:
+        assert len(noindex) == len(HTML_PAGINAS) and kop, f"intern, maar noindex ontbreekt in {sorted(set(HTML_PAGINAS) - set(noindex))}"
+    print("Zoekmachines:", "toegestaan (gepubliceerd)" if PUBLICEREN else "geweerd (noindex, intern)")
 
     # MapLibre verwijst naar een source map die we niet meeleveren (geeft een
     # 404 in de ontwikkelaarstools); die verwijzing weghalen.

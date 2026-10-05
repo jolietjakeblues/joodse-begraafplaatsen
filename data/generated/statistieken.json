@@ -1,5 +1,5 @@
 {
- "gegenereerd": "2026-10-05T09:33:58.051080+00:00",
+ "gegenereerd": "2026-10-05",
  "provincies_op_kaart": [
   "Drenthe",
   "Flevoland",
@@ -497,7 +497,7 @@
  },
  "erfgoed": {
   "basis": 246,
-  "rijksmonument": 70,
+  "rijksmonument": 71,
   "gemeentelijk_monument": 53,
   "mip": 43,
   "metaheerhuis": 87,
@@ -507,8 +507,8 @@
   "unieke_monumenten_100m": 337,
   "top_functies_100m": [
    {
-    "functie": "Woonhuis(K)",
-    "aantal": 50
+    "functie": "Woonhuis",
+    "aantal": 66
    },
    {
     "functie": "Begraafplaats en -onderdelen",
@@ -527,24 +527,24 @@
     "aantal": 17
    },
    {
-    "functie": "Woonhuis",
-    "aantal": 16
-   },
-   {
     "functie": "Omwalling",
     "aantal": 13
+   },
+   {
+    "functie": "Boerderij",
+    "aantal": 10
    },
    {
     "functie": "Begraafplaatshek",
     "aantal": 9
    },
    {
-    "functie": "Boerderij (M)",
-    "aantal": 9
-   },
-   {
     "functie": "Poortgebouw",
     "aantal": 7
+   },
+   {
+    "functie": "Kerk",
+    "aantal": 6
    }
   ],
   "per_provincie": [
@@ -586,7 +586,7 @@
    },
    {
     "provincie": "Noord-Brabant",
-    "rijksmonument": 9,
+    "rijksmonument": 10,
     "in_gezicht": 1,
     "metaheerhuis": 10
    },

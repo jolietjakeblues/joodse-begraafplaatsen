@@ -38,8 +38,34 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+# Persoonsgegevens die nooit in de open data mogen (AVG; vraag C2 en de
+# opschoning van de git-geschiedenis op 2026-10-05). Duikt zo'n veld op, dan
+# faalt de build en wordt er niets gedeployd.
+VERBODEN_VELDEN = {"eigenaar", "eigenaar_postadres", "eigenaar_postcode", "eigenaar_plaats", "auteur", "toegevoegd_door"}
+
+
+def verboden_velden(obj, pad: str = "") -> list[str]:
+    if isinstance(obj, dict):
+        uit = [f"{pad}.{k}".lstrip(".") for k in obj if k in VERBODEN_VELDEN]
+        for k, v in obj.items():
+            uit += verboden_velden(v, f"{pad}.{k}")
+        return uit
+    if isinstance(obj, list):
+        return [x for v in obj for x in verboden_velden(v, pad)]
+    return []
+
+
 def check() -> list[str]:
     fouten: list[str] = []
+    for bestand in sorted(GEN.glob("*.json")) + sorted(GEN.glob("*.geojson")):
+        gevonden = sorted(set(v.rsplit(".", 1)[-1] for v in verboden_velden(load(bestand))))
+        if gevonden:
+            fouten.append(f"{bestand.name}: persoonsgegevens niet toegestaan (velden {gevonden})")
+    for bestand in sorted(GEN.glob("*.csv")):
+        kop = bestand.read_text(encoding="utf-8-sig").splitlines()[0].split(",")
+        gevonden = sorted(VERBODEN_VELDEN & {k.strip() for k in kop})
+        if gevonden:
+            fouten.append(f"{bestand.name}: persoonsgegevens niet toegestaan (kolommen {gevonden})")
     inv = load(REPO_ROOT / "data" / "invarianten.json")["provincies"]
     punten = [f["properties"] | {"_geom": f["geometry"]} for f in load(GEN / "begraafplaatsen.geojson")["features"]]
     by_id = {p["id"]: p for p in punten}
