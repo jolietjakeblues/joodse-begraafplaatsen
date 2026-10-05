@@ -4,21 +4,14 @@
 // Geen berekeningen hier, alleen weergave. Namen van begraafplaatsen linken
 // naar de kaart (?id=...).
 
+import { el } from "./gedeeld.js";
+
 const STATUS = {
   in_gebruik: "In gebruik",
   geruimd: "Geruimd",
   verdwenen: "Verdwenen",
 };
 
-function el(tag, attrs = {}, ...kinderen) {
-  const e = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === "text") e.textContent = v;
-    else e.setAttribute(k, v);
-  }
-  e.append(...kinderen.filter((k) => k !== null && k !== undefined));
-  return e;
-}
 
 const fmt = (n) => (n === null || n === undefined ? "–" : Number(n).toLocaleString("nl-NL"));
 const sym = (status) => el("span", { class: `sym sym-${status}`, "aria-hidden": "true" });

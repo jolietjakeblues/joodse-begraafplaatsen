@@ -1,0 +1,1266 @@
+{
+ "_uitleg": "Register van alle gepubliceerde kenmerken (jb-<reeks>-<Nr>). Links vanuit het boek en van buiten wijzen hiernaar, dus een kenmerk mag nooit stil verdwijnen. Nieuwe kenmerken worden door scripts/build_base_dataset.py toegevoegd. Verdwijnt een kenmerk uit de bron, dan moet het onder 'vervallen' komen met 'naar' (nieuw kenmerk of null), 'reden', 'datum' en 'bron'; anders faalt de build (scripts/check_data.py).",
+ "kenmerken": {
+  "jb-ger-214": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-ger-247": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-ger-43": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ger-64": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ger-68": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ger-80": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-ger-85": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-1110": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-1125": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-1172": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-1177": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-1250": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-1317": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-1343": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1359": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-1361": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1366": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-137": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1370": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1381": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1394": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1397": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1405": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1437": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1439": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1448": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1458": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1459": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1478": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1503": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-155": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1559": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-160": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-1635": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1643": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1648": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-1660": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1669": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-167": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-17": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-1713": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1714": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1764": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-1766": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-1838": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1844": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1854": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1856": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-1868": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-189": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1912": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1913": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-192": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1935": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1944": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-1945": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-195": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1963": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-1979": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2035": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2054": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2061": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2079": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-21": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-2100": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2175": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2183": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2188": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2208": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-2214": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-2215": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2224": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2226": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2227": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-2283": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2297": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2323": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2330": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2341": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2369": {
+   "sinds": "2026-10-05",
+   "provincie": "Flevoland"
+  },
+  "jb-loc-238": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-239": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-2399": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2400": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2412": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-243": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-2436": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2438": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2443": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-2453": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2454": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2455": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2459": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2485": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2488": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-2498": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2522": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2523": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2531": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2563": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2601": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2602": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2605": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2615": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2616": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-2622": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2623": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2636": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2653": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-2697": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2701": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2702": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2716": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2717": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2728": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2734": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2740": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2745": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2752": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2756": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2763": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2781": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2785": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2792": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2801": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2804": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2805": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2817": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2826": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2849": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2855": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2858": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2884": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2887": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2900": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-2923": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2936": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2947": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-295": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2962": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-2982": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-2988": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-2994": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3002": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3027": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3042": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3059": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3075": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3082": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3089": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3159": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-318": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-3191": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3202": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3204": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3210": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3261": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3291": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3295": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3298": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3300": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3301": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3306": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3316": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3321": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3332": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3333": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3335": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3359": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3369": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-341": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-3417": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3439": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-3452": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-3468": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3480": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3499": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3512": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3529": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3533": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3557": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3567": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3574": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3576": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3584": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3616": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3618": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-3619": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3628": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3642": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-366": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-3663": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-369": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3755": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3796": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-381": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-3813": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-3825": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-3854": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-loc-3863": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3888": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-3896": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-392": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-3939": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-3988": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-3992": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-4015": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-4021": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-4068": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-loc-4099": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-4116": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-4140": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-4171": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-4189": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-4194": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-4200": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-4201": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-loc-4219": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-4224": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-loc-4231": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-loc-4304": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-loc-4368": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-492": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-513": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-535": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-562": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-580": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-601": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-624": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-648": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-656": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-671": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-675": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-691": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-719": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-760": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-801": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-819": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-loc-823": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-832": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-loc-874": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-loc-886": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-loc-9": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-901": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-908": {
+   "sinds": "2026-10-05",
+   "provincie": "Zeeland"
+  },
+  "jb-loc-986": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-105": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-107": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-12": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-168": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-ver-177": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-182": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-205": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-21": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-24": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-246": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-ver-253": {
+   "sinds": "2026-10-05",
+   "provincie": "Drenthe"
+  },
+  "jb-ver-260": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-264": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-280": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-281": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-284": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-293": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-294": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-296": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-301": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-306": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-354": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-357": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-358": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-361": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-369": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-395": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-ver-417": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-418": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-425": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-43": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-ver-436": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-44": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-ver-440": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-471": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-488": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-491": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-498": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-508": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-ver-509": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-510": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-512": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-528": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-53": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-576": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-59": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-613": {
+   "sinds": "2026-10-05",
+   "provincie": "Overijssel"
+  },
+  "jb-ver-628": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-67": {
+   "sinds": "2026-10-05",
+   "provincie": "Groningen"
+  },
+  "jb-ver-676": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-677": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-678": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-703": {
+   "sinds": "2026-10-05",
+   "provincie": "Fryslân"
+  },
+  "jb-ver-710": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-723": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-74": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-75": {
+   "sinds": "2026-10-05",
+   "provincie": "Gelderland"
+  },
+  "jb-ver-753": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-774": {
+   "sinds": "2026-10-05",
+   "provincie": "Utrecht"
+  },
+  "jb-ver-825": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-872": {
+   "sinds": "2026-10-05",
+   "provincie": "Zuid-Holland"
+  },
+  "jb-ver-874": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-ver-880": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-881": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-895": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-ver-896": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  },
+  "jb-ver-9": {
+   "sinds": "2026-10-05",
+   "provincie": "Limburg"
+  },
+  "jb-ver-918": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Brabant"
+  },
+  "jb-ver-98": {
+   "sinds": "2026-10-05",
+   "provincie": "Noord-Holland"
+  }
+ },
+ "vervallen": {}
+}

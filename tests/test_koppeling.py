@@ -129,8 +129,12 @@ class Waarden(unittest.TestCase):
 class DataControle(unittest.TestCase):
     """check_data.check() moet fouten vinden in kleine, opzettelijk kapotte datasets."""
 
-    def maak(self, punten, terreinen=(), lijnen=(), inv=None):
+    def maak(self, punten, terreinen=(), lijnen=(), inv=None, register=None):
         tmp = Path(tempfile.mkdtemp())
+        if register is None:  # standaard: precies de kenmerken van deze dataset
+            register = {"kenmerken": {p["id"]: {"sinds": "2026-10-05", "provincie": p["provincie"]} for p in punten}, "vervallen": {}}
+        (tmp / "data").mkdir()
+        (tmp / "data" / "kenmerken.json").write_text(json.dumps(register), encoding="utf-8")
         gen = tmp / "data" / "generated"
         gen.mkdir(parents=True)
         fc = lambda feats: {"type": "FeatureCollection", "features": list(feats)}  # noqa: E731
@@ -171,6 +175,27 @@ class DataControle(unittest.TestCase):
     def test_herbegraving_naar_onbekend(self):
         fouten = self.maak(self.punten(), ["jb-loc-1"], [{"van_id": "jb-ver-1", "naar_id": "jb-loc-999"}], inv=self.INV)
         self.assertTrue(any("jb-loc-999" in f for f in fouten), fouten)
+
+    def test_kenmerk_verdwenen_zonder_doorverwijzing(self):
+        reg = {"kenmerken": {"jb-loc-1": {}, "jb-ver-1": {}, "jb-loc-2": {}}, "vervallen": {}}
+        fouten = self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, register=reg)
+        self.assertTrue(any("jb-loc-2" in f and "verdwenen" in f for f in fouten), fouten)
+
+    def test_kenmerk_vervallen_met_doorverwijzing(self):
+        reg = {"kenmerken": {"jb-loc-1": {}, "jb-ver-1": {}, "jb-loc-2": {}},
+               "vervallen": {"jb-loc-2": {"naar": "jb-loc-1", "reden": "t", "datum": "d", "bron": "b"}}}
+        self.assertEqual(self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, register=reg), [])
+
+    def test_doorverwijzing_naar_onbekend(self):
+        reg = {"kenmerken": {"jb-loc-1": {}, "jb-ver-1": {}, "jb-loc-2": {}},
+               "vervallen": {"jb-loc-2": {"naar": "jb-loc-9"}}}
+        fouten = self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, register=reg)
+        self.assertTrue(any("jb-loc-9" in f for f in fouten), fouten)
+
+    def test_nieuw_kenmerk_niet_geregistreerd(self):
+        reg = {"kenmerken": {"jb-loc-1": {}}, "vervallen": {}}
+        fouten = self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, register=reg)
+        self.assertTrue(any("niet geregistreerd" in f for f in fouten), fouten)
 
     def test_persoonsgegevens_geweigerd(self):
         p = self.punten()

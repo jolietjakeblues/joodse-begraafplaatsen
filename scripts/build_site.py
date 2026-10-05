@@ -66,6 +66,12 @@ def main() -> None:
         shutil.copyfile(REPO_ROOT / rel, dst)
     shutil.copyfile(REPO_ROOT / "_headers", SITE_DIR / "_headers")
 
+    # Vervallen kenmerken -> nieuw kenmerk, voor ?id= op de kaart en voor de
+    # pagina's per begraafplaats (data/kenmerken.json; links blijven werken).
+    register = json.loads((REPO_ROOT / "data/kenmerken.json").read_text(encoding="utf-8"))
+    doorverwijzingen = {k: v.get("naar") for k, v in register["vervallen"].items()}
+    (SITE_DIR / "data/doorverwijzingen.json").write_text(json.dumps(doorverwijzingen, ensure_ascii=False), encoding="utf-8")
+
     for rel in TEMPLATED:
         f = SITE_DIR / rel
         text = f.read_text(encoding="utf-8")
@@ -82,14 +88,24 @@ def main() -> None:
         h.write_text("".join(r for r in h.read_text(encoding="utf-8").splitlines(keepends=True) if "X-Robots-Tag" not in r), encoding="utf-8")
         r = SITE_DIR / "robots.txt"
         r.write_text(r.read_text(encoding="utf-8").replace("#   Sitemap: ", "Sitemap: "), encoding="utf-8")
-    # Controle: de html, _headers en robots.txt moeten bij elkaar passen.
-    noindex = [rel for rel in HTML_PAGINAS if 'name="robots"' in (SITE_DIR / rel).read_text(encoding="utf-8")]
+    # Een pagina per begraafplaats (scripts/paginas.py), met dezelfde
+    # noindex-keuze; in de sitemap voor als de kaart gepubliceerd wordt.
+    from paginas import bouw as bouw_paginas
+    paden = bouw_paginas(REPO_ROOT, SITE_DIR, SITE_URL, noindex=not PUBLICEREN)
+    sitemap = SITE_DIR / "sitemap.xml"
+    regels = "".join(f"  <url><loc>{SITE_URL}/{pad}</loc></url>\n" for pad in paden)
+    sitemap.write_text(sitemap.read_text(encoding="utf-8").replace("</urlset>", regels + "</urlset>"), encoding="utf-8")
+    print(f"Pagina's per begraafplaats: {len(paden)}")
+
+    # Controle: alle html, _headers en robots.txt moeten bij elkaar passen.
+    alle_html = sorted(p.relative_to(SITE_DIR).as_posix() for p in SITE_DIR.rglob("*.html") if "vendor" not in p.parts)
+    noindex = [rel for rel in alle_html if 'name="robots"' in (SITE_DIR / rel).read_text(encoding="utf-8")]
     kop = "X-Robots-Tag" in (SITE_DIR / "_headers").read_text(encoding="utf-8")
     if PUBLICEREN:
         assert not noindex and not kop, f"publiceren, maar nog noindex in {noindex or '_headers'}"
     else:
-        assert len(noindex) == len(HTML_PAGINAS) and kop, f"intern, maar noindex ontbreekt in {sorted(set(HTML_PAGINAS) - set(noindex))}"
-    print("Zoekmachines:", "toegestaan (gepubliceerd)" if PUBLICEREN else "geweerd (noindex, intern)")
+        assert len(noindex) == len(alle_html) and kop, f"intern, maar noindex ontbreekt in {sorted(set(alle_html) - set(noindex))}"
+    print("Zoekmachines:", "toegestaan (gepubliceerd)" if PUBLICEREN else f"geweerd (noindex op {len(alle_html)} pagina's, intern)")
 
     # MapLibre verwijst naar een source map die we niet meeleveren (geeft een
     # 404 in de ontwikkelaarstools); die verwijzing weghalen.

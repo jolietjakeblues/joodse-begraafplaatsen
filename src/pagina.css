@@ -45,3 +45,25 @@ body.pagina .niet-gevonden .paaltje { display: block; width: 96px; height: auto;
 body.pagina .niet-gevonden h1 { margin-top: 0; }
 body.pagina .niet-gevonden-links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 20px; }
 body.pagina .niet-gevonden-links a { display: inline-block; padding: 8px 0; }
+
+/* Pagina per begraafplaats (scripts/paginas.py) */
+body.pagina .bp-status { display: flex; align-items: center; gap: 8px; color: var(--muted); margin: 0 0 12px; }
+body.pagina .bp-status .sym { width: 14px; height: 14px; }
+body.pagina .bp-gegevens { display: grid; grid-template-columns: max-content 1fr; gap: 8px 20px; margin: 16px 0; }
+body.pagina .bp-gegevens dt { color: var(--muted); }
+body.pagina .bp-gegevens dd { margin: 0; overflow-wrap: anywhere; }
+body.pagina .bp-lijst { margin: 0; padding-left: 18px; }
+body.pagina .bp-lijst li { margin: 2px 0; }
+body.pagina .bp-acties { margin: 20px 0 8px; padding-top: 12px; border-top: 1px solid #ddd; }
+body.pagina .bp-bron { margin-top: 20px; }
+body.pagina .bp-url { overflow-wrap: anywhere; font-style: normal; }
+@media (max-width: 520px) {
+  body.pagina .bp-gegevens { grid-template-columns: 1fr; gap: 0; }
+  body.pagina .bp-gegevens dd { margin-bottom: 10px; }
+}
+/* Printen (bijvoorbeeld bij het boek): zonder navigatie, links als tekst */
+@media print {
+  body.pagina .skip-link, body.pagina main > p:first-of-type, body.pagina .bp-acties { display: none; }
+  body.pagina main { border-top: 0; padding-top: 0; }
+  body.pagina a { color: inherit; text-decoration: none; }
+}

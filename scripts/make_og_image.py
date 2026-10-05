@@ -18,7 +18,7 @@ import matplotlib.pyplot as plt
 from shapely.geometry import shape
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
-STATUS = {  # zelfde als src/app.js
+STATUS = {  # zelfde als src/js/config.js
     "in_gebruik": ("In gebruik", "#0072B2", "o", "#0072B2"),
     "geruimd": ("Geruimd", "#E69F00", "D", "#E69F00"),
     "verdwenen": ("Verdwenen", "#3A3A3A", "o", "white"),

@@ -69,6 +69,10 @@
       <summary>Zoeken en filteren</summary>
       <label for="search">Naam, plaats of gemeente</label>
       <input type="search" id="search" autocomplete="off" placeholder="Bijvoorbeeld Rotterdam" aria-describedby="search-count" />
+      <label for="filter-provincie">Provincie</label>
+      <select id="filter-provincie" aria-describedby="search-count">
+        <option value="">Alle provincies</option>
+      </select>
       <label><input type="checkbox" id="filter-rijksmonument" /> Alleen rijksmonumenten <span class="count" data-count="rijksmonument"></span></label>
       <label><input type="checkbox" id="filter-gezicht" /> In beschermd gezicht <span class="count" data-count="gezicht"></span></label>
       <h3 class="filter-heading">Datering <span class="hint">(meerdere aanklikken toont ze samen)</span></h3>
@@ -111,6 +115,6 @@
   </main>
 
   <script src="vendor/maplibre-gl/maplibre-gl.js"></script>
-  <script src="app.js"></script>
+  <script type="module" src="js/app.js"></script>
 </body>
 </html>

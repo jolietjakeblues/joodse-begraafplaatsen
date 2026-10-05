@@ -43,6 +43,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import datetime
 import difflib
 import json
 import math
@@ -104,6 +105,36 @@ INVARIANTEN_JSON = REPO_ROOT / "data" / "invarianten.json"
 _inv = json.loads(INVARIANTEN_JSON.read_text(encoding="utf-8"))
 INVARIANTEN = {prov: {k: v for k, v in t.items() if k != "toelichting"} for prov, t in _inv["provincies"].items()}
 LANDELIJK_EXCEL_RIJEN = _inv["landelijk_excel_rijen"]
+
+# Register van gepubliceerde kenmerken (links vanuit het boek mogen niet breken).
+KENMERKEN_JSON = REPO_ROOT / "data" / "kenmerken.json"
+
+
+def controleer_kenmerken(records: dict[str, dict], provincies: list[str]) -> dict | None:
+    """Geeft het bijgewerkte register terug (nieuwe kenmerken toegevoegd), of None
+    als er niets verandert. Faalt als een gepubliceerd kenmerk uit een van de
+    gedraaide provincies verdwenen is zonder vermelding onder 'vervallen'."""
+    reg = json.loads(KENMERKEN_JSON.read_text(encoding="utf-8"))
+    weg = sorted(
+        k for k, v in reg["kenmerken"].items()
+        if v["provincie"] in provincies and k not in records and k not in reg["vervallen"]
+    )
+    assert not weg, (
+        f"gepubliceerde kenmerken verdwenen: {weg}. Zet ze onder 'vervallen' in data/kenmerken.json "
+        "(met 'naar', 'reden', 'datum', 'bron') zodat links blijven werken."
+    )
+    nieuw = sorted(k for k in records if k not in reg["kenmerken"])
+    verhuisd = sorted(k for k in records if k in reg["kenmerken"] and reg["kenmerken"][k]["provincie"] != records[k]["provincie"])
+    if not nieuw and not verhuisd:
+        return None
+    vandaag = datetime.date.today().isoformat()
+    for k in nieuw:
+        reg["kenmerken"][k] = {"sinds": vandaag, "provincie": records[k]["provincie"]}
+    for k in verhuisd:
+        reg["kenmerken"][k]["provincie"] = records[k]["provincie"]
+    reg["kenmerken"] = dict(sorted(reg["kenmerken"].items()))
+    print(f"  kenmerken: {len(nieuw)} nieuw geregistreerd, {len(verhuisd)} van provincie gewisseld")
+    return reg
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie
 # (data/geen_terrein_bevestigd.csv: id, reden, datum, bron). Telt in het
@@ -585,8 +616,12 @@ def build(provincies: list[str]) -> None:
     assert not ongeclaimd, f"ongekoppelde Joodse polygonen: {ongeclaimd}"
     assert alle_excel == LANDELIJK_EXCEL_RIJEN, f"Excel heeft {alle_excel} rijen, verwacht {LANDELIJK_EXCEL_RIJEN} (data/invarianten.json)"
 
+    register = controleer_kenmerken(records, provincies)
+
     # Pas schrijven als alle controles hierboven geslaagd zijn: een afgekeurde
     # run laat de vorige (goedgekeurde) uitvoer staan (review 2026-10-05).
+    if register is not None:
+        KENMERKEN_JSON.write_text(json.dumps(register, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     write_outputs(records, list(terrein_features.values()))
     write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correctie_log)
 

@@ -4,7 +4,7 @@ Bereken de cijfers voor de statistiekpagina (wens opdrachtgever 2026-10-05,
 vraag E7: "statistiekpagina zoals bij Zuid-Holland is welkom").
 
 Zelfde scheiding als in het dodenakkers-project: hier rekenen, in
-src/statistieken.js alleen tonen. Alleen stdlib, zodat het ook in de
+src/js/statistieken.js alleen tonen. Alleen stdlib, zodat het ook in de
 Cloudflare-build zou kunnen draaien; de uitvoer wordt gecommit.
 
 Input
@@ -33,7 +33,7 @@ PROVINCIES = sorted([
     "Drenthe", "Flevoland", "Fryslân", "Gelderland", "Groningen", "Limburg",
     "Noord-Brabant", "Noord-Holland", "Overijssel", "Utrecht", "Zeeland", "Zuid-Holland",
 ])  # alfabetisch
-# Zelfde indeling als het dateringsfilter op de kaart (src/app.js, vraag C9).
+# Zelfde indeling als het dateringsfilter op de kaart (src/js/config.js, vraag C9).
 DATERING = [
     ("vóór 1700", None, 1700),
     ("1700–1799", 1700, 1800),
