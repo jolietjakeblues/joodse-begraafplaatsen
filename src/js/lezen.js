@@ -2,20 +2,13 @@
 // Data: data/generated/leeslijst.json (scripts/fetch_leeslijst.py). Alleen
 // titels en links; de inhoud staat op dodenakkers.nl.
 
+import { el } from "./gedeeld.js";
+
 const PROVINCIE_VOLGORDE = [
   "Zuid-Holland", "Noord-Holland", "Utrecht", "Zeeland", "Flevoland",
   "Gelderland", "Overijssel", "Noord-Brabant", "Limburg", "Groningen", "Drenthe", "Fryslân",
 ];
 
-function el(tag, attrs = {}, ...kinderen) {
-  const e = document.createElement(tag);
-  for (const [k, v] of Object.entries(attrs)) {
-    if (k === "text") e.textContent = v;
-    else e.setAttribute(k, v);
-  }
-  e.append(...kinderen);
-  return e;
-}
 
 // Alleen links naar dodenakkers.nl (de leeslijst komt van die site); iets anders
 // wordt gewone tekst, zodat er nooit een javascript:- of vreemde link ontstaat.

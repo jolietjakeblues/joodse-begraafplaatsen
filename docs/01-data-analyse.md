@@ -124,7 +124,7 @@ Na Zuid-Holland zijn Utrecht, Noord-Holland, Zeeland en Flevoland verwerkt (91 b
 - **"In gebruik" omvat ook gesloten begraafplaatsen** (Haarlem Kleverlaan "1969 gesloten") → eerst "Bestaand" genoemd; sinds ronde 2 (A4/E3) weer "In gebruik".
 - Kolomwaarden: `NA` ∈ {bij, tegenover, achter, to}; `Muur` leeg in heel West; `Grondvorm` overal "Recht"; `Gemeentelijk monument` soms "Geen".
 
-Alle open punten: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
+Alle open punten: [04-vragen-open.md](04-vragen-open.md); afgehandeld: [05-vragen-beantwoord.md](05-vragen-beantwoord.md).
 
 ## 8. Antwoorden Dodenakkers (2026-10-02)
 

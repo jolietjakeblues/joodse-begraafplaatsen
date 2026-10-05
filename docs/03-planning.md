@@ -2,7 +2,7 @@
 
 Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief geruimd en verdwenen. Gebouwd per provincie.
 
-**Stand 2026-10-05: alle 12 provincies klaar**, 315 begraafplaatsen (315/315 Excel-rijen gekoppeld). Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
+**Stand 2026-10-05: alle 12 provincies klaar**, 315 begraafplaatsen (315/315 Excel-rijen gekoppeld). Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-open.md](04-vragen-open.md) (beantwoord: [05](05-vragen-beantwoord.md)).
 
 ## Voortgang per provincie
 
@@ -61,6 +61,8 @@ python scripts/make_og_image.py
 - [x] Directe link naar een begraafplaats: `?id=<kenmerk>` (nog visueel te controleren)
 - [x] CSV/GeoJSON-export van de selectie: niet gewenst (E7)
 - [x] Eigen review 2026-10-05: AVG-opschoning git-geschiedenis; Putte via corrections.csv; contrast geruimd-ruit; focus na popup; linkcontrole; data laden los van de ondergrond; stabiele rapporten; 17 tests; springlinks op alle pagina's; 12 px; favicon; 404 met grafpaaltje; RCE-functies zonder haakjes; verdwenen op 4 decimalen; publicatieschakelaar
+- [x] Na eigen voorstellen (2026-10-05): vaste kenmerken (`data/kenmerken.json` + doorverwijzingen), pagina per begraafplaats, zoeken zonder accenten/met aliassen, provinciefilter, pijlen op herbegravingen, "Link kopiëren"
+- [ ] Vast webadres vóór het boek naar de drukker gaat (`SITE_URL`; komt eraan)
 - [ ] Screenreadertest (NVDA/VoiceOver)
 - [x] Wensen uit de vragenlijst (layout, teksten): E2/E5/E6 "prima zo"; Engelse versie later
 

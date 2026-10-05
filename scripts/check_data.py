@@ -73,6 +73,26 @@ def check() -> list[str]:
     dubbel = [i for i, n in Counter(p["id"] for p in punten).items() if n > 1]
     if dubbel:
         fouten.append(f"dubbele kenmerken: {dubbel}")
+
+    # Vaste kenmerken: elk gepubliceerd kenmerk bestaat nog, of staat als
+    # 'vervallen' in data/kenmerken.json met een geldige doorverwijzing. Zo
+    # breken links vanuit het boek (en ?id=) nooit stil.
+    reg_pad = REPO_ROOT / "data" / "kenmerken.json"
+    if reg_pad.exists():
+        reg = load(reg_pad)
+        weg = sorted(k for k in reg["kenmerken"] if k not in by_id and k not in reg["vervallen"])
+        if weg:
+            fouten.append(f"gepubliceerde kenmerken verdwenen zonder doorverwijzing: {weg} (zie data/kenmerken.json)")
+        for k, v in reg["vervallen"].items():
+            if k in by_id:
+                fouten.append(f"{k} staat als vervallen in data/kenmerken.json maar bestaat nog")
+            if v.get("naar") and v["naar"] not in by_id:
+                fouten.append(f"{k} verwijst naar onbekend kenmerk {v['naar']}")
+        ongeregistreerd = sorted(k for k in by_id if k not in reg["kenmerken"])
+        if ongeregistreerd:
+            fouten.append(f"kenmerken niet geregistreerd in data/kenmerken.json: {ongeregistreerd} (draai build_base_dataset.py)")
+    else:
+        fouten.append("data/kenmerken.json ontbreekt")
     for p in punten:
         if p["status"] not in STATUSSEN:
             fouten.append(f"{p['id']}: onbekende status {p['status']!r}")

@@ -21,7 +21,9 @@ data-dodenakkers/  (aangeleverd, niet in git)
   ├─ scripts/make_og_image.py       → src/images/og-image.png  (deelafbeelding)
   └─ scripts/build_site.py          → site/  (gitignored, voor Cloudflare)
                                        draait eerst scripts/check_data.py: bij inconsistente data
-                                       geen build, dus in Cloudflare ook geen deploy
+                                       geen build, dus in Cloudflare ook geen deploy;
+                                       maakt met scripts/paginas.py een pagina per begraafplaats
+                                       (site/begraafplaats/<kenmerk>.html, op /begraafplaats/<kenmerk>)
 ```
 
 Volgorde en commando's:
@@ -75,6 +77,8 @@ Publiceren (bij het boek): `PUBLICEREN = True` in `scripts/build_site.py` haalt 
 - **Terrein** = punt ligt in polygoon (provincie-KMZ) én naam lijkt erop; bij geneste terreinen wint het kleinste. Verdwenen = alleen punt, bij benadering.
 - Correcties van Dodenakkers komen binnen als GitHub-issue met label `correctie` (formulier `.github/ISSUE_TEMPLATE/correctie.yml`, link "Correctie doorgeven" in elke kaartpopup met kenmerk ingevuld). Verwerken: wijziging in de juiste correctielaag hieronder, PR met "Closes #<nr>", merge → automatische deploy.
 - Correcties alleen via `data/corrections.csv` (velden), `data/terrein_koppelingen.csv` (handmatige terreinkoppeling), `data/herbegravingen.csv`, `data/geen_terrein_bevestigd.csv` en `data-dodenakkers/funerair_nieuwedata.kmz` (door Dodenakkers nagestuurde terreinen + ingangen; vervangt het terrein met dezelfde naam), nooit in de bron.
+- **Vaste kenmerken:** `data/kenmerken.json` registreert elk gepubliceerd kenmerk (links vanuit het boek). Verdwijnt een kenmerk uit de bron, dan faalt de build tot het onder `vervallen` staat met een doorverwijzing (`naar`); kaart (`?id=`) en pagina sturen dan door.
+- Kaart-URL's: `?id=<kenmerk>` opent een begraafplaats, `?provincie=Gelderland` toont één provincie, `?embed=1` voor inbedden. Pagina per begraafplaats: `/begraafplaats/<kenmerk>`.
 - Gecontroleerde tellingen per provincie, met toelichting, in `data/invarianten.json`. `build_base_dataset.py` controleert die vóór het schrijven (een afgekeurde run laat de vorige uitvoer staan); `check_data.py` controleert de gecommitte data vóór elke sitebuild.
 - Gemeente/provincie ruimtelijk bepaald (PDOK), Excel-waarde blijft als `_bron`.
 - Het tabblad *Dank en informeren* (persoonsgegevens) wordt nooit gelezen.
@@ -86,7 +90,8 @@ Publiceren (bij het boek): `PUBLICEREN = True` in `scripts/build_site.py` haalt 
 | [docs/01-data-analyse.md](docs/01-data-analyse.md) | Analyse van de aangeleverde Excel en KMZ's |
 | [docs/02-project-analyse.md](docs/02-project-analyse.md) | Wat is overgenomen uit dodenakkers-zh |
 | [docs/03-planning.md](docs/03-planning.md) | Voortgang per provincie en fasen |
-| [docs/04-vragen-dodenakkers.md](docs/04-vragen-dodenakkers.md) | Open vragen voor Leon, René en Dodenakkers |
+| [docs/04-vragen-open.md](docs/04-vragen-open.md) | Open vragen voor Leon, René en Dodenakkers |
+| [docs/05-vragen-beantwoord.md](docs/05-vragen-beantwoord.md) | Beantwoorde vragen en wat er mee gedaan is |
 | [docs/data/koppelrapport.md](docs/data/koppelrapport.md) | Gegenereerd: koppeling punten/terreinen, afwijkingen |
 | [docs/data/erfgoedrelaties.md](docs/data/erfgoedrelaties.md) | Gegenereerd: gezichten, rijksmonumenten, complexen |
 | [AI-joodse-begraafplaatsen.md](AI-joodse-begraafplaatsen.md) | Werkafspraken en besluiten |
