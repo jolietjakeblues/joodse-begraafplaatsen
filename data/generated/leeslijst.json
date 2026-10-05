@@ -1,6 +1,6 @@
 {
  "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
- "opgehaald": "2026-10-05T08:15:19.813207+00:00",
+ "opgehaald": "2026-10-05T08:44:49.302879+00:00",
  "artikelen": [
   {
    "titel": "Als bloemen bij het graf - Winschoten II",
@@ -56,9 +56,18 @@
    "provincie": "Groningen",
    "rubriek": null,
    "plaats": "Bad Nieuweschans",
-   "kaart": null,
-   "plaats_ids": [],
-   "popup_ids": []
+   "kaart": {
+    "lon": 7.2121047,
+    "lat": 53.1791997,
+    "id": "jb-loc-3863",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-3863"
+   ],
+   "popup_ids": [
+    "jb-loc-3863"
+   ]
   },
   {
    "titel": "Borger - Joodse begraafplaats",
@@ -284,9 +293,22 @@
    "provincie": "Groningen",
    "rubriek": null,
    "plaats": "Groningen",
-   "kaart": null,
-   "plaats_ids": [],
-   "popup_ids": []
+   "kaart": {
+    "lon": 6.5545477,
+    "lat": 53.2402053,
+    "id": "jb-loc-3628",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-3628",
+    "jb-loc-4068",
+    "jb-ver-67"
+   ],
+   "popup_ids": [
+    "jb-loc-3628",
+    "jb-loc-4068",
+    "jb-ver-67"
+   ]
   },
   {
    "titel": "Groningen - De verdwenen Joodse begraafplaats",
@@ -294,9 +316,20 @@
    "provincie": "Groningen",
    "rubriek": null,
    "plaats": "Groningen",
-   "kaart": null,
-   "plaats_ids": [],
-   "popup_ids": []
+   "kaart": {
+    "lon": 6.5637046,
+    "lat": 53.2260626,
+    "id": "jb-ver-67",
+    "naam": "Oude Joodse begraafplaats Jodenkamp"
+   },
+   "plaats_ids": [
+    "jb-loc-3628",
+    "jb-loc-4068",
+    "jb-ver-67"
+   ],
+   "popup_ids": [
+    "jb-ver-67"
+   ]
   },
   {
    "titel": "Haarlem - Joodse begraafplaats aan de Kleverlaan",

@@ -4,11 +4,11 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 ## Samenvatting
 
-- 251 begraafplaatsen, waarvan 189 met berekende relaties.
-- Binnen of deels in een rijksbeschermd gezicht: **36**.
-- Gebouwd rijksmonument binnen 100 m: **96**.
-- Archeologisch rijksmonument binnen 100 m: **2**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **62**.
+- 278 begraafplaatsen, waarvan 214 met berekende relaties.
+- Binnen of deels in een rijksbeschermd gezicht: **37**.
+- Gebouwd rijksmonument binnen 100 m: **102**.
+- Archeologisch rijksmonument binnen 100 m: **3**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **65**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -47,6 +47,11 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40288](https://monumentenregister.cultureelerfgoed.nl/monumenten/40288)  (Omwalling, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40287](https://monumentenregister.cultureelerfgoed.nl/monumenten/40287)  (Omwalling, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
+- `jb-loc-1177` Joodse Begraafplaats, Appingedam: [45142](https://monumentenregister.cultureelerfgoed.nl/monumenten/45142)  (Archeologie (N1), overlapt)
+- `jb-loc-3863` Joodse Begraafplaats, Bad Nieuweschans: [30485](https://monumentenregister.cultureelerfgoed.nl/monumenten/30485)  (Gracht (B), overlapt)
+- `jb-loc-3863` Joodse Begraafplaats, Bad Nieuweschans: [30487](https://monumentenregister.cultureelerfgoed.nl/monumenten/30487)  (Omwalling, overlapt)
+- `jb-loc-3584` Joodse Begraafplaats te Diepswal, Leek: [513633](https://monumentenregister.cultureelerfgoed.nl/monumenten/513633)  (Baarhuisje, op_terrein)
+- `jb-loc-3584` Joodse Begraafplaats te Diepswal, Leek: [513632](https://monumentenregister.cultureelerfgoed.nl/monumenten/513632)  (Begraafplaatshek, op_terrein)
 - `jb-loc-760` Joodse Begraafplaats, Grevenbicht: [46212](https://monumentenregister.cultureelerfgoed.nl/monumenten/46212)  (Archeologie (N1), overlapt)
 - `jb-loc-671` Oud Vroenhoven, Maastricht: [506572](https://monumentenregister.cultureelerfgoed.nl/monumenten/506572) Grafmonument Jezuïeten (Grafmonument, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [36769](https://monumentenregister.cultureelerfgoed.nl/monumenten/36769) Kasteel Valkenburg (Kasteel, buitenplaats, overlapt)
@@ -61,8 +66,8 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 
 ## Door Dodenakkers beoordeelde relaties
 
-- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: 516729 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag G3): muur hoort bij de Joodse begraafplaats)
 - `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: 516728 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag G3): aula hoort bij de Joodse begraafplaats)
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: 516729 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag G3): muur hoort bij de Joodse begraafplaats)
 - `jb-loc-1110` Nieuwe Begraafplaats, Venlo: 37192 — berekend `op_terrein`, beoordeeld `hoort_bij_andere` (Leon/René 2026-10-05 (vraag L2): 37192 hoort bij jb-loc-1125, de Oude Joodse begraafplaats)
 - `jb-loc-2923` Joodse Begraafplaats, Alkmaar: 7464 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag N2): de begraafplaats zelf; door RCE niet aan complex 524892 toegevoegd)
 - `jb-loc-1503` Joodse Begraafplaats op Algemene Begraafplaats Naarden, Bussum: 527225 — berekend `overlapt`, beoordeeld `algemene_begraafplaats` (Leon 2026-10-02 (vraag A7): maakt deel uit van de gemeentelijke begraafplaats)
