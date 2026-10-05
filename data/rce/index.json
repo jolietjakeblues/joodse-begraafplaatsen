@@ -49,6 +49,11 @@
       "gezichten": "data/rce/beschermde-gezichten-groningen.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-groningen.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-groningen.geojson"
+    },
+    "Drenthe": {
+      "gezichten": "data/rce/beschermde-gezichten-drenthe.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-drenthe.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-drenthe.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -101,6 +106,11 @@
     "Groningen": {
       "gezichten": 49,
       "rijksmonumenten": 13,
+      "archeologisch": 1
+    },
+    "Drenthe": {
+      "gezichten": 35,
+      "rijksmonumenten": 5,
       "archeologisch": 1
     }
   }
