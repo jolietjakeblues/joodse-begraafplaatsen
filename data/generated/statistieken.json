@@ -1,8 +1,9 @@
 {
- "gegenereerd": "2026-10-05T09:01:04.577751+00:00",
+ "gegenereerd": "2026-10-05T09:15:57.237492+00:00",
  "provincies_op_kaart": [
   "Drenthe",
   "Flevoland",
+  "Fryslân",
   "Gelderland",
   "Groningen",
   "Limburg",
@@ -14,16 +15,16 @@
   "Zuid-Holland"
  ],
  "basis": {
-  "totaal": 299,
+  "totaal": 315,
   "per_status": {
-   "in_gebruik": 228,
-   "geruimd": 6,
-   "verdwenen": 65
+   "in_gebruik": 239,
+   "geruimd": 7,
+   "verdwenen": 69
   },
-  "provincies": 11,
-  "met_terrein": 232,
-  "totaal_m2": 813160,
-  "mediaan_m2": 780,
+  "provincies": 12,
+  "met_terrein": 244,
+  "totaal_m2": 827095,
+  "mediaan_m2": 781,
   "grootste": {
    "id": "jb-loc-3369",
    "naam": "Israelitische Begraafplaats Amsterdam",
@@ -32,11 +33,11 @@
    "m2": 140301
   },
   "kleinste": {
-   "id": "jb-loc-239",
-   "naam": "Joods deel achter de Algemene begraafplaats",
-   "plaats": "Leerdam",
+   "id": "jb-loc-4304",
+   "naam": "Joodse Begraafplaats op Gemeentelijke Begraafplaats",
+   "plaats": "Sneek",
    "status": "in_gebruik",
-   "m2": 37
+   "m2": 29
   }
  },
  "per_provincie": [
@@ -57,6 +58,15 @@
    "verdwenen": 0,
    "met_terrein": 1,
    "totaal_m2": 2854
+  },
+  {
+   "provincie": "Fryslân",
+   "totaal": 16,
+   "in_gebruik": 11,
+   "geruimd": 1,
+   "verdwenen": 4,
+   "met_terrein": 12,
+   "totaal_m2": 13935
   },
   {
    "provincie": "Gelderland",
@@ -158,6 +168,14 @@
    "verdwenen": 4
   },
   {
+   "gemeente": "Súdwest-Fryslân",
+   "provincie": "Fryslân",
+   "totaal": 6,
+   "in_gebruik": 4,
+   "geruimd": 1,
+   "verdwenen": 1
+  },
+  {
    "gemeente": "Westerwolde",
    "provincie": "Groningen",
    "totaal": 6,
@@ -212,14 +230,6 @@
    "in_gebruik": 4,
    "geruimd": 0,
    "verdwenen": 0
-  },
-  {
-   "gemeente": "Het Hogeland",
-   "provincie": "Groningen",
-   "totaal": 4,
-   "in_gebruik": 4,
-   "geruimd": 0,
-   "verdwenen": 0
   }
  ],
  "meeste_verdwenen_gemeente": [
@@ -264,44 +274,44 @@
    "totaal": 5
   },
   {
+   "gemeente": "Leeuwarden",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 3
+  },
+  {
    "gemeente": "Leiden",
    "verdwenen_of_geruimd": 2,
    "totaal": 2
-  },
-  {
-   "gemeente": "Nijkerk",
-   "verdwenen_of_geruimd": 2,
-   "totaal": 3
   }
  ],
  "datering": {
-  "met_jaartal": 282,
+  "met_jaartal": 296,
   "klassen": [
    {
     "label": "vóór 1700",
-    "aantal": 18,
-    "in_gebruik": 13,
+    "aantal": 20,
+    "in_gebruik": 14,
     "geruimd": 0,
-    "verdwenen": 5
+    "verdwenen": 6
    },
    {
     "label": "1700–1799",
-    "aantal": 85,
-    "in_gebruik": 55,
-    "geruimd": 3,
-    "verdwenen": 27
+    "aantal": 88,
+    "in_gebruik": 56,
+    "geruimd": 4,
+    "verdwenen": 28
    },
    {
     "label": "1800–1849",
-    "aantal": 66,
-    "in_gebruik": 56,
+    "aantal": 71,
+    "in_gebruik": 61,
     "geruimd": 1,
     "verdwenen": 9
    },
    {
     "label": "1850–1899",
-    "aantal": 84,
-    "in_gebruik": 78,
+    "aantal": 88,
+    "in_gebruik": 82,
     "geruimd": 1,
     "verdwenen": 5
    },
@@ -468,35 +478,35 @@
     "circa": false
    },
    {
+    "id": "jb-loc-3567",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Workum",
+    "status": "in_gebruik",
+    "jaartal": 1676,
+    "circa": false
+   },
+   {
     "id": "jb-loc-2523",
     "naam": "Joodse Begraafplaats",
     "plaats": "Monnickendam",
     "status": "in_gebruik",
     "jaartal": 1677,
     "circa": false
-   },
-   {
-    "id": "jb-loc-886",
-    "naam": "Joodse Begraafplaats",
-    "plaats": "Geffen",
-    "status": "in_gebruik",
-    "jaartal": 1688,
-    "circa": false
    }
   ]
  },
  "erfgoed": {
-  "basis": 234,
-  "rijksmonument": 66,
-  "gemeentelijk_monument": 51,
-  "mip": 42,
-  "metaheerhuis": 84,
-  "in_gezicht": 38,
-  "met_rijksmonument_100m": 105,
+  "basis": 246,
+  "rijksmonument": 70,
+  "gemeentelijk_monument": 53,
+  "mip": 43,
+  "metaheerhuis": 87,
+  "in_gezicht": 40,
+  "met_rijksmonument_100m": 108,
   "top_functies_100m": [
    {
     "functie": "Woonhuis(K)",
-    "aantal": 52
+    "aantal": 53
    },
    {
     "functie": "Begraafplaats en -onderdelen",
@@ -504,31 +514,31 @@
    },
    {
     "functie": "Grafmonument",
-    "aantal": 34
+    "aantal": 36
    },
    {
     "functie": "Begraafplaats",
-    "aantal": 31
+    "aantal": 33
+   },
+   {
+    "functie": "Baarhuisje",
+    "aantal": 18
+   },
+   {
+    "functie": "Omwalling",
+    "aantal": 16
    },
    {
     "functie": "Woonhuis",
     "aantal": 16
    },
    {
-    "functie": "Baarhuisje",
-    "aantal": 16
-   },
-   {
-    "functie": "Omwalling",
-    "aantal": 15
+    "functie": "Begraafplaatshek",
+    "aantal": 9
    },
    {
     "functie": "Boerderij (M)",
     "aantal": 9
-   },
-   {
-    "functie": "Begraafplaatshek",
-    "aantal": 8
    },
    {
     "functie": "Poortgebouw",
@@ -547,6 +557,12 @@
     "rijksmonument": 0,
     "in_gezicht": 0,
     "metaheerhuis": 0
+   },
+   {
+    "provincie": "Fryslân",
+    "rijksmonument": 4,
+    "in_gezicht": 2,
+    "metaheerhuis": 3
    },
    {
     "provincie": "Gelderland",
@@ -605,8 +621,8 @@
   ]
  },
  "herbegravingen": {
-  "lijnen": 34,
-  "bestemmingen": 28,
+  "lijnen": 35,
+  "bestemmingen": 29,
   "meeste_ontvangen": [
    {
     "id": "jb-loc-2615",
@@ -651,6 +667,6 @@
     "aantal": 2
    }
   ],
-  "met_tekst_overgebracht": 37
+  "met_tekst_overgebracht": 38
  }
 }
