@@ -45,7 +45,21 @@ export function initFilters(kaart, features, opener) {
       laag.dispatchEvent(new Event("change"));
     }
   });
-  document.getElementById("search").addEventListener("input", applyFilters);
+  // Zoeken filtert direct; zoomen pas als het typen even stilstaat (of bij
+  // Enter), anders springt de kaart bij elke letter.
+  const zoekEl = document.getElementById("search");
+  let zoomTimer = null;
+  zoekEl.addEventListener("input", () => {
+    applyFilters();
+    clearTimeout(zoomTimer);
+    zoomTimer = setTimeout(zoomNaarSelectie, 600);
+  });
+  zoekEl.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+    clearTimeout(zoomTimer);
+    zoomNaarSelectie();
+  });
   provincieEl().addEventListener("change", () => {
     applyFilters();
     zoomNaarSelectie();
