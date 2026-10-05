@@ -117,7 +117,21 @@ Ter info (we passen de bron niet aan):
 - `Locaties.kmz`: het label van `jb-loc-3574` is "Joodse begraafplaats, Uithuizen**?**" (met vraagteken).
 - Uithuizen: het punt ligt 1 m buiten het Joodse terrein, binnen de Oude algemene begraafplaats.
 
-Nog open: R1–R3, Gr1, E8 (later).
+## Dr. Drenthe (nieuw, 2026-10-05)
+
+Alle 21 Drentse begraafplaatsen zijn gekoppeld (20 in gebruik, elk met terrein; 1 verdwenen). Herbegraving op de kaart: Coevorden oud → `jb-loc-2488`.
+
+**Dr1. Emmen: welke heet Westenesch?** De namen lijken gekruist tussen de Excel en de KMZ:
+
+| Kenmerk | Excel-naam (jaar, Grootte) | Punt ligt in KMZ-terrein |
+|---|---|---|
+| `jb-loc-3075` | Begraafplaats **Westenesch** (1885, tot 1915; 400 m²) | "**Oude** Joodse begraafplaats, Emmen" (440 m²) |
+| `jb-loc-2183` | Joodse Begraafplaats achter de Synagoge (1915; 480 m²) | "Joodse begraafplaats **Westenesch**, Emmen" (393 m²) |
+
+Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". We koppelen op ligging (elk punt aan het terrein waarin het ligt; de oppervlakten passen). Klopt dat, en welke naam is juist?
+*Nu:* gekoppeld op ligging, met de Excel-namen.
+
+Nog open: R1–R3, Gr1, Dr1, E8 (later).
 
 De gedetailleerde vragen hieronder zijn het archief van ronde 1–2; de tabellen hierboven zijn leidend.
 

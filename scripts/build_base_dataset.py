@@ -112,6 +112,8 @@ STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": 
 #   Limburg 2026-10-02: alles gekoppeld; alleen naamvarianten in schrijfwijze ("Joods Maastricht" e.d.).
 #   Groningen 2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via
 #     data/terrein_koppelingen.csv; Loppersum geruimd (jb-ger-247) heeft geen terrein in de KMZ (vraag).
+#   Drenthe 2026-10-05: Emmen jb-loc-2183 via terrein_koppelingen.csv; namen Westenesch/Oude gekruist
+#     tussen Excel en KMZ (vraag Dr1). Koppeling volgt de ligging van het punt.
 INVARIANTEN = {
     "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
     "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
@@ -123,6 +125,7 @@ INVARIANTEN = {
     "Noord-Brabant": {"totaal": 31, "in_gebruik": 21, "geruimd": 0, "verdwenen": 10, "terreinen": 21},
     "Limburg": {"totaal": 25, "in_gebruik": 18, "geruimd": 1, "verdwenen": 6, "terreinen": 19},
     "Groningen": {"totaal": 27, "in_gebruik": 23, "geruimd": 2, "verdwenen": 2, "terreinen": 24},
+    "Drenthe": {"totaal": 21, "in_gebruik": 20, "geruimd": 0, "verdwenen": 1, "terreinen": 20},
 }
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.

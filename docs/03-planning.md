@@ -2,7 +2,7 @@
 
 Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen van Nederland, inclusief geruimd en verdwenen. Gebouwd per provincie.
 
-**Stand 2026-10-05: 10 van 12 provincies klaar** (t/m Groningen), 278 begraafplaatsen. Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
+**Stand 2026-10-05: 11 van 12 provincies klaar** (t/m Drenthe), 299 begraafplaatsen. Live: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev. Open vragen: [04-vragen-dodenakkers.md](04-vragen-dodenakkers.md).
 
 ## Voortgang per provincie
 
@@ -18,7 +18,7 @@ Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen va
 | Noord-Brabant | ✅ | 31 | 21 | 0 | 10 | 21 | Putte: Rmon 516689 ligt op Frechie Foundation (vraag); 3 herbegravingen (Cuijk in twee stappen) |
 | Groningen | ✅ | 27 | 23 | 2 | 2 | 24 | Leens (KMZ-tikfout) en Uithuizen handmatig; Loppersum geruimd zonder terrein (vraag) |
 | Limburg | ✅ | 25 | 18 | 1 | 6 | 19 | Alles gekoppeld; Sittard "Vrangendael" en Venlo 37192 als vraag; 1 herbegraving |
-| Drenthe | ⏳ | 21 | | | | | |
+| Drenthe | ✅ | 21 | 20 | 0 | 1 | 20 | Emmen: namen Westenesch/Oude gekruist tussen Excel en KMZ (vraag Dr1), gekoppeld op ligging; 1 herbegraving |
 | Fryslân | ⏳ | 16 | | | | | |
 
 Tellingen staan vast in `INVARIANTEN` (`scripts/build_base_dataset.py`).
@@ -70,7 +70,7 @@ python scripts/make_og_image.py
 - [ ] Nieuwe bronbestanden van Leon verwerken (N4) en herbegravingen aanvullen (N3)
 
 ### Fase 5 – Rest van Nederland
-- [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: ✅ Gelderland, ✅ Overijssel, ✅ Noord-Brabant, ✅ Limburg, ✅ Groningen, Drenthe, Fryslân
+- [ ] Oost/Noord/Zuid per provincie, volgorde voorstel: ✅ Gelderland, ✅ Overijssel, ✅ Noord-Brabant, ✅ Limburg, ✅ Groningen, ✅ Drenthe, Fryslân
 - [ ] Proefrun `--alle` (2026-10-02, vóór de verbeteringen van West): 18 zonder terrein, 16 ongekoppelde Joodse polygonen → per provincie uitzoeken
 - [ ] Bij landelijke dekking: label "Nederland", deelafbeelding opnieuw
 

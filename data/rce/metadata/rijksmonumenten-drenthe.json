@@ -1,0 +1,28 @@
+{
+  "source": "RCE Linked Data Voorziening (CHO)",
+  "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
+  "query_file": "queries/rce/rijksmonumenten.sparql",
+  "retrieved_at": "2026-10-05T09:00:07.757172+00:00",
+  "provincies": [
+    "Drenthe"
+  ],
+  "bbox_wgs84": {
+    "MIN_LON": 6.0998,
+    "MAX_LON": 7.1127,
+    "MIN_LAT": 52.5922,
+    "MAX_LAT": 53.2238
+  },
+  "clip": "provinciegrens PDOK + 1000 m",
+  "feature_count": 5,
+  "stats": {
+    "point_rows_from_endpoint": 5537,
+    "polygon_rows_from_endpoint": 615,
+    "distinct_cho": 3231,
+    "buiten_gebied": 1742,
+    "features": 1489,
+    "gebouwd_in_provincie": 1394,
+    "binnen_zone": 5,
+    "begraafplaatsen_in_zone": 20
+  },
+  "notes": "Gebouwde rijksmonumenten (excl. monumentaard archeologisch) binnen 100 m van een bestaande of geruimde Joodse begraafplaats (terrein, of punt als er geen terrein is)."
+}
