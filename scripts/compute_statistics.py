@@ -115,9 +115,12 @@ def main() -> None:
 
     # --- erfgoed (alleen in gebruik + geruimd: verdwenen ligt maar bij benadering vast) ---
     berekend = [r for r in recs if r["relaties_berekend"]]
-    functies = Counter(
-        (m["functie"] or "onbekend") for r in berekend for m in r["rijksmonumenten_nabij"] if m["afstand_m"] <= 100
-    )
+    # Een monument kan binnen 100 m van twee begraafplaatsen liggen. De functietabel
+    # telt daarom UNIEKE monumenten; het aantal relaties staat er apart bij
+    # (review 2026-10-05: 343 relaties naar 326 monumenten).
+    relaties = [m for r in berekend for m in r["rijksmonumenten_nabij"] if m["afstand_m"] <= 100]
+    uniek = {m["rijksmonumentnummer"]: m for m in relaties}
+    functies = Counter((m["functie"] or "onbekend") for m in uniek.values())
     erfgoed = {
         "basis": len(berekend),
         "rijksmonument": sum(1 for r in recs if r["rijksmonument"] is True),
@@ -126,6 +129,8 @@ def main() -> None:
         "metaheerhuis": sum(1 for r in recs if r["met"] is True),
         "in_gezicht": sum(1 for r in berekend if r["in_gezicht"]),
         "met_rijksmonument_100m": sum(1 for r in berekend if any(m["afstand_m"] <= 100 for m in r["rijksmonumenten_nabij"])),
+        "relaties_100m": len(relaties),
+        "unieke_monumenten_100m": len(uniek),
         "top_functies_100m": [{"functie": f, "aantal": n} for f, n in functies.most_common(TOP)],
         "per_provincie": [
             {"provincie": p,

@@ -1,0 +1,102 @@
+{
+ "_uitleg": "Gecontroleerde tellingen per provincie (na handmatige controle, zie docs/data/koppelrapport.md). Gelezen door scripts/build_base_dataset.py (vóór het schrijven) en scripts/check_data.py (vóór elke sitebuild/deploy). Wijzigt de bron, dan dit bestand bewust bijwerken met toelichting -- nooit stil laten meebewegen.",
+ "landelijk_excel_rijen": 315,
+ "provincies": {
+  "Zuid-Holland": {
+   "totaal": 36,
+   "in_gebruik": 24,
+   "geruimd": 2,
+   "verdwenen": 10,
+   "terreinen": 26,
+   "toelichting": "2026-10-02: alle terreinen gekoppeld."
+  },
+  "Utrecht": {
+   "totaal": 20,
+   "in_gebruik": 14,
+   "geruimd": 0,
+   "verdwenen": 6,
+   "terreinen": 13,
+   "toelichting": "2026-10-02: Bilthoven (jb-loc-4368) heeft geen eigen terrein in Funerair Utrecht.kmz (bevestigd, vraag B1)."
+  },
+  "Noord-Holland": {
+   "totaal": 28,
+   "in_gebruik": 22,
+   "geruimd": 0,
+   "verdwenen": 6,
+   "terreinen": 22,
+   "toelichting": "2026-10-02: alle gekoppeld; Ouderkerk via Excel-naam 'Beth Haim'."
+  },
+  "Zeeland": {
+   "totaal": 6,
+   "in_gebruik": 6,
+   "geruimd": 0,
+   "verdwenen": 0,
+   "terreinen": 6,
+   "toelichting": "2026-10-02: alle gekoppeld; Vlissingen jb-loc-9 via data/terrein_koppelingen.csv."
+  },
+  "Flevoland": {
+   "totaal": 1,
+   "in_gebruik": 1,
+   "geruimd": 0,
+   "verdwenen": 0,
+   "terreinen": 1,
+   "toelichting": "2026-10-02: alle gekoppeld."
+  },
+  "Gelderland": {
+   "totaal": 61,
+   "in_gebruik": 45,
+   "geruimd": 0,
+   "verdwenen": 16,
+   "terreinen": 45,
+   "toelichting": "2026-10-02: alle 45 in gebruik gekoppeld; alleen naamvarianten in schrijfwijze."
+  },
+  "Overijssel": {
+   "totaal": 43,
+   "in_gebruik": 34,
+   "geruimd": 1,
+   "verdwenen": 8,
+   "terreinen": 35,
+   "toelichting": "2026-10-02: alles gekoppeld; Enschede jb-loc-3027 en jb-loc-3002 via terrein_koppelingen.csv (Israelitisch <-> Joods)."
+  },
+  "Noord-Brabant": {
+   "totaal": 31,
+   "in_gebruik": 21,
+   "geruimd": 0,
+   "verdwenen": 10,
+   "terreinen": 21,
+   "toelichting": "2026-10-02: alles gekoppeld; Putte 'Sombre Hadas' = KMZ-tikfout (vraag B8)."
+  },
+  "Limburg": {
+   "totaal": 25,
+   "in_gebruik": 18,
+   "geruimd": 1,
+   "verdwenen": 6,
+   "terreinen": 19,
+   "toelichting": "2026-10-02: alles gekoppeld; alleen naamvarianten ('Joods Maastricht' e.d.). Venlo jb-loc-1125 terrein uit funerair_nieuwedata.kmz (2026-10-05)."
+  },
+  "Groningen": {
+   "totaal": 27,
+   "in_gebruik": 23,
+   "geruimd": 2,
+   "verdwenen": 2,
+   "terreinen": 24,
+   "toelichting": "2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via terrein_koppelingen.csv; Loppersum geruimd jb-ger-247 zonder terrein (vraag Gr1)."
+  },
+  "Drenthe": {
+   "totaal": 21,
+   "in_gebruik": 20,
+   "geruimd": 0,
+   "verdwenen": 1,
+   "terreinen": 20,
+   "toelichting": "2026-10-05: Emmen jb-loc-2183 via terrein_koppelingen.csv; namen Westenesch/Oude gekruist (vraag Dr1); koppeling volgt de ligging."
+  },
+  "Fryslân": {
+   "totaal": 16,
+   "in_gebruik": 11,
+   "geruimd": 1,
+   "verdwenen": 4,
+   "terreinen": 12,
+   "toelichting": "2026-10-05: alles gekoppeld. Daarmee landelijk 315/315."
+  }
+ }
+}
