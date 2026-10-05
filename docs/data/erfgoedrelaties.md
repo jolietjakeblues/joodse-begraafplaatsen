@@ -42,8 +42,6 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 
 Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftekens) — ter beoordeling.
 
-- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516729](https://monumentenregister.cultureelerfgoed.nl/monumenten/516729)  (Muur(D), op_terrein)
-- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: [516728](https://monumentenregister.cultureelerfgoed.nl/monumenten/516728)  (Begraafplaatsaula, op_terrein)
 - `jb-loc-2936` Joodse Begraafplaats, Elburg: [430531](https://monumentenregister.cultureelerfgoed.nl/monumenten/430531)  (Fort, vesting en -onderdelen, overlapt)
 - `jb-loc-2623` Joodse Begraafplaats Bossche Poort, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40288](https://monumentenregister.cultureelerfgoed.nl/monumenten/40288)  (Omwalling, overlapt)
@@ -53,19 +51,20 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-671` Oud Vroenhoven, Maastricht: [506572](https://monumentenregister.cultureelerfgoed.nl/monumenten/506572) Grafmonument Jezuïeten (Grafmonument, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [36769](https://monumentenregister.cultureelerfgoed.nl/monumenten/36769) Kasteel Valkenburg (Kasteel, buitenplaats, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [47164](https://monumentenregister.cultureelerfgoed.nl/monumenten/47164)  (Archeologie (N1), overlapt)
-- `jb-loc-1110` Nieuwe Begraafplaats, Venlo: [37192](https://monumentenregister.cultureelerfgoed.nl/monumenten/37192)  (Begraafplaats en -onderdelen, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525640](https://monumentenregister.cultureelerfgoed.nl/monumenten/525640)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [516691](https://monumentenregister.cultureelerfgoed.nl/monumenten/516691)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525639](https://monumentenregister.cultureelerfgoed.nl/monumenten/525639)  (Begraafplaats en -onderdelen, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525638](https://monumentenregister.cultureelerfgoed.nl/monumenten/525638)  (Begraafplaatsaula, op_terrein)
-- `jb-loc-2923` Joodse Begraafplaats, Alkmaar: [7464](https://monumentenregister.cultureelerfgoed.nl/monumenten/7464)  (Begraafplaats en -onderdelen, op_terrein)
-- `jb-loc-4021` Joodse Begraafplaats op Gemeentelijke Begraafplaats, Dedemsvaart: [515827](https://monumentenregister.cultureelerfgoed.nl/monumenten/515827) De Mulderij (Begraafplaats, overlapt)
 - `jb-loc-2994` Joodse Begraafplaats, Delden: [507546](https://monumentenregister.cultureelerfgoed.nl/monumenten/507546)  (Historische aanleg, overlapt)
 - `jb-loc-2459` Joodse Begraafplaats, Denekamp: [12342](https://monumentenregister.cultureelerfgoed.nl/monumenten/12342)  (Begraafplaats en -onderdelen, overlapt)
 - `jb-loc-2412` Joodse Begraafplaats op de Kuiperberg, Ootmarsum: [513204](https://monumentenregister.cultureelerfgoed.nl/monumenten/513204)  (Watertoren, overlapt)
 
 ## Door Dodenakkers beoordeelde relaties
 
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: 516729 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag G3): muur hoort bij de Joodse begraafplaats)
+- `jb-loc-2615` Joodse Begraafplaats Moscowa, Arnhem: 516728 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag G3): aula hoort bij de Joodse begraafplaats)
+- `jb-loc-1110` Nieuwe Begraafplaats, Venlo: 37192 — berekend `op_terrein`, beoordeeld `hoort_bij_andere` (Leon/René 2026-10-05 (vraag L2): 37192 hoort bij jb-loc-1125, de Oude Joodse begraafplaats)
+- `jb-loc-2923` Joodse Begraafplaats, Alkmaar: 7464 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon/René 2026-10-05 (vraag N2): de begraafplaats zelf; door RCE niet aan complex 524892 toegevoegd)
 - `jb-loc-1503` Joodse Begraafplaats op Algemene Begraafplaats Naarden, Bussum: 527225 — berekend `overlapt`, beoordeeld `algemene_begraafplaats` (Leon 2026-10-02 (vraag A7): maakt deel uit van de gemeentelijke begraafplaats)
 - `jb-loc-4201` Joodse Begraafplaats, Overveen: 529524 — berekend `overlapt`, beoordeeld `hoort_bij` (Leon 2026-10-02 (vraag A7): toegangspoort tot de begraafplaats)
 - `jb-loc-819` Oude Joodse Begraafplaats, Wijk bij Duurstede: 454310 — berekend `overlapt`, beoordeeld `net_buiten` (Leon/René 2026-10-02 (vraag A7): valt er net buiten)

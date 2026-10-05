@@ -8,12 +8,14 @@ artikeltekst. De lezer gaat voor de inhoud naar dodenakkers.nl.
 
 Per artikel over een plaats wordt gekeken of die plaats op de kaart staat
 (data/generated/begraafplaatsen.geojson). Zo ja, dan krijgt het artikel een
-kaartpositie voor de link "Bekijk op de kaart". Dat is een gemak, geen
-koppeling in de data: het artikel kan meerdere begraafplaatsen in die plaats
-behandelen.
+kaartpositie voor de link "Bekijk op de kaart" (de best passende
+begraafplaats), plus de kenmerken van alle begraafplaatsen in die plaats
+(`plaats_ids`) zodat de kaartpopup naar het artikel kan verwijzen. Dat is een
+gemak, geen koppeling in de data: het artikel kan meerdere begraafplaatsen in
+die plaats behandelen.
 
-Uitgelichte artikelen met een eigen korte beschrijving staan in
-data/leeslijst_uitgelicht.json (handmatig, met bron).
+Geen uitgelichte artikelen meer (wens opdrachtgever 2026-10-05): alles staat
+in de gewone lijst. Draai na elke nieuwe provincie opnieuw.
 
 Output: data/generated/leeslijst.json
 
@@ -35,7 +37,6 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 BASIS = "https://www.dodenakkers.nl"
 TAG_URL = f"{BASIS}/tag/joodse-begraafplaats.html?limit=0"
 OUT = REPO_ROOT / "data" / "generated" / "leeslijst.json"
-UITGELICHT = REPO_ROOT / "data" / "leeslijst_uitgelicht.json"
 
 # URL-padsegment -> provincie (zoals in PDOK / de Excel)
 PROVINCIE_PAD = {
@@ -73,7 +74,10 @@ def kaartposities() -> dict[str, list[dict]]:
     pos: dict[str, list[dict]] = {}
     for f in json.loads(path.read_text(encoding="utf-8"))["features"]:
         p = f["properties"]
-        for naam in {p.get("plaats"), p.get("gemeente")} - {None}:
+        # Ook de plaats uit het puntlabel ("Joodse begraafplaats, Den Nul" heeft
+        # in de Excel Olst als plaats).
+        label_plaats = p["label_punt"].rsplit(",", 1)[1].strip() if p.get("label_punt") and "," in p["label_punt"] else None
+        for naam in {p.get("plaats"), p.get("gemeente"), label_plaats} - {None}:
             pos.setdefault(norm(naam), []).append(p)
     return pos
 
@@ -102,8 +106,6 @@ def main() -> None:
     assert tabel, "tabel met getagde artikelen niet gevonden -- is de opbouw van dodenakkers.nl veranderd?"
 
     posities = kaartposities()
-    uitgelicht = json.loads(UITGELICHT.read_text(encoding="utf-8")) if UITGELICHT.exists() else []
-    uitgelicht_urls = {u["url"] for u in uitgelicht}
 
     artikelen = []
     for a in tabel.select("tr th.list-title a[href]"):
@@ -113,11 +115,12 @@ def main() -> None:
         provincie = next((PROVINCIE_PAD[d] for d in delen if d in PROVINCIE_PAD), None)
         rubriek = None if provincie else next((RUBRIEK_PAD[d] for d in delen if d in RUBRIEK_PAD), "Overig")
         plaats = plaats_uit_titel(titel)
-        kaart = None
+        kaart, plaats_ids = None, []
         if plaats:
             for kandidaat in [plaats, *plaats.split("/")]:
                 if norm(kandidaat) in posities:
                     kaart = beste_begraafplaats(titel, posities[norm(kandidaat)])
+                    plaats_ids = sorted({p["id"] for p in posities[norm(kandidaat)]})
                     break
         artikelen.append({
             "titel": titel,
@@ -126,14 +129,16 @@ def main() -> None:
             "rubriek": rubriek,
             "plaats": plaats,
             "kaart": kaart,
-            "uitgelicht": url in uitgelicht_urls,
+            "plaats_ids": plaats_ids,
+            # Popup-verwijzing: titel over meerdere begraafplaatsen ("begraafplaatsen",
+            # "begraafplaats(en)") -> alle in die plaats; anders alleen de best passende.
+            "popup_ids": plaats_ids if re.search(r"begraafplaatsen|\(en\)", titel, re.I) else ([kaart["id"]] if kaart else []),
         })
 
     assert artikelen, "geen artikelen gevonden"
     out = {
         "bron": TAG_URL.split("?")[0],
         "opgehaald": datetime.now(timezone.utc).isoformat(),
-        "uitgelicht": uitgelicht,
         "artikelen": artikelen,
     }
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")

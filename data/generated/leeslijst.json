@@ -1,20 +1,6 @@
 {
  "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
- "opgehaald": "2026-10-02T13:39:49.690046+00:00",
- "uitgelicht": [
-  {
-   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel I)",
-   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-i.html",
-   "datum": "2026-03-31",
-   "beschrijving": "Waarom een geruimde Joodse begraafplaats niet 'leeg' hoeft te zijn. Aan de hand van Winschoten, Kampen en Amersfoort, waar bij werkzaamheden toch nog stoffelijke resten werden gevonden, en een voorstel voor een archeologische aanpak die rekening houdt met de Joodse voorschriften over eeuwige grafrust."
-  },
-  {
-   "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel II)",
-   "url": "https://www.dodenakkers.nl/artikelen-overzicht/algemeen/diversen/het-archeologische-aspect-van-onderzoek-naar-verdwenen-joodse-begraafplaatsen-in-nederland-deel-ii.html",
-   "datum": "2026-09-13",
-   "beschrijving": "Vervolg met voorbeelden van geruimde en verdwenen begraafplaatsen: de Dijkstraat in Rotterdam-Kralingen, Loppersum, Borne, De Maten en Roswinkel. Het onderzoek telt minimaal 82 geruimde of verdwenen Joodse begraafplaatsen in Nederland."
-  }
- ],
+ "opgehaald": "2026-10-05T08:15:19.813207+00:00",
  "artikelen": [
   {
    "titel": "Als bloemen bij het graf - Winschoten II",
@@ -23,7 +9,8 @@
    "rubriek": "Grafpoëzie",
    "plaats": "Als bloemen bij het graf",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Amsterdam - De Joodse begraafplaats Zeeburg",
@@ -37,7 +24,12 @@
     "id": "jb-loc-1437",
     "naam": "Joodse Begraafplaats Zeeburg"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1437"
+   ],
+   "popup_ids": [
+    "jb-loc-1437"
+   ]
   },
   {
    "titel": "Asperen - Joodse begraafplaats",
@@ -45,8 +37,18 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Asperen",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.1013313,
+    "lat": 51.8870673,
+    "id": "jb-loc-295",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-295"
+   ],
+   "popup_ids": [
+    "jb-loc-295"
+   ]
   },
   {
    "titel": "Bad Nieuweschans - Joodse begraafplaats",
@@ -55,7 +57,8 @@
    "rubriek": null,
    "plaats": "Bad Nieuweschans",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Borger - Joodse begraafplaats",
@@ -64,7 +67,8 @@
    "rubriek": null,
    "plaats": "Borger",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Dalfsen – De Israëlitische begraafplaats in het buurtschap Gerner",
@@ -72,8 +76,18 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Dalfsen",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.2680331,
+    "lat": 52.5174933,
+    "id": "jb-loc-2297",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2297"
+   ],
+   "popup_ids": [
+    "jb-loc-2297"
+   ]
   },
   {
    "titel": "De funeraire plek(ken) van... Eduard Huisman",
@@ -82,7 +96,8 @@
    "rubriek": "Extra's",
    "plaats": null,
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "De Pol – Joodse begraafplaats",
@@ -90,8 +105,18 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "De Pol",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.0807393,
+    "lat": 52.8258016,
+    "id": "jb-loc-3306",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-3306"
+   ],
+   "popup_ids": [
+    "jb-loc-3306"
+   ]
   },
   {
    "titel": "Den Nul - Joodse begraafplaats",
@@ -99,8 +124,18 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Den Nul",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.1122279,
+    "lat": 52.3590864,
+    "id": "jb-loc-4194",
+    "naam": "Joodse Begraafplaats Den Nul"
+   },
+   "plaats_ids": [
+    "jb-loc-4194"
+   ],
+   "popup_ids": [
+    "jb-loc-4194"
+   ]
   },
   {
    "titel": "Deventer - De verdwenen Joodse begraafplaats",
@@ -108,8 +143,19 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Deventer",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.1631598,
+    "lat": 52.2580273,
+    "id": "jb-ver-354",
+    "naam": "Oude Israëlitische begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-4224",
+    "jb-ver-354"
+   ],
+   "popup_ids": [
+    "jb-ver-354"
+   ]
   },
   {
    "titel": "Dieren - Joodse begraafplaats",
@@ -117,8 +163,18 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Dieren",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.0920677,
+    "lat": 52.0472799,
+    "id": "jb-loc-2330",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2330"
+   ],
+   "popup_ids": [
+    "jb-loc-2330"
+   ]
   },
   {
    "titel": "Doesburg - De verdwenen Joodse begraafplaatsen",
@@ -126,8 +182,22 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Doesburg",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.1337221,
+    "lat": 52.0121786,
+    "id": "jb-ver-676",
+    "naam": "Joodse begraafplaats Veerpoortwal"
+   },
+   "plaats_ids": [
+    "jb-ver-676",
+    "jb-ver-677",
+    "jb-ver-678"
+   ],
+   "popup_ids": [
+    "jb-ver-676",
+    "jb-ver-677",
+    "jb-ver-678"
+   ]
   },
   {
    "titel": "Dordrecht - Joodse begraafplaats(en)",
@@ -141,7 +211,14 @@
     "id": "jb-loc-1912",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1912",
+    "jb-ver-182"
+   ],
+   "popup_ids": [
+    "jb-loc-1912",
+    "jb-ver-182"
+   ]
   },
   {
    "titel": "Eindhoven - Joodse begraafplaats",
@@ -149,8 +226,19 @@
    "provincie": "Noord-Brabant",
    "rubriek": null,
    "plaats": "Eindhoven",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.4577923,
+    "lat": 51.450793,
+    "id": "jb-loc-986",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-986",
+    "jb-ver-21"
+   ],
+   "popup_ids": [
+    "jb-loc-986"
+   ]
   },
   {
    "titel": "Gennep - Joodse begraafplaats",
@@ -158,8 +246,18 @@
    "provincie": "Limburg",
    "rubriek": null,
    "plaats": "Gennep",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.9681995,
+    "lat": 51.6958005,
+    "id": "jb-loc-2653",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2653"
+   ],
+   "popup_ids": [
+    "jb-loc-2653"
+   ]
   },
   {
    "titel": "Groet/Schoorl - De verdwenen Joodse begraafplaats",
@@ -173,7 +271,12 @@
     "id": "jb-ver-395",
     "naam": "Portugees Israëlitische Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-ver-395"
+   ],
+   "popup_ids": [
+    "jb-ver-395"
+   ]
   },
   {
    "titel": "Groningen - De Joodse begraafplaatsen",
@@ -182,7 +285,8 @@
    "rubriek": null,
    "plaats": "Groningen",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Groningen - De verdwenen Joodse begraafplaats",
@@ -191,7 +295,8 @@
    "rubriek": null,
    "plaats": "Groningen",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Haarlem - Joodse begraafplaats aan de Kleverlaan",
@@ -205,7 +310,14 @@
     "id": "jb-loc-1361",
     "naam": "Joods begraafplaats op gemeentelijke begraafplaats Kleverlaan"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1361",
+    "jb-loc-2805",
+    "jb-ver-98"
+   ],
+   "popup_ids": [
+    "jb-loc-1361"
+   ]
   },
   {
    "titel": "Hardenberg - \"Jodenbergje\"",
@@ -213,8 +325,20 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Hardenberg",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.6294829,
+    "lat": 52.5826708,
+    "id": "jb-loc-3321",
+    "naam": "Isr Begraafplaats Het Jodenbergje"
+   },
+   "plaats_ids": [
+    "jb-loc-3321",
+    "jb-loc-4015",
+    "jb-loc-4021"
+   ],
+   "popup_ids": [
+    "jb-loc-3321"
+   ]
   },
   {
    "titel": "Hardenberg - Joodse begraafplaats ‘Mulopaadje’",
@@ -222,8 +346,20 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Hardenberg",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.6269913,
+    "lat": 52.5758329,
+    "id": "jb-loc-4015",
+    "naam": "Joodse Begraafplaats aan het Mulopaadje"
+   },
+   "plaats_ids": [
+    "jb-loc-3321",
+    "jb-loc-4015",
+    "jb-loc-4021"
+   ],
+   "popup_ids": [
+    "jb-loc-4015"
+   ]
   },
   {
    "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel I)",
@@ -232,7 +368,8 @@
    "rubriek": "Algemeen",
    "plaats": null,
    "kaart": null,
-   "uitgelicht": true
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Het archeologische aspect van onderzoek naar verdwenen Joodse begraafplaatsen in Nederland (deel II)",
@@ -241,7 +378,8 @@
    "rubriek": "Algemeen",
    "plaats": null,
    "kaart": null,
-   "uitgelicht": true
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Kampen - De plechtige herbegrafenis van een middenhandsbeentje",
@@ -249,8 +387,19 @@
    "provincie": "Overijssel",
    "rubriek": null,
    "plaats": "Kampen",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.9340247,
+    "lat": 52.5696635,
+    "id": "jb-loc-2035",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-ger-85",
+    "jb-loc-2035"
+   ],
+   "popup_ids": [
+    "jb-loc-2035"
+   ]
   },
   {
    "titel": "Leerdam - Joodse begraafplaatsen",
@@ -264,7 +413,18 @@
     "id": "jb-loc-366",
     "naam": "Joodse Begraafplaats op Algemene Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-239",
+    "jb-loc-366",
+    "jb-ver-498",
+    "jb-ver-774"
+   ],
+   "popup_ids": [
+    "jb-loc-239",
+    "jb-loc-366",
+    "jb-ver-498",
+    "jb-ver-774"
+   ]
   },
   {
    "titel": "Lekkerkerk - Joodse begraafplaats",
@@ -278,7 +438,12 @@
     "id": "jb-loc-3452",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-3452"
+   ],
+   "popup_ids": [
+    "jb-loc-3452"
+   ]
   },
   {
    "titel": "Maarssen - Joodse begraafplaats",
@@ -292,7 +457,12 @@
     "id": "jb-loc-1643",
     "naam": "Joodse Begraafplaats Tienhoven"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1643"
+   ],
+   "popup_ids": [
+    "jb-loc-1643"
+   ]
   },
   {
    "titel": "Middelburg - Joodse begraafplaatsen",
@@ -306,7 +476,14 @@
     "id": "jb-loc-17",
     "naam": "Portugees-Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-17",
+    "jb-loc-21"
+   ],
+   "popup_ids": [
+    "jb-loc-17",
+    "jb-loc-21"
+   ]
   },
   {
    "titel": "Muiderberg - Joodse begraafplaats",
@@ -320,7 +497,12 @@
     "id": "jb-loc-3369",
     "naam": "Israelitische Begraafplaats Amsterdam"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-3369"
+   ],
+   "popup_ids": [
+    "jb-loc-3369"
+   ]
   },
   {
    "titel": "Nijmegen – Joodse begraafplaats(en)",
@@ -328,8 +510,20 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Nijmegen",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.8836385,
+    "lat": 51.8307766,
+    "id": "jb-loc-4099",
+    "naam": "Huis der Levenden"
+   },
+   "plaats_ids": [
+    "jb-loc-4099",
+    "jb-ver-75"
+   ],
+   "popup_ids": [
+    "jb-loc-4099",
+    "jb-ver-75"
+   ]
   },
   {
    "titel": "Noordwolde - \"Jeuds Karkhof\"",
@@ -338,7 +532,8 @@
    "rubriek": null,
    "plaats": "Noordwolde",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Ouderkerk aan de Amstel - Portugees-Israëlitische begraafplaats",
@@ -352,7 +547,12 @@
     "id": "jb-loc-1439",
     "naam": "Portugees Isr. begraafplaats Beth Haim"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1439"
+   ],
+   "popup_ids": [
+    "jb-loc-1439"
+   ]
   },
   {
    "titel": "Overveen - Joodse begraafplaats",
@@ -366,7 +566,12 @@
     "id": "jb-loc-4201",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-4201"
+   ],
+   "popup_ids": [
+    "jb-loc-4201"
+   ]
   },
   {
    "titel": "Rotterdam - Joodse begraafplaats Het Toepad",
@@ -380,7 +585,18 @@
     "id": "jb-loc-4200",
     "naam": "Begraafplaats Toepad"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1478",
+    "jb-loc-3439",
+    "jb-loc-3618",
+    "jb-loc-4200",
+    "jb-ver-361",
+    "jb-ver-471",
+    "jb-ver-872"
+   ],
+   "popup_ids": [
+    "jb-loc-4200"
+   ]
   },
   {
    "titel": "Tacozijl – De Joodse begraafplaats",
@@ -389,7 +605,8 @@
    "rubriek": null,
    "plaats": "Tacozijl",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Veenendaal - Joodse begraafplaats",
@@ -403,7 +620,12 @@
     "id": "jb-loc-4171",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-4171"
+   ],
+   "popup_ids": [
+    "jb-loc-4171"
+   ]
   },
   {
    "titel": "Veenhuizen - Joodse begraafplaats",
@@ -412,7 +634,8 @@
    "rubriek": null,
    "plaats": "Veenhuizen",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Vianen - De Joodse begraafplaatsen",
@@ -426,7 +649,16 @@
     "id": "jb-loc-1856",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1856",
+    "jb-ver-293",
+    "jb-ver-294"
+   ],
+   "popup_ids": [
+    "jb-loc-1856",
+    "jb-ver-293",
+    "jb-ver-294"
+   ]
   },
   {
    "titel": "Vorden - Joodse begraafplaats",
@@ -434,8 +666,18 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Vorden",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.3548476,
+    "lat": 52.1144238,
+    "id": "jb-loc-2745",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2745"
+   ],
+   "popup_ids": [
+    "jb-loc-2745"
+   ]
   },
   {
    "titel": "Wageningen – De tragische dood van Esther en Betje Cohen, april 1943",
@@ -443,8 +685,19 @@
    "provincie": null,
    "rubriek": "Oorlog",
    "plaats": "Wageningen",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 5.6695315,
+    "lat": 51.9668615,
+    "id": "jb-loc-4219",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2887",
+    "jb-loc-4219"
+   ],
+   "popup_ids": [
+    "jb-loc-4219"
+   ]
   },
   {
    "titel": "Workum - Joodse begraafplaats",
@@ -453,7 +706,8 @@
    "rubriek": null,
    "plaats": "Workum",
    "kaart": null,
-   "uitgelicht": false
+   "plaats_ids": [],
+   "popup_ids": []
   },
   {
    "titel": "Zevenaar - Joodse begraafplaatsen",
@@ -461,8 +715,22 @@
    "provincie": "Gelderland",
    "rubriek": null,
    "plaats": "Zevenaar",
-   "kaart": null,
-   "uitgelicht": false
+   "kaart": {
+    "lon": 6.0703422,
+    "lat": 51.9308023,
+    "id": "jb-loc-2563",
+    "naam": "Nieuwe Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-2438",
+    "jb-loc-2563",
+    "jb-ver-488"
+   ],
+   "popup_ids": [
+    "jb-loc-2438",
+    "jb-loc-2563",
+    "jb-ver-488"
+   ]
   },
   {
    "titel": "Zuidland - Joodse begraafplaats",
@@ -476,7 +744,12 @@
     "id": "jb-loc-1713",
     "naam": "Joodse Begraafplaats"
    },
-   "uitgelicht": false
+   "plaats_ids": [
+    "jb-loc-1713"
+   ],
+   "popup_ids": [
+    "jb-loc-1713"
+   ]
   }
  ]
 }

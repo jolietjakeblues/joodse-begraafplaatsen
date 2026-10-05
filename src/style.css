@@ -241,6 +241,7 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .maplibregl-popup-content dt { color: var(--muted); }
 .maplibregl-popup-content dd { margin: 0; overflow-wrap: anywhere; }
 .maplibregl-popup-content a { color: var(--huisstijl); }
+.popup-correctie { margin: 8px 0 0; padding-top: 6px; border-top: 1px solid #eee; font-size: 11px; }
 /* Knop die eruitziet als link (herbegravingen: open de andere begraafplaats) */
 .link-knop { background: none; border: none; padding: 0; font: inherit; color: var(--huisstijl); text-decoration: underline; cursor: pointer; text-align: left; }
 
