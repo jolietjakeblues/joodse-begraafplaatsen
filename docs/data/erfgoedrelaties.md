@@ -4,11 +4,11 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 
 ## Samenvatting
 
-- 299 begraafplaatsen, waarvan 234 met berekende relaties.
-- Binnen of deels in een rijksbeschermd gezicht: **38**.
-- Gebouwd rijksmonument binnen 100 m: **105**.
+- 315 begraafplaatsen, waarvan 246 met berekende relaties.
+- Binnen of deels in een rijksbeschermd gezicht: **40**.
+- Gebouwd rijksmonument binnen 100 m: **108**.
 - Archeologisch rijksmonument binnen 100 m: **4**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **66**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **70**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -42,6 +42,7 @@ Het complex is opgezocht en de onderdelen zijn gekoppeld. Ter info voor Dodenakk
 
 Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftekens) — ter beoordeling.
 
+- `jb-loc-1250` Joodse Begraafplaats op de gemeentelijke begraafplaats, Harlingen: [507123](https://monumentenregister.cultureelerfgoed.nl/monumenten/507123)  (Baarhuisje, op_terrein)
 - `jb-loc-2936` Joodse Begraafplaats, Elburg: [430531](https://monumentenregister.cultureelerfgoed.nl/monumenten/430531)  (Fort, vesting en -onderdelen, overlapt)
 - `jb-loc-2623` Joodse Begraafplaats Bossche Poort, Zaltbommel: [40283](https://monumentenregister.cultureelerfgoed.nl/monumenten/40283)  (Plantsoen, overlapt)
 - `jb-loc-2602` Joodse Begraafplaats aan de Oliemolen, Zaltbommel: [40288](https://monumentenregister.cultureelerfgoed.nl/monumenten/40288)  (Omwalling, overlapt)
@@ -50,15 +51,15 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-1177` Joodse Begraafplaats, Appingedam: [45142](https://monumentenregister.cultureelerfgoed.nl/monumenten/45142)  (Archeologie (N1), overlapt)
 - `jb-loc-3863` Joodse Begraafplaats, Bad Nieuweschans: [30485](https://monumentenregister.cultureelerfgoed.nl/monumenten/30485)  (Gracht (B), overlapt)
 - `jb-loc-3863` Joodse Begraafplaats, Bad Nieuweschans: [30487](https://monumentenregister.cultureelerfgoed.nl/monumenten/30487)  (Omwalling, overlapt)
-- `jb-loc-3584` Joodse Begraafplaats te Diepswal, Leek: [513632](https://monumentenregister.cultureelerfgoed.nl/monumenten/513632)  (Begraafplaatshek, op_terrein)
 - `jb-loc-3584` Joodse Begraafplaats te Diepswal, Leek: [513633](https://monumentenregister.cultureelerfgoed.nl/monumenten/513633)  (Baarhuisje, op_terrein)
+- `jb-loc-3584` Joodse Begraafplaats te Diepswal, Leek: [513632](https://monumentenregister.cultureelerfgoed.nl/monumenten/513632)  (Begraafplaatshek, op_terrein)
 - `jb-loc-760` Joodse Begraafplaats, Grevenbicht: [46212](https://monumentenregister.cultureelerfgoed.nl/monumenten/46212)  (Archeologie (N1), overlapt)
 - `jb-loc-671` Oud Vroenhoven, Maastricht: [506572](https://monumentenregister.cultureelerfgoed.nl/monumenten/506572) Grafmonument Jezuïeten (Grafmonument, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [36769](https://monumentenregister.cultureelerfgoed.nl/monumenten/36769) Kasteel Valkenburg (Kasteel, buitenplaats, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [47164](https://monumentenregister.cultureelerfgoed.nl/monumenten/47164)  (Archeologie (N1), overlapt)
 - `jb-loc-195` Frechie Foundation, Putte: [525639](https://monumentenregister.cultureelerfgoed.nl/monumenten/525639)  (Begraafplaats en -onderdelen, op_terrein)
-- `jb-loc-195` Frechie Foundation, Putte: [525640](https://monumentenregister.cultureelerfgoed.nl/monumenten/525640)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [516691](https://monumentenregister.cultureelerfgoed.nl/monumenten/516691)  (Grafmonument, op_terrein)
+- `jb-loc-195` Frechie Foundation, Putte: [525640](https://monumentenregister.cultureelerfgoed.nl/monumenten/525640)  (Grafmonument, op_terrein)
 - `jb-loc-195` Frechie Foundation, Putte: [525638](https://monumentenregister.cultureelerfgoed.nl/monumenten/525638)  (Begraafplaatsaula, op_terrein)
 - `jb-loc-2994` Joodse Begraafplaats, Delden: [507546](https://monumentenregister.cultureelerfgoed.nl/monumenten/507546)  (Historische aanleg, overlapt)
 - `jb-loc-2459` Joodse Begraafplaats, Denekamp: [12342](https://monumentenregister.cultureelerfgoed.nl/monumenten/12342)  (Begraafplaats en -onderdelen, overlapt)

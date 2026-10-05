@@ -82,6 +82,20 @@ def kaartposities() -> dict[str, list[dict]]:
     return pos
 
 
+def op_naam(woord: str) -> list[dict]:
+    """Begraafplaatsen waarvan de naam het woord als los woord bevat
+    ("Tacozijl" in "Joadetsjerkhof bij Tacozijl"; de plaats is daar Lemmer)."""
+    path = REPO_ROOT / "data" / "generated" / "begraafplaatsen.geojson"
+    w = norm(woord)
+    uit = []
+    for f in json.loads(path.read_text(encoding="utf-8"))["features"]:
+        p = f["properties"]
+        namen = " ".join(norm(n) for n in [p.get("naam"), p.get("label_punt"), p.get("terrein_naam_kml")] if n)
+        if w and f" {w} " in f" {namen} ":
+            uit.append(p)
+    return uit
+
+
 def beste_begraafplaats(titel: str, kandidaten: list[dict]) -> dict:
     """Bij meerdere begraafplaatsen in een plaats: de naam die het meest op de
     artikeltitel lijkt."""
@@ -122,6 +136,11 @@ def main() -> None:
                     kaart = beste_begraafplaats(titel, posities[norm(kandidaat)])
                     plaats_ids = sorted({p["id"] for p in posities[norm(kandidaat)]})
                     break
+            else:
+                treffers = op_naam(plaats)
+                if treffers:
+                    kaart = beste_begraafplaats(titel, treffers)
+                    plaats_ids = sorted({p["id"] for p in treffers})
         artikelen.append({
             "titel": titel,
             "url": url,
