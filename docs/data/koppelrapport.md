@@ -1,26 +1,26 @@
 # Koppelrapport Joodse begraafplaatsen
 
-Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-05 10:58.
-Provincie(s): **Zuid-Holland, Utrecht, Noord-Holland, Zeeland, Flevoland, Gelderland, Overijssel, Noord-Brabant, Limburg, Groningen, Drenthe**. Excel-rijen landelijk: 315.
+Gegenereerd door `scripts/build_base_dataset.py` op 2026-10-05 11:14.
+Provincie(s): **Drenthe, Flevoland, Fryslân, Gelderland, Groningen, Limburg, Noord-Brabant, Noord-Holland, Overijssel, Utrecht, Zeeland, Zuid-Holland**. Excel-rijen landelijk: 315.
 
 ## Samenvatting
 
-- 299 begraafplaatsen: 228 in gebruik, 6 geruimd, 65 verdwenen.
+- 315 begraafplaatsen: 239 in gebruik, 7 geruimd, 69 verdwenen.
 - Elk record is via (reeks, Nr) aan precies één punt gekoppeld; sleutel `jb-<reeks>-<Nr>`.
-- Terreinen gekoppeld: 232.
+- Terreinen gekoppeld: 244.
 
 ## Koppelwijze terrein
 
 | koppelwijze | aantal |
 |---|---|
-| binnen_naam_gelijk | 187 |
-| binnen_naamvariant | 33 |
+| binnen_naam_gelijk | 191 |
+| binnen_naamvariant | 41 |
 | correctie_kmz | 2 |
 | geen_terrein | 1 |
 | geen_terrein_bevestigd | 1 |
 | handmatig | 6 |
 | nabij_naam_gelijk | 4 |
-| niet_van_toepassing | 65 |
+| niet_van_toepassing | 69 |
 
 ## Ter controle voor Dodenakkers: naamvarianten
 
@@ -31,6 +31,14 @@ Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de p
 | `jb-loc-3075` | Nieuwe Joodse begraafplaats, Emmen | Oude Joodse begraafplaats, Emmen | binnen_naamvariant | open |
 | `jb-loc-2224` | Joodse begraafplaats, Nieuw Amsterdam | Joodse begraafplaats, Veenoord | binnen_naamvariant | open |
 | `jb-loc-3499` | Joodse begraafplaats, Hoogersmilde | Joods Hoogersmilde | binnen_naamvariant | open |
+| `jb-loc-3042` | Joods begraafplaats Tacozijl, Lemmer | Tacozijl | binnen_naamvariant | open |
+| `jb-loc-1250` | Joodse begraafplaats, Harlingen | Joods Harlingen | binnen_naamvariant | open |
+| `jb-loc-2962` | Joodse begraafplaats De Knipe, Heerenveen | joods De Knipe | binnen_naamvariant | open |
+| `jb-loc-2947` | Joodse begraafplaats, Heerenveen | Joods H'veen | binnen_naamvariant | open |
+| `jb-ger-80` | Oude joodse begraafplaats, Bolsward | Oude joodse begraafplaats, Bolsward (geruimd) | binnen_naamvariant | open |
+| `jb-loc-3512` | Joodse begraafplaats, Sneek | Joods Sneek | binnen_naamvariant | open |
+| `jb-loc-4304` | Joodse begraafplaats op de gemeentelijk begraafplaats, Sneek | Joodse begraafplaats op de gemeentelijke begraafplaats, Sneek | binnen_naamvariant | open |
+| `jb-loc-3567` | Joodse begraafplaats, Workum | Joods Workum | binnen_naamvariant | open |
 | `jb-loc-3992` | Joodse begraafplaats Lichtenvoorde, Vragender | Joodse begraafplaats, Vragender | binnen_naamvariant | open |
 | `jb-loc-2701` | Joodse Begraafplaats Wisch, Heelweg | Joodse begraafplaats, Heelweg | binnen_naamvariant | open |
 | `jb-loc-4219` | Oude Joodse begraafplaats, Wageningen | Joodse begraafplaats, Wageningen | binnen_naamvariant | open |
@@ -81,6 +89,10 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 | `jb-loc-3295` | Joodse begraafplaats, Beilen | Joodse begraafplaats, Beilen | 667 | 910 |
 | `jb-loc-3557` | Joodse begraafplaats, Zuidlaren | Joodse begraafplaats, Zuidlaren | 375 | 760 |
 | `jb-loc-2369` | Joodse begraafplaats, Almere | Joodse begraafplaats, Almere | 2.854 | 4.875 |
+| `jb-loc-1250` | Joodse begraafplaats, Harlingen | Joods Harlingen | 879 | 600 |
+| `jb-loc-2962` | Joodse begraafplaats De Knipe, Heerenveen | joods De Knipe | 108 | 545 |
+| `jb-loc-2947` | Joodse begraafplaats, Heerenveen | Joods H'veen | 399 | 814 |
+| `jb-loc-4304` | Joodse begraafplaats op de gemeentelijk begraafplaats, Sneek | Joodse begraafplaats op de gemeentelijke begraafplaats, Sneek | 29 | 10 |
 | `jb-loc-3059` | Joodse begraafplaats, De Maten | Joodse begraafplaats, De Maten | 178 | 55 |
 | `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | Oude Joodse begraafplaats, Venlo | 248 | 45 |
 | `jb-loc-2804` | Joodse begraafplaats, Beverwijk | Joodse begraafplaats, Beverwijk | 137 | 870 |
@@ -111,19 +123,20 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 
 ## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)
 
-- Joodse begraafplaats, Delft en Oude joodse begraafplaats, Delden: 781 m² (afstand 163576 m)
-- Joodse begraafplaats, Alphen aan den Rijn (geruimd) en Joodse begraafplaats, Bergen op Zoom: 1981 m² (afstand 73352 m)
-- Joodse begraafplaats Delfshaven, Rotterdam en Oude joodse begraafplaats, Zevenaar: 197 m² (afstand 111819 m)
-- Joodse begraafplaats, Rhenen en Joodse begraafplaats, Edam: 372 m² (afstand 70313 m)
-- Joodse begraafplaats, Wijk bij Duurstede en Joodse begraafplaats, Elburg: 579 m² (afstand 62509 m)
-- Joodse begraafplaats, Wijk bij Duurstede en Joodse begraafplaats, Werkendam: 579 m² (afstand 35530 m)
-- Oude Joodse begraafplaats, Wijk bij Duurstede en Oude Joodse begraafplaats, Venlo: 248 m² (afstand 89175 m)
-- Joodse begraafplaats, Den Helder en Nieuwe joodse begraafplaats, IJsselmuiden: 1584 m² (afstand 91241 m)
-- Oude joodse begraafplaats, Vlissingen en Nieuwe Joodse begraafplaats, Vlissingen: 694 m² (afstand 551 m)
-- Joodse begraafplaats, Elburg en Joodse begraafplaats, Werkendam: 579 m² (afstand 95778 m)
-- Joodse begraafplaats, Hattem en Joodse begraafplaats, Dalfsen: 420 m² (afstand 14070 m)
-- Nieuwe Joodse begraafplaats, Venlo en Joodse begraafplaats, Beilen: 667 m² (afstand 170397 m)
+- Joodse begraafplaats, Beilen en Nieuwe Joodse begraafplaats, Venlo: 667 m² (afstand 170397 m)
 - Joodse begraafplaats, Zuidlaren en Oude joodse begraafplaats, Hoogeveen: 375 m² (afstand 42931 m)
+- Joods H'veen en Joodse begraafplaats, Bellingwolde: 399 m² (afstand 84141 m)
+- Joodse begraafplaats, Elburg en Joodse begraafplaats, Werkendam: 579 m² (afstand 95778 m)
+- Joodse begraafplaats, Elburg en Joodse begraafplaats, Wijk bij Duurstede: 579 m² (afstand 62509 m)
+- Joodse begraafplaats, Hattem en Joodse begraafplaats, Dalfsen: 420 m² (afstand 14070 m)
+- Oude joodse begraafplaats, Zevenaar en Joodse begraafplaats Delfshaven, Rotterdam: 197 m² (afstand 111819 m)
+- Oude Joodse begraafplaats, Venlo en Oude Joodse begraafplaats, Wijk bij Duurstede: 248 m² (afstand 89175 m)
+- Joodse begraafplaats, Werkendam en Joodse begraafplaats, Wijk bij Duurstede: 579 m² (afstand 35530 m)
+- Joodse begraafplaats, Bergen op Zoom en Joodse begraafplaats, Alphen aan den Rijn (geruimd): 1981 m² (afstand 73352 m)
+- Joodse begraafplaats, Edam en Joodse begraafplaats, Rhenen: 372 m² (afstand 70313 m)
+- Joodse begraafplaats, Den Helder en Nieuwe joodse begraafplaats, IJsselmuiden: 1584 m² (afstand 91241 m)
+- Oude joodse begraafplaats, Delden en Joodse begraafplaats, Delft: 781 m² (afstand 163576 m)
+- Oude joodse begraafplaats, Vlissingen en Nieuwe Joodse begraafplaats, Vlissingen: 694 m² (afstand 551 m)
 
 ## Bevestigd zonder terrein (alleen puntlocatie)
 
@@ -175,6 +188,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-205` Joodse begraafplaats, Werkendam — Gebruikt tot 1853
 - `jb-ver-21` Joodse begraafplaats Tongelre, Eindhoven — ca. In 1962 geruimd voor aanleg Eisenhowerlaan, lijken overgebracht naar Woensel
 - `jb-ver-24` Joodse begraafplaats op De Gelenberg, Afferden — In 1961 overgebracht naar Nijmegen, nu voetbalveld
+- `jb-ver-246` Oude Joodse begraafplaats, Harlingen — Geruim in 1953, overgebracht naar nieuwe begraafplaats
 - `jb-ver-253` Joodse begraafplaats, Coevorden — Eind 19de eeuw opgeheven, overgebracht naar nieuwe
 - `jb-ver-260` Oude Joodse begraafplaats, Borne — Oude stenen van toegang resteren en zijn beschermd.
 - `jb-ver-264` Israëlitische Begraafplaats, Enschede — 1841 gesloten, in 1947 geruimd, 360m2, wegverbreding
@@ -195,7 +209,9 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-417` Oude Joodse begraafplaats, Hasselt — In 1825 weggespoeld
 - `jb-ver-418` Joodse Begraafplaats, Linne — Heeft waarschijnlijk nooit bestaan, zou van 1828-1860 zijn gebruikt
 - `jb-ver-425` Joodse begraafplaats, Maassluis — In 1950 geruimd, overgebracht naar gemeentelijke begraafplaats
+- `jb-ver-43` Eerste Joodse begraafplaats, Leeuwarden — 1670-1833, 520m2, geruimd na WO II nu Tresoar
 - `jb-ver-436` Joodse Begraafplaats, Losser — Gesloten in 1954, geruimd in 1964, overgebracht naar Enschede
+- `jb-ver-44` Tweede joodse begraafplaats, Leeuwarden — 1785-1833, 1190m2
 - `jb-ver-440` Joodse Begraafplaats de Hagen, Rijssen — Niet meer gebruikt na 1878, in 1949 resten overgebracht naar Arend Baanstraat
 - `jb-ver-471` Portugees Israëlitische Begraafplaats Crooswijk (1696–1807), Rotterdam — -1807. Later RK begraafplaats Crooswijk
 - `jb-ver-488` Joodse begraafplaats, Zevenaar — 
@@ -215,6 +231,7 @@ Verdwenen begraafplaatsen krijgen nooit een terrein. Het punt geeft de plek **bi
 - `jb-ver-676` Joodse begraafplaats Veerpoortwal, Doesburg — in 1952 geruimd, eerst overgebracht naar buiten de Meipoort, daarna naar Doetinchem
 - `jb-ver-677` Joodse begraafplaats Ooipoortwal, Doesburg — In 1952 geruimd, eerst overgebracht naar buiten de Meipoort, daarna naar Doetinchem
 - `jb-ver-678` Joodse begraafplaats buiten de Meipoort, Doesburg — In 1963 overgebracht naar Doetinchem
+- `jb-ver-703` Joodse begraafplaats, Hindeloopen — Niet duidelijk of het terrein gebruikt is, ± 1870 verkocht!
 - `jb-ver-710` Joodse begraafplaats, s-Hertogenbosch — Niet duidelijk of het terrein gebruikt is
 - `jb-ver-723` Joodse begraafplaats, Hilvarenbeek — 
 - `jb-ver-74` Oude Joodse begraafplaats Den Dries, Maastricht — Gebruikt tot ca. 1812

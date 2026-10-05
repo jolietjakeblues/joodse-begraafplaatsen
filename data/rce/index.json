@@ -54,6 +54,11 @@
       "gezichten": "data/rce/beschermde-gezichten-drenthe.geojson",
       "rijksmonumenten": "data/rce/rijksmonumenten-drenthe.geojson",
       "archeologisch": "data/rce/archeologische-rijksmonumenten-drenthe.geojson"
+    },
+    "Fryslân": {
+      "gezichten": "data/rce/beschermde-gezichten-fryslan.geojson",
+      "rijksmonumenten": "data/rce/rijksmonumenten-fryslan.geojson",
+      "archeologisch": "data/rce/archeologische-rijksmonumenten-fryslan.geojson"
     }
   },
   "rijksmonumenten_binnen_m": 100,
@@ -112,6 +117,11 @@
       "gezichten": 35,
       "rijksmonumenten": 5,
       "archeologisch": 1
+    },
+    "Fryslân": {
+      "gezichten": 66,
+      "rijksmonumenten": 11,
+      "archeologisch": 0
     }
   }
 }
