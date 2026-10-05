@@ -1,6 +1,6 @@
 # Joodse Begraafplaatsen
 
-Kaart van de Joodse begraafplaatsen in Nederland; **in gebruik, geruimd en verdwenen**, op basis van de inventarisatie van [stichting Dodenakkers](https://www.dodenakkers.nl/). **Stand 2026-10-05: 10 van 12 provincies** — alle behalve Drenthe en Fryslân (278 begraafplaatsen: 208 in gebruik, 6 geruimd, 64 verdwenen). De overige provincies volgen; zie [docs/03-planning.md](docs/03-planning.md).
+Kaart van de Joodse begraafplaatsen in Nederland; **in gebruik, geruimd en verdwenen**, op basis van de inventarisatie van [stichting Dodenakkers](https://www.dodenakkers.nl/). **Stand 2026-10-05: 11 van 12 provincies** — alle behalve Fryslân (299 begraafplaatsen: 228 in gebruik, 6 geruimd, 65 verdwenen). De overige provincies volgen; zie [docs/03-planning.md](docs/03-planning.md).
 
 Statische site (MapLibre GL + GeoJSON), geen backend. Los van het project *Dodenakkers Zuid-Holland* (provincieopdracht), maar met dezelfde werkwijze.
 
@@ -27,7 +27,7 @@ Volgorde en commando's:
 ```bash
 pip install -r requirements.txt
 python scripts/fetch_pdok.py
-P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --provincie Zeeland --provincie Flevoland --provincie Gelderland --provincie Overijssel --provincie Noord-Brabant --provincie Limburg --provincie Groningen"
+P="--provincie Zuid-Holland --provincie Utrecht --provincie Noord-Holland --provincie Zeeland --provincie Flevoland --provincie Gelderland --provincie Overijssel --provincie Noord-Brabant --provincie Limburg --provincie Groningen --provincie Drenthe"
 python scripts/build_base_dataset.py $P           # altijd ALLE provincies die op de kaart moeten
 python scripts/fetch_rce.py $P                    # alleen nodig voor nieuwe provincies / verse RCE-data
 python scripts/analyse_spatial.py

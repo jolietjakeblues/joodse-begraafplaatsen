@@ -1,6 +1,7 @@
 {
- "gegenereerd": "2026-10-05T08:44:52.923816+00:00",
+ "gegenereerd": "2026-10-05T09:01:04.577751+00:00",
  "provincies_op_kaart": [
+  "Drenthe",
   "Flevoland",
   "Gelderland",
   "Groningen",
@@ -13,16 +14,16 @@
   "Zuid-Holland"
  ],
  "basis": {
-  "totaal": 278,
+  "totaal": 299,
   "per_status": {
-   "in_gebruik": 208,
+   "in_gebruik": 228,
    "geruimd": 6,
-   "verdwenen": 64
+   "verdwenen": 65
   },
-  "provincies": 10,
-  "met_terrein": 212,
-  "totaal_m2": 790882,
-  "mediaan_m2": 795,
+  "provincies": 11,
+  "met_terrein": 232,
+  "totaal_m2": 813160,
+  "mediaan_m2": 780,
   "grootste": {
    "id": "jb-loc-3369",
    "naam": "Israelitische Begraafplaats Amsterdam",
@@ -39,6 +40,15 @@
   }
  },
  "per_provincie": [
+  {
+   "provincie": "Drenthe",
+   "totaal": 21,
+   "in_gebruik": 20,
+   "geruimd": 0,
+   "verdwenen": 1,
+   "met_terrein": 20,
+   "totaal_m2": 22278
+  },
   {
    "provincie": "Flevoland",
    "totaal": 1,
@@ -156,6 +166,14 @@
    "verdwenen": 1
   },
   {
+   "gemeente": "Coevorden",
+   "provincie": "Drenthe",
+   "totaal": 5,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 1
+  },
+  {
    "gemeente": "Land van Cuijk",
    "provincie": "Noord-Brabant",
    "totaal": 5,
@@ -188,24 +206,16 @@
    "verdwenen": 0
   },
   {
+   "gemeente": "Emmen",
+   "provincie": "Drenthe",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  },
+  {
    "gemeente": "Het Hogeland",
    "provincie": "Groningen",
-   "totaal": 4,
-   "in_gebruik": 4,
-   "geruimd": 0,
-   "verdwenen": 0
-  },
-  {
-   "gemeente": "Hof van Twente",
-   "provincie": "Overijssel",
-   "totaal": 4,
-   "in_gebruik": 4,
-   "geruimd": 0,
-   "verdwenen": 0
-  },
-  {
-   "gemeente": "Oude IJsselstreek",
-   "provincie": "Gelderland",
    "totaal": 4,
    "in_gebruik": 4,
    "geruimd": 0,
@@ -265,7 +275,7 @@
   }
  ],
  "datering": {
-  "met_jaartal": 261,
+  "met_jaartal": 282,
   "klassen": [
    {
     "label": "vóór 1700",
@@ -276,29 +286,29 @@
    },
    {
     "label": "1700–1799",
-    "aantal": 79,
-    "in_gebruik": 50,
+    "aantal": 85,
+    "in_gebruik": 55,
     "geruimd": 3,
-    "verdwenen": 26
+    "verdwenen": 27
    },
    {
     "label": "1800–1849",
-    "aantal": 61,
-    "in_gebruik": 51,
+    "aantal": 66,
+    "in_gebruik": 56,
     "geruimd": 1,
     "verdwenen": 9
    },
    {
     "label": "1850–1899",
-    "aantal": 76,
-    "in_gebruik": 70,
+    "aantal": 84,
+    "in_gebruik": 78,
     "geruimd": 1,
     "verdwenen": 5
    },
    {
     "label": "1900–1949",
-    "aantal": 18,
-    "in_gebruik": 15,
+    "aantal": 20,
+    "in_gebruik": 17,
     "geruimd": 1,
     "verdwenen": 2
    },
@@ -476,21 +486,21 @@
   ]
  },
  "erfgoed": {
-  "basis": 214,
-  "rijksmonument": 65,
-  "gemeentelijk_monument": 50,
-  "mip": 40,
-  "metaheerhuis": 80,
-  "in_gezicht": 37,
-  "met_rijksmonument_100m": 102,
+  "basis": 234,
+  "rijksmonument": 66,
+  "gemeentelijk_monument": 51,
+  "mip": 42,
+  "metaheerhuis": 84,
+  "in_gezicht": 38,
+  "met_rijksmonument_100m": 105,
   "top_functies_100m": [
    {
     "functie": "Woonhuis(K)",
-    "aantal": 51
+    "aantal": 52
    },
    {
     "functie": "Begraafplaats en -onderdelen",
-    "aantal": 43
+    "aantal": 44
    },
    {
     "functie": "Grafmonument",
@@ -526,6 +536,12 @@
    }
   ],
   "per_provincie": [
+   {
+    "provincie": "Drenthe",
+    "rijksmonument": 1,
+    "in_gezicht": 1,
+    "metaheerhuis": 4
+   },
    {
     "provincie": "Flevoland",
     "rijksmonument": 0,
@@ -589,8 +605,8 @@
   ]
  },
  "herbegravingen": {
-  "lijnen": 33,
-  "bestemmingen": 27,
+  "lijnen": 34,
+  "bestemmingen": 28,
   "meeste_ontvangen": [
    {
     "id": "jb-loc-2615",
@@ -635,6 +651,6 @@
     "aantal": 2
    }
   ],
-  "met_tekst_overgebracht": 36
+  "met_tekst_overgebracht": 37
  }
 }

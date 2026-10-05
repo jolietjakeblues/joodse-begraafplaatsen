@@ -1,6 +1,6 @@
 {
  "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
- "opgehaald": "2026-10-05T08:44:49.302879+00:00",
+ "opgehaald": "2026-10-05T09:00:55.709732+00:00",
  "artikelen": [
   {
    "titel": "Als bloemen bij het graf - Winschoten II",
@@ -75,9 +75,18 @@
    "provincie": "Drenthe",
    "rubriek": null,
    "plaats": "Borger",
-   "kaart": null,
-   "plaats_ids": [],
-   "popup_ids": []
+   "kaart": {
+    "lon": 6.7995415,
+    "lat": 52.9291538,
+    "id": "jb-loc-3854",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-3854"
+   ],
+   "popup_ids": [
+    "jb-loc-3854"
+   ]
   },
   {
    "titel": "Dalfsen – De Israëlitische begraafplaats in het buurtschap Gerner",
@@ -666,9 +675,18 @@
    "provincie": "Drenthe",
    "rubriek": null,
    "plaats": "Veenhuizen",
-   "kaart": null,
-   "plaats_ids": [],
-   "popup_ids": []
+   "kaart": {
+    "lon": 6.4078773,
+    "lat": 53.0454146,
+    "id": "jb-loc-3576",
+    "naam": "Joodse Begraafplaats"
+   },
+   "plaats_ids": [
+    "jb-loc-3576"
+   ],
+   "popup_ids": [
+    "jb-loc-3576"
+   ]
   },
   {
    "titel": "Vianen - De Joodse begraafplaatsen",
