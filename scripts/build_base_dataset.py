@@ -114,6 +114,7 @@ STATUS_CODE = {"in gebruik": "in_gebruik", "verdwenen": "verdwenen", "geruimd": 
 #     data/terrein_koppelingen.csv; Loppersum geruimd (jb-ger-247) heeft geen terrein in de KMZ (vraag).
 #   Drenthe 2026-10-05: Emmen jb-loc-2183 via terrein_koppelingen.csv; namen Westenesch/Oude gekruist
 #     tussen Excel en KMZ (vraag Dr1). Koppeling volgt de ligging van het punt.
+#   Fryslân 2026-10-05: alles gekoppeld (alleen naamvarianten "Joods Sneek" e.d.). Daarmee landelijk 315/315.
 INVARIANTEN = {
     "Zuid-Holland": {"totaal": 36, "in_gebruik": 24, "geruimd": 2, "verdwenen": 10, "terreinen": 26},
     "Utrecht": {"totaal": 20, "in_gebruik": 14, "geruimd": 0, "verdwenen": 6, "terreinen": 13},
@@ -126,6 +127,7 @@ INVARIANTEN = {
     "Limburg": {"totaal": 25, "in_gebruik": 18, "geruimd": 1, "verdwenen": 6, "terreinen": 19},
     "Groningen": {"totaal": 27, "in_gebruik": 23, "geruimd": 2, "verdwenen": 2, "terreinen": 24},
     "Drenthe": {"totaal": 21, "in_gebruik": 20, "geruimd": 0, "verdwenen": 1, "terreinen": 20},
+    "Fryslân": {"totaal": 16, "in_gebruik": 11, "geruimd": 1, "verdwenen": 4, "terreinen": 12},
 }
 
 # Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.

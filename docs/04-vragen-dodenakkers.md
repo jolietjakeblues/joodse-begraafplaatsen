@@ -131,6 +131,10 @@ Alle 21 Drentse begraafplaatsen zijn gekoppeld (20 in gebruik, elk met terrein; 
 Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". We koppelen op ligging (elk punt aan het terrein waarin het ligt; de oppervlakten passen). Klopt dat, en welke naam is juist?
 *Nu:* gekoppeld op ligging, met de Excel-namen.
 
+## Fr. Fryslân (nieuw, 2026-10-05)
+
+Alle 16 Friese begraafplaatsen zijn gekoppeld (11 in gebruik, 1 geruimd, 4 verdwenen; 12 terreinen). Herbegraving op de kaart: Harlingen oud → `jb-loc-1250`. Geen vragen. Daarmee staan alle 315 begraafplaatsen uit de inventarisatie op de kaart.
+
 Nog open: R1–R3, Gr1, Dr1, E8 (later).
 
 De gedetailleerde vragen hieronder zijn het archief van ronde 1–2; de tabellen hierboven zijn leidend.
