@@ -1,6 +1,6 @@
 # 04 – Vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-02, na West-Nederland (91), Gelderland (61), Overijssel (43), Noord-Brabant (31) en Limburg (25): 251 begraafplaatsen.
+Stand: 2026-10-05, 9 van 12 provincies (251 begraafplaatsen), na drie rondes antwoorden.
 Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev
 
 Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerken als `jb-loc-1559` zijn onze sleutels: reeks (`loc` = in gebruik/Locaties.kmz, `ver` = Verdwenen.kmz, `ger` = Geruimd.kmz) + het Nr uit de Excel. In de kaartpopup staan ze onder "Kenmerk".
@@ -62,65 +62,52 @@ Per vraag staat erbij **wat we nu doen**. Zonder antwoord blijft dat zo. Kenmerk
 | E4 | Geen namen op de kaart is prima | Blijft zo |
 | F4 | Kaart blijft intern tot publicatie boeken; nog niet indexeren | `noindex` (meta + `X-Robots-Tag`), sitemap niet meer in robots.txt |
 
-## Navragen (antwoord niet eenduidig)
+## Beantwoord ronde 3 (Word-document, Leon/René, 2026-10-05)
 
-- **N1 (A6).** "De contour die de RCE geeft van de Joodse begraafplaats klopt echt niet. Het metaheerhuis staat op de algemene begraafplaats … dat hele perceel is een gemeentelijke begraafplaats." Over welke begraafplaats gaat dit (Bussum? Wassenaar?), en wat moeten we op de kaart anders doen?
-- **N2 (A7 Alkmaar).** "Geen complex, maar twee losse rijksmonumenten." Bedoel je dat 7464 en 524892 allebei bij de Joodse begraafplaats horen? (RCE registreert 524892 als complex met 524893 baarhuisje en 524894 hek.)
-- **N3 (C6).** Herbegravingen waarvan de bestemming niet eenduidig is:
-  - `jb-ver-896` Beverwijk → "Duinhof". Op de kaart staat `jb-loc-2804` *op Duinrust* (Beverwijk, vanaf 1950). Is dat dezelfde?
-  - `jb-ver-498` Leerdam → "voorste begraafplaats op Dijk": `jb-loc-239` (Joods deel achter de Algemene begraafplaats) of `jb-loc-366` (Joodse begraafplaats op Algemene Begraafplaats)?
-  - `jb-loc-2849` Hoorn: "228 zerken overgebracht" — van de verdwenen `jb-ver-168` (1762–1970)?
-  - `jb-ver-182` Dordrecht → Strijen staat erin; de tekst noemt ook "nieuwe begraafplaats en Rotterdam?". Alleen Strijen?
-  - Gouda (`jb-ver-280`, `jb-ver-281`) → Wageningen volgt met Gelderland.
-- **N4 (A2/A3/B8).** Leon heeft bronbestanden gecorrigeerd (Puttershoek, Maassluis) en noemt een eindjaar bij verdwenen begraafplaatsen; in onze Excel staat geen kolom eindjaar. Kunnen we de nieuwste Excel en KMZ's krijgen?
+De vragen N1–N4, G1–G3, O1–O2, NB1–NB2 en L1–L3 uit ronde 2 en de provincies zijn hiermee beantwoord.
 
-## G. Gelderland (nieuw, 2026-10-02)
+| Vraag | Antwoord | Verwerkt |
+|---|---|---|
+| N1 | Gaat over Wassenaar (`jb-loc-1343`); metaheerhuis staat formeel niet op de Joodse begraafplaats; nader onderzoek volgt | Niets op de kaart |
+| N2 Alkmaar | 7464 is de begraafplaats zelf; RCE heeft hem niet aan complex 524892 toegevoegd | 7464 "hoort bij de begraafplaats" (`BEOORDEELDE_RELATIES`) |
+| N3 Beverwijk | "Duinhof" moet Duinrust zijn | Herbegraving `jb-ver-896` → `jb-loc-2804` |
+| N3 Leerdam | Twee overbrengingen naar de voorste (grotere) begraafplaats; twee pijlen | `jb-ver-498` en `jb-ver-774` → `jb-loc-366` (272 m² tegen 37 m² voor 239). Dat 774 de tweede is, is afgeleid: de enige andere verdwenen in Leerdam |
+| N3 Hoorn | Ja, inclusief stoffelijke resten | `jb-ver-168` → `jb-loc-2849` |
+| N3 Dordrecht | Eerst naar die bij de gemeentelijke begraafplaats van Dordrecht, later een deel naar Strijen | `jb-ver-182` → `jb-loc-1912` én → `jb-loc-1945` |
+| N4 | Eindjaar-kolom hoeft niet mee | Geen actie |
+| G1 / N3 Gouda | Naar de nieuwe Joodse begraafplaats van Wageningen | `jb-ver-280`, `jb-ver-281` → `jb-loc-2887` |
+| G2 Winterswijk | Klopt helemaal | Blijft |
+| G3 Moscowa | Aula en muur horen bij de Joodse begraafplaats | 516728 en 516729 "hoort bij de begraafplaats" |
+| O2 Dedemsvaart | Contour opnieuw gedaan; ligt naast het rijksmonument | Nieuw terrein + ingang uit `funerair_nieuwedata.kmz` (796 → 641 m², ingang 35 m verschoven); 515827 nu "binnen 25 m" |
+| NB1 Putte | Nummer 516689 hoort bij de Frechie Foundation; gecorrigeerd in de Excel | Wacht op de nieuwe Excel (zie R3) |
+| NB2 Eindhoven | Woensel is in 1920 bij Eindhoven gevoegd; = Groenewoudseweg | `jb-ver-21` → `jb-loc-986` |
+| L1 Sittard | Vrangendael = volksnaam van Lahrhof | `jb-ger-43`, `jb-ver-12` → `jb-loc-580` |
+| L2 Venlo | 37192 hoort bij `jb-loc-1125` (Oude); contour stond verkeerd door de bomen | Nieuw terrein + ingang uit `funerair_nieuwedata.kmz` (43 → 248 m²). Het RCE-punt van 37192 ligt op de Nieuwe (1110): daar "hoort bij een andere begraafplaats" |
+| L3 Linne | Laat voorlopig staan | Blijft |
+| A1 | Nummering is prima en te herleiden | Afgesloten |
+| A6 | Complex tonen is prima | Afgesloten |
+| B8 | Maassluis aangepast in de brondata; contour Schiedam nog onbekend | Wacht op nieuwe bronbestanden |
+| D3 | Prima, zelfde als Zuid-Holland | Afgesloten |
+| E2 | Prima zo | Afgesloten |
+| E5 / E6 | Prima | Afgesloten |
+| E7 | Statistiekpagina welkom; geen CSV; Engels later | Statistiekpagina gebouwd (`statistieken.html`, `scripts/compute_statistics.py`) |
+| E8 | Misschien later op www.funerair-erfgoed.nl; alleen via hun eigen sites | Nog niets |
+| E9 | Voorlopig goed zo | Geen actie |
+| F1 | Liefst een invulformulier met het nummer uit de lijst | GitHub-issueformulier: link "Correctie doorgeven" in elke popup, kenmerk al ingevuld (gratis GitHub-account nodig; meldingen zijn openbaar) |
+| F2 | Excel verandert vaker dan de KMZ's; shapes liggen redelijk vast | Past bij de werkwijze |
+| F3 | (leeg) | Volgorde Groningen, Drenthe, Fryslân |
 
-Alle 61 Gelderse begraafplaatsen zijn gekoppeld (45 in gebruik, elk met terrein; 16 verdwenen). Herbegravingen op de kaart: Arnhem (2×) → Moscowa, Hengelo → Zutphen, Afferden → Nijmegen (Huis der Levenden), Bredevoort oud → nieuw, Doesburg Ooipoortwal en Veerpoortwal → buiten de Meipoort → Doetinchem.
+Opmerking Joop (2026-10-05): op de leespagina geen "Uitgelicht" meer, alle artikelen gewoon in de lijst; en vanuit de popup naar de artikelen verwijzen. Gedaan: popup "Lees op Dodenakkers".
 
-**G1. Gouda → Wageningen.** `jb-ver-280` en `jb-ver-281` (Gouda) zijn in 1976 "overgebracht naar Wageningen". Wageningen heeft er twee: `jb-loc-2887` (vanaf 1913) en `jb-loc-4219` (Kerkhofpad, 1668–1929). Naar welke?
-*Nu:* alleen als tekst in Bijzonderheden.
+## Navragen ronde 3
 
-**G2. Winterswijk, Oude Israëlitische Begraafplaats** (`jb-loc-2826`). `Rmon` verwijst naar complex 523457, met als onderdelen synagoge (39057), onderwijzerswoning, schoolgebouw en begraafplaatshek. Dat lijkt het synagogecomplex. Klopt het nummer, of hoort hier een ander nummer?
-*Nu:* het complex en de onderdelen staan in de popup.
+- **R1 (B5, namen).** "Groen is de juiste" — groen waren de terreinnamen uit de KMZ (bv. "Hoogduitse Joodse begraafplaats", "Nieuwe Joodse begraafplaats" Vlissingen, "Beth Haim", "Joodse begraafplaats Diemen/Muiderberg"). In ronde 2 schreef Leon "houd de Excel-naam aan". Past Leon de namen in de Excel aan, of moeten wij de groene namen als weergavenaam instellen?
+- **R2 (O1 Denekamp).** "Onze contour is de daadwerkelijke begraafplaats, niet het hele perceel." Is RCE-monument 12342 dan het rijksmonument van de Joodse begraafplaats (met een ruimere grens)? Dan zou de Excel bij `jb-loc-2459` "rijksmonument ja" moeten hebben.
+- **R3 (NB1, B8).** De gecorrigeerde Excel (Putte, Maassluis, Puttershoek) hebben we nog niet. Graag in de gedeelde map.
 
-**G3. Moscowa, Arnhem** (`jb-loc-2615`). Volgens RCE liggen op het terrein 516728 (begraafplaatsaula) en 516729 (muur). Horen die bij het Joodse deel, of bij de algemene begraafplaats Moscowa?
-*Nu:* getoond als "op het terrein".
+Nog open: R1–R3, E8 (later).
 
-## O. Overijssel (nieuw, 2026-10-02)
-
-Alle 43 Overijsselse begraafplaatsen zijn gekoppeld (34 in gebruik, 1 geruimd, 8 verdwenen; 35 terreinen). Enschede Kneedweg (`jb-loc-3027`) en Esmarkerrondweg (`jb-loc-3002`) zijn handmatig aan hun terrein gekoppeld: het punt ligt erin en de oppervlakte klopt, alleen de namen verschillen (Israëlitisch ↔ Joods). Herbegravingen op de kaart: Kampen → IJsselmuiden, Losser → Enschede (Kneedweg), Rijssen De Hagen → Arend Baanstraat, Zwolle Luurderschans → Kuyerhuislaan.
-
-**O1. Denekamp** (`jb-loc-2459`). In de Excel staat geen rijksmonument, maar RCE-monument 12342 "Begraafplaats en -onderdelen" overlapt het terrein. Is dat de Joodse begraafplaats zelf, of een andere begraafplaats ernaast?
-*Nu:* getoond als "overlapt het terrein".
-
-**O2. Dedemsvaart** (`jb-loc-4021`, Joodse begraafplaats op de gemeentelijke begraafplaats). RCE-monument 515827 "De Mulderij" (begraafplaats) overlapt het terrein. Is dat de algemene begraafplaats waar het Joodse deel bij hoort, zoals in Bussum?
-*Nu:* getoond als "overlapt het terrein".
-
-## NB. Noord-Brabant (nieuw, 2026-10-02)
-
-Alle 31 Brabantse begraafplaatsen zijn gekoppeld (21 in gebruik, elk met terrein; 10 verdwenen). Herbegravingen op de kaart: Breda → Oosterhout (Vrachelse Heide; Breda noemt 1961, Oosterhout 1958), Cuijk Smidstraat → Wilhelminastraat (1924) → Kouwenberg (1963).
-
-**NB1. Putte: bij welke begraafplaats hoort rijksmonument 516689?** In de Excel staat complex 516689 ("Israëlitische begraafplaats") bij Mahsike Hadas (`jb-loc-189`). Maar de onderdelen van dat complex (aula 525638, grafmonumenten 516691 en 525640, 525639) liggen volgens de RCE allemaal op het terrein van de **Frechie Foundation** (`jb-loc-195`), ruim 200 m van het terrein van Mahsike Hadas. Hoort het nummer bij de Frechie Foundation, of staan de monumenten bij de RCE op de verkeerde plek?
-*Nu:* het complex staat in de popup van Mahsike Hadas; bij de Frechie Foundation staan de onderdelen als "op het terrein".
-
-**NB2. Eindhoven Tongelre → "Woensel".** `jb-ver-21` zegt "lijken overgebracht naar Woensel". De enige Joodse begraafplaats in gebruik in Eindhoven is `jb-loc-986` (Groenewoudseweg). Is dat de bedoelde plek in Woensel, of zijn ze naar een algemene begraafplaats gegaan?
-*Nu:* alleen als tekst in Bijzonderheden.
-
-## L. Limburg (nieuw, 2026-10-02)
-
-Alle 25 Limburgse begraafplaatsen zijn gekoppeld (18 in gebruik, 1 geruimd, 6 verdwenen; 19 terreinen). Herbegraving op de kaart: Vaals Gemmenicherweg → Linderweg.
-
-**L1. Sittard: waar is "Vrangendael"?** Fort Sanderbout (`jb-ger-43`) en de oude begraafplaats op de algemene begraafplaats (`jb-ver-12`) zijn "overgebracht naar Vrangendael". In de lijst staat geen Vrangendael; wel `jb-loc-580` op begraafplaats Lahrhof ("1962 herbegraven, ca 80 zerken"). Is dat dezelfde plek, of ontbreekt Vrangendael?
-*Nu:* alleen als tekst in Bijzonderheden.
-
-**L2. Venlo, Nieuwe Begraafplaats** (`jb-loc-1110`). In de Excel staat geen rijksmonument, maar RCE-monument 37192 "Begraafplaats en -onderdelen" ligt helemaal binnen het terrein (667 m²). Is dat de Joodse begraafplaats zelf?
-*Nu:* getoond als "rijksmonument op het terrein".
-
-**L3. Linne** (`jb-ver-418`). In de bijzonderheden staat "Heeft waarschijnlijk nooit bestaan". Moet deze op de kaart blijven als verdwenen begraafplaats?
-*Nu:* getoond als verdwenen, met die tekst in de popup.
-
-Nog open hieronder: alles zonder ✅. Nog helemaal onbeantwoord: A1, D3 (René kijkt nog), E2, E5–E9, F1–F3.
+De gedetailleerde vragen hieronder zijn het archief van ronde 1–2; de tabellen hierboven zijn leidend.
 
 ---
 
