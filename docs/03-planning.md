@@ -54,7 +54,9 @@ python scripts/make_og_image.py
 - [x] Filters met tellingen, zoeken, lijst, deelbare positie, inbedden (`?embed=1`)
 - [x] Front-end kwaliteitscontrole: mobiel (mini-legenda, aanraakdoelen), lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
 - [x] Dateringsfilter (klikbare balkjes, zoals dodenakkers-zh; indeling is vraag C9)
-- [x] Leespagina `lezen.html`: 43 artikelen van dodenakkers.nl (tag "Joodse begraafplaats"), per provincie, 2 uitgelicht (archeologie verdwenen begraafplaatsen), 15 met "Bekijk op de kaart" (`scripts/fetch_leeslijst.py`, uitgelicht in `data/leeslijst_uitgelicht.json`)
+- [x] Leespagina `lezen.html`: 43 artikelen van dodenakkers.nl (tag "Joodse begraafplaats"), per provincie, 31 met "Bekijk op de kaart"; geen uitgelicht-blok meer (2026-10-05); popup "Lees op Dodenakkers" (`scripts/fetch_leeslijst.py`, `popup_ids`)
+- [x] Statistiekpagina `statistieken.html` (vraag E7, 2026-10-05; `scripts/compute_statistics.py`)
+- [x] Correctieformulier (vraag F1): GitHub-issueformulier `correctie.yml` + popuplink "Correctie doorgeven" (2026-10-05; werkt pas na merge op main)
 - [x] Directe link naar een begraafplaats: `?id=<kenmerk>` (nog visueel te controleren)
 - [ ] CSV/GeoJSON-export van de selectie
 - [ ] Screenreadertest (NVDA/VoiceOver)

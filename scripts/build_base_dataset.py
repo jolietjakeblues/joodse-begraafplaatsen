@@ -68,6 +68,12 @@ CORRECTIONS = REPO_ROOT / "data" / "corrections.csv"
 # gevallen waar de naamtoets faalt maar de koppeling vaststaat.
 TERREIN_KOPPELINGEN = REPO_ROOT / "data" / "terrein_koppelingen.csv"
 RAPPORT = REPO_ROOT / "docs" / "data" / "koppelrapport.md"
+# Door Dodenakkers nagestuurde, gecorrigeerde terreinen + ingangen (Point +
+# Polygon per naam, zelfde opbouw als de provincie-KMZ's). Een terrein hierin
+# vervangt het terrein met exact dezelfde naam uit de provincie-KMZ, en het punt
+# wordt de locatie (ingang) van de gekoppelde begraafplaats. De bronbestanden
+# zelf blijven ongewijzigd. Eerste levering 2026-10-05: Venlo (oude), Dedemsvaart.
+CORRECTIE_KMZ = BRON_DIR / "funerair_nieuwedata.kmz"
 
 EXCEL = BRON_DIR / "Joodse begraafplaatsen totaal voor Joop.xlsx"
 EXCEL_SHEET = "Joodse begraafplaatsen"
@@ -289,13 +295,38 @@ def load_reeks_punten() -> dict[tuple[str, int], list[dict]]:
     return index
 
 
-def load_terreinen(provincies: list[str]) -> list[dict]:
+def load_correcties_kmz() -> dict[str, dict]:
+    """naam -> {"polygon": Polygon | None, "point": Point | None} uit CORRECTIE_KMZ."""
+    if not CORRECTIE_KMZ.exists():
+        return {}
+    out: dict[str, dict] = {}
+    for pm in read_placemarks(CORRECTIE_KMZ):
+        entry = out.setdefault(pm["name"], {"polygon": None, "point": None})
+        for g in pm["geoms"]:
+            key = "polygon" if g.geom_type == "Polygon" else "point"
+            assert entry[key] is None, f"{CORRECTIE_KMZ.name}: twee keer een {key} voor {pm['name']!r}"
+            entry[key] = g
+    return out
+
+
+def load_terreinen(provincies: list[str], correcties: dict[str, dict]) -> list[dict]:
     terreinen = []
     for prov in provincies:
         for pm in read_placemarks(BRON_DIR / PROVINCIE_KMZ[prov]):
             for g in pm["geoms"]:
                 if g.geom_type == "Polygon":
                     terreinen.append({"naam": pm["name"], "geom": g, "rd": transform(to_rd, g), "bron": pm["bron"]})
+    for naam, c in correcties.items():
+        if c["polygon"] is None:
+            continue
+        treffers = [t for t in terreinen if t["naam"] == naam]
+        if not treffers:
+            continue  # provincie niet in deze run
+        assert len(treffers) == 1, f"correctie {naam!r}: {len(treffers)} terreinen met die naam"
+        t = treffers[0]
+        t["rd_oud_m2"] = round(t["rd"].area)
+        t["geom"], t["rd"], t["bron"] = c["polygon"], transform(to_rd, c["polygon"]), CORRECTIE_KMZ.name
+        t["gecorrigeerd"] = True
     return terreinen
 
 
@@ -395,7 +426,8 @@ def build(provincies: list[str]) -> None:
     df = load_excel()
     punten = load_reeks_punten()
     prov_feats, prov_geoms, prov_tree = provincie_index()
-    terreinen = load_terreinen(provincies)
+    correcties_kmz = load_correcties_kmz()
+    terreinen = load_terreinen(provincies, correcties_kmz)
     terrein_tree = STRtree([t["rd"] for t in terreinen]) if terreinen else None
 
     handmatige = {}
@@ -404,7 +436,7 @@ def build(provincies: list[str]) -> None:
             handmatige = {r["id"]: r for r in csv.DictReader(f) if r.get("id")}
     records: dict[str, dict] = {}
     terrein_features: dict[str, dict] = {}
-    rapport = {"oppervlak": [], "naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": []}
+    rapport = {"oppervlak": [], "naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": [], "correctie_kmz": []}
     alle_excel = 0
 
     for r in df.to_dict("records"):
@@ -440,6 +472,14 @@ def build(provincies: list[str]) -> None:
             terrein, koppelwijze, terrein_info = koppel_terrein(
                 punt["point"], [punt["label"], excel_label], terreinen, terrein_tree, handmatige.get(sleutel)
             )
+
+        # Gecorrigeerd terrein met eigen ingang (CORRECTIE_KMZ) -> die ingang is de locatie.
+        locatie, locatie_bron = punt["point"], punt["bron"]
+        if terrein and terrein.get("gecorrigeerd") and correcties_kmz[terrein["naam"]]["point"] is not None:
+            locatie, locatie_bron = correcties_kmz[terrein["naam"]]["point"], CORRECTIE_KMZ.name
+            koppelwijze = "correctie_kmz"  # terrein + ingang door Dodenakkers nagestuurd; geen naamvariant
+            rapport["correctie_kmz"].append((sleutel, terrein["naam"], terrein["rd_oud_m2"], round(terrein["rd"].area),
+                                             round(transform(to_rd, punt["point"]).distance(transform(to_rd, locatie)), 1)))
 
         jaartal_bron = as_text(r["Jaartal"])
         grootte_bron = as_text(r["Grootte"])
@@ -485,8 +525,10 @@ def build(provincies: list[str]) -> None:
             "terrein_koppelwijze": koppelwijze,
             "terrein_naam_kml": terrein["naam"] if terrein else None,
             "terrein_opp_m2": round(terrein["rd"].area) if terrein else None,
-            "lon": round(punt["point"].x, 7),
-            "lat": round(punt["point"].y, 7),
+            "locatie_bron": locatie_bron,
+            "terrein_bron": terrein["bron"] if terrein else None,
+            "lon": round(locatie.x, 7),
+            "lat": round(locatie.y, 7),
         }
         records[sleutel] = rec
 
@@ -619,6 +661,10 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
     hand = [r for r in records.values() if r["terrein_koppelwijze"] == "handmatig"]
     L += [f"- `{r['id']}` {r['label_punt']} → {r['terrein_naam_kml']} ({r['terrein_opp_m2']} m², Grootte {r['grootte_m2']})"
           for r in hand] or ["Geen."]
+
+    L += ["", f"## Gecorrigeerde terreinen en ingangen (`{CORRECTIE_KMZ.name}`)", "",
+          "| id | terrein | oud m² | nieuw m² | ingang verschoven |", "|---|---|---|---|---|"]
+    L += [f"| `{i}` | {n} | {nl(o)} | {nl(nw)} | {d} m |" for i, n, o, nw, d in rapport["correctie_kmz"]] or ["| – | – | – | – | – |"]
 
     L += ["", "## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)", ""]
     L += [f"- {a} en {b}: {opp} m² (afstand {afst} m)" for a, b, opp, afst in rapport.get("zelfde_opp", [])] or ["Geen."]

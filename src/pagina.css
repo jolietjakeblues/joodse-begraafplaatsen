@@ -14,12 +14,25 @@ body.pagina pre { background: #f4f4f2; padding: 12px; overflow-x: auto; font-siz
 
 /* Leespagina (lezen.html) */
 body.pagina .lees-intro { font-size: 16px; color: #333; }
-body.pagina .lees-uitgelicht { display: grid; gap: 14px; }
-body.pagina .lees-kaart { border: 1px solid #ddd; border-left: 4px solid #3a3a3a; border-radius: 6px; padding: 12px 16px; background: #fafaf8; }
-body.pagina .lees-kaart h3 { font-size: 16px; margin: 0 0 4px; line-height: 1.35; }
-body.pagina .lees-kaart p { margin: 6px 0; }
 body.pagina .lees-lijst { padding-left: 20px; margin: 4px 0 12px; }
 body.pagina .lees-lijst li { margin: 6px 0; }
 body.pagina .lees-kaartlink { font-size: 13px; white-space: nowrap; color: var(--huisstijl); }
 body.pagina h3 { font-size: 15px; margin: 18px 0 4px; }
 body.pagina .lees-bron { margin-top: 28px; border-top: 1px solid #ddd; padding-top: 10px; }
+
+/* Statistiekpagina (statistieken.html) */
+body.pagina #stats section { margin-top: 32px; }
+body.pagina #stats:focus { outline: none; }
+body.pagina .stats-kv { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; margin: 8px 0; }
+body.pagina .stats-kv dt { color: var(--muted); }
+body.pagina .stats-kv dd { margin: 0; }
+body.pagina .stats-tabel-wrap { overflow-x: auto; margin: 16px 0; }
+body.pagina .stats-tabel caption { text-align: left; font-weight: 600; padding: 0 0 6px; }
+body.pagina .stats-tabel .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+body.pagina .stats-tabel tfoot td { font-weight: 600; border-top: 2px solid #999; }
+body.pagina .stats-balken { margin: 12px 0; max-width: 520px; }
+body.pagina .stats-balk { display: grid; grid-template-columns: 90px 1fr 36px; align-items: center; gap: 8px; margin: 4px 0; }
+@media (max-width: 520px) {
+  body.pagina .stats-kv { grid-template-columns: 1fr; gap: 0 0; }
+  body.pagina .stats-kv dd { margin-bottom: 8px; }
+}

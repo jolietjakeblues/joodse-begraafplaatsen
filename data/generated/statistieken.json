@@ -1,0 +1,624 @@
+{
+ "gegenereerd": "2026-10-05T08:19:14.326281+00:00",
+ "provincies_op_kaart": [
+  "Flevoland",
+  "Gelderland",
+  "Limburg",
+  "Noord-Brabant",
+  "Noord-Holland",
+  "Overijssel",
+  "Utrecht",
+  "Zeeland",
+  "Zuid-Holland"
+ ],
+ "basis": {
+  "totaal": 251,
+  "per_status": {
+   "in_gebruik": 185,
+   "geruimd": 4,
+   "verdwenen": 62
+  },
+  "provincies": 9,
+  "met_terrein": 188,
+  "totaal_m2": 750122,
+  "mediaan_m2": 781,
+  "grootste": {
+   "id": "jb-loc-3369",
+   "naam": "Israelitische Begraafplaats Amsterdam",
+   "plaats": "Muiderberg",
+   "status": "in_gebruik",
+   "m2": 140301
+  },
+  "kleinste": {
+   "id": "jb-loc-239",
+   "naam": "Joods deel achter de Algemene begraafplaats",
+   "plaats": "Leerdam",
+   "status": "in_gebruik",
+   "m2": 37
+  }
+ },
+ "per_provincie": [
+  {
+   "provincie": "Flevoland",
+   "totaal": 1,
+   "in_gebruik": 1,
+   "geruimd": 0,
+   "verdwenen": 0,
+   "met_terrein": 1,
+   "totaal_m2": 2854
+  },
+  {
+   "provincie": "Gelderland",
+   "totaal": 61,
+   "in_gebruik": 45,
+   "geruimd": 0,
+   "verdwenen": 16,
+   "met_terrein": 45,
+   "totaal_m2": 69669
+  },
+  {
+   "provincie": "Limburg",
+   "totaal": 25,
+   "in_gebruik": 18,
+   "geruimd": 1,
+   "verdwenen": 6,
+   "met_terrein": 19,
+   "totaal_m2": 12569
+  },
+  {
+   "provincie": "Noord-Brabant",
+   "totaal": 31,
+   "in_gebruik": 21,
+   "geruimd": 0,
+   "verdwenen": 10,
+   "met_terrein": 21,
+   "totaal_m2": 109343
+  },
+  {
+   "provincie": "Noord-Holland",
+   "totaal": 28,
+   "in_gebruik": 22,
+   "geruimd": 0,
+   "verdwenen": 6,
+   "met_terrein": 22,
+   "totaal_m2": 379780
+  },
+  {
+   "provincie": "Overijssel",
+   "totaal": 43,
+   "in_gebruik": 34,
+   "geruimd": 1,
+   "verdwenen": 8,
+   "met_terrein": 35,
+   "totaal_m2": 63841
+  },
+  {
+   "provincie": "Utrecht",
+   "totaal": 20,
+   "in_gebruik": 14,
+   "geruimd": 0,
+   "verdwenen": 6,
+   "met_terrein": 13,
+   "totaal_m2": 14511
+  },
+  {
+   "provincie": "Zeeland",
+   "totaal": 6,
+   "in_gebruik": 6,
+   "geruimd": 0,
+   "verdwenen": 0,
+   "met_terrein": 6,
+   "totaal_m2": 6678
+  },
+  {
+   "provincie": "Zuid-Holland",
+   "totaal": 36,
+   "in_gebruik": 24,
+   "geruimd": 2,
+   "verdwenen": 10,
+   "met_terrein": 26,
+   "totaal_m2": 90877
+  }
+ ],
+ "per_gemeente": [
+  {
+   "gemeente": "Rotterdam",
+   "provincie": "Zuid-Holland",
+   "totaal": 7,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 3
+  },
+  {
+   "gemeente": "Vijfheerenlanden",
+   "provincie": "Utrecht",
+   "totaal": 7,
+   "in_gebruik": 3,
+   "geruimd": 0,
+   "verdwenen": 4
+  },
+  {
+   "gemeente": "Land van Cuijk",
+   "provincie": "Noord-Brabant",
+   "totaal": 5,
+   "in_gebruik": 3,
+   "geruimd": 0,
+   "verdwenen": 2
+  },
+  {
+   "gemeente": "Aalten",
+   "provincie": "Gelderland",
+   "totaal": 4,
+   "in_gebruik": 3,
+   "geruimd": 0,
+   "verdwenen": 1
+  },
+  {
+   "gemeente": "Arnhem",
+   "provincie": "Gelderland",
+   "totaal": 4,
+   "in_gebruik": 2,
+   "geruimd": 0,
+   "verdwenen": 2
+  },
+  {
+   "gemeente": "Hof van Twente",
+   "provincie": "Overijssel",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  },
+  {
+   "gemeente": "Oude IJsselstreek",
+   "provincie": "Gelderland",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  },
+  {
+   "gemeente": "Sittard-Geleen",
+   "provincie": "Limburg",
+   "totaal": 4,
+   "in_gebruik": 2,
+   "geruimd": 1,
+   "verdwenen": 1
+  },
+  {
+   "gemeente": "West Betuwe",
+   "provincie": "Gelderland",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  },
+  {
+   "gemeente": "Zaltbommel",
+   "provincie": "Gelderland",
+   "totaal": 4,
+   "in_gebruik": 4,
+   "geruimd": 0,
+   "verdwenen": 0
+  }
+ ],
+ "meeste_verdwenen_gemeente": [
+  {
+   "gemeente": "Vijfheerenlanden",
+   "verdwenen_of_geruimd": 4,
+   "totaal": 7
+  },
+  {
+   "gemeente": "Doesburg",
+   "verdwenen_of_geruimd": 3,
+   "totaal": 3
+  },
+  {
+   "gemeente": "Rotterdam",
+   "verdwenen_of_geruimd": 3,
+   "totaal": 7
+  },
+  {
+   "gemeente": "Altena",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 3
+  },
+  {
+   "gemeente": "Arnhem",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 4
+  },
+  {
+   "gemeente": "Gouda",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 2
+  },
+  {
+   "gemeente": "Heerlen",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 3
+  },
+  {
+   "gemeente": "Land van Cuijk",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 5
+  },
+  {
+   "gemeente": "Leiden",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 2
+  },
+  {
+   "gemeente": "Nijkerk",
+   "verdwenen_of_geruimd": 2,
+   "totaal": 3
+  }
+ ],
+ "datering": {
+  "met_jaartal": 235,
+  "klassen": [
+   {
+    "label": "vóór 1700",
+    "aantal": 16,
+    "in_gebruik": 11,
+    "geruimd": 0,
+    "verdwenen": 5
+   },
+   {
+    "label": "1700–1799",
+    "aantal": 75,
+    "in_gebruik": 48,
+    "geruimd": 2,
+    "verdwenen": 25
+   },
+   {
+    "label": "1800–1849",
+    "aantal": 54,
+    "in_gebruik": 44,
+    "geruimd": 1,
+    "verdwenen": 9
+   },
+   {
+    "label": "1850–1899",
+    "aantal": 64,
+    "in_gebruik": 59,
+    "geruimd": 0,
+    "verdwenen": 5
+   },
+   {
+    "label": "1900–1949",
+    "aantal": 17,
+    "in_gebruik": 14,
+    "geruimd": 1,
+    "verdwenen": 2
+   },
+   {
+    "label": "1950–heden",
+    "aantal": 9,
+    "in_gebruik": 9,
+    "geruimd": 0,
+    "verdwenen": 0
+   }
+  ],
+  "oudste": [
+   {
+    "id": "jb-ver-395",
+    "naam": "Portugees Israëlitische Begraafplaats",
+    "plaats": "Groet",
+    "status": "verdwenen",
+    "jaartal": 1602,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-3439",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Rotterdam",
+    "status": "in_gebruik",
+    "jaartal": 1613,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-1439",
+    "naam": "Portugees Isr. begraafplaats Beth Haim",
+    "plaats": "Ouderkerk aan de Amstel",
+    "status": "in_gebruik",
+    "jaartal": 1614,
+    "circa": false
+   },
+   {
+    "id": "jb-ver-488",
+    "naam": "Joodse begraafplaats",
+    "plaats": "Zevenaar",
+    "status": "verdwenen",
+    "jaartal": 1640,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-3369",
+    "naam": "Israelitische Begraafplaats Amsterdam",
+    "plaats": "Muiderberg",
+    "status": "in_gebruik",
+    "jaartal": 1642,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2826",
+    "naam": "Oude Israelitische Begraafplaats",
+    "plaats": "Winterswijk",
+    "status": "in_gebruik",
+    "jaartal": 1647,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-17",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Middelburg",
+    "status": "in_gebruik",
+    "jaartal": 1655,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-4219",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Wageningen",
+    "status": "in_gebruik",
+    "jaartal": 1668,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2443",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Amersfoort",
+    "status": "in_gebruik",
+    "jaartal": 1670,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2523",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Monnickendam",
+    "status": "in_gebruik",
+    "jaartal": 1677,
+    "circa": false
+   }
+  ],
+  "oudste_in_gebruik": [
+   {
+    "id": "jb-loc-3439",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Rotterdam",
+    "status": "in_gebruik",
+    "jaartal": 1613,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-1439",
+    "naam": "Portugees Isr. begraafplaats Beth Haim",
+    "plaats": "Ouderkerk aan de Amstel",
+    "status": "in_gebruik",
+    "jaartal": 1614,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-3369",
+    "naam": "Israelitische Begraafplaats Amsterdam",
+    "plaats": "Muiderberg",
+    "status": "in_gebruik",
+    "jaartal": 1642,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2826",
+    "naam": "Oude Israelitische Begraafplaats",
+    "plaats": "Winterswijk",
+    "status": "in_gebruik",
+    "jaartal": 1647,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-17",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Middelburg",
+    "status": "in_gebruik",
+    "jaartal": 1655,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-4219",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Wageningen",
+    "status": "in_gebruik",
+    "jaartal": 1668,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2443",
+    "naam": "Portugees-Joodse Begraafplaats",
+    "plaats": "Amersfoort",
+    "status": "in_gebruik",
+    "jaartal": 1670,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-2523",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Monnickendam",
+    "status": "in_gebruik",
+    "jaartal": 1677,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-886",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Geffen",
+    "status": "in_gebruik",
+    "jaartal": 1688,
+    "circa": false
+   },
+   {
+    "id": "jb-loc-3888",
+    "naam": "Joodse Begraafplaats Scheveningen (gemengd)",
+    "plaats": "'s-Gravenhage",
+    "status": "in_gebruik",
+    "jaartal": 1694,
+    "circa": false
+   }
+  ]
+ },
+ "erfgoed": {
+  "basis": 189,
+  "rijksmonument": 62,
+  "gemeentelijk_monument": 50,
+  "mip": 40,
+  "metaheerhuis": 71,
+  "in_gezicht": 36,
+  "met_rijksmonument_100m": 96,
+  "top_functies_100m": [
+   {
+    "functie": "Woonhuis(K)",
+    "aantal": 51
+   },
+   {
+    "functie": "Begraafplaats en -onderdelen",
+    "aantal": 42
+   },
+   {
+    "functie": "Grafmonument",
+    "aantal": 34
+   },
+   {
+    "functie": "Begraafplaats",
+    "aantal": 29
+   },
+   {
+    "functie": "Baarhuisje",
+    "aantal": 15
+   },
+   {
+    "functie": "Woonhuis",
+    "aantal": 14
+   },
+   {
+    "functie": "Omwalling",
+    "aantal": 14
+   },
+   {
+    "functie": "Boerderij (M)",
+    "aantal": 9
+   },
+   {
+    "functie": "Poortgebouw",
+    "aantal": 7
+   },
+   {
+    "functie": "Begraafplaatsaula",
+    "aantal": 6
+   }
+  ],
+  "per_provincie": [
+   {
+    "provincie": "Flevoland",
+    "rijksmonument": 0,
+    "in_gezicht": 0,
+    "metaheerhuis": 0
+   },
+   {
+    "provincie": "Gelderland",
+    "rijksmonument": 11,
+    "in_gezicht": 9,
+    "metaheerhuis": 16
+   },
+   {
+    "provincie": "Limburg",
+    "rijksmonument": 5,
+    "in_gezicht": 3,
+    "metaheerhuis": 3
+   },
+   {
+    "provincie": "Noord-Brabant",
+    "rijksmonument": 9,
+    "in_gezicht": 1,
+    "metaheerhuis": 10
+   },
+   {
+    "provincie": "Noord-Holland",
+    "rijksmonument": 7,
+    "in_gezicht": 8,
+    "metaheerhuis": 14
+   },
+   {
+    "provincie": "Overijssel",
+    "rijksmonument": 18,
+    "in_gezicht": 3,
+    "metaheerhuis": 13
+   },
+   {
+    "provincie": "Utrecht",
+    "rijksmonument": 3,
+    "in_gezicht": 5,
+    "metaheerhuis": 4
+   },
+   {
+    "provincie": "Zeeland",
+    "rijksmonument": 2,
+    "in_gezicht": 2,
+    "metaheerhuis": 3
+   },
+   {
+    "provincie": "Zuid-Holland",
+    "rijksmonument": 7,
+    "in_gezicht": 5,
+    "metaheerhuis": 8
+   }
+  ]
+ },
+ "herbegravingen": {
+  "lijnen": 32,
+  "bestemmingen": 26,
+  "meeste_ontvangen": [
+   {
+    "id": "jb-loc-2615",
+    "naam": "Joodse Begraafplaats Moscowa",
+    "plaats": "Arnhem",
+    "status": "in_gebruik",
+    "aantal": 2
+   },
+   {
+    "id": "jb-loc-2887",
+    "naam": "Joodse Begraafplaats",
+    "plaats": "Wageningen",
+    "status": "in_gebruik",
+    "aantal": 2
+   },
+   {
+    "id": "jb-loc-366",
+    "naam": "Joodse Begraafplaats op Algemene Begraafplaats",
+    "plaats": "Leerdam",
+    "status": "in_gebruik",
+    "aantal": 2
+   },
+   {
+    "id": "jb-loc-4200",
+    "naam": "Begraafplaats Toepad",
+    "plaats": "Rotterdam",
+    "status": "in_gebruik",
+    "aantal": 2
+   },
+   {
+    "id": "jb-loc-580",
+    "naam": "Joodse Begraafplaats op Algemene Begraafplaats Lahrhof",
+    "plaats": "Sittard",
+    "status": "in_gebruik",
+    "aantal": 2
+   },
+   {
+    "id": "jb-ver-678",
+    "naam": "Joodse begraafplaats buiten de Meipoort",
+    "plaats": "Doesburg",
+    "status": "verdwenen",
+    "aantal": 2
+   }
+  ],
+  "met_tekst_overgebracht": 35
+ }
+}

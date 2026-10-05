@@ -48,6 +48,11 @@ BEOORDEELDE_RELATIES = {
     ("jb-loc-1503", "527225"): ("algemene_begraafplaats", "Leon 2026-10-02 (vraag A7): maakt deel uit van de gemeentelijke begraafplaats"),
     ("jb-loc-4201", "529524"): ("hoort_bij", "Leon 2026-10-02 (vraag A7): toegangspoort tot de begraafplaats"),
     ("jb-loc-21", "508330"): ("hoort_bij", "Leon 2026-10-02 (vraag A7): dit moet een metaheerhuisje zijn"),
+    ("jb-loc-2923", "7464"): ("hoort_bij", "Leon/René 2026-10-05 (vraag N2): de begraafplaats zelf; door RCE niet aan complex 524892 toegevoegd"),
+    ("jb-loc-2615", "516728"): ("hoort_bij", "Leon/René 2026-10-05 (vraag G3): aula hoort bij de Joodse begraafplaats"),
+    ("jb-loc-2615", "516729"): ("hoort_bij", "Leon/René 2026-10-05 (vraag G3): muur hoort bij de Joodse begraafplaats"),
+    # RCE-punt van 37192 ligt op de Nieuwe (1110), het monument is de Oude (1125, Rmon in de Excel).
+    ("jb-loc-1110", "37192"): ("hoort_bij_andere", "Leon/René 2026-10-05 (vraag L2): 37192 hoort bij jb-loc-1125, de Oude Joodse begraafplaats"),
 }
 
 # Herbegravingen (vraag C6): expliciete koppeltabel, niet uit de tekst geraden.
