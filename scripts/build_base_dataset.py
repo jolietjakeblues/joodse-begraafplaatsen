@@ -50,7 +50,6 @@ import re
 import unicodedata
 import zipfile
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -106,11 +105,11 @@ _inv = json.loads(INVARIANTEN_JSON.read_text(encoding="utf-8"))
 INVARIANTEN = {prov: {k: v for k, v in t.items() if k != "toelichting"} for prov, t in _inv["provincies"].items()}
 LANDELIJK_EXCEL_RIJEN = _inv["landelijk_excel_rijen"]
 
-# Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie.
-# Telt in het rapport niet meer als open punt.
-GEEN_TERREIN_BEVESTIGD = {
-    "jb-loc-4368": "Bilthoven: alleen puntlocatie beschikbaar (Leon/René 2026-10-02, vraag B1)",
-}
+# Door Dodenakkers bevestigd: er is geen terrein, alleen een puntlocatie
+# (data/geen_terrein_bevestigd.csv: id, reden, datum, bron). Telt in het
+# rapport niet meer als open punt.
+with (REPO_ROOT / "data" / "geen_terrein_bevestigd.csv").open(encoding="utf-8", newline="") as _f:
+    GEEN_TERREIN_BEVESTIGD = {r["id"]: f"{r['reden']} ({r['bron']}, {r['datum']})" for r in csv.DictReader(_f) if r.get("id")}
 
 TERREIN_NABIJ_M = 25     # punt net buiten de polygoon (ingang op de rand)
 NAAM_MIN_RATIO = 0.6     # difflib-ratio op genormaliseerde namen
@@ -389,6 +388,10 @@ def load_corrections() -> list[dict]:
         return [r for r in csv.DictReader(f) if r.get("id")]
 
 
+JA_NEE_VELDEN = {"rijksmonument", "gemeentelijk_monument", "mip", "met"}
+GETAL_VELDEN = {"rijksmonumentnummer", "jaartal", "grootte_m2"}
+
+
 def apply_corrections(records: dict[str, dict], corrections: list[dict]) -> list[str]:
     log = []
     for c in corrections:
@@ -398,7 +401,13 @@ def apply_corrections(records: dict[str, dict], corrections: list[dict]) -> list
             continue
         oud = rec.get(c["veld"])
         rec.setdefault(f"{c['veld']}_bron", oud)  # oorspronkelijke waarde blijft zichtbaar
-        rec[c["veld"]] = c["waarde"] or None
+        # Zelfde type als bij het inlezen: ja/nee -> bool, nummers -> int, anders tekst.
+        if c["veld"] in JA_NEE_VELDEN:
+            rec[c["veld"]] = ja_nee(c["waarde"])
+        elif c["veld"] in GETAL_VELDEN:
+            rec[c["veld"]] = as_int(c["waarde"])
+        else:
+            rec[c["veld"]] = c["waarde"] or None
         rec.setdefault("correcties", []).append({k: c[k] for k in ("veld", "reden", "datum", "bron")} | {"oud": oud})
         log.append(f"- `{c['id']}` {c['veld']}: {oud!r} -> {c['waarde']!r} ({c['reden']}, {c['bron']}, {c['datum']})")
     return log
@@ -511,8 +520,10 @@ def build(provincies: list[str]) -> None:
             "terrein_opp_m2": round(terrein["rd"].area) if terrein else None,
             "locatie_bron": locatie_bron,
             "terrein_bron": terrein["bron"] if terrein else None,
-            "lon": round(locatie.x, 7),
-            "lat": round(locatie.y, 7),
+            # Verdwenen: plek bij benadering -> 4 decimalen (~10 m), geen schijnprecisie
+            # in de open data. De bron (KMZ) blijft ongewijzigd.
+            "lon": round(locatie.x, 4 if status == "verdwenen" else 7),
+            "lat": round(locatie.y, 4 if status == "verdwenen" else 7),
         }
         records[sleutel] = rec
 
@@ -585,7 +596,6 @@ def write_outputs(records: dict[str, dict], terrein_features: list[dict]) -> Non
     punten_fc = {
         "type": "FeatureCollection",
         "name": "joodse_begraafplaatsen",
-        "generated_at": datetime.now(timezone.utc).isoformat(),
         "features": [
             {"type": "Feature", "properties": rec, "geometry": {"type": "Point", "coordinates": [rec["lon"], rec["lat"]]}}
             for rec in sorted(records.values(), key=lambda r: (r["provincie"], r["plaats"] or "", r["naam"] or "", r["id"]))
@@ -610,7 +620,9 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
     L = [
         "# Koppelrapport Joodse begraafplaatsen",
         "",
-        f"Gegenereerd door `scripts/build_base_dataset.py` op {datetime.now().strftime('%Y-%m-%d %H:%M')}.",
+        # Geen tijdstempel: dan verandert het rapport alleen als de inhoud verandert
+        # (stabiele diffs; review 2026-10-05). Wanneer: zie git log.
+        "Gegenereerd door `scripts/build_base_dataset.py`.",
         f"Provincie(s): **{', '.join(provincies)}**. Excel-rijen landelijk: {alle_excel}.",
         "",
         "## Samenvatting",

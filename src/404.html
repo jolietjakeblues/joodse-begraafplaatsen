@@ -6,16 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <!-- Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond (René 2026-10-02, vraag F4) -->
   <meta name="robots" content="noindex, nofollow" />
-  <link rel="icon" href="/images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="/style.css" />
   <link rel="stylesheet" href="/pagina.css" />
 </head>
 <body class="pagina">
-  <main>
+  <a class="skip-link" href="#inhoud">Ga naar de inhoud</a>
+  <main id="inhoud" tabindex="-1" class="niet-gevonden">
     <img src="/images/dodenakkers-logo.webp" alt="Dodenakkers – funerair erfgoed" class="logo" width="480" height="146" />
+
+    <!-- Grafpaaltje met nummerbordje, zoals in het Dodenakkers-logo -->
+    <svg class="paaltje" viewBox="0 0 120 170" role="img" aria-labelledby="paaltje-titel">
+      <title id="paaltje-titel">Genummerd grafpaaltje met het nummer 404</title>
+      <rect x="54" y="78" width="12" height="86" rx="3" fill="#4a4a4a" />
+      <path d="M60 8 112 46v44H8V46Z" fill="#4a4a4a" />
+      <path d="M60 18 102 50v32H18V50Z" fill="#fff" />
+      <text x="60" y="76" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#212529">404</text>
+    </svg>
+
     <h1>Pagina niet gevonden</h1>
-    <p>Deze pagina bestaat niet (meer). Misschien is het adres verkeerd overgenomen.</p>
-    <p><a href="/">Naar de kaart van Joodse begraafplaatsen</a> &middot; <a href="/methode.html">Methode en bronnen</a></p>
+    <p>Op dit adres staat geen pagina. Misschien is het adres verkeerd overgenomen, of bestaat de pagina niet meer.</p>
+    <p>Zoek je een begraafplaats? Op de kaart staan alle Joodse begraafplaatsen uit de inventarisatie van stichting Dodenakkers: in gebruik, geruimd en verdwenen. Zoeken kan op naam, plaats of gemeente.</p>
+    <ul class="niet-gevonden-links">
+      <li><a href="/">Naar de kaart</a></li>
+      <li><a href="/lezen">Lezen over Joodse begraafplaatsen</a></li>
+      <li><a href="/statistieken">Statistieken</a></li>
+      <li><a href="/methode">Methode en bronnen</a></li>
+    </ul>
   </main>
 </body>
 </html>

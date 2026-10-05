@@ -26,6 +26,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 from pathlib import Path
 
 from pyproj import Transformer
@@ -66,6 +67,21 @@ GEMEENTE_ALIAS = {"Den Haag": "'s-Gravenhage", "Hengelo": "Hengelo (O)", "s-Hert
 to_rd = Transformer.from_crs("EPSG:4326", "EPSG:28992", always_xy=True).transform
 
 
+_HAAKJES = re.compile(r"\s*\([^()]*\)\s*$")
+
+
+def functie_kort(functie: str | None) -> str | None:
+    """RCE-functie zonder code tussen haakjes aan het eind: "Woonhuis(K)",
+    "Boerderij (M1)", "Muur(D)" -> "Woonhuis", "Boerderij", "Muur" (wens
+    opdrachtgever 2026-10-05). De ruwe waarde blijft bewaard als functie_bron."""
+    if not functie:
+        return functie
+    kort = functie
+    while _HAAKJES.search(kort):
+        kort = _HAAKJES.sub("", kort)
+    return kort or functie
+
+
 def load(path: Path) -> list[dict]:
     return json.loads(path.read_text(encoding="utf-8"))["features"]
 
@@ -100,7 +116,7 @@ def gezicht_relaties(geom, laag: Laag):
             continue
         p = laag.features[i]["properties"]
         rel.append({"naam": p.get("naam"), "gezichtsnummer": p.get("gezichtsnummer"), "uri": p.get("gezicht_uri"), "relatie": r})
-    rel.sort(key=lambda x: x["relatie"] != "binnen")
+    rel.sort(key=lambda x: (x["relatie"] != "binnen", x["naam"] or "", x["gezichtsnummer"] or ""))
     return rel
 
 
@@ -122,13 +138,14 @@ def monument_relaties(geom, laag: Laag, max_m: float):
             {
                 "rijksmonumentnummer": p.get("rijksmonumentnummer"),
                 "naam": p.get("naam"),
-                "functie": p.get("oorspronkelijke_functie"),
+                "functie": functie_kort(p.get("oorspronkelijke_functie")),
+                "functie_bron": p.get("oorspronkelijke_functie"),
                 "url": p.get("monumentenregister_url"),
                 "relatie": r,
                 "afstand_m": round(d, 1),
             }
         )
-    rel.sort(key=lambda x: x["afstand_m"])
+    rel.sort(key=lambda x: (x["afstand_m"], x["rijksmonumentnummer"] or ""))  # vaste volgorde bij gelijke afstand
     return rel
 
 
@@ -140,9 +157,9 @@ def rmon_info(nr: str, lookup: dict, rm_op_nummer: dict) -> dict | None:
     if e["soort"] == "rijksmonument":
         props = rm_op_nummer.get(nr, {})
         return {"soort": "rijksmonument", "nummer": nr, "naam": e["naam"] or props.get("naam"),
-                "functie": props.get("oorspronkelijke_functie"), "uri": e["uri"], "url": url(nr), "onderdelen": []}
+                "functie": functie_kort(props.get("oorspronkelijke_functie")), "uri": e["uri"], "url": url(nr), "onderdelen": []}
     onderdelen = [
-        {"rijksmonumentnummer": o, "url": url(o), "functie": rm_op_nummer.get(o, {}).get("oorspronkelijke_functie"),
+        {"rijksmonumentnummer": o, "url": url(o), "functie": functie_kort(rm_op_nummer.get(o, {}).get("oorspronkelijke_functie")),
          "hoofdobject": o == e["hoofdobject"]}
         for o in e["onderdelen"]
     ]

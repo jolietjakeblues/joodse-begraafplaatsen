@@ -151,7 +151,7 @@ def main() -> None:
     }
 
     out = {
-        "gegenereerd": datetime.now(timezone.utc).isoformat(),
+        "gegenereerd": datetime.now(timezone.utc).date().isoformat(),  # alleen de datum: minder ruis in diffs
         "provincies_op_kaart": provs,
         "basis": basis,
         "per_provincie": per_provincie,

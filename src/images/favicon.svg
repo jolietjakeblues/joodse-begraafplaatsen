@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Grafpaaltje met nummerbordje, naar het Dodenakkers-logo -->
+  <rect width="64" height="64" rx="12" fill="#8d161c"/>
+  <rect x="29" y="34" width="6" height="24" rx="2" fill="#fff"/>
+  <path d="M32 6 50 20v18H14V20Z" fill="#fff"/>
+  <path d="M32 12 45 22v12H19V22Z" fill="#8d161c"/>
+</svg>

@@ -124,6 +124,10 @@ def main() -> None:
     artikelen = []
     for a in tabel.select("tr th.list-title a[href]"):
         url = BASIS + a["href"] if a["href"].startswith("/") else a["href"]
+        # Alleen artikelen op dodenakkers.nl zelf (geen javascript:/externe links in de pagina).
+        if not url.startswith(BASIS + "/"):
+            print(f"overgeslagen (geen dodenakkers.nl-link): {url[:80]}")
+            continue
         titel = a.get_text(" ", strip=True)
         delen = a["href"].strip("/").split("/")
         provincie = next((PROVINCIE_PAD[d] for d in delen if d in PROVINCIE_PAD), None)

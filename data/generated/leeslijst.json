@@ -1,6 +1,6 @@
 {
  "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
- "opgehaald": "2026-10-05T09:17:41.545982+00:00",
+ "opgehaald": "2026-10-05T11:01:30.877440+00:00",
  "artikelen": [
   {
    "titel": "Als bloemen bij het graf - Winschoten II",
@@ -162,8 +162,8 @@
    "rubriek": null,
    "plaats": "Deventer",
    "kaart": {
-    "lon": 6.1631598,
-    "lat": 52.2580273,
+    "lon": 6.1632,
+    "lat": 52.258,
     "id": "jb-ver-354",
     "naam": "Oude Israëlitische begraafplaats"
    },
@@ -201,8 +201,8 @@
    "rubriek": null,
    "plaats": "Doesburg",
    "kaart": {
-    "lon": 6.1337221,
-    "lat": 52.0121786,
+    "lon": 6.1337,
+    "lat": 52.0122,
     "id": "jb-ver-676",
     "naam": "Joodse begraafplaats Veerpoortwal"
    },
@@ -284,8 +284,8 @@
    "rubriek": null,
    "plaats": "Groet/Schoorl",
    "kaart": {
-    "lon": 4.6909352,
-    "lat": 52.7023944,
+    "lon": 4.6909,
+    "lat": 52.7024,
     "id": "jb-ver-395",
     "naam": "Portugees Israëlitische Begraafplaats"
    },
@@ -326,8 +326,8 @@
    "rubriek": null,
    "plaats": "Groningen",
    "kaart": {
-    "lon": 6.5637046,
-    "lat": 53.2260626,
+    "lon": 6.5637,
+    "lat": 53.2261,
     "id": "jb-ver-67",
     "naam": "Oude Joodse begraafplaats Jodenkamp"
    },

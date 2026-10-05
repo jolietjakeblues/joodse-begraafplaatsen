@@ -126,7 +126,7 @@ body.panel-dicht #panel-toggle { left: 12px; }
 .brand .logo { height: 48px; width: auto; display: block; margin-bottom: 8px; }
 #panel h1 { font-size: 18px; margin: 0 0 2px; color: var(--huisstijl); }
 #panel a { color: var(--huisstijl); }
-.subtitle { margin: 0 0 8px; color: var(--muted); font-size: 11px; }
+.subtitle { margin: 0 0 8px; color: var(--muted); font-size: 12px; }
 .intro {
   margin: 0 0 10px;
   padding-bottom: 10px;
@@ -163,10 +163,11 @@ body.panel-dicht #panel-toggle { left: 12px; }
   border-radius: 4px;
 }
 
-.count, .muted { color: var(--muted); font-size: 11px; }
-.hint { color: var(--muted); font-size: 11px; font-style: italic; }
+.count, .muted { color: var(--muted); font-size: 12px; }
+/* Kleinste tekst 12 px (review 2026-10-05: 11 px cursief was te klein). */
+.hint { color: var(--muted); font-size: 12px; font-style: italic; }
 p.hint { margin: 6px 0 0; line-height: 1.4; }
-#status { font-size: 11px; color: var(--muted); margin: 10px 0 0; }
+#status { font-size: 12px; color: var(--muted); margin: 10px 0 0; }
 #status:empty { display: none; }
 .credits { border-top: 1px solid var(--rand); padding-top: 8px; }
 
@@ -180,7 +181,7 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
   flex: none;
 }
 .sym-in_gebruik { background: var(--in-gebruik); border-radius: 50%; }
-.sym-geruimd { background: var(--geruimd); transform: rotate(45deg) scale(0.8); }
+.sym-geruimd { background: var(--geruimd); border: 2px solid #8a5a00; transform: rotate(45deg) scale(0.8); }
 .sym-verdwenen { border: 3px solid var(--verdwenen); border-radius: 50%; background: #fff; }
 
 .sym-line { display: inline-block; width: 18px; height: 0; vertical-align: middle; }
@@ -218,12 +219,12 @@ p.hint { margin: 6px 0 0; line-height: 1.4; }
 .maplibregl-popup-content { font-size: 12px; line-height: 1.4; padding: 12px 14px; }
 .maplibregl-popup-content h3 { font-size: 14px; margin: 0 22px 4px 0; }
 .popup-status { margin: 0 0 6px; display: flex; align-items: center; gap: 6px; color: #333; }
-.popup-note { margin: 0 0 6px; padding: 4px 6px; background: #f1f1f1; border-left: 3px solid var(--verdwenen); font-size: 11px; }
+.popup-note { margin: 0 0 6px; padding: 4px 6px; background: #f1f1f1; border-left: 3px solid var(--verdwenen); font-size: 12px; }
 .maplibregl-popup-content dl { display: grid; grid-template-columns: max-content 1fr; gap: 3px 10px; margin: 0; }
 .maplibregl-popup-content dt { color: var(--muted); }
 .maplibregl-popup-content dd { margin: 0; overflow-wrap: anywhere; }
 .maplibregl-popup-content a { color: var(--huisstijl); }
-.popup-correctie { margin: 8px 0 0; padding-top: 6px; border-top: 1px solid #eee; font-size: 11px; }
+.popup-correctie { margin: 8px 0 0; padding-top: 6px; border-top: 1px solid #eee; font-size: 12px; }
 /* Knop die eruitziet als link (herbegravingen: open de andere begraafplaats) */
 .link-knop { background: none; border: none; padding: 0; font: inherit; color: var(--huisstijl); text-decoration: underline; cursor: pointer; text-align: left; }
 

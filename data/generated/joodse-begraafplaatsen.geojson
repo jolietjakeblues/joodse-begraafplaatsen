@@ -1,7 +1,6 @@
 {
  "type": "FeatureCollection",
  "name": "joodse_begraafplaatsen",
- "generated_at": "2026-10-05T09:14:45.553791+00:00",
  "features": [
   {
    "type": "Feature",
@@ -242,14 +241,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.7386443,
-    "lat": 52.6598414
+    "lon": 6.7386,
+    "lat": 52.6598
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.7386443,
-     52.6598414
+     6.7386,
+     52.6598
     ]
    }
   },
@@ -1392,14 +1391,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.4122572,
-    "lat": 53.1731251
+    "lon": 5.4123,
+    "lat": 53.1731
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.4122572,
-     53.1731251
+     5.4123,
+     53.1731
     ]
    }
   },
@@ -1442,14 +1441,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.4006513,
-    "lat": 52.9438748
+    "lon": 5.4007,
+    "lat": 52.9439
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.4006513,
-     52.9438748
+     5.4007,
+     52.9439
     ]
    }
   },
@@ -1492,14 +1491,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.7909939,
-    "lat": 53.2039055
+    "lon": 5.791,
+    "lat": 53.2039
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.7909939,
-     53.2039055
+     5.791,
+     53.2039
     ]
    }
   },
@@ -1592,14 +1591,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.7929184,
-    "lat": 53.2041286
+    "lon": 5.7929,
+    "lat": 53.2041
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.7929184,
-     53.2041286
+     5.7929,
+     53.2041
     ]
    }
   },
@@ -2042,14 +2041,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.6164692,
-    "lat": 51.881848
+    "lon": 5.6165,
+    "lat": 51.8818
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.6164692,
-     51.881848
+     5.6165,
+     51.8818
     ]
    }
   },
@@ -2242,14 +2241,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.9183263,
-    "lat": 51.9907314
+    "lon": 5.9183,
+    "lat": 51.9907
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.9183263,
-     51.9907314
+     5.9183,
+     51.9907
     ]
    }
   },
@@ -2292,14 +2291,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.8958109,
-    "lat": 51.9846465
+    "lon": 5.8958,
+    "lat": 51.9846
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.8958109,
-     51.9846465
+     5.8958,
+     51.9846
     ]
    }
   },
@@ -2542,14 +2541,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.5252978,
-    "lat": 52.11518
+    "lon": 6.5253,
+    "lat": 52.1152
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.5252978,
-     52.11518
+     6.5253,
+     52.1152
     ]
    }
   },
@@ -2642,14 +2641,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.619198,
-    "lat": 51.9436043
+    "lon": 6.6192,
+    "lat": 51.9436
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.619198,
-     51.9436043
+     6.6192,
+     51.9436
     ]
    }
   },
@@ -2892,14 +2891,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.22407,
-    "lat": 51.9532629
+    "lon": 5.2241,
+    "lat": 51.9533
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.22407,
-     51.9532629
+     5.2241,
+     51.9533
     ]
    }
   },
@@ -3042,14 +3041,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.1302768,
-    "lat": 52.0138671
+    "lon": 6.1303,
+    "lat": 52.0139
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.1302768,
-     52.0138671
+     6.1303,
+     52.0139
     ]
    }
   },
@@ -3092,14 +3091,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.1337221,
-    "lat": 52.0121786
+    "lon": 6.1337,
+    "lat": 52.0122
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.1337221,
-     52.0121786
+     6.1337,
+     52.0122
     ]
    }
   },
@@ -3142,14 +3141,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.1420678,
-    "lat": 52.0125523
+    "lon": 6.1421,
+    "lat": 52.0126
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.1420678,
-     52.0125523
+     6.1421,
+     52.0126
     ]
    }
   },
@@ -3242,14 +3241,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.6694613,
-    "lat": 52.0422837
+    "lon": 5.6695,
+    "lat": 52.0423
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.6694613,
-     52.0422837
+     5.6695,
+     52.0423
     ]
    }
   },
@@ -3692,14 +3691,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.3532742,
-    "lat": 52.0463614
+    "lon": 6.3533,
+    "lat": 52.0464
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.3532742,
-     52.0463614
+     6.3533,
+     52.0464
     ]
    }
   },
@@ -3842,14 +3841,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.4130445,
-    "lat": 52.1610229
+    "lon": 6.413,
+    "lat": 52.161
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.4130445,
-     52.1610229
+     6.413,
+     52.161
     ]
    }
   },
@@ -3942,14 +3941,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.4863313,
-    "lat": 52.2190905
+    "lon": 5.4863,
+    "lat": 52.2191
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.4863313,
-     52.2190905
+     5.4863,
+     52.2191
     ]
    }
   },
@@ -3992,14 +3991,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.4865008,
-    "lat": 52.2194585
+    "lon": 5.4865,
+    "lat": 52.2195
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.4865008,
-     52.2194585
+     5.4865,
+     52.2195
     ]
    }
   },
@@ -4092,14 +4091,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.8661879,
-    "lat": 51.8445214
+    "lon": 5.8662,
+    "lat": 51.8445
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.8661879,
-     51.8445214
+     5.8662,
+     51.8445
     ]
    }
   },
@@ -4792,14 +4791,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.0748722,
-    "lat": 51.9286305
+    "lon": 6.0749,
+    "lat": 51.9286
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.0748722,
-     51.9286305
+     6.0749,
+     51.9286
     ]
    }
   },
@@ -5442,14 +5441,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.5637046,
-    "lat": 53.2260626
+    "lon": 6.5637,
+    "lat": 53.2261
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.5637046,
-     53.2260626
+     6.5637,
+     53.2261
     ]
    }
   },
@@ -5842,14 +5841,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 7.1279204,
-    "lat": 52.9406823
+    "lon": 7.1279,
+    "lat": 52.9407
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     7.1279204,
-     52.9406823
+     7.1279,
+     52.9407
     ]
    }
   },
@@ -6592,14 +6591,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.9812433,
-    "lat": 50.8870426
+    "lon": 5.9812,
+    "lat": 50.887
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.9812433,
-     50.8870426
+     5.9812,
+     50.887
     ]
    }
   },
@@ -6692,14 +6691,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.9771764,
-    "lat": 50.8896648
+    "lon": 5.9772,
+    "lat": 50.8897
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.9771764,
-     50.8896648
+     5.9772,
+     50.8897
     ]
    }
   },
@@ -6742,14 +6741,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.9364925,
-    "lat": 51.1588983
+    "lon": 5.9365,
+    "lat": 51.1589
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.9364925,
-     51.1588983
+     5.9365,
+     51.1589
     ]
    }
   },
@@ -6842,14 +6841,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.688353,
-    "lat": 50.8548667
+    "lon": 5.6884,
+    "lat": 50.8549
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.688353,
-     50.8548667
+     5.6884,
+     50.8549
     ]
    }
   },
@@ -7142,14 +7141,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.866929,
-    "lat": 51.0003687
+    "lon": 5.8669,
+    "lat": 51.0004
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.866929,
-     51.0003687
+     5.8669,
+     51.0004
     ]
    }
   },
@@ -7342,14 +7341,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.016255,
-    "lat": 50.7676038
+    "lon": 6.0163,
+    "lat": 50.7676
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.016255,
-     50.7676038
+     6.0163,
+     50.7676
     ]
    }
   },
@@ -7642,14 +7641,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.8285295,
-    "lat": 51.5922277
+    "lon": 4.8285,
+    "lat": 51.5922
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.8285295,
-     51.5922277
+     4.8285,
+     51.5922
     ]
    }
   },
@@ -7742,14 +7741,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.8780523,
-    "lat": 51.7313458
+    "lon": 5.8781,
+    "lat": 51.7313
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.8780523,
-     51.7313458
+     5.8781,
+     51.7313
     ]
    }
   },
@@ -7792,14 +7791,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.8756389,
-    "lat": 51.7298778
+    "lon": 5.8756,
+    "lat": 51.7299
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.8756389,
-     51.7298778
+     5.8756,
+     51.7299
     ]
    }
   },
@@ -7942,14 +7941,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.509806,
-    "lat": 51.4496673
+    "lon": 5.5098,
+    "lat": 51.4497
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.509806,
-     51.4496673
+     5.5098,
+     51.4497
     ]
    }
   },
@@ -8142,14 +8141,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.1301486,
-    "lat": 51.480579
+    "lon": 5.1301,
+    "lat": 51.4806
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.1301486,
-     51.480579
+     5.1301,
+     51.4806
     ]
    }
   },
@@ -8192,14 +8191,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0557932,
-    "lat": 51.6542913
+    "lon": 5.0558,
+    "lat": 51.6543
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0557932,
-     51.6542913
+     5.0558,
+     51.6543
     ]
    }
   },
@@ -8522,10 +8521,10 @@
     "provincie_bron": "Noord-Brabant",
     "provincie": "Noord-Brabant",
     "mip": true,
-    "rijksmonument": false,
+    "rijksmonument": true,
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
-    "rijksmonumentnummer": null,
+    "rijksmonumentnummer": 516689,
     "rmon_bron": "Geen",
     "link": null,
     "beschermd_deel": null,
@@ -8543,7 +8542,25 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Noord-Brabant.kmz",
     "lon": 4.3855497,
-    "lat": 51.3756613
+    "lat": 51.3756613,
+    "rijksmonumentnummer_bron": null,
+    "correcties": [
+     {
+      "veld": "rijksmonumentnummer",
+      "reden": "Nummer 516689 hoort bij de Frechie Foundation; in de Excel gecorrigeerd door Leon (vraag NB1)",
+      "datum": "2026-10-05",
+      "bron": "Leon/René (vraag NB1)",
+      "oud": null
+     },
+     {
+      "veld": "rijksmonument",
+      "reden": "Volgt uit het rijksmonumentnummer (vraag NB1)",
+      "datum": "2026-10-05",
+      "bron": "Leon/René (vraag NB1)",
+      "oud": false
+     }
+    ],
+    "rijksmonument_bron": false
    },
    "geometry": {
     "type": "Point",
@@ -8575,7 +8592,7 @@
     "rijksmonument": true,
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
-    "rijksmonumentnummer": 516689,
+    "rijksmonumentnummer": null,
     "rmon_bron": "516689",
     "link": "https://monumentenregister.cultureelerfgoed.nl/monumenten/516689",
     "beschermd_deel": "Poorten, aula, ontvangstgebouw, grafmon. fam. Horowitz",
@@ -8593,7 +8610,17 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Noord-Brabant.kmz",
     "lon": 4.3893376,
-    "lat": 51.3762066
+    "lat": 51.3762066,
+    "rijksmonumentnummer_bron": 516689,
+    "correcties": [
+     {
+      "veld": "rijksmonumentnummer",
+      "reden": "Nummer 516689 hoort bij de Frechie Foundation, niet bij Mahsike Hadas; in de Excel gecorrigeerd door Leon (vraag NB1)",
+      "datum": "2026-10-05",
+      "bron": "Leon/René (vraag NB1)",
+      "oud": 516689
+     }
+    ]
    },
    "geometry": {
     "type": "Point",
@@ -8892,14 +8919,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0514677,
-    "lat": 51.6860538
+    "lon": 5.0515,
+    "lat": 51.6861
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0514677,
-     51.6860538
+     5.0515,
+     51.6861
     ]
    }
   },
@@ -8992,14 +9019,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.9009915,
-    "lat": 51.8093339
+    "lon": 4.901,
+    "lat": 51.8093
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.9009915,
-     51.8093339
+     4.901,
+     51.8093
     ]
    }
   },
@@ -9042,14 +9069,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.989611,
-    "lat": 51.803165
+    "lon": 4.9896,
+    "lat": 51.8032
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.989611,
-     51.803165
+     4.9896,
+     51.8032
     ]
    }
   },
@@ -9092,14 +9119,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.3035523,
-    "lat": 51.6861694
+    "lon": 5.3036,
+    "lat": 51.6862
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.3035523,
-     51.6861694
+     5.3036,
+     51.6862
     ]
    }
   },
@@ -9292,14 +9319,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.6564247,
-    "lat": 52.4971204
+    "lon": 4.6564,
+    "lat": 52.4971
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.6564247,
-     52.4971204
+     4.6564,
+     52.4971
     ]
    }
   },
@@ -9692,14 +9719,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.6909352,
-    "lat": 52.7023944
+    "lon": 4.6909,
+    "lat": 52.7024
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.6909352,
-     52.7023944
+     4.6909,
+     52.7024
     ]
    }
   },
@@ -9842,14 +9869,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.6396503,
-    "lat": 52.3893566
+    "lon": 4.6397,
+    "lat": 52.3894
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.6396503,
-     52.3893566
+     4.6397,
+     52.3894
     ]
    }
   },
@@ -9942,14 +9969,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.1491461,
-    "lat": 52.2232711
+    "lon": 5.1491,
+    "lat": 52.2233
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.1491461,
-     52.2232711
+     5.1491,
+     52.2233
     ]
    }
   },
@@ -10092,14 +10119,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0507372,
-    "lat": 52.6439223
+    "lon": 5.0507,
+    "lat": 52.6439
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0507372,
-     52.6439223
+     5.0507,
+     52.6439
     ]
    }
   },
@@ -10342,14 +10369,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.1659428,
-    "lat": 52.2974115
+    "lon": 5.1659,
+    "lat": 52.2974
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.1659428,
-     52.2974115
+     5.1659,
+     52.2974
     ]
    }
   },
@@ -10792,14 +10819,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.7521219,
-    "lat": 52.2861741
+    "lon": 6.7521,
+    "lat": 52.2862
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.7521219,
-     52.2861741
+     6.7521,
+     52.2862
     ]
    }
   },
@@ -11292,14 +11319,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.1631598,
-    "lat": 52.2580273
+    "lon": 6.1632,
+    "lat": 52.258
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.1631598,
-     52.2580273
+     6.1632,
+     52.258
     ]
    }
   },
@@ -11442,14 +11469,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.8980607,
-    "lat": 52.223704
+    "lon": 6.8981,
+    "lat": 52.2237
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.8980607,
-     52.223704
+     6.8981,
+     52.2237
     ]
    }
   },
@@ -11792,14 +11819,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.0916189,
-    "lat": 52.5938745
+    "lon": 6.0916,
+    "lat": 52.5939
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.0916189,
-     52.5938745
+     6.0916,
+     52.5939
     ]
    }
   },
@@ -12042,14 +12069,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 7.0119277,
-    "lat": 52.2665746
+    "lon": 7.0119,
+    "lat": 52.2666
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     7.0119277,
-     52.2665746
+     7.0119,
+     52.2666
     ]
    }
   },
@@ -12392,14 +12419,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.5224097,
-    "lat": 52.3063612
+    "lon": 6.5224,
+    "lat": 52.3064
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.5224097,
-     52.3063612
+     6.5224,
+     52.3064
     ]
    }
   },
@@ -12542,14 +12569,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.0708247,
-    "lat": 52.6410027
+    "lon": 6.0708,
+    "lat": 52.641
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.0708247,
-     52.6410027
+     6.0708,
+     52.641
     ]
    }
   },
@@ -12642,14 +12669,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 6.0780424,
-    "lat": 52.5056989
+    "lon": 6.078,
+    "lat": 52.5057
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.0780424,
-     52.5056989
+     6.078,
+     52.5057
     ]
    }
   },
@@ -12892,14 +12919,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.2098476,
-    "lat": 52.1283342
+    "lon": 5.2098,
+    "lat": 52.1283
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.2098476,
-     52.1283342
+     5.2098,
+     52.1283
     ]
    }
   },
@@ -13042,14 +13069,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0965617,
-    "lat": 51.8907765
+    "lon": 5.0966,
+    "lat": 51.8908
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0965617,
-     51.8907765
+     5.0966,
+     51.8908
     ]
    }
   },
@@ -13092,14 +13119,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0806311,
-    "lat": 51.8990554
+    "lon": 5.0806,
+    "lat": 51.8991
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0806311,
-     51.8990554
+     5.0806,
+     51.8991
     ]
    }
   },
@@ -13392,14 +13419,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.0953769,
-    "lat": 51.9932156
+    "lon": 5.0954,
+    "lat": 51.9932
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.0953769,
-     51.9932156
+     5.0954,
+     51.9932
     ]
    }
   },
@@ -13442,14 +13469,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.096026,
-    "lat": 51.9966968
+    "lon": 5.096,
+    "lat": 51.9967
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.096026,
-     51.9966968
+     5.096,
+     51.9967
     ]
    }
   },
@@ -13542,14 +13569,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 5.3475609,
-    "lat": 51.9698338
+    "lon": 5.3476,
+    "lat": 51.9698
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     5.3475609,
-     51.9698338
+     5.3476,
+     51.9698
     ]
    }
   },
@@ -14242,8 +14269,8 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.6562949,
-    "lat": 51.8111724,
+    "lon": 4.6563,
+    "lat": 51.8112,
     "naam_bron": "Joodse begraafplaats",
     "correcties": [
      {
@@ -14258,8 +14285,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.6562949,
-     51.8111724
+     4.6563,
+     51.8112
     ]
    }
   },
@@ -14452,14 +14479,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.7066487,
-    "lat": 52.0236997
+    "lon": 4.7066,
+    "lat": 52.0237
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.7066487,
-     52.0236997
+     4.7066,
+     52.0237
     ]
    }
   },
@@ -14502,14 +14529,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.7100026,
-    "lat": 52.0161317
+    "lon": 4.71,
+    "lat": 52.0161
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.7100026,
-     52.0161317
+     4.71,
+     52.0161
     ]
    }
   },
@@ -14602,14 +14629,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.4877338,
-    "lat": 52.1642324
+    "lon": 4.4877,
+    "lat": 52.1642
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.4877338,
-     52.1642324
+     4.4877,
+     52.1642
     ]
    }
   },
@@ -14652,14 +14679,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.4838529,
-    "lat": 52.154936
+    "lon": 4.4839,
+    "lat": 52.1549
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.4838529,
-     52.154936
+     4.4839,
+     52.1549
     ]
    }
   },
@@ -14802,14 +14829,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.2488789,
-    "lat": 51.922245
+    "lon": 4.2489,
+    "lat": 51.9222
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.2488789,
-     51.922245
+     4.2489,
+     51.9222
     ]
    }
   },
@@ -15272,14 +15299,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.5051566,
-    "lat": 51.9246427
+    "lon": 4.5052,
+    "lat": 51.9246
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.5051566,
-     51.9246427
+     4.5052,
+     51.9246
     ]
    }
   },
@@ -15322,8 +15349,8 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.4957784,
-    "lat": 51.9344202,
+    "lon": 4.4958,
+    "lat": 51.9344,
     "naam_bron": "Portugees Israëlitische Begraafplaats Crooswijk",
     "correcties": [
      {
@@ -15338,8 +15365,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.4957784,
-     51.9344202
+     4.4958,
+     51.9344
     ]
    }
   },
@@ -15382,8 +15409,8 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.4920406,
-    "lat": 51.9375314,
+    "lon": 4.492,
+    "lat": 51.9375,
     "naam_bron": "Portugees Israëlitische Begraafplaats Crooswijk",
     "correcties": [
      {
@@ -15398,8 +15425,8 @@
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.4920406,
-     51.9375314
+     4.492,
+     51.9375
     ]
    }
   },
@@ -15492,14 +15519,14 @@
     "terrein_opp_m2": null,
     "locatie_bron": "Verdwenen.kmz",
     "terrein_bron": null,
-    "lon": 4.4034728,
-    "lat": 51.9172856
+    "lon": 4.4035,
+    "lat": 51.9173
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     4.4034728,
-     51.9172856
+     4.4035,
+     51.9173
     ]
    }
   },

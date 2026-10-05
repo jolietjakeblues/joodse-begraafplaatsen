@@ -13,12 +13,13 @@
   <meta property="og:description" content="Hoe de kaart van Joodse begraafplaatsen is gemaakt: bronnen, koppelmethode, kleuren en beperkingen." />
   <meta property="og:url" content="{{SITE_URL}}/methode" />
   <meta property="og:image" content="{{SITE_URL}}/images/og-image.png" />
-  <link rel="icon" href="images/Dodenakkers-logo-68015ff5.webp" type="image/webp" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="pagina.css" />
 </head>
 <body class="pagina">
-  <main>
+  <a class="skip-link" href="#inhoud">Ga naar de inhoud</a>
+  <main id="inhoud" tabindex="-1">
     <p><a href="./">&larr; Terug naar de kaart</a> &middot; <a href="lezen.html">Lezen</a> &middot; <a href="statistieken.html">Statistieken</a></p>
     <img src="images/dodenakkers-logo.webp" alt="Dodenakkers – funerair erfgoed" class="logo" width="480" height="146" />
     <h1>Methode en bronnen</h1>
@@ -66,12 +67,9 @@
     <h2>Correcties doorgeven</h2>
     <p>Klopt er iets niet? Onder elke begraafplaats op de kaart staat de link <strong>Correctie doorgeven</strong>. Die opent een formulier op <a href="https://github.com/jolietjakeblues/joodse-begraafplaatsen/issues/new?template=correctie.yml" target="_blank" rel="noopener">GitHub</a> waarin het kenmerk van de begraafplaats al is ingevuld. Daarvoor is een (gratis) GitHub-account nodig. Correcties zijn openbaar zichtbaar; zet er dus geen persoonsgegevens in. Een verwerkte correctie komt in de kaart via een correctielijst; de bronbestanden van Dodenakkers worden niet overschreven.</p>
 
-    <h2>Inbedden en hergebruik</h2>
-    <p>De kaart kan op een andere website worden getoond, bijvoorbeeld op dodenakkers.nl:</p>
-    <pre><code>&lt;iframe src="https://&lt;adres-van-de-kaart&gt;/?embed=1"
-        title="Kaart Joodse begraafplaatsen" width="100%" height="600"
-        style="border:0" loading="lazy"&gt;&lt;/iframe&gt;</code></pre>
-    <p>De data zelf staat als open GeoJSON in <code>data/generated/begraafplaatsen.geojson</code> (punten met alle kenmerken) en <code>data/generated/terreinen.geojson</code>. De kaart en de verwerking vallen onder <a href="https://creativecommons.org/licenses/by/4.0/deed.nl">CC BY 4.0</a>; de onderliggende bronnen onder hun eigen voorwaarden.</p>
+    <h2>Gebruik en hergebruik</h2>
+    <p>Deze kaart is nog in ontwikkeling en nog niet openbaar; hij verschijnt bij de publicatie van een boek van stichting Dodenakkers. Afspraken over hergebruik van de kaart en de gegevens, en over het tonen van de kaart op andere websites, maakt stichting Dodenakkers bij die publicatie bekend.</p>
+    <p>De inventarisatie is van stichting Dodenakkers. De contextgegevens (rijksmonumenten, beschermde gezichten, grenzen, ondergronden) vallen onder de voorwaarden van de Rijksdienst voor het Cultureel Erfgoed en PDOK.</p>
   </main>
 </body>
 </html>
