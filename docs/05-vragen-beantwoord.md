@@ -1,6 +1,6 @@
 # 05 – Beantwoorde vragen van Dodenakkers (Leon, René)
 
-Stand: 2026-10-05 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
+Stand: 2026-10-06 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
 
 Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 2026: opmerkingen bij de vragenlijst, opmerkingen in de PDF, het Word-document). Per vraag: de vraag in het kort, het antwoord (de laatste stand) en wat er op de kaart mee gedaan is. Tussenstanden staan in de git-geschiedenis.
 
@@ -52,7 +52,7 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 - **✅ E5. Standaard aan.** *Antwoord:* prima.
 - **✅ E6. Mobiel.** *Antwoord:* werkt prima.
 - **✅ E7. Extra pagina's.** *Antwoord:* statistiekpagina welkom; geen CSV-download; Engels misschien later. *Verwerkt:* statistiekpagina gebouwd.
-- **E8. Inbedden.** *Antwoord:* later misschien op www.funerair-erfgoed.nl, alleen via hun eigen sites. *Nog open, zie [04-vragen-open.md](04-vragen-open.md#e8-inbedden-later).*
+- **✅ E8. Inbedden.** *Antwoord:* later misschien op www.funerair-erfgoed.nl, alleen via hun eigen sites; 2026-10-06: blijft hetzelfde. *Verwerkt:* inbedden alleen vanaf dodenakkers.nl; bij een besluit komt funerair-erfgoed.nl erbij.
 - **✅ E9. Eigen webadres.** *Antwoord:* voorlopig goed zo; later met hun webmaster. *Verwerkt:* `SITE_URL` op één plek in `scripts/build_site.py`.
 
 ## F. Werkwijze
@@ -60,7 +60,7 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 - **✅ F1. Correcties doorgeven.** *Antwoord:* een invulformulier met het nummer erbij. *Verwerkt:* GitHub-issueformulier; link "Correctie doorgeven" in elke popup.
 - **✅ F2. Updates.** *Antwoord:* de Excel verandert vaker dan de KMZ's; shapes liggen redelijk vast. *Verwerkt:* elke run bouwt alles opnieuw uit de bron; controles per provincie.
 - **✅ F3. Volgorde rest van Nederland.** *Antwoord:* geen voorkeur gegeven. *Verwerkt:* alle 12 provincies op de kaart (2026-10-05).
-- **✅ F4. Publiek of niet.** *Antwoord:* intern tot de publicatie van het boek; niet indexeren. *Verwerkt:* `noindex`; publiceren met één schakelaar (`PUBLICEREN` in `scripts/build_site.py`), licentie volgens [P1](04-vragen-open.md#p1-hergebruik-en-licentie-bij-de-publicatie).
+- **✅ F4. Publiek of niet.** *Antwoord:* intern tot de publicatie van het boek; niet indexeren. *Verwerkt:* `noindex`; publiceren met één schakelaar (`PUBLICEREN` in `scripts/build_site.py`), licentie: voorlopig zo laten (P1, hieronder).
 
 ## Navragen en vragen per provincie (ronde 2–3)
 
@@ -76,8 +76,10 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 | G1 Gouda → Wageningen | Naar de nieuwe Joodse begraafplaats op de algemene begraafplaats | `jb-ver-280`, `jb-ver-281` → `jb-loc-2887` |
 | G2 Winterswijk | Klopt helemaal | Blijft |
 | G3 Moscowa | Aula en muur horen bij de Joodse begraafplaats | 516728 en 516729 "hoort bij de begraafplaats" |
-| O1 Denekamp | Onze contour is de begraafplaats zelf, niet het hele perceel | Navraag [R2](04-vragen-open.md#r2-denekamp-is-12342-het-rijksmonument-van-de-joodse-begraafplaats) |
+| O1 Denekamp | Onze contour is de begraafplaats zelf, niet het hele perceel | Zie R2 hieronder |
 | O2 Dedemsvaart | Contour opnieuw getekend; ligt naast het rijksmonument | Nieuw terrein + ingang uit `funerair_nieuwedata.kmz` (796 → 641 m²) |
+| R2 Denekamp | Rijksmonument 12342 beschermt beide Joodse begraafplaatsen (uitzondering); de RCE-contour ligt om de nieuwe, voor de oude is geen contour (Leon 2026-10-06) | `jb-loc-2459` via `data/corrections.csv` rijksmonument 12342 (`jb-loc-2455` had het al) |
+| P1 Licentie | Voorlopig zo laten; bij de publicatie kan er nog wat veranderen, zoals de icoontjes (Leon 2026-10-06) | Geen wijziging; `LICENSE` CC BY 4.0 blijft tot de publicatie |
 | NB1 Putte | 516689 hoort bij de Frechie Foundation | Via `data/corrections.csv`; rest navraag [R3b](04-vragen-open.md#r3b-putte-de-rest-van-de-gegevens-van-mahsike-hadas) |
 | NB2 Eindhoven | Woensel is in 1920 bij Eindhoven gevoegd; = Groenewoudseweg | `jb-ver-21` → `jb-loc-986` |
 | L1 Sittard | Vrangendael = volksnaam van Lahrhof | `jb-ger-43`, `jb-ver-12` → `jb-loc-580` |

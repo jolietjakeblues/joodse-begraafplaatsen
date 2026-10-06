@@ -8,7 +8,7 @@ Gegenereerd door `scripts/analyse_spatial.py`. Relaties alleen voor begraafplaat
 - Binnen of deels in een rijksbeschermd gezicht: **40**.
 - Gebouwd rijksmonument binnen 100 m: **108**.
 - Archeologisch rijksmonument binnen 100 m: **4**.
-- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **70**.
+- Rijksmonumentnummer uit de Excel teruggevonden in RCE: **71**.
 
 ## Rijksmonumentnummer (Excel `Rmon`) niet gevonden in de RCE-extracten
 
@@ -58,7 +58,6 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [36769](https://monumentenregister.cultureelerfgoed.nl/monumenten/36769) Kasteel Valkenburg (Kasteel, buitenplaats, overlapt)
 - `jb-loc-656` Oude Begraafplaats aan De Dwingel, Valkenburg: [47164](https://monumentenregister.cultureelerfgoed.nl/monumenten/47164)  (Archeologie, overlapt)
 - `jb-loc-2994` Joodse Begraafplaats, Delden: [507546](https://monumentenregister.cultureelerfgoed.nl/monumenten/507546)  (Historische aanleg, overlapt)
-- `jb-loc-2459` Joodse Begraafplaats, Denekamp: [12342](https://monumentenregister.cultureelerfgoed.nl/monumenten/12342)  (Begraafplaats en -onderdelen, overlapt)
 - `jb-loc-2412` Joodse Begraafplaats op de Kuiperberg, Ootmarsum: [513204](https://monumentenregister.cultureelerfgoed.nl/monumenten/513204)  (Watertoren, overlapt)
 
 ## Door Dodenakkers beoordeelde relaties

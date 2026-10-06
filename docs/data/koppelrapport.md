@@ -178,6 +178,8 @@ Geen.
 - `jb-loc-195` rijksmonumentnummer: None -> '516689' (Nummer 516689 hoort bij de Frechie Foundation; in de Excel gecorrigeerd door Leon (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
 - `jb-loc-195` rijksmonument: False -> 'ja' (Volgt uit het rijksmonumentnummer (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
 - `jb-loc-3642` bijzonderheden: '394 zerken, deels buiten het perceel begraven' -> '394 stèles, deels buiten het perceel begraven' (Correctie Dodenakkers: zerken moet stèles zijn (issue #21); Excel wordt ook aangepast, Leon (issue #21), 2026-10-06)
+- `jb-loc-2459` rijksmonument: False -> 'ja' (Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp; de RCE-contour ligt om de nieuwe (vraag R2), Leon (vraag R2), 2026-10-06)
+- `jb-loc-2459` rijksmonumentnummer: None -> '12342' (Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp (vraag R2), Leon (vraag R2), 2026-10-06)
 
 ## Verdwenen begraafplaatsen
 

@@ -11159,10 +11159,10 @@
     "provincie_bron": "Overijssel",
     "provincie": "Overijssel",
     "mip": true,
-    "rijksmonument": false,
+    "rijksmonument": true,
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
-    "rijksmonumentnummer": null,
+    "rijksmonumentnummer": 12342,
     "rmon_bron": "Geen",
     "link": null,
     "beschermd_deel": null,
@@ -11180,7 +11180,25 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Overijssel.kmz",
     "lon": 7.0002916,
-    "lat": 52.384118
+    "lat": 52.384118,
+    "rijksmonument_bron": false,
+    "correcties": [
+     {
+      "veld": "rijksmonument",
+      "reden": "Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp; de RCE-contour ligt om de nieuwe (vraag R2)",
+      "datum": "2026-10-06",
+      "bron": "Leon (vraag R2)",
+      "oud": false
+     },
+     {
+      "veld": "rijksmonumentnummer",
+      "reden": "Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp (vraag R2)",
+      "datum": "2026-10-06",
+      "bron": "Leon (vraag R2)",
+      "oud": null
+     }
+    ],
+    "rijksmonumentnummer_bron": null
    },
    "geometry": {
     "type": "Point",
