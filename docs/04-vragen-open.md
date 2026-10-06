@@ -53,4 +53,5 @@ Kleine dingen in de bronbestanden; we passen de bron niet aan.
 - `Funerair Groningen.kmz`: "Joodse begraaf**plats**, Leens" (tikfout) en 7 lege "Naamloos Polygoon".
 - `Locaties.kmz`: het label van `jb-loc-3574` is "Joodse begraafplaats, Uithuizen**?**" (met vraagteken). De kaart gebruikt sinds 2026-10-06 het nagestuurde punt uit `Voor Joop.kmz` (18 m verschoven).
 - Denekamp (`jb-loc-2459`): in de nieuwe Excel staat Rmon 12342, maar Rijksmonument "Nee". De kaart zegt "ja" (antwoord R2).
+- Maassluis en Puttershoek: in de nieuwe Excel geen verandering gezien. Zit die correctie in een KMZ, dan graag bij een volgende levering.
 - Schiedam (`jb-ger-64`): Grootte "?"; de contour is volgens Leon nog niet bekend.
