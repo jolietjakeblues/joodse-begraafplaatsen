@@ -69,7 +69,7 @@ Mogelijk een monument dat bij de begraafplaats hoort (hek, metaheerhuis, graftek
 - `jb-loc-1503` Joodse Begraafplaats op Algemene Begraafplaats Naarden, Bussum: 527225 — berekend `overlapt`, beoordeeld `algemene_begraafplaats` (Leon 2026-10-02 (vraag A7): maakt deel uit van de gemeentelijke begraafplaats)
 - `jb-loc-4201` Joodse Begraafplaats, Overveen: 529524 — berekend `overlapt`, beoordeeld `hoort_bij` (Leon 2026-10-02 (vraag A7): toegangspoort tot de begraafplaats)
 - `jb-loc-819` Oude Joodse Begraafplaats, Wijk bij Duurstede: 454310 — berekend `overlapt`, beoordeeld `net_buiten` (Leon/René 2026-10-02 (vraag A7): valt er net buiten)
-- `jb-loc-21` Joodse Begraafplaats (Hoogduits), Middelburg: 508330 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon 2026-10-02 (vraag A7): dit moet een metaheerhuisje zijn)
+- `jb-loc-21` Hoogduitse Joodse Begraafplaats, Middelburg: 508330 — berekend `op_terrein`, beoordeeld `hoort_bij` (Leon 2026-10-02 (vraag A7): dit moet een metaheerhuisje zijn)
 
 ## Gemeente in Excel wijkt af van ruimtelijke ligging (PDOK, actuele indeling)
 

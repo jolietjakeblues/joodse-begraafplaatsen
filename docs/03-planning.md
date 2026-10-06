@@ -15,8 +15,8 @@ Opdracht (stichting Dodenakkers): één kaart met alle Joodse begraafplaatsen va
 | Flevoland | ✅ | 1 | 1 | 0 | 0 | 1 | Almere terrein kleiner dan `Grootte` |
 | Gelderland | ✅ | 61 | 45 | 0 | 16 | 45 | Alles gekoppeld; 8 herbegravingen (o.a. Doesburg in twee stappen) |
 | Overijssel | ✅ | 43 | 34 | 1 | 8 | 35 | Enschede (2×) handmatig gekoppeld (Israëlitisch ↔ Joods); 4 herbegravingen |
-| Noord-Brabant | ✅ | 31 | 21 | 0 | 10 | 21 | Putte: Rmon 516689 ligt op Frechie Foundation (vraag); 3 herbegravingen (Cuijk in twee stappen) |
-| Groningen | ✅ | 27 | 23 | 2 | 2 | 24 | Leens (KMZ-tikfout) en Uithuizen handmatig; Loppersum geruimd zonder terrein (vraag) |
+| Noord-Brabant | ✅ | 31 | 21 | 0 | 10 | 21 | Putte: Rmon 516689 hoort bij de Frechie Foundation (in de Excel sinds 2026-10-06); 3 herbegravingen (Cuijk in twee stappen) |
+| Groningen | ✅ | 27 | 23 | 2 | 2 | 25 | Leens (KMZ-tikfout) en Uithuizen handmatig; Loppersum terrein en Uithuizen-ingang uit `Voor Joop.kmz` (2026-10-06) |
 | Limburg | ✅ | 25 | 18 | 1 | 6 | 19 | Alles gekoppeld; Sittard "Vrangendael" en Venlo 37192 als vraag; 1 herbegraving |
 | Drenthe | ✅ | 21 | 20 | 0 | 1 | 20 | Emmen: namen Westenesch/Oude gekruist tussen Excel en KMZ (vraag Dr1), gekoppeld op ligging; 1 herbegraving |
 | Fryslân | ✅ | 16 | 11 | 1 | 4 | 12 | Alles gekoppeld; 1 herbegraving (Harlingen) |

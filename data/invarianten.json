@@ -79,8 +79,8 @@
    "in_gebruik": 23,
    "geruimd": 2,
    "verdwenen": 2,
-   "terreinen": 24,
-   "toelichting": "2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via terrein_koppelingen.csv; Loppersum geruimd jb-ger-247 zonder terrein (vraag Gr1)."
+   "terreinen": 25,
+   "toelichting": "2026-10-05: Leens (KMZ-tikfout) en Uithuizen (punt in algemene begraafplaats) via terrein_koppelingen.csv. 2026-10-06: Loppersum geruimd jb-ger-247 kreeg een terrein uit 'Voor Joop.kmz' (vraag Gr1); Uithuizen een nagestuurde ingang."
   },
   "Drenthe": {
    "totaal": 21,

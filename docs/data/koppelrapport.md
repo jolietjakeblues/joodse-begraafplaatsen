@@ -7,7 +7,7 @@ Provincie(s): **Drenthe, Flevoland, Fryslân, Gelderland, Groningen, Limburg, No
 
 - 315 begraafplaatsen: 239 in gebruik, 7 geruimd, 69 verdwenen.
 - Elk record is via (reeks, Nr) aan precies één punt gekoppeld; sleutel `jb-<reeks>-<Nr>`.
-- Terreinen gekoppeld: 244.
+- Terreinen gekoppeld: 245.
 
 ## Koppelwijze terrein
 
@@ -15,10 +15,9 @@ Provincie(s): **Drenthe, Flevoland, Fryslân, Gelderland, Groningen, Limburg, No
 |---|---|
 | binnen_naam_gelijk | 191 |
 | binnen_naamvariant | 41 |
-| correctie_kmz | 2 |
-| geen_terrein | 1 |
+| correctie_kmz | 4 |
 | geen_terrein_bevestigd | 1 |
-| handmatig | 6 |
+| handmatig | 5 |
 | nabij_naam_gelijk | 4 |
 | niet_van_toepassing | 69 |
 
@@ -71,8 +70,8 @@ Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de p
 | `jb-loc-21` | Hoogduitse begraafplaats, Middelburg | Hoogduitse Joodse begraafplaats, Middelburg | binnen_naamvariant | open |
 | `jb-loc-908` | Joodse begraafplaats, Vlissingen | Nieuwe Joodse begraafplaats, Vlissingen | binnen_naamvariant | open |
 | `jb-loc-874` | Joods deel begraafplaats Oud-Rijswijk, Rijswijk | Joods deel op Oud Rijswijk, Rijswijk | binnen_naamvariant | naam vastgesteld: Joods deel op Oud-Rijswijk (Leon/René) |
-| `jb-loc-4200` | Joodse begraafplaats Toepad, Rotterdam | Joodse begraafplaats Het Toepad, Rotterdam | binnen_naamvariant | naam vastgesteld: Begraafplaats Toepad (Leon/René) |
-| `jb-ger-64` | Joodse begraafplaats, Schiedam (geruimd) | Nieuwe Joodse begraafplaats, Schiedam (geruimd) | binnen_naamvariant | naam vastgesteld: Nieuwe Joodse begraafplaats (Leon/René) |
+| `jb-loc-4200` | Joodse begraafplaats Toepad, Rotterdam | Joodse begraafplaats Het Toepad, Rotterdam | binnen_naamvariant | open |
+| `jb-ger-64` | Joodse begraafplaats, Schiedam (geruimd) | Nieuwe Joodse begraafplaats, Schiedam (geruimd) | binnen_naamvariant | open |
 
 ## Oppervlakte terrein wijkt sterk af van Excel-kolom `Grootte`
 
@@ -94,7 +93,6 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 | `jb-loc-2947` | Joodse begraafplaats, Heerenveen | Joods H'veen | 399 | 814 |
 | `jb-loc-4304` | Joodse begraafplaats op de gemeentelijk begraafplaats, Sneek | Joodse begraafplaats op de gemeentelijke begraafplaats, Sneek | 29 | 10 |
 | `jb-loc-3059` | Joodse begraafplaats, De Maten | Joodse begraafplaats, De Maten | 178 | 55 |
-| `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | Oude Joodse begraafplaats, Venlo | 248 | 45 |
 | `jb-loc-2804` | Joodse begraafplaats, Beverwijk | Joodse begraafplaats, Beverwijk | 137 | 870 |
 | `jb-loc-2399` | Joodse begraafplaats, Borne | Joodse begraafplaats, Borne | 3.721 | 2.065 |
 | `jb-loc-2297` | Joodse begraafplaats, Dalfsen | Joodse begraafplaats, Dalfsen | 420 | 830 |
@@ -109,15 +107,18 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 
 - `jb-loc-2183` Joodse begraafplaats, Emmen → Joodse begraafplaats Westenesch, Emmen (393 m², Grootte 480)
 - `jb-loc-3939` Joodse begraafplaats, Leens → Joodse begraafplats, Leens (150 m², Grootte 150)
-- `jb-loc-3574` Joodse begraafplaats, Uithuizen? → Joodse begraafplaats, Uithuizen (202 m², Grootte 200)
 - `jb-loc-3027` Oude Isr. begraafplaats, Enschede → Joodse begraafplaats Kneedweg, Enschede (3475 m², Grootte 3460)
 - `jb-loc-3002` Israelitische begraafplaats, Enschede → Nw. Joodse begraafplaats, Enschede (16023 m², Grootte 18800)
 - `jb-loc-9` Joodse begraafplaats bij de Leeuwentrap, Vlissingen → Oude joodse begraafplaats, Vlissingen (694 m², Grootte 350)
 
-## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`)
+## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`, `Voor Joop.kmz`)
+
+Oud m² is leeg bij een terrein dat niet in de provincie-KMZ stond; gelijk aan nieuw m² als alleen de ingang is nagestuurd.
 
 | id | terrein | oud m² | nieuw m² | ingang verschoven |
 |---|---|---|---|---|
+| `jb-ger-247` | Oude Joodse begraafplaats, Loppersum | – | 132 | 3.4 m |
+| `jb-loc-3574` | Joodse begraafplaats, Uithuizen | 202 | 202 | 18.1 m |
 | `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | 43 | 248 | 9.9 m |
 | `jb-loc-4021` | Joodse begraafplaats, Dedemsvaart | 796 | 641 | 34.6 m |
 
@@ -144,7 +145,7 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 
 ## Zonder terrein (status in gebruik / geruimd) — open
 
-- `jb-ger-247` Oude joodse begraafplaats, Loppersum — kandidaten: geen polygoon binnen bereik
+Geen.
 
 ## Joodse polygonen in de provincie-KMZ zonder record
 
@@ -168,18 +169,11 @@ Geen.
 
 ## Toegepaste correcties (`data/corrections.csv`)
 
-- `jb-loc-4200` naam: 'Het Toepad' -> 'Begraafplaats Toepad' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
 - `jb-loc-874` naam: 'Joodse Begraafplaats op Algemene Begraafplaats' -> 'Joods deel op Oud-Rijswijk' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
-- `jb-ger-64` naam: 'Joodse begraafplaats' -> 'Nieuwe Joodse begraafplaats' (Weergavenaam volgens Dodenakkers (vraag B5), Leon/René, 2026-10-02)
 - `jb-ver-471` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (1696–1807)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
 - `jb-ver-872` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
 - `jb-ver-182` naam: 'Joodse begraafplaats' -> 'Oude Joodse begraafplaats' (De geruimde Dordtse begraafplaats mag Oude Joodse begraafplaats heten (vraag B7), Leon, 2026-10-02)
-- `jb-loc-189` rijksmonumentnummer: 516689 -> '' (Nummer 516689 hoort bij de Frechie Foundation, niet bij Mahsike Hadas; in de Excel gecorrigeerd door Leon (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
-- `jb-loc-195` rijksmonumentnummer: None -> '516689' (Nummer 516689 hoort bij de Frechie Foundation; in de Excel gecorrigeerd door Leon (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
-- `jb-loc-195` rijksmonument: False -> 'ja' (Volgt uit het rijksmonumentnummer (vraag NB1), Leon/René (vraag NB1), 2026-10-05)
-- `jb-loc-3642` bijzonderheden: '394 zerken, deels buiten het perceel begraven' -> '394 stèles, deels buiten het perceel begraven' (Correctie Dodenakkers: zerken moet stèles zijn (issue #21); Excel wordt ook aangepast, Leon (issue #21), 2026-10-06)
 - `jb-loc-2459` rijksmonument: False -> 'ja' (Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp; de RCE-contour ligt om de nieuwe (vraag R2), Leon (vraag R2), 2026-10-06)
-- `jb-loc-2459` rijksmonumentnummer: None -> '12342' (Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp (vraag R2), Leon (vraag R2), 2026-10-06)
 
 ## Verdwenen begraafplaatsen
 

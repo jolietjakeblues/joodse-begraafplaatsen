@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/beschermde-gezichten.sparql",
-  "retrieved_at": "2026-10-05T08:43:13.847687+00:00",
+  "retrieved_at": "2026-10-06T18:06:09.454021+00:00",
   "provincies": [
     "Groningen"
   ],

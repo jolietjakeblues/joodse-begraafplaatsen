@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/archeologische-rijksmonumenten.sparql",
-  "retrieved_at": "2026-10-05T08:43:47.046170+00:00",
+  "retrieved_at": "2026-10-06T18:06:38.116759+00:00",
   "provincies": [
     "Groningen"
   ],

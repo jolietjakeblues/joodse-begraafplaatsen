@@ -1,6 +1,6 @@
 # 04 – Open vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-06 · Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev · Gedeelde vragenpagina: https://claude.ai/artifact/9Rbm99cCckt7yGDwb52kg8
+Stand: 2026-10-06 (nieuwe Excel verwerkt) · Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev · Gedeelde vragenpagina: https://claude.ai/artifact/9Rbm99cCckt7yGDwb52kg8
 
 Alleen wat nog een antwoord nodig heeft. Alles wat beantwoord en verwerkt is staat in [05-vragen-beantwoord.md](05-vragen-beantwoord.md). Per vraag staat erbij **wat we nu doen**; zonder antwoord blijft dat zo.
 
@@ -10,53 +10,10 @@ Kenmerken als `jb-loc-1559` staan in de kaartpopup onder "Kenmerk": `loc` = in g
 
 | Code | Onderwerp | Wie |
 |---|---|---|
-| [R1](#r1-welke-naam-komt-op-de-kaart) | Welke naam op de kaart: Excel-naam of KMZ-naam? | Leon |
-| [R3](#r3-de-gecorrigeerde-excel) | De gecorrigeerde Excel | Leon |
-| [R3b](#r3b-putte-de-rest-van-de-gegevens-van-mahsike-hadas) | Putte: de rest van de gegevens van Mahsike Hadas | Leon |
-| [Gr1](#gr1-loppersum-terrein-van-de-geruimde-begraafplaats) | Loppersum: terrein van de geruimde begraafplaats? | Leon |
 | [Dr1](#dr1-emmen-welke-heet-westenesch) | Emmen: welke heet Westenesch? | Leon |
 | [OK1](#ok1-verdwenen-begraafplaatsen-op-oude-kaarten) | Verdwenen begraafplaatsen op oude kaarten: drie plekken | Leon |
 
 ---
-
-### R1. Welke naam komt op de kaart?
-
-Ronde 2: "houd de Excel-naam aan". Ronde 3: "groen is de juiste", en groen waren de terreinnamen uit de KMZ (bijvoorbeeld "Hoogduitse Joodse begraafplaats" in Middelburg, "Nieuwe Joodse begraafplaats" in Vlissingen, "Beth Haim" in Ouderkerk, "Joodse begraafplaats Diemen / Muiderberg"). Past Leon de namen in de Excel aan, of moeten wij de groene namen als weergavenaam instellen?
-
-*Antwoord Leon (2026-10-06):* "De genoemde heb ik aangepast, dan wel gelaten in de excel die ik meestuur."
-
-*Nu:* de naam uit de Excel (drie weergavenamen via `data/corrections.csv`: Toepad, Oud-Rijswijk, Schiedam). Wacht op de nieuwe Excel ([R3](#r3-de-gecorrigeerde-excel)).
-
-### R3. De gecorrigeerde Excel
-
-Leon heeft in de Excel Putte (516689 bij de Frechie Foundation), Maassluis en Puttershoek gecorrigeerd. Die versie hebben we nog niet. Graag in de gedeelde map.
-
-*Antwoord Leon (2026-10-06):* "Komt eraan." De Excel is nog niet binnen.
-
-*Waarom wachten:* de kaart wordt opgebouwd uit de Excel. Wat Leon daar al heeft verbeterd (R1 namen, R3b Putte, Maassluis, Puttershoek) zetten we niet ook nog in `data/corrections.csv`: dan staat de juiste waarde op twee plekken en moet elke correctieregel bij de volgende Excel opnieuw worden nagelopen. Na ontvangst: `build_base_dataset.py --alle`, de punten hierboven controleren, en correctieregels die de Excel overbodig maakt (de drie namen, Putte, Denekamp) weghalen.
-
-*Nu:* Putte en Denekamp zijn alvast via `data/corrections.csv` aangepast; de rest wacht op de nieuwe Excel.
-
-### R3b. Putte: de rest van de gegevens van Mahsike Hadas
-
-Bij Mahsike Hadas (`jb-loc-189`) staan in de Excel ook "rijksmonument: ja" en als beschermd deel "poorten, aula, ontvangstgebouw, grafmonument". Die aula en grafmonumenten liggen volgens de RCE op de Frechie Foundation (`jb-loc-195`).
-
-- Horen die gegevens ook bij de Frechie Foundation?
-- Is Mahsike Hadas zelf een rijksmonument?
-
-*Antwoord Leon (2026-10-06):* de gegevens waren omgedraaid; in de nieuwe Excel gecorrigeerd.
-
-*Nu:* Mahsike Hadas "rijksmonument: ja" zonder nummer, tot de nieuwe Excel er is.
-
-### Gr1. Loppersum: terrein van de geruimde begraafplaats?
-
-Voor `jb-ger-247` (Oude Joodse begraafplaats, Grootte 104 m²) staat geen terrein in `Funerair Groningen.kmz`; het dichtstbijzijnde Joodse terrein is de huidige begraafplaats, 353 m verderop. Is er een terrein, of blijft het een punt (zoals Bilthoven)?
-
-*Antwoord Leon (2026-10-06):* "Klopt, hier wordt bedoeld sectie E, perceelnummer 3823, maar vermoedelijk was het perceel groter." Hij vraagt of wij een vorm maken of dat hij een KML aanlevert.
-
-*Graag een KML van Leon:* het huidige kadastrale perceel kan kleiner zijn dan de begraafplaats was, en Leon kent de echte omvang. Een KML zoals `funerair_nieuwedata.kmz` (vlak + punt, met de naam) wordt automatisch het terrein.
-
-*Nu:* alleen een punt.
 
 ### Dr1. Emmen: welke heet Westenesch?
 
@@ -71,7 +28,9 @@ Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". Kl
 
 *Antwoord Leon (2026-10-06):* "Ze zijn nu inderdaad verkeerd om." Hij controleert de KMZ nog.
 
-*Nu:* gekoppeld op ligging, met de namen uit de Excel. We wisselen pas na Leons controle (of via de nieuwe Excel), zodat er niet twee keer gewisseld wordt.
+*Nieuwe Excel (2026-10-06):* `jb-loc-3075` heet nu "Joodse begraafplaats Westenesch"; `jb-loc-2183` heet nog "Joodse Begraafplaats achter de Synagoge". De KMZ is niet nagestuurd, dus het terrein waarin het punt van 3075 ligt heet daar nog "Oude Joodse begraafplaats". Blijft dat zo (dan is de KMZ-naam fout), of komen de punten nog om?
+
+*Nu:* gekoppeld op ligging, met de namen uit de nieuwe Excel.
 
 ### OK1. Verdwenen begraafplaatsen op oude kaarten
 
@@ -92,5 +51,6 @@ Zelf kijken: open de begraafplaats, klik "Oude kaarten" en kies het jaar.
 Kleine dingen in de bronbestanden; we passen de bron niet aan.
 
 - `Funerair Groningen.kmz`: "Joodse begraaf**plats**, Leens" (tikfout) en 7 lege "Naamloos Polygoon".
-- `Locaties.kmz`: het label van `jb-loc-3574` is "Joodse begraafplaats, Uithuizen**?**" (met vraagteken). Het punt ligt 1 m buiten het Joodse terrein, binnen de oude algemene begraafplaats; met de hand aan het Joodse terrein gekoppeld.
+- `Locaties.kmz`: het label van `jb-loc-3574` is "Joodse begraafplaats, Uithuizen**?**" (met vraagteken). De kaart gebruikt sinds 2026-10-06 het nagestuurde punt uit `Voor Joop.kmz` (18 m verschoven).
+- Denekamp (`jb-loc-2459`): in de nieuwe Excel staat Rmon 12342, maar Rijksmonument "Nee". De kaart zegt "ja" (antwoord R2).
 - Schiedam (`jb-ger-64`): Grootte "?"; de contour is volgens Leon nog niet bekend.

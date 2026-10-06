@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/archeologische-rijksmonumenten.sparql",
-  "retrieved_at": "2026-10-02T20:27:17.513682+00:00",
+  "retrieved_at": "2026-10-06T18:07:57.155777+00:00",
   "provincies": [
     "Overijssel"
   ],

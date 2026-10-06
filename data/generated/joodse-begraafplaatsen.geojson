@@ -42,17 +42,7 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Drenthe.kmz",
     "lon": 6.5490999,
-    "lat": 52.9757426,
-    "bijzonderheden_bron": "394 zerken, deels buiten het perceel begraven",
-    "correcties": [
-     {
-      "veld": "bijzonderheden",
-      "reden": "Correctie Dodenakkers: zerken moet stèles zijn (issue #21); Excel wordt ook aangepast",
-      "datum": "2026-10-06",
-      "bron": "Leon (issue #21)",
-      "oud": "394 zerken, deels buiten het perceel begraven"
-     }
-    ]
+    "lat": 52.9757426
    },
    "geometry": {
     "type": "Point",
@@ -365,56 +355,6 @@
   {
    "type": "Feature",
    "properties": {
-    "id": "jb-loc-3075",
-    "reeks": "loc",
-    "nr": 3075,
-    "naam": "Begraafplaats Westenesch",
-    "label_punt": "Nieuwe Joodse begraafplaats, Emmen",
-    "status": "in_gebruik",
-    "status_bron": "In gebruik",
-    "adres": "Achter het Kanaal",
-    "adres_aanduiding": null,
-    "adres_aanduiding_bron": null,
-    "postcode": "7811 AW",
-    "plaats": "Emmen",
-    "gemeente_bron": "Emmen",
-    "provincie_bron": "Drenthe",
-    "provincie": "Drenthe",
-    "mip": false,
-    "rijksmonument": false,
-    "gemeentelijk_monument": false,
-    "gemeentelijk_monument_bron": "Nee",
-    "rijksmonumentnummer": null,
-    "rmon_bron": "Geen",
-    "link": null,
-    "beschermd_deel": null,
-    "jaartal": 1885,
-    "jaartal_bron": "1885",
-    "circa": null,
-    "met": false,
-    "bijzonderheden": "tot 1915, 17 zerken",
-    "grootte_m2": 400,
-    "grootte_bron": "400",
-    "locatie_precisie": "ingang",
-    "terrein_koppelwijze": "binnen_naamvariant",
-    "terrein_naam_kml": "Oude Joodse begraafplaats, Emmen",
-    "terrein_opp_m2": 440,
-    "locatie_bron": "Locaties.kmz",
-    "terrein_bron": "Funerair Drenthe.kmz",
-    "lon": 6.8994491,
-    "lat": 52.7805628
-   },
-   "geometry": {
-    "type": "Point",
-    "coordinates": [
-     6.8994491,
-     52.7805628
-    ]
-   }
-  },
-  {
-   "type": "Feature",
-   "properties": {
     "id": "jb-loc-2183",
     "reeks": "loc",
     "nr": 2183,
@@ -459,6 +399,56 @@
     "coordinates": [
      6.8699606,
      52.7792988
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "id": "jb-loc-3075",
+    "reeks": "loc",
+    "nr": 3075,
+    "naam": "Joodse begraafplaats Westenesch",
+    "label_punt": "Nieuwe Joodse begraafplaats, Emmen",
+    "status": "in_gebruik",
+    "status_bron": "In gebruik",
+    "adres": "Achter het Kanaal",
+    "adres_aanduiding": null,
+    "adres_aanduiding_bron": null,
+    "postcode": "7811 AW",
+    "plaats": "Emmen",
+    "gemeente_bron": "Emmen",
+    "provincie_bron": "Drenthe",
+    "provincie": "Drenthe",
+    "mip": false,
+    "rijksmonument": false,
+    "gemeentelijk_monument": false,
+    "gemeentelijk_monument_bron": "Nee",
+    "rijksmonumentnummer": null,
+    "rmon_bron": "Geen",
+    "link": null,
+    "beschermd_deel": null,
+    "jaartal": 1885,
+    "jaartal_bron": "1885",
+    "circa": null,
+    "met": false,
+    "bijzonderheden": "tot 1915, 17 zerken",
+    "grootte_m2": 400,
+    "grootte_bron": "400",
+    "locatie_precisie": "ingang",
+    "terrein_koppelwijze": "binnen_naamvariant",
+    "terrein_naam_kml": "Oude Joodse begraafplaats, Emmen",
+    "terrein_opp_m2": 440,
+    "locatie_bron": "Locaties.kmz",
+    "terrein_bron": "Funerair Drenthe.kmz",
+    "lon": 6.8994491,
+    "lat": 52.7805628
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     6.8994491,
+     52.7805628
     ]
    }
   },
@@ -5668,7 +5658,7 @@
     "id": "jb-ger-247",
     "reeks": "ger",
     "nr": 247,
-    "naam": "Joodse begraafplaats",
+    "naam": "Oude Joodse begraafplaats",
     "label_punt": "Oude joodse begraafplaats, Loppersum",
     "status": "geruimd",
     "status_bron": "Geruimd",
@@ -5696,19 +5686,19 @@
     "grootte_m2": 104,
     "grootte_bron": "104",
     "locatie_precisie": "ingang",
-    "terrein_koppelwijze": "geen_terrein",
-    "terrein_naam_kml": null,
-    "terrein_opp_m2": null,
-    "locatie_bron": "Geruimd.kmz",
-    "terrein_bron": null,
-    "lon": 6.7479785,
-    "lat": 53.3335414
+    "terrein_koppelwijze": "correctie_kmz",
+    "terrein_naam_kml": "Oude Joodse begraafplaats, Loppersum",
+    "terrein_opp_m2": 132,
+    "locatie_bron": "Voor Joop.kmz",
+    "terrein_bron": "Voor Joop.kmz",
+    "lon": 6.7479326,
+    "lat": 53.3335554
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.7479785,
-     53.3335414
+     6.7479326,
+     53.3335554
     ]
    }
   },
@@ -5996,19 +5986,19 @@
     "grootte_m2": 200,
     "grootte_bron": "200",
     "locatie_precisie": "ingang",
-    "terrein_koppelwijze": "handmatig",
+    "terrein_koppelwijze": "correctie_kmz",
     "terrein_naam_kml": "Joodse begraafplaats, Uithuizen",
     "terrein_opp_m2": 202,
-    "locatie_bron": "Locaties.kmz",
+    "locatie_bron": "Voor Joop.kmz",
     "terrein_bron": "Funerair Groningen.kmz",
-    "lon": 6.6700816,
-    "lat": 53.4057177
+    "lon": 6.6698108,
+    "lat": 53.4057365
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.6700816,
-     53.4057177
+     6.6698108,
+     53.4057365
     ]
    }
   },
@@ -7543,8 +7533,8 @@
     "circa": null,
     "met": false,
     "bijzonderheden": "1820-1887, 7 zerken",
-    "grootte_m2": 45,
-    "grootte_bron": "45",
+    "grootte_m2": 247,
+    "grootte_bron": "247",
     "locatie_precisie": "ingang",
     "terrein_koppelwijze": "correctie_kmz",
     "terrein_naam_kml": "Oude Joodse begraafplaats, Venlo",
@@ -8535,14 +8525,14 @@
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
     "rijksmonumentnummer": 516689,
-    "rmon_bron": "Geen",
-    "link": null,
-    "beschermd_deel": null,
+    "rmon_bron": "516689",
+    "link": "https://monumentenregister.cultureelerfgoed.nl/monumenten/516689",
+    "beschermd_deel": "Poorten, aula, ontvangstgebouw, grafmon. fam. Horowitz",
     "jaartal": 1910,
     "jaartal_bron": "1910",
     "circa": null,
     "met": true,
-    "bijzonderheden": null,
+    "bijzonderheden": "Voor Antwerpse gemeenschap",
     "grootte_m2": 17980,
     "grootte_bron": "17980",
     "locatie_precisie": "ingang",
@@ -8552,25 +8542,7 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Noord-Brabant.kmz",
     "lon": 4.3855497,
-    "lat": 51.3756613,
-    "rijksmonumentnummer_bron": null,
-    "correcties": [
-     {
-      "veld": "rijksmonumentnummer",
-      "reden": "Nummer 516689 hoort bij de Frechie Foundation; in de Excel gecorrigeerd door Leon (vraag NB1)",
-      "datum": "2026-10-05",
-      "bron": "Leon/René (vraag NB1)",
-      "oud": null
-     },
-     {
-      "veld": "rijksmonument",
-      "reden": "Volgt uit het rijksmonumentnummer (vraag NB1)",
-      "datum": "2026-10-05",
-      "bron": "Leon/René (vraag NB1)",
-      "oud": false
-     }
-    ],
-    "rijksmonument_bron": false
+    "lat": 51.3756613
    },
    "geometry": {
     "type": "Point",
@@ -8599,13 +8571,13 @@
     "provincie_bron": "Noord-Brabant",
     "provincie": "Noord-Brabant",
     "mip": false,
-    "rijksmonument": true,
+    "rijksmonument": false,
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
     "rijksmonumentnummer": null,
-    "rmon_bron": "516689",
-    "link": "https://monumentenregister.cultureelerfgoed.nl/monumenten/516689",
-    "beschermd_deel": "Poorten, aula, ontvangstgebouw, grafmon. fam. Horowitz",
+    "rmon_bron": "Geen",
+    "link": null,
+    "beschermd_deel": null,
     "jaartal": 1910,
     "jaartal_bron": "1910",
     "circa": null,
@@ -8620,17 +8592,7 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Noord-Brabant.kmz",
     "lon": 4.3893376,
-    "lat": 51.3762066,
-    "rijksmonumentnummer_bron": 516689,
-    "correcties": [
-     {
-      "veld": "rijksmonumentnummer",
-      "reden": "Nummer 516689 hoort bij de Frechie Foundation, niet bij Mahsike Hadas; in de Excel gecorrigeerd door Leon (vraag NB1)",
-      "datum": "2026-10-05",
-      "bron": "Leon/René (vraag NB1)",
-      "oud": 516689
-     }
-    ]
+    "lat": 51.3762066
    },
    "geometry": {
     "type": "Point",
@@ -10971,8 +10933,8 @@
     "circa": null,
     "met": false,
     "bijzonderheden": "1833-1978, 36 zerken",
-    "grootte_m2": 795,
-    "grootte_bron": "795",
+    "grootte_m2": 639,
+    "grootte_bron": "639",
     "locatie_precisie": "ingang",
     "terrein_koppelwijze": "correctie_kmz",
     "terrein_naam_kml": "Joodse begraafplaats, Dedemsvaart",
@@ -11163,9 +11125,9 @@
     "gemeentelijk_monument": false,
     "gemeentelijk_monument_bron": "Nee",
     "rijksmonumentnummer": 12342,
-    "rmon_bron": "Geen",
-    "link": null,
-    "beschermd_deel": null,
+    "rmon_bron": "12342",
+    "link": "https://monumentenregister.cultureelerfgoed.nl/monumenten/12342",
+    "beschermd_deel": "Begraafplaats",
     "jaartal": 1890,
     "jaartal_bron": "1890",
     "circa": null,
@@ -11189,16 +11151,8 @@
       "datum": "2026-10-06",
       "bron": "Leon (vraag R2)",
       "oud": false
-     },
-     {
-      "veld": "rijksmonumentnummer",
-      "reden": "Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp (vraag R2)",
-      "datum": "2026-10-06",
-      "bron": "Leon (vraag R2)",
-      "oud": null
      }
-    ],
-    "rijksmonumentnummer_bron": null
+    ]
    },
    "geometry": {
     "type": "Point",
@@ -13764,7 +13718,7 @@
     "id": "jb-loc-21",
     "reeks": "loc",
     "nr": 21,
-    "naam": "Joodse Begraafplaats (Hoogduits)",
+    "naam": "Hoogduitse Joodse Begraafplaats",
     "label_punt": "Hoogduitse begraafplaats, Middelburg",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
@@ -13914,7 +13868,7 @@
     "id": "jb-loc-908",
     "reeks": "loc",
     "nr": 908,
-    "naam": "Joodse Begraafplaats op Begraafplaats Vredehof (gemeentewerf)",
+    "naam": "Nieuwe Joodse Begraafplaats",
     "label_punt": "Joodse begraafplaats, Vlissingen",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
@@ -15168,17 +15122,7 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Zuid-Holland.kmz",
     "lon": 4.5330266,
-    "lat": 51.9100747,
-    "naam_bron": "Het Toepad",
-    "correcties": [
-     {
-      "veld": "naam",
-      "reden": "Weergavenaam volgens Dodenakkers (vraag B5)",
-      "datum": "2026-10-02",
-      "bron": "Leon/René",
-      "oud": "Het Toepad"
-     }
-    ]
+    "lat": 51.9100747
    },
    "geometry": {
     "type": "Point",
@@ -15598,17 +15542,7 @@
     "locatie_bron": "Geruimd.kmz",
     "terrein_bron": "Zuid-Holland.kmz",
     "lon": 4.3765687,
-    "lat": 51.9143058,
-    "naam_bron": "Joodse begraafplaats",
-    "correcties": [
-     {
-      "veld": "naam",
-      "reden": "Weergavenaam volgens Dodenakkers (vraag B5)",
-      "datum": "2026-10-02",
-      "bron": "Leon/René",
-      "oud": "Joodse begraafplaats"
-     }
-    ]
+    "lat": 51.9143058
    },
    "geometry": {
     "type": "Point",
