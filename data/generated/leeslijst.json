@@ -1,6 +1,6 @@
 {
  "bron": "https://www.dodenakkers.nl/tag/joodse-begraafplaats.html",
- "opgehaald": "2026-10-05T11:01:30.877440+00:00",
+ "opgehaald": "2026-10-06T18:08:05.890237+00:00",
  "artikelen": [
   {
    "titel": "Als bloemen bij het graf - Winschoten II",
@@ -513,10 +513,10 @@
    "rubriek": null,
    "plaats": "Middelburg",
    "kaart": {
-    "lon": 3.6037578,
-    "lat": 51.5006557,
-    "id": "jb-loc-17",
-    "naam": "Portugees-Joodse Begraafplaats"
+    "lon": 3.6053802,
+    "lat": 51.4998509,
+    "id": "jb-loc-21",
+    "naam": "Hoogduitse Joodse Begraafplaats"
    },
    "plaats_ids": [
     "jb-loc-17",

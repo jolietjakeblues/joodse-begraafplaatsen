@@ -20,10 +20,10 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 - **✅ B2. Vlissingen, twee terreinen van 694 m².** *Antwoord:* toeval; vroege polygonen zijn weinig nauwkeurig. *Verwerkt:* koppeling blijft (Leeuwentrap handmatig).
 - **✅ B3. Terrein wijkt sterk af van `Grootte`.** *Antwoord:* niet op letten; sommige shapes zijn oud. *Verwerkt:* niet meer als vraag gemeld; methodepagina noemt de beperkte nauwkeurigheid.
 - **✅ B4. Rhenen en Edam, beide 372 m².** *Antwoord:* vormen zijn nooit gekopieerd. *Verwerkt:* geen actie.
-- **✅ B5. Naamsverschillen KMZ ↔ puntbestand.** *Antwoorden:* ronde 1: Toepad, Oud-Rijswijk, Schiedam vastgesteld; ronde 2: houd de Excel-naam aan; ronde 3: "groen is de juiste" (Diemen, Muiderberg e.a.). *Verwerkt:* Excel-namen, met drie weergavenamen via `corrections.csv`. Tegenstrijdigheid tussen ronde 2 en 3 → navraag [R1](04-vragen-open.md#r1-welke-naam-komt-op-de-kaart).
+- **✅ B5. Naamsverschillen KMZ ↔ puntbestand.** *Antwoorden:* ronde 1: Toepad, Oud-Rijswijk, Schiedam vastgesteld; ronde 2: houd de Excel-naam aan; ronde 3: "groen is de juiste" (Diemen, Muiderberg e.a.). *Verwerkt:* namen uit de Excel; Leon heeft ze daar aangepast (R1, Excel van 2026-10-06). Alleen "Joods deel op Oud-Rijswijk" blijft een weergavenaam via `corrections.csv`.
 - **✅ B6. Twee keer "Crooswijk".** *Antwoord:* twee echte plekken; periode toevoegen mag. *Verwerkt:* "(1696–1807)" en "(vanaf 1877)".
 - **✅ B7. Dordrecht, verdwenen en bestaand met dezelfde naam.** *Antwoord:* de geruimde heet "Oude Joodse begraafplaats". *Verwerkt:* `jb-ver-182` hernoemd; herbegraving naar Dordrecht en Strijen.
-- **✅ B8. Kleine fouten in de bron.** *Antwoorden:* Shomre Hadas klopt in de Excel; Maassluis aangepast in de bron; contour Schiedam nog niet bekend. *Verwerkt:* wacht op de nieuwe Excel ([R3](04-vragen-open.md#r3-de-gecorrigeerde-excel)).
+- **✅ B8. Kleine fouten in de bron.** *Antwoorden:* Shomre Hadas klopt in de Excel; Maassluis aangepast in de bron; contour Schiedam nog niet bekend. *Verwerkt:* nieuwe Excel van 2026-10-06 ingelezen (R3).
 
 ## C. Inhoud van de kaart
 
@@ -78,13 +78,18 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 | G3 Moscowa | Aula en muur horen bij de Joodse begraafplaats | 516728 en 516729 "hoort bij de begraafplaats" |
 | O1 Denekamp | Onze contour is de begraafplaats zelf, niet het hele perceel | Zie R2 hieronder |
 | O2 Dedemsvaart | Contour opnieuw getekend; ligt naast het rijksmonument | Nieuw terrein + ingang uit `funerair_nieuwedata.kmz` (796 → 641 m²) |
-| R2 Denekamp | Rijksmonument 12342 beschermt beide Joodse begraafplaatsen (uitzondering); de RCE-contour ligt om de nieuwe, voor de oude is geen contour (Leon 2026-10-06) | `jb-loc-2459` via `data/corrections.csv` rijksmonument 12342 (`jb-loc-2455` had het al) |
+| R2 Denekamp | Rijksmonument 12342 beschermt beide Joodse begraafplaatsen (uitzondering); de RCE-contour ligt om de nieuwe, voor de oude is geen contour (Leon 2026-10-06) | Nummer 12342 staat sinds 2026-10-06 in de Excel; "rijksmonument: ja" nog via `data/corrections.csv` (de Excel zegt daar Nee) |
 | P1 Licentie | Voorlopig zo laten; bij de publicatie kan er nog wat veranderen, zoals de icoontjes (Leon 2026-10-06) | Geen wijziging; `LICENSE` CC BY 4.0 blijft tot de publicatie |
-| NB1 Putte | 516689 hoort bij de Frechie Foundation | Via `data/corrections.csv`; rest navraag [R3b](04-vragen-open.md#r3b-putte-de-rest-van-de-gegevens-van-mahsike-hadas) |
+| NB1 Putte | 516689 hoort bij de Frechie Foundation | Staat sinds 2026-10-06 in de Excel (zie R3b) |
 | NB2 Eindhoven | Woensel is in 1920 bij Eindhoven gevoegd; = Groenewoudseweg | `jb-ver-21` → `jb-loc-986` |
 | L1 Sittard | Vrangendael = volksnaam van Lahrhof | `jb-ger-43`, `jb-ver-12` → `jb-loc-580` |
 | L2 Venlo | 37192 hoort bij de Oude begraafplaats (`jb-loc-1125`); contour stond verkeerd | Nieuw terrein + ingang uit `funerair_nieuwedata.kmz` (43 → 248 m²); bij de Nieuwe "hoort bij een andere begraafplaats" |
 | L3 Linne | Laat voorlopig staan | Blijft |
+| R1 Namen | "De genoemde heb ik aangepast, dan wel gelaten in de excel" (Leon 2026-10-06) | Nieuwe Excel: Begraafplaats Toepad, Nieuwe Joodse begraafplaats (Schiedam), Hoogduitse Joodse Begraafplaats (Middelburg), Nieuwe Joodse Begraafplaats (Vlissingen), Oude Joodse begraafplaats (Loppersum). Correctieregels voor Toepad en Schiedam vervallen |
+| R3 Gecorrigeerde Excel | Aangeleverd: `Joodse begraafplaatsen voor Joop.xlsx` (2026-10-06) | Vervangt de oude Excel; 315 rijen, zelfde kenmerken. De nieuwe kolommen Contactpersoon, Telefoon, E-mail, Website en Foto Beeldbank worden niet ingelezen. Zeven correctieregels die de Excel nu zelf heeft zijn uit `data/corrections.csv` gehaald |
+| R3b Putte | Gegevens van Mahsike Hadas en de Frechie Foundation waren omgedraaid (Leon 2026-10-06) | Uit de nieuwe Excel: Frechie Foundation rijksmonument 516689 met beschermd deel; Mahsike Hadas geen rijksmonument |
+| Gr1 Loppersum | Terrein = sectie E 3823, vermoedelijk groter; Leon stuurde een KML (`Voor Joop.kmz`, 2026-10-06), naam "Oude Joodse begraafplaats" | Nieuw terrein van 132 m² (Grootte 104) + ingang; `jb-ger-247` heeft nu een terrein |
+| Uithuizen | Punt gecorrigeerd in `Voor Joop.kmz` (2026-10-06) | Het nagestuurde punt is de locatie (18 m verschoven); terrein ongewijzigd |
 
 ## Overige opmerkingen
 

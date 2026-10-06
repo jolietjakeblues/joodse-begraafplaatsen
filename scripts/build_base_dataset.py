@@ -73,9 +73,14 @@ RAPPORT = REPO_ROOT / "docs" / "data" / "koppelrapport.md"
 # vervangt het terrein met exact dezelfde naam uit de provincie-KMZ, en het punt
 # wordt de locatie (ingang) van de gekoppelde begraafplaats. De bronbestanden
 # zelf blijven ongewijzigd. Eerste levering 2026-10-05: Venlo (oude), Dedemsvaart.
-CORRECTIE_KMZ = BRON_DIR / "funerair_nieuwedata.kmz"
+# Tweede levering 2026-10-06: Loppersum (nieuw terrein, stond niet in de
+# provincie-KMZ) en Uithuizen (alleen een verbeterd punt).
+CORRECTIE_KMZS = [BRON_DIR / "funerair_nieuwedata.kmz", BRON_DIR / "Voor Joop.kmz"]
 
-EXCEL = BRON_DIR / "Joodse begraafplaatsen totaal voor Joop.xlsx"
+# 2026-10-06: nieuwe Excel van Leon (vervangt "Joodse begraafplaatsen totaal
+# voor Joop.xlsx"). Nieuwe kolommen Contactpersoon/Telefoon/E-mail/Website/
+# Foto Beeldbank worden niet ingelezen (persoonsgegevens, niet gevraagd).
+EXCEL = BRON_DIR / "Joodse begraafplaatsen voor Joop.xlsx"
 EXCEL_SHEET = "Joodse begraafplaatsen"
 
 KML_NS = "{http://www.opengis.net/kml/2.2}"
@@ -310,16 +315,22 @@ def load_reeks_punten() -> dict[tuple[str, int], list[dict]]:
 
 
 def load_correcties_kmz() -> dict[str, dict]:
-    """naam -> {"polygon": Polygon | None, "point": Point | None} uit CORRECTIE_KMZ."""
-    if not CORRECTIE_KMZ.exists():
-        return {}
+    """naam -> {"polygon", "point", "bron"} uit CORRECTIE_KMZS (latere levering wint niet:
+    dezelfde naam in twee leveringen is een fout)."""
     out: dict[str, dict] = {}
-    for pm in read_placemarks(CORRECTIE_KMZ):
-        entry = out.setdefault(pm["name"], {"polygon": None, "point": None})
-        for g in pm["geoms"]:
-            key = "polygon" if g.geom_type == "Polygon" else "point"
-            assert entry[key] is None, f"{CORRECTIE_KMZ.name}: twee keer een {key} voor {pm['name']!r}"
-            entry[key] = g
+    for kmz in CORRECTIE_KMZS:
+        if not kmz.exists():
+            continue
+        namen = set()
+        for pm in read_placemarks(kmz):
+            assert pm["name"] not in out or pm["name"] in namen, f"{pm['name']!r} staat in twee correctie-KMZ's"
+            namen.add(pm["name"])
+            entry = out.setdefault(pm["name"], {"polygon": None, "point": None, "bron": kmz.name})
+            for g in pm["geoms"]:
+                key = "polygon" if g.geom_type == "Polygon" else "point"
+                # Exact dezelfde geometrie twee keer (Uithuizen, Voor Joop.kmz) is onschuldig.
+                assert entry[key] is None or entry[key].equals(g), f"{kmz.name}: twee verschillende {key}s voor {pm['name']!r}"
+                entry[key] = g
     return out
 
 
@@ -335,11 +346,14 @@ def load_terreinen(provincies: list[str], correcties: dict[str, dict]) -> list[d
             continue
         treffers = [t for t in terreinen if t["naam"] == naam]
         if not treffers:
-            continue  # provincie niet in deze run
+            # Nieuw terrein dat niet in de provincie-KMZ staat (Loppersum). Wordt
+            # alleen gekoppeld als een punt van deze run erin/ernaast ligt.
+            terreinen.append({"naam": naam, "rd_oud_m2": None})
+            treffers = terreinen[-1:]
         assert len(treffers) == 1, f"correctie {naam!r}: {len(treffers)} terreinen met die naam"
         t = treffers[0]
-        t["rd_oud_m2"] = round(t["rd"].area)
-        t["geom"], t["rd"], t["bron"] = c["polygon"], transform(to_rd, c["polygon"]), CORRECTIE_KMZ.name
+        t.setdefault("rd_oud_m2", round(t["rd"].area) if "rd" in t else None)
+        t["geom"], t["rd"], t["bron"] = c["polygon"], transform(to_rd, c["polygon"]), c["bron"]
         t["gecorrigeerd"] = True
     return terreinen
 
@@ -497,12 +511,14 @@ def build(provincies: list[str]) -> None:
                 punt["point"], [punt["label"], excel_label], terreinen, terrein_tree, handmatige.get(sleutel)
             )
 
-        # Gecorrigeerd terrein met eigen ingang (CORRECTIE_KMZ) -> die ingang is de locatie.
+        # Nagestuurde ingang (CORRECTIE_KMZS) met de naam van het terrein -> die
+        # ingang is de locatie; ook als alleen het punt is gecorrigeerd (Uithuizen).
         locatie, locatie_bron = punt["point"], punt["bron"]
-        if terrein and terrein.get("gecorrigeerd") and correcties_kmz[terrein["naam"]]["point"] is not None:
-            locatie, locatie_bron = correcties_kmz[terrein["naam"]]["point"], CORRECTIE_KMZ.name
+        correctie = correcties_kmz.get(terrein["naam"]) if terrein else None
+        if correctie and correctie["point"] is not None:
+            locatie, locatie_bron = correctie["point"], correctie["bron"]
             koppelwijze = "correctie_kmz"  # terrein + ingang door Dodenakkers nagestuurd; geen naamvariant
-            rapport["correctie_kmz"].append((sleutel, terrein["naam"], terrein["rd_oud_m2"], round(terrein["rd"].area),
+            rapport["correctie_kmz"].append((sleutel, terrein["naam"], terrein.get("rd_oud_m2", round(terrein["rd"].area)), round(terrein["rd"].area),
                                              round(transform(to_rd, punt["point"]).distance(transform(to_rd, locatie)), 1)))
 
         jaartal_bron = as_text(r["Jaartal"])
@@ -696,9 +712,10 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
     L += [f"- `{r['id']}` {r['label_punt']} → {r['terrein_naam_kml']} ({r['terrein_opp_m2']} m², Grootte {r['grootte_m2']})"
           for r in hand] or ["Geen."]
 
-    L += ["", f"## Gecorrigeerde terreinen en ingangen (`{CORRECTIE_KMZ.name}`)", "",
+    L += ["", f"## Gecorrigeerde terreinen en ingangen ({', '.join(f'`{k.name}`' for k in CORRECTIE_KMZS)})", "",
+          "Oud m² is leeg bij een terrein dat niet in de provincie-KMZ stond; gelijk aan nieuw m² als alleen de ingang is nagestuurd.", "",
           "| id | terrein | oud m² | nieuw m² | ingang verschoven |", "|---|---|---|---|---|"]
-    L += [f"| `{i}` | {n} | {nl(o)} | {nl(nw)} | {d} m |" for i, n, o, nw, d in rapport["correctie_kmz"]] or ["| – | – | – | – | – |"]
+    L += [f"| `{i}` | {n} | {nl(o) if o is not None else '–'} | {nl(nw)} | {d} m |" for i, n, o, nw, d in rapport["correctie_kmz"]] or ["| – | – | – | – | – |"]
 
     L += ["", "## Joodse terreinen met exact dezelfde oppervlakte (mogelijk gekopieerde polygoon)", ""]
     L += [f"- {a} en {b}: {opp} m² (afstand {afst} m)" for a, b, opp, afst in rapport.get("zelfde_opp", [])] or ["Geen."]
