@@ -17,6 +17,8 @@ data-dodenakkers/  (aangeleverd, niet in git)
   ├─ scripts/analyse_spatial.py     → data/generated/begraafplaatsen.geojson  (viewer-data)
   │                                    + docs/data/erfgoedrelaties.md
   ├─ scripts/fetch_leeslijst.py     → data/generated/leeslijst.json  (artikelen dodenakkers.nl, tag "Joodse begraafplaats")
+  ├─ scripts/fetch_allmaps.py       → data/generated/oude_kaarten.json  (oude kaarten uit Allmaps per begraafplaats;
+  │                                    jaartallen Bonnebladen in data/allmaps/bonnebladen_jaren.csv)
   ├─ scripts/compute_statistics.py  → data/generated/statistieken.json  (statistiekpagina)
   ├─ scripts/make_og_image.py       → src/images/og-image.png  (deelafbeelding)
   └─ scripts/build_site.py          → site/  (gitignored, voor Cloudflare)
@@ -35,6 +37,7 @@ python scripts/build_base_dataset.py --alle       # altijd ALLE provincies die o
 python scripts/fetch_rce.py --provincie Utrecht   # per provincie (herhaalbaar); alleen voor verse RCE-data
 python scripts/analyse_spatial.py
 python scripts/fetch_leeslijst.py                # kaartlinks + popupverwijzingen bijwerken
+python scripts/fetch_allmaps.py                  # oude kaarten (Allmaps-dump, ~200 MB download)
 python scripts/compute_statistics.py
 python scripts/make_og_image.py
 python -m unittest discover -s tests -v       # tests koppelregels en datacontrole

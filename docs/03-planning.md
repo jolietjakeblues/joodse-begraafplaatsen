@@ -31,6 +31,7 @@ python scripts/build_base_dataset.py $P
 python scripts/fetch_rce.py $P        # alleen nodig voor nieuwe provincies of verse RCE-data
 python scripts/analyse_spatial.py
 python scripts/fetch_leeslijst.py
+python scripts/fetch_allmaps.py
 python scripts/make_og_image.py
 # daarna: branch → pull request → merge op main → Cloudflare deployt (zie README)
 ```
@@ -55,6 +56,7 @@ python scripts/make_og_image.py
 - [x] Front-end kwaliteitscontrole: mobiel (mini-legenda, aanraakdoelen), lege staat, foutmeldingen, 404, robots/sitemap, Open Graph, canonical
 - [x] Dateringsfilter (klikbare balkjes; generieke indeling vóór 1700 … 1950–heden, C9)
 - [x] Leespagina `lezen.html`: 43 artikelen van dodenakkers.nl (tag "Joodse begraafplaats"), per provincie, 39 met "Bekijk op de kaart"; geen uitgelicht-blok meer (2026-10-05); popup "Lees op Dodenakkers" (`scripts/fetch_leeslijst.py`, `popup_ids`)
+- [x] Oude kaarten (2026-10-06): link "Oude kaarten" in popup en pagina per begraafplaats naar `oude-kaarten.html` (Bonnebladen met jaartal, Waterstaatskaart e.a. via Allmaps; geen laag op de hoofdkaart). 69 verdwenen begraafplaatsen bekeken: `docs/data/verdwenen-oude-kaarten.md`, vraag OK1
 - [x] Statistiekpagina `statistieken.html` (vraag E7, 2026-10-05; `scripts/compute_statistics.py`)
 - [x] Correctieformulier (vraag F1): GitHub-issueformulier `correctie.yml` + popuplink "Correctie doorgeven" (2026-10-05)
 - [x] Review 2026-10-05: filtertellingen binnen alle actieve filters, springlink opent paneel, mobiele CSS achteraan, controle vóór schrijven + `check_data.py` in de sitebuild, unieke monumenten in de statistiek

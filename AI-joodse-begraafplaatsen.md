@@ -18,7 +18,7 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - Ondergronden zoals dodenakkers-zh: PDOK grijs, luchtfoto, BGT (≥ z17), BRK-percelen als overlay (≥ z17).
 - Popup: `NA` = nader adres ("to" = tegenover) vóór het adres; `Met` = metaheerhuis (huisje-icoon); `MIP` = Monumenten Inventarisatie Project; herbegravingen (beide richtingen); "Lees op Dodenakkers" (artikelen); link "Correctie doorgeven". **Niet** tonen én niet in de open data: eigenaar/postadres, grondvorm, muur, kadaster, laatste bezoek (C1/C2). Geen foto's (C5).
 - Datering: vóór 1700 · 1700–1799 · 1800–1849 · 1850–1899 · 1900–1949 · 1950–heden (C9).
-- Pagina's: kaart, `lezen` (artikelen, geen uitgelicht-blok), `statistieken` (E7), `methode`, en een pagina per begraafplaats `/begraafplaats/<kenmerk>` (gegenereerd door `scripts/paginas.py` in de build; vaste link voor het boek, printbaar).
+- Pagina's: kaart, `lezen` (artikelen, geen uitgelicht-blok), `statistieken` (E7), `methode`, `oude-kaarten.html?id=<kenmerk>` (oude kaarten uit Allmaps, losse pagina, geen laag op de hoofdkaart; besluit 2026-10-06) en een pagina per begraafplaats `/begraafplaats/<kenmerk>` (gegenereerd door `scripts/paginas.py` in de build; vaste link voor het boek, printbaar).
 - Kenmerken zijn permanent: `data/kenmerken.json` (register + `vervallen` met doorverwijzing). Nooit een kenmerk laten verdwijnen zonder doorverwijzing.
 - Kaart: zoeken zonder accenten en met andere namen, kaart zoomt naar de zoekresultaten (na 0,6 s stilstand of bij Enter) (`ZOEK_ALIASSEN` in `src/js/config.js`; geen alias Joods↔Israëlitisch), provinciefilter (ook `?provincie=`), filter "Alleen met herbegraving" (zet ook de lijnen aan), pijlen op herbegravingslijnen, "Link kopiëren" (vaste paginalink) in de popup.
 - Correcties van Dodenakkers: GitHub-issueformulier `.github/ISSUE_TEMPLATE/correctie.yml` (label `correctie`); popuplink vult kenmerk en naam in (F1). Verwerken via de correctielagen, PR met "Closes #nr".
@@ -32,11 +32,12 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 - Publicatie: één schakelaar `PUBLICEREN` in `scripts/build_site.py` (nu `False`).
 
 ## Pipeline (zie README)
-`fetch_pdok.py` → `build_base_dataset.py --alle` → `fetch_rce.py --provincie …` → `analyse_spatial.py` → `fetch_leeslijst.py` → `compute_statistics.py` → `make_og_image.py` → `build_site.py` (draait eerst `check_data.py`).
+`fetch_pdok.py` → `build_base_dataset.py --alle` → `fetch_rce.py --provincie …` → `analyse_spatial.py` → `fetch_leeslijst.py` → `fetch_allmaps.py` → `compute_statistics.py` → `make_og_image.py` → `build_site.py` (draait eerst `check_data.py`).
 - Tests: `python -m unittest discover -s tests -v` (koppelregels, correcties, datacontrole). Draaien vóór elke PR.
 - Rapporten en data zijn stabiel: geen tijdstempels, vaste sortering; een tweede run verandert niets.
 - `build_base_dataset.py` controleert eerst (invarianten, ongekoppelde Joodse terreinen, 315 Excel-rijen) en schrijft pas daarna; een afgekeurde run laat de vorige uitvoer staan.
 - `check_data.py` (stdlib) controleert de gecommitte viewerdata; `build_site.py` stopt bij een fout, dus ook de Cloudflare-build deployt dan niet.
+- Oude kaarten: `fetch_allmaps.py` selecteert alleen detailkaarten (< 600 km²) van bekende instellingen (`COLLECTIES`/`HOSTS`); in Allmaps staan ook test- en verkeerd geplaatste kaarten. Beeld via de Allmaps Tile Server (`allmaps.xyz`, staat in de CSP in `_headers`); scripts die tegels ophalen sturen een eigen User-Agent (de standaard Python-UA krijgt 403).
 - Leespagina: alleen titels en links van dodenakkers.nl, nooit artikeltekst. `popup_ids` bepaalt bij welke begraafplaatsen een artikel in de popup staat.
 
 ## Correctielagen (nooit de bron wijzigen)

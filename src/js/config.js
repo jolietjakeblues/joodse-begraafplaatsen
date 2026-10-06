@@ -7,6 +7,9 @@ export const DATA = {
   // Artikelen op dodenakkers.nl (scripts/fetch_leeslijst.py); popup_ids zegt
   // bij welke begraafplaatsen het artikel in de popup staat.
   leeslijst: "data/generated/leeslijst.json",
+  // Oude kaarten (Allmaps) per begraafplaats (scripts/fetch_allmaps.py),
+  // alleen gebruikt door oude-kaarten.html.
+  oudeKaarten: "data/generated/oude_kaarten.json",
   provincies: "data/pdok/provincies.geojson",
   gemeenten: "data/pdok/gemeenten.geojson",
   // RCE-lagen staan per provincie in aparte bestanden; dit manifest
