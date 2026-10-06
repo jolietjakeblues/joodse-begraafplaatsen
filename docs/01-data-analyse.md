@@ -6,7 +6,7 @@ Datum: 2026-10-02 · Bron: `data-dodenakkers/` (aangeleverd door Leon Bok, niet 
 
 | Bestand | Inhoud | Placemarks | Geometrie | Label staat in |
 |---|---|---|---|---|
-| `Joodse begraafplaatsen totaal voor Joop.xlsx` | De lijst: 315 Joodse begraafplaatsen NL | – | geen | – |
+| `Joodse begraafplaatsen voor Joop.xlsx` (sinds 2026-10-06; daarvoor `… totaal voor Joop.xlsx`) | De lijst: 315 Joodse begraafplaatsen NL | – | geen | – |
 | `Locaties.kmz` | Puntlocaties (ingang) van **alle** funeraire objecten NL in de hoofddatabase | 4352 | Point | `name` = Nr, `description` = "Naam, Plaats" |
 | `Verdwenen.kmz` | Punten verdwenen begraafplaatsen (alle religies) | 911 | Point | `name` = "Verdwenen 0001", `description` = label |
 | `Geruimd.kmz` | Punten geruimde begraafplaatsen (alle religies) | 292 | Point | `name` = Nr, `description` = label "(geruimd)" |
@@ -40,7 +40,7 @@ Verdeling per provincie / status:
 | Flevoland | 1 | 0 | 0 | 1 |
 | **Totaal** | **239** | **69** | **7** | **315** |
 
-Overige tabbladen:
+Overige tabbladen (alleen in de Excel tot 2026-10-06; de nieuwe Excel heeft er één tabblad met daarin ook de kolommen Contactpersoon, Telefoon, E-mail, Website en Foto Beeldbank, die niet worden ingelezen):
 - `statistiek` – formules (COUNTIF) per provincie; afgeleid, niet nodig.
 - `Archieven` – archief per gemeente (66 rijen); mogelijk later bruikbaar als verwijzing.
 - **`Dank en informeren` – namen, e-mailadressen, telefoonnummers van privépersonen. Persoonsgegevens: nooit inlezen in de pipeline, nooit publiceren.**
@@ -140,7 +140,7 @@ Alle 12 provincies verwerkt; alle 315 Excel-rijen gekoppeld (239 in gebruik, 7 g
 - **Synoniemen en tikfouten breken de naamtoets**: "Israëlitisch" ↔ "Joods" (Enschede 2×), "begraafplats" (Leens). Oplossing: `data/terrein_koppelingen.csv` als het punt in het terrein ligt en het oppervlak ≈ `Grootte`; de drempel nooit verlagen.
 - **"Binnen gaat voor nabij" kan misgaan**: in Uithuizen ligt het punt 1 m buiten het Joodse terrein maar binnen de oude algemene begraafplaats, die toevallig de naamtoets haalde ("joodse" ~ "oude"). Per provincie de lijst kenmerk/label/terrein/oppervlak nalopen.
 - **Gekruiste namen** (Emmen, vraag Dr1): de Excel noemt een ander terrein "Westenesch" dan de KMZ. Gekoppeld op ligging.
-- **Geen terrein**: Loppersum geruimd (vraag Gr1), Bilthoven (bevestigd).
+- **Geen terrein**: Bilthoven (bevestigd). Loppersum kreeg op 2026-10-06 een terrein uit `Voor Joop.kmz`.
 - **RCE-punten op de verkeerde begraafplaats**: Venlo 37192 en Putte 516689 liggen volgens de RCE op een buurbegraafplaats → `BEOORDEELDE_RELATIES` (`hoort_bij_andere`), niet verplaatsen.
 - **Nagestuurde terreinen** in `funerair_nieuwedata.kmz` (Venlo oud, Dedemsvaart): vervangen het terrein met dezelfde naam; het punt wordt de ingang.
 - **Bijzonderheden kunnen een getal zijn** in de Excel ("-1883", Loppersum) → altijd als tekst inlezen.

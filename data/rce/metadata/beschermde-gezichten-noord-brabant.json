@@ -2,7 +2,7 @@
   "source": "RCE Linked Data Voorziening (CHO)",
   "endpoint": "https://api.linkeddata.cultureelerfgoed.nl/datasets/rce/cho/sparql",
   "query_file": "queries/rce/beschermde-gezichten.sparql",
-  "retrieved_at": "2026-10-02T20:38:55.416122+00:00",
+  "retrieved_at": "2026-10-06T18:06:40.266968+00:00",
   "provincies": [
     "Noord-Brabant"
   ],

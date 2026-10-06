@@ -22,8 +22,8 @@
    "verdwenen": 69
   },
   "provincies": 12,
-  "met_terrein": 244,
-  "totaal_m2": 827095,
+  "met_terrein": 245,
+  "totaal_m2": 827227,
   "mediaan_m2": 781,
   "grootste": {
    "id": "jb-loc-3369",
@@ -83,8 +83,8 @@
    "in_gebruik": 23,
    "geruimd": 2,
    "verdwenen": 2,
-   "met_terrein": 24,
-   "totaal_m2": 40760
+   "met_terrein": 25,
+   "totaal_m2": 40892
   },
   {
    "provincie": "Limburg",
@@ -497,7 +497,7 @@
  },
  "erfgoed": {
   "basis": 246,
-  "rijksmonument": 72,
+  "rijksmonument": 71,
   "gemeentelijk_monument": 53,
   "mip": 43,
   "metaheerhuis": 87,
@@ -586,7 +586,7 @@
    },
    {
     "provincie": "Noord-Brabant",
-    "rijksmonument": 10,
+    "rijksmonument": 9,
     "in_gezicht": 1,
     "metaheerhuis": 10
    },
