@@ -33,6 +33,8 @@ Leon heeft in de Excel Putte (516689 bij de Frechie Foundation), Maassluis en Pu
 
 *Antwoord Leon (2026-10-06):* "Komt eraan." De Excel is nog niet binnen.
 
+*Waarom wachten:* de kaart wordt opgebouwd uit de Excel. Wat Leon daar al heeft verbeterd (R1 namen, R3b Putte, Maassluis, Puttershoek) zetten we niet ook nog in `data/corrections.csv`: dan staat de juiste waarde op twee plekken en moet elke correctieregel bij de volgende Excel opnieuw worden nagelopen. Na ontvangst: `build_base_dataset.py --alle`, de punten hierboven controleren, en correctieregels die de Excel overbodig maakt (de drie namen, Putte, Denekamp) weghalen.
+
 *Nu:* Putte en Denekamp zijn alvast via `data/corrections.csv` aangepast; de rest wacht op de nieuwe Excel.
 
 ### R3b. Putte: de rest van de gegevens van Mahsike Hadas
