@@ -18,6 +18,9 @@ function correctieUrl(p) {
 /** Relatief pad naar de eigen pagina van een begraafplaats (scripts/build_site.py). */
 export const paginaPad = (id) => `begraafplaats/${encodeURIComponent(id)}`;
 
+/** Oude kaarten (Allmaps) rond een begraafplaats: oude-kaarten.html. */
+export const oudeKaartenPad = (id) => `oude-kaarten.html?id=${encodeURIComponent(id)}`;
+
 // begraafplaats-id -> artikelen op dodenakkers.nl (gevuld door app.js)
 export const artikelenPerId = new Map();
 
@@ -99,6 +102,8 @@ export function begraafplaatsPopup(p) {
     ])}</dl>
     <p class="popup-acties">
       <a href="${esc(paginaPad(p.id))}">Meer over deze begraafplaats</a>
+      <span aria-hidden="true">·</span>
+      <a href="${esc(oudeKaartenPad(p.id))}">Oude kaarten</a>
       <span aria-hidden="true">·</span>
       <button type="button" class="link-knop" data-deel-id="${esc(p.id)}">Link kopiëren</button>
       <span class="deel-melding" role="status" aria-live="polite"></span>

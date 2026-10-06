@@ -17,6 +17,8 @@ Controles
   - herbegravingen.geojson: beide kanten bestaan
   - leeslijst.json: popup_ids bestaan
   - statistieken.json: zelfde totaal en provincies als de punten
+  - oude_kaarten.json: kenmerken bestaan, elke kaart heeft gegevens, id's
+    zijn Allmaps map-id's (16 hex)
 
 Gebruik:  python scripts/check_data.py
 """
@@ -24,6 +26,7 @@ from __future__ import annotations
 
 import json
 import math
+import re
 import sys
 from collections import Counter
 from pathlib import Path
@@ -137,6 +140,14 @@ def check() -> list[str]:
         for i in a.get("popup_ids", []):
             if i not in by_id:
                 fouten.append(f"leeslijst: onbekend kenmerk {i} bij {a['titel']!r}")
+
+    oud = load(GEN / "oude_kaarten.json")
+    for i, kaarten in oud["per_begraafplaats"].items():
+        if i not in by_id:
+            fouten.append(f"oude kaarten: onbekend kenmerk {i}")
+        for k in kaarten:
+            if k not in oud["kaarten"] or not re.fullmatch(r"[0-9a-f]{16}", k):
+                fouten.append(f"oude kaarten: ongeldige kaart {k!r} bij {i}")
 
     stats = load(GEN / "statistieken.json")
     if stats["basis"]["totaal"] != len(punten):

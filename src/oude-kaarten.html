@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8" />
+  <title>Oude kaarten – Joodse Begraafplaatsen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Niet indexeren: de kaart blijft intern tot het onderzoek is afgerond (René 2026-10-02, vraag F4) -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Een Joodse begraafplaats op oude kaarten: Bonnebladen, Waterstaatskaart en andere historische kaarten via Allmaps." />
+  <link rel="canonical" href="{{SITE_URL}}/oude-kaarten" />
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="vendor/maplibre-gl/maplibre-gl.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="pagina.css" />
+</head>
+<body class="oude-kaarten">
+  <a class="skip-link" href="#ok-paneel">Ga naar de kaartkeuze</a>
+  <div id="map" role="region" aria-label="Oude kaart met de begraafplaats"></div>
+
+  <main id="ok-paneel" tabindex="-1">
+    <p class="ok-nav"><a id="ok-terug" href="./">&larr; Terug</a> &middot; <a id="ok-kaartlink" href="./">Bekijk op de kaart</a></p>
+    <h1>Oude kaarten</h1>
+    <p class="ok-naam" id="ok-naam"></p>
+    <p class="popup-note" id="ok-verdwenen" hidden>Verdwenen: de plek is bij benadering aangegeven. Op een oude kaart is de begraafplaats soms nog te zien.</p>
+
+    <label for="ok-keuze">Kaart</label>
+    <select id="ok-keuze"></select>
+    <p class="hint" id="ok-bron"></p>
+
+    <label for="ok-dekking">Doorzichtigheid oude kaart</label>
+    <input type="range" id="ok-dekking" min="0" max="100" step="5" value="100" aria-valuetext="100 procent zichtbaar" />
+
+    <fieldset class="ok-onder">
+      <legend>Ondergrond</legend>
+      <label><input type="radio" name="basemap" value="grijs" checked /> Topografisch (grijs)</label>
+      <label><input type="radio" name="basemap" value="luchtfoto" /> Luchtfoto</label>
+    </fieldset>
+
+    <p id="status" role="status" aria-live="polite" aria-atomic="true">Kaarten laden…</p>
+    <p class="hint credits">Oude kaarten: gegeorefereerd in <a href="https://allmaps.org/">Allmaps</a>; kaartbeeld van de genoemde collectie, getoond via de Allmaps Tile Server. Plaatsing en uitsnede kunnen enkele tientallen meters afwijken. <a href="methode.html#oude-kaarten">Meer</a></p>
+  </main>
+
+  <script src="vendor/maplibre-gl/maplibre-gl.js"></script>
+  <script type="module" src="js/oude-kaarten.js"></script>
+</body>
+</html>

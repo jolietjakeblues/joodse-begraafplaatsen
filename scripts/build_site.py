@@ -30,8 +30,8 @@ SITE_URL = "https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev"
 # (meta robots in de html, X-Robots-Tag in _headers) en MET de Sitemap-regel in
 # robots.txt. Zolang de kaart intern is (vraag F4): False.
 PUBLICEREN = False
-HTML_PAGINAS = ["index.html", "methode.html", "lezen.html", "statistieken.html", "404.html"]
-TEMPLATED = ["index.html", "methode.html", "lezen.html", "statistieken.html", "robots.txt", "sitemap.xml"]
+HTML_PAGINAS = ["index.html", "methode.html", "lezen.html", "statistieken.html", "oude-kaarten.html", "404.html"]
+TEMPLATED = ["index.html", "methode.html", "lezen.html", "statistieken.html", "oude-kaarten.html", "robots.txt", "sitemap.xml"]
 
 DATA_FILES = [
     "data/generated/begraafplaatsen.geojson",
@@ -39,6 +39,7 @@ DATA_FILES = [
     "data/generated/herbegravingen.geojson",
     "data/generated/leeslijst.json",
     "data/generated/statistieken.json",
+    "data/generated/oude_kaarten.json",
     "data/pdok/provincies.geojson",
     "data/pdok/gemeenten.geojson",
     "data/rce/index.json",

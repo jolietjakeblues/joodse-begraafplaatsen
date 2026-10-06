@@ -108,7 +108,17 @@ def kop(titel: str, beschrijving: str, canonical: str, noindex: bool, extra: str
 """
 
 
-def pagina(p: dict, by_id: dict, artikelen: list[dict], site_url: str, noindex: bool) -> str:
+def oude_kaarten(p: dict, kaarten: list[dict]) -> str | None:
+    """Link naar oude-kaarten.html met het aantal kaarten en de jaren van de Bonnebladen."""
+    if not kaarten:
+        return None
+    jaren = sorted(k["jaar"] for k in kaarten if k["jaar"] and k["titel"].startswith("Bonneblad"))
+    bonne = f", waaronder Bonnebladen {jaren[0]}–{jaren[-1]}" if len(jaren) > 1 else ""
+    aantal = f"{len(kaarten)} {'kaart' if len(kaarten) == 1 else 'kaarten'}"
+    return f'<a href="../oude-kaarten.html?id={e(quote(p["id"]))}">Bekijk op oude kaarten</a> <span class="muted">({aantal}{bonne})</span>'
+
+
+def pagina(p: dict, by_id: dict, artikelen: list[dict], site_url: str, noindex: bool, kaarten: list[dict] | None = None) -> str:
     status = STATUS[p["status"]]
     plaats = p.get("plaats") or ""
     jaartal = f"{'ca. ' if p.get('circa') else ''}{p['jaartal']}" if p.get("jaartal") else p.get("jaartal_bron")
@@ -140,6 +150,7 @@ def pagina(p: dict, by_id: dict, artikelen: list[dict], site_url: str, noindex: 
         ("Beschermd gezicht", e(gezicht) if gezicht else None),
         ("Rijksmonumenten binnen 100 m", nabij(p)),
         ("Lees op Dodenakkers", lees or None),
+        ("Oude kaarten", oude_kaarten(p, kaarten or [])),
         ("Ligging", e(ligging)),
         ("Kenmerk", f"<code>{e(p['id'])}</code>"),
     ])
@@ -189,12 +200,14 @@ def bouw(repo_root: Path, site_dir: Path, site_url: str, noindex: bool) -> list[
         for i in a.get("popup_ids") or []:
             artikelen.setdefault(i, []).append(a)
     register = json.loads((repo_root / "data" / "kenmerken.json").read_text(encoding="utf-8"))
+    oud = json.loads((gen / "oude_kaarten.json").read_text(encoding="utf-8"))
+    kaarten = {i: [oud["kaarten"][k] for k in lijst] for i, lijst in oud["per_begraafplaats"].items()}
 
     doel = site_dir / "begraafplaats"
     doel.mkdir(parents=True, exist_ok=True)
     paden = []
     for p in punten:
-        (doel / f"{p['id']}.html").write_text(pagina(p, by_id, artikelen.get(p["id"], []), site_url, noindex), encoding="utf-8")
+        (doel / f"{p['id']}.html").write_text(pagina(p, by_id, artikelen.get(p["id"], []), site_url, noindex, kaarten.get(p["id"])), encoding="utf-8")
         paden.append(f"begraafplaats/{p['id']}")
     for oud, v in register["vervallen"].items():
         (doel / f"{oud}.html").write_text(doorverwijzing(oud, v.get("naar"), by_id, site_url, noindex), encoding="utf-8")

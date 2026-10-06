@@ -129,7 +129,7 @@ class Waarden(unittest.TestCase):
 class DataControle(unittest.TestCase):
     """check_data.check() moet fouten vinden in kleine, opzettelijk kapotte datasets."""
 
-    def maak(self, punten, terreinen=(), lijnen=(), inv=None, register=None):
+    def maak(self, punten, terreinen=(), lijnen=(), inv=None, register=None, oude_kaarten=None):
         tmp = Path(tempfile.mkdtemp())
         if register is None:  # standaard: precies de kenmerken van deze dataset
             register = {"kenmerken": {p["id"]: {"sinds": "2026-10-05", "provincie": p["provincie"]} for p in punten}, "vervallen": {}}
@@ -144,6 +144,7 @@ class DataControle(unittest.TestCase):
         (gen / "terreinen.geojson").write_text(json.dumps(fc({"properties": {"id": i}} for i in terreinen)), encoding="utf-8")
         (gen / "herbegravingen.geojson").write_text(json.dumps(fc({"properties": l} for l in lijnen)), encoding="utf-8")
         (gen / "leeslijst.json").write_text(json.dumps({"artikelen": []}), encoding="utf-8")
+        (gen / "oude_kaarten.json").write_text(json.dumps(oude_kaarten or {"kaarten": {}, "per_begraafplaats": {}}), encoding="utf-8")
         provs = sorted({p["provincie"] for p in punten})
         (gen / "statistieken.json").write_text(json.dumps({"basis": {"totaal": len(punten)}, "provincies_op_kaart": provs}), encoding="utf-8")
         (tmp / "data" / "invarianten.json").write_text(json.dumps({"provincies": inv or {}}), encoding="utf-8")
@@ -208,6 +209,14 @@ class DataControle(unittest.TestCase):
         p[0]["_lon"] = 12.0
         fouten = self.maak(p, ["jb-loc-1"], inv=self.INV)
         self.assertTrue(any("buiten Nederland" in f for f in fouten), fouten)
+
+    def test_oude_kaarten(self):
+        kaart = {"titel": "Bonneblad 169 Assen", "collectie": "TU Delft Library", "jaar": 1899}
+        goed = {"kaarten": {"b07668be08f01f0a": kaart}, "per_begraafplaats": {"jb-loc-1": ["b07668be08f01f0a"]}}
+        self.assertEqual(self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, oude_kaarten=goed), [])
+        fout = {"kaarten": {"b07668be08f01f0a": kaart}, "per_begraafplaats": {"jb-loc-9": ["b07668be08f01f0a"], "jb-loc-1": ["../x"]}}
+        fouten = self.maak(self.punten(), ["jb-loc-1"], inv=self.INV, oude_kaarten=fout)
+        self.assertTrue(any("jb-loc-9" in f for f in fouten) and any("ongeldige kaart" in f for f in fouten), fouten)
 
 
 if __name__ == "__main__":

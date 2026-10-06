@@ -1,6 +1,6 @@
 # 04 – Open vragen aan Dodenakkers (Leon, René)
 
-Stand: 2026-10-05 · Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev · Gedeelde vragenpagina: https://claude.ai/artifact/9Rbm99cCckt7yGDwb52kg8
+Stand: 2026-10-06 · Kaart: https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev · Gedeelde vragenpagina: https://claude.ai/artifact/9Rbm99cCckt7yGDwb52kg8
 
 Alleen wat nog een antwoord nodig heeft. Alles wat beantwoord en verwerkt is staat in [05-vragen-beantwoord.md](05-vragen-beantwoord.md). Per vraag staat erbij **wat we nu doen**; zonder antwoord blijft dat zo.
 
@@ -16,6 +16,7 @@ Kenmerken als `jb-loc-1559` staan in de kaartpopup onder "Kenmerk": `loc` = in g
 | [R3b](#r3b-putte-de-rest-van-de-gegevens-van-mahsike-hadas) | Putte: de rest van de gegevens van Mahsike Hadas | Leon |
 | [Gr1](#gr1-loppersum-terrein-van-de-geruimde-begraafplaats) | Loppersum: terrein van de geruimde begraafplaats? | Leon |
 | [Dr1](#dr1-emmen-welke-heet-westenesch) | Emmen: welke heet Westenesch? | Leon |
+| [OK1](#ok1-verdwenen-begraafplaatsen-op-oude-kaarten) | Verdwenen begraafplaatsen op oude kaarten: drie plekken | Leon |
 | [P1](#p1-hergebruik-en-licentie-bij-de-publicatie) | Hergebruik en licentie bij de publicatie | Leon, René |
 | [E8](#e8-inbedden-later) | Inbedden op funerair-erfgoed.nl (later) | Dodenakkers |
 
@@ -66,6 +67,18 @@ De namen lijken gekruist tussen de Excel en de KMZ:
 Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". Klopt de koppeling op ligging, en welke naam is juist?
 
 *Nu:* gekoppeld op ligging, met de namen uit de Excel.
+
+### OK1. Verdwenen begraafplaatsen op oude kaarten
+
+Elke begraafplaats heeft nu een link "Oude kaarten" (Bonnebladen, Waterstaatskaart en andere kaarten via Allmaps). Daarmee zijn de 69 verdwenen begraafplaatsen bekeken; het overzicht staat in [data/verdwenen-oude-kaarten.md](data/verdwenen-oude-kaarten.md). Bij 18 staat de begraafplaats op de oude kaart en klopt het punt. Bij drie wijst de oude kaart een andere plek aan:
+
+- `jb-ver-491` De Bilt: het toponiem "Joden Kerkh." staat op het Bonneblad van 1872 50 tot 100 m oostzuidoostelijk van het punt.
+- `jb-ver-613` Zwartsluis: "Begraafpl." circa 120 m noordelijk van het punt (1893). De Joodse of de algemene?
+- `jb-ver-488` Zevenaar: "Begr.pl." 150 tot 200 m noordwestelijk (1866). Lag de Joodse begraafplaats daar?
+
+Zelf kijken: open de begraafplaats, klik "Oude kaarten" en kies het jaar.
+
+*Nu:* de punten blijven waar ze staan.
 
 ### P1. Hergebruik en licentie bij de publicatie
 
