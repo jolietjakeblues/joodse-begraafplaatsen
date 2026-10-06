@@ -497,7 +497,7 @@
  },
  "erfgoed": {
   "basis": 246,
-  "rijksmonument": 71,
+  "rijksmonument": 72,
   "gemeentelijk_monument": 53,
   "mip": 43,
   "metaheerhuis": 87,
@@ -598,7 +598,7 @@
    },
    {
     "provincie": "Overijssel",
-    "rijksmonument": 18,
+    "rijksmonument": 19,
     "in_gezicht": 3,
     "metaheerhuis": 13
    },
