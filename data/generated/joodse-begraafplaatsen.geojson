@@ -32,7 +32,7 @@
     "jaartal_bron": "1778",
     "circa": null,
     "met": true,
-    "bijzonderheden": "394 zerken, deels buiten het perceel begraven",
+    "bijzonderheden": "394 stèles, deels buiten het perceel begraven",
     "grootte_m2": 4098,
     "grootte_bron": "4098",
     "locatie_precisie": "ingang",
@@ -42,7 +42,17 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Drenthe.kmz",
     "lon": 6.5490999,
-    "lat": 52.9757426
+    "lat": 52.9757426,
+    "bijzonderheden_bron": "394 zerken, deels buiten het perceel begraven",
+    "correcties": [
+     {
+      "veld": "bijzonderheden",
+      "reden": "Correctie Dodenakkers: zerken moet stèles zijn (issue #21); Excel wordt ook aangepast",
+      "datum": "2026-10-06",
+      "bron": "Leon (issue #21)",
+      "oud": "394 zerken, deels buiten het perceel begraven"
+     }
+    ]
    },
    "geometry": {
     "type": "Point",
