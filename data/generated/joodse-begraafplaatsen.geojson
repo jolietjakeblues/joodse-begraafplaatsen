@@ -359,7 +359,7 @@
     "reeks": "loc",
     "nr": 2183,
     "naam": "Joodse Begraafplaats achter de Synagoge",
-    "label_punt": "Joodse begraafplaats, Emmen",
+    "label_punt": "Nieuwe Joodse begraafplaats, Emmen",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
     "adres": "Beatrixstraat 12",
@@ -386,19 +386,20 @@
     "grootte_m2": 480,
     "grootte_bron": "480",
     "locatie_precisie": "ingang",
-    "terrein_koppelwijze": "handmatig",
-    "terrein_naam_kml": "Joodse begraafplaats Westenesch, Emmen",
-    "terrein_opp_m2": 393,
+    "terrein_koppelwijze": "binnen_naamvariant",
+    "terrein_naam_kml": "Oude Joodse begraafplaats, Emmen",
+    "terrein_opp_m2": 440,
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Drenthe.kmz",
-    "lon": 6.8699606,
-    "lat": 52.7792988
+    "lon": 6.8994491,
+    "lat": 52.7805628,
+    "punt_nr_bron": 3075
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.8699606,
-     52.7792988
+     6.8994491,
+     52.7805628
     ]
    }
   },
@@ -409,7 +410,7 @@
     "reeks": "loc",
     "nr": 3075,
     "naam": "Joodse begraafplaats Westenesch",
-    "label_punt": "Nieuwe Joodse begraafplaats, Emmen",
+    "label_punt": "Joodse begraafplaats, Emmen",
     "status": "in_gebruik",
     "status_bron": "In gebruik",
     "adres": "Achter het Kanaal",
@@ -437,18 +438,19 @@
     "grootte_bron": "400",
     "locatie_precisie": "ingang",
     "terrein_koppelwijze": "binnen_naamvariant",
-    "terrein_naam_kml": "Oude Joodse begraafplaats, Emmen",
-    "terrein_opp_m2": 440,
+    "terrein_naam_kml": "Joodse begraafplaats Westenesch, Emmen",
+    "terrein_opp_m2": 393,
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Funerair Drenthe.kmz",
-    "lon": 6.8994491,
-    "lat": 52.7805628
+    "lon": 6.8699606,
+    "lat": 52.7792988,
+    "punt_nr_bron": 2183
    },
    "geometry": {
     "type": "Point",
     "coordinates": [
-     6.8994491,
-     52.7805628
+     6.8699606,
+     52.7792988
     ]
    }
   },

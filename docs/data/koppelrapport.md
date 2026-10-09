@@ -14,10 +14,10 @@ Provincie(s): **Drenthe, Flevoland, Fryslân, Gelderland, Groningen, Limburg, No
 | koppelwijze | aantal |
 |---|---|
 | binnen_naam_gelijk | 191 |
-| binnen_naamvariant | 41 |
+| binnen_naamvariant | 42 |
 | correctie_kmz | 4 |
 | geen_terrein_bevestigd | 1 |
-| handmatig | 5 |
+| handmatig | 4 |
 | nabij_naam_gelijk | 4 |
 | niet_van_toepassing | 69 |
 
@@ -27,7 +27,8 @@ Het punt ligt in (of vlak bij) het terrein, maar de naam van het terrein in de p
 
 | id | label punt | naam terrein | koppelwijze | status |
 |---|---|---|---|---|
-| `jb-loc-3075` | Nieuwe Joodse begraafplaats, Emmen | Oude Joodse begraafplaats, Emmen | binnen_naamvariant | open |
+| `jb-loc-3075` | Joodse begraafplaats, Emmen | Joodse begraafplaats Westenesch, Emmen | binnen_naamvariant | open |
+| `jb-loc-2183` | Nieuwe Joodse begraafplaats, Emmen | Oude Joodse begraafplaats, Emmen | binnen_naamvariant | open |
 | `jb-loc-2224` | Joodse begraafplaats, Nieuw Amsterdam | Joodse begraafplaats, Veenoord | binnen_naamvariant | open |
 | `jb-loc-3499` | Joodse begraafplaats, Hoogersmilde | Joods Hoogersmilde | binnen_naamvariant | open |
 | `jb-loc-3042` | Joods begraafplaats Tacozijl, Lemmer | Tacozijl | binnen_naamvariant | open |
@@ -105,11 +106,17 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 
 ## Handmatige terreinkoppelingen (`data/terrein_koppelingen.csv`)
 
-- `jb-loc-2183` Joodse begraafplaats, Emmen → Joodse begraafplaats Westenesch, Emmen (393 m², Grootte 480)
 - `jb-loc-3939` Joodse begraafplaats, Leens → Joodse begraafplats, Leens (150 m², Grootte 150)
 - `jb-loc-3027` Oude Isr. begraafplaats, Enschede → Joodse begraafplaats Kneedweg, Enschede (3475 m², Grootte 3460)
 - `jb-loc-3002` Israelitische begraafplaats, Enschede → Nw. Joodse begraafplaats, Enschede (16023 m², Grootte 18800)
 - `jb-loc-9` Joodse begraafplaats bij de Leeuwentrap, Vlissingen → Oude joodse begraafplaats, Vlissingen (694 m², Grootte 350)
+
+## Verwisselde punten (`data/punt_correcties.csv`)
+
+| id | Excel-Nr | punt van Nr | reden |
+|---|---|---|---|
+| `jb-loc-3075` | 3075 | 2183 | Emmen: in Locaties.kmz staan de nummers 3075 en 2183 verwisseld. Westenesch (1885-1915, aan het Oranjekanaal) ligt in het westen, in het KMZ-terrein 'Joodse begraafplaats Westenesch'; Leon: namen verkeerd om (vraag Dr1) |
+| `jb-loc-2183` | 2183 | 3075 | Emmen: in Locaties.kmz staan de nummers 3075 en 2183 verwisseld. De begraafplaats achter de synagoge (1915, Beatrixstraat, 46 zerken) ligt in het centrum; het punt daar heeft het label 'Nieuwe Joodse begraafplaats, Emmen' (vraag Dr1) |
 
 ## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`, `Voor Joop.kmz`)
 

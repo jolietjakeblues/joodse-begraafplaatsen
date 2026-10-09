@@ -26,7 +26,10 @@ Koppelregel (zie docs/01-data-analyse.md)
       Crooswijk). Verdwenen = altijd alleen een punt, bij benadering.
 
 Correcties gaan via data/corrections.csv (id, veld, waarde, reden, datum,
-bron), nooit door de bron te wijzigen.
+bron), nooit door de bron te wijzigen. Staat het punt van een begraafplaats
+onder een ander Nr in het puntbestand (twee nummers verwisseld), dan zegt
+data/punt_correcties.csv (id, punt_nr, reden, datum, bron) welk punt uit
+dezelfde reeks hoort bij die Excel-rij; het terrein volgt dan uit dat punt.
 
 Output
   data/generated/joodse-begraafplaatsen.geojson   punten, alle kenmerken
@@ -67,6 +70,8 @@ CORRECTIONS = REPO_ROOT / "data" / "corrections.csv"
 # Handmatige terreinkoppelingen (id, terrein_naam, reden, datum, bron) voor
 # gevallen waar de naamtoets faalt maar de koppeling vaststaat.
 TERREIN_KOPPELINGEN = REPO_ROOT / "data" / "terrein_koppelingen.csv"
+# Verwisselde nummers in het puntbestand (id -> punt_nr uit dezelfde reeks).
+PUNT_CORRECTIES = REPO_ROOT / "data" / "punt_correcties.csv"
 RAPPORT = REPO_ROOT / "docs" / "data" / "koppelrapport.md"
 # Door Dodenakkers nagestuurde, gecorrigeerde terreinen + ingangen (Point +
 # Polygon per naam, zelfde opbouw als de provincie-KMZ's). Een terrein hierin
@@ -472,9 +477,13 @@ def build(provincies: list[str]) -> None:
     if TERREIN_KOPPELINGEN.exists():
         with TERREIN_KOPPELINGEN.open(encoding="utf-8", newline="") as f:
             handmatige = {r["id"]: r for r in csv.DictReader(f) if r.get("id")}
+    punt_correcties = {}
+    if PUNT_CORRECTIES.exists():
+        with PUNT_CORRECTIES.open(encoding="utf-8", newline="") as f:
+            punt_correcties = {r["id"]: r for r in csv.DictReader(f) if r.get("id")}
     records: dict[str, dict] = {}
     terrein_features: dict[str, dict] = {}
-    rapport = {"oppervlak": [], "naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": [], "correctie_kmz": []}
+    rapport = {"oppervlak": [], "naamvariant": [], "geen_terrein": [], "provincie_afwijkend": [], "dubbel_punt": [], "polygoon_gedeeld": [], "genest": [], "correctie_kmz": [], "punt_correctie": []}
     alle_excel = 0
 
     for r in df.to_dict("records"):
@@ -487,13 +496,17 @@ def build(provincies: list[str]) -> None:
         sleutel = f"jb-{reeks}-{nr}"
         assert sleutel not in records, f"sleutel {sleutel} niet uniek"
 
-        kandidaten = punten.get((reeks, nr), [])
+        punt_nr = nr
+        if sleutel in punt_correcties:
+            punt_nr = int(punt_correcties[sleutel]["punt_nr"])
+            rapport["punt_correctie"].append((sleutel, nr, punt_nr, punt_correcties[sleutel]["reden"]))
+        kandidaten = punten.get((reeks, punt_nr), [])
         assert kandidaten, f"{sleutel}: geen punt in {reeks}-reeks"
         if len(kandidaten) > 1:
             # Kies het punt waarvan het label het meest op de Excel-naam+plaats lijkt.
             doel = f"{clean(r['Naam'])}, {clean(r['Plaats'])}"
             kandidaten = sorted(kandidaten, key=lambda p: -name_ratio(p["label"], doel))
-            rapport["dubbel_punt"].append((sleutel, [p["label"] for p in punten[(reeks, nr)]], kandidaten[0]["label"]))
+            rapport["dubbel_punt"].append((sleutel, [p["label"] for p in punten[(reeks, punt_nr)]], kandidaten[0]["label"]))
         punt = kandidaten[0]
 
         provincie_ruimtelijk = provincie_van(punt["point"], prov_feats, prov_geoms, prov_tree)
@@ -572,6 +585,8 @@ def build(provincies: list[str]) -> None:
             "lon": round(locatie.x, 4 if status == "verdwenen" else 7),
             "lat": round(locatie.y, 4 if status == "verdwenen" else 7),
         }
+        if punt_nr != nr:  # punt van een ander Nr gebruikt (data/punt_correcties.csv)
+            rec["punt_nr_bron"] = punt_nr
         records[sleutel] = rec
 
         if terrein:
@@ -711,6 +726,10 @@ def write_rapport(provincies, alle_excel, records, rapport, ongeclaimd, correcti
     hand = [r for r in records.values() if r["terrein_koppelwijze"] == "handmatig"]
     L += [f"- `{r['id']}` {r['label_punt']} → {r['terrein_naam_kml']} ({r['terrein_opp_m2']} m², Grootte {r['grootte_m2']})"
           for r in hand] or ["Geen."]
+
+    L += ["", "## Verwisselde punten (`data/punt_correcties.csv`)", "",
+          "| id | Excel-Nr | punt van Nr | reden |", "|---|---|---|---|"]
+    L += [f"| `{i}` | {a} | {b} | {r} |" for i, a, b, r in rapport["punt_correctie"]] or ["| – | – | – | – |"]
 
     L += ["", f"## Gecorrigeerde terreinen en ingangen ({', '.join(f'`{k.name}`' for k in CORRECTIE_KMZS)})", "",
           "Oud m² is leeg bij een terrein dat niet in de provincie-KMZ stond; gelijk aan nieuw m² als alleen de ingang is nagestuurd.", "",
