@@ -10,7 +10,7 @@ Kenmerken als `jb-loc-1559` staan in de kaartpopup onder "Kenmerk": `loc` = in g
 
 | Code | Onderwerp | Wie |
 |---|---|---|
-| [Dr1](#dr1-emmen-welke-heet-westenesch) | Emmen: welke heet Westenesch? | Leon |
+| [Dr1](#dr1-emmen-welke-heet-westenesch) | Emmen: punten omgewisseld; graag de KMZ aanpassen | Leon |
 | [OK1](#ok1-verdwenen-begraafplaatsen-op-oude-kaarten) | Verdwenen begraafplaatsen op oude kaarten: drie plekken | Leon |
 
 ---
@@ -30,7 +30,11 @@ Het puntlabel van 3075 is bovendien "**Nieuwe** Joodse begraafplaats, Emmen". Kl
 
 *Nieuwe Excel (2026-10-06):* `jb-loc-3075` heet nu "Joodse begraafplaats Westenesch"; `jb-loc-2183` heet nog "Joodse Begraafplaats achter de Synagoge". De KMZ is niet nagestuurd, dus het terrein waarin het punt van 3075 ligt heet daar nog "Oude Joodse begraafplaats". Blijft dat zo (dan is de KMZ-naam fout), of komen de punten nog om?
 
-*Nu:* gekoppeld op ligging, met de namen uit de nieuwe Excel.
+*Leon (2026-10-09):* "Emmen lijkt nog steeds niet goed te gaan": de vragenpagina noemde Emmen al bij "nieuw", maar op de kaart stond Westenesch nog in het centrum.
+
+*Oorzaak:* in `Locaties.kmz` staan de punten met Nr 3075 en 2183 op elkaars plek. De Excel klopt: Westenesch (1885–1915, 17 zerken) lag aan het Oranjekanaal in het westen ([JCK](https://jck.nl/joodse-gemeenten/emmen), [westenesch.nl](https://www.westenesch.nl/wp-content/uploads/2022/05/De-joodse-begraafplaats-aan-het-Oranjekanaal.pdf)); de begraafplaats achter de synagoge (1915, Beatrixstraat, 46 zerken) ligt in het centrum, waar het KMZ-punt ook al "Nieuwe Joodse begraafplaats, Emmen" heet.
+
+*Nu:* de punten zijn omgewisseld via `data/punt_correcties.csv` (de handmatige terreinkoppeling van 2183 is vervallen). Gevraagd aan Leon: in `Locaties.kmz` de twee nummers omwisselen en in `Funerair Drenthe.kmz` het terrein in het centrum ("Oude Joodse begraafplaats, Emmen") hernoemen. Daarna kan de puntcorrectie weg.
 
 ### OK1. Verdwenen begraafplaatsen op oude kaarten
 

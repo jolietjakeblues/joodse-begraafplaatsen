@@ -42,7 +42,8 @@ Live (nog niet openbaar, `noindex`): https://joodse-begraafplaatsen.jolietjakebl
 
 ## Correctielagen (nooit de bron wijzigen)
 - `data/corrections.csv` — veldcorrecties (id, veld, waarde, reden, datum, bron); de oorspronkelijke waarde blijft bewaard als `<veld>_bron`.
-- `data/terrein_koppelingen.csv` — handmatige terreinkoppeling als de naamtoets faalt (Vlissingen, Enschede 2×, Leens, Uithuizen, Emmen).
+- `data/terrein_koppelingen.csv` — handmatige terreinkoppeling als de naamtoets faalt (Vlissingen, Enschede 2×, Leens, Uithuizen).
+- `data/punt_correcties.csv` — verwisselde nummers in het puntbestand: welk punt (Nr uit dezelfde reeks) bij een Excel-rij hoort; het terrein volgt uit dat punt. Emmen 3075 ↔ 2183 (vraag Dr1, 2026-10-09). Een nieuwe naam in de Excel lost een verkeerde plek niet op: koppeling Excel ↔ punt loopt via het Nr.
 - `data/herbegravingen.csv` — herbegravingen (van_id, naar_id, tekst uit de bron, toelichting); alleen als de bestemming eenduidig is.
 - `data-dodenakkers/funerair_nieuwedata.kmz` — door Dodenakkers nagestuurde terreinen + ingangen; vervangt het terrein met dezelfde naam (Venlo oud, Dedemsvaart).
 - `data/geen_terrein_bevestigd.csv` en `BEOORDEELDE_RELATIES` (analyse_spatial.py) — elk met bron en vraagcode.
