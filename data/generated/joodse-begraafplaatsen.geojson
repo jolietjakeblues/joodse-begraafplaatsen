@@ -5990,9 +5990,9 @@
     "locatie_precisie": "ingang",
     "terrein_koppelwijze": "correctie_kmz",
     "terrein_naam_kml": "Joodse begraafplaats, Uithuizen",
-    "terrein_opp_m2": 202,
-    "locatie_bron": "Voor Joop.kmz",
-    "terrein_bron": "Funerair Groningen.kmz",
+    "terrein_opp_m2": 229,
+    "locatie_bron": "Voor Joop_2.kmz",
+    "terrein_bron": "Voor Joop_2.kmz",
     "lon": 6.6698108,
     "lat": 53.4057365
    },

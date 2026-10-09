@@ -80,7 +80,10 @@ RAPPORT = REPO_ROOT / "docs" / "data" / "koppelrapport.md"
 # zelf blijven ongewijzigd. Eerste levering 2026-10-05: Venlo (oude), Dedemsvaart.
 # Tweede levering 2026-10-06: Loppersum (nieuw terrein, stond niet in de
 # provincie-KMZ) en Uithuizen (alleen een verbeterd punt).
-CORRECTIE_KMZS = [BRON_DIR / "funerair_nieuwedata.kmz", BRON_DIR / "Voor Joop.kmz"]
+# Derde levering 2026-10-09: Uithuizen opnieuw, nu met contour (Voor Joop_2.kmz).
+# Volgorde = volgorde van levering; een latere levering vervangt een eerdere
+# met dezelfde naam.
+CORRECTIE_KMZS = [BRON_DIR / "funerair_nieuwedata.kmz", BRON_DIR / "Voor Joop.kmz", BRON_DIR / "Voor Joop_2.kmz"]
 
 # 2026-10-06: nieuwe Excel van Leon (vervangt "Joodse begraafplaatsen totaal
 # voor Joop.xlsx"). Nieuwe kolommen Contactpersoon/Telefoon/E-mail/Website/
@@ -320,15 +323,17 @@ def load_reeks_punten() -> dict[tuple[str, int], list[dict]]:
 
 
 def load_correcties_kmz() -> dict[str, dict]:
-    """naam -> {"polygon", "point", "bron"} uit CORRECTIE_KMZS (latere levering wint niet:
-    dezelfde naam in twee leveringen is een fout)."""
+    """naam -> {"polygon", "point", "bron"} uit CORRECTIE_KMZS. Een latere levering
+    vervangt een eerdere met dezelfde naam helemaal (punt en vlak), zodat een
+    nagestuurde verbetering wint (Uithuizen: eerst alleen punt, later met contour)."""
     out: dict[str, dict] = {}
     for kmz in CORRECTIE_KMZS:
         if not kmz.exists():
             continue
         namen = set()
         for pm in read_placemarks(kmz):
-            assert pm["name"] not in out or pm["name"] in namen, f"{pm['name']!r} staat in twee correctie-KMZ's"
+            if pm["name"] not in namen:
+                out.pop(pm["name"], None)  # eerdere levering met deze naam vervalt
             namen.add(pm["name"])
             entry = out.setdefault(pm["name"], {"polygon": None, "point": None, "bron": kmz.name})
             for g in pm["geoms"]:

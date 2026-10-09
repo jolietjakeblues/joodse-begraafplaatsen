@@ -118,14 +118,14 @@ Terreinoppervlak (KMZ, berekend in RD) buiten 75–133 % van `Grootte`. Mogelijk
 | `jb-loc-3075` | 3075 | 2183 | Emmen: in Locaties.kmz staan de nummers 3075 en 2183 verwisseld. Westenesch (1885-1915, aan het Oranjekanaal) ligt in het westen, in het KMZ-terrein 'Joodse begraafplaats Westenesch'; Leon: namen verkeerd om (vraag Dr1) |
 | `jb-loc-2183` | 2183 | 3075 | Emmen: in Locaties.kmz staan de nummers 3075 en 2183 verwisseld. De begraafplaats achter de synagoge (1915, Beatrixstraat, 46 zerken) ligt in het centrum; het punt daar heeft het label 'Nieuwe Joodse begraafplaats, Emmen' (vraag Dr1) |
 
-## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`, `Voor Joop.kmz`)
+## Gecorrigeerde terreinen en ingangen (`funerair_nieuwedata.kmz`, `Voor Joop.kmz`, `Voor Joop_2.kmz`)
 
 Oud m² is leeg bij een terrein dat niet in de provincie-KMZ stond; gelijk aan nieuw m² als alleen de ingang is nagestuurd.
 
 | id | terrein | oud m² | nieuw m² | ingang verschoven |
 |---|---|---|---|---|
 | `jb-ger-247` | Oude Joodse begraafplaats, Loppersum | – | 132 | 3.4 m |
-| `jb-loc-3574` | Joodse begraafplaats, Uithuizen | 202 | 202 | 18.1 m |
+| `jb-loc-3574` | Joodse begraafplaats, Uithuizen | 202 | 229 | 18.1 m |
 | `jb-loc-1125` | Oude Joodse begraafplaats, Venlo | 43 | 248 | 9.9 m |
 | `jb-loc-4021` | Joodse begraafplaats, Dedemsvaart | 796 | 641 | 34.6 m |
 
@@ -138,6 +138,7 @@ Oud m² is leeg bij een terrein dat niet in de provincie-KMZ stond; gelijk aan n
 - Joodse begraafplaats, Elburg en Joodse begraafplaats, Wijk bij Duurstede: 579 m² (afstand 62509 m)
 - Joodse begraafplaats, Hattem en Joodse begraafplaats, Dalfsen: 420 m² (afstand 14070 m)
 - Oude joodse begraafplaats, Zevenaar en Joodse begraafplaats Delfshaven, Rotterdam: 197 m² (afstand 111819 m)
+- Joodse begraafplaats, Uithuizen en Joodse begraafplaats, Schimmert: 229 m² (afstand 286209 m)
 - Oude Joodse begraafplaats, Venlo en Oude Joodse begraafplaats, Wijk bij Duurstede: 248 m² (afstand 89175 m)
 - Joodse begraafplaats, Werkendam en Joodse begraafplaats, Wijk bij Duurstede: 579 m² (afstand 35530 m)
 - Joodse begraafplaats, Bergen op Zoom en Joodse begraafplaats, Alphen aan den Rijn (geruimd): 1981 m² (afstand 73352 m)
