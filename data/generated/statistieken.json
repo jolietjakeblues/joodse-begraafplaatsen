@@ -23,7 +23,7 @@
   },
   "provincies": 12,
   "met_terrein": 245,
-  "totaal_m2": 827227,
+  "totaal_m2": 827254,
   "mediaan_m2": 781,
   "grootste": {
    "id": "jb-loc-3369",
@@ -84,7 +84,7 @@
    "geruimd": 2,
    "verdwenen": 2,
    "met_terrein": 25,
-   "totaal_m2": 40892
+   "totaal_m2": 40919
   },
   {
    "provincie": "Limburg",

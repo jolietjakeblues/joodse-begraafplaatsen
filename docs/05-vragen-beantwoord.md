@@ -1,6 +1,6 @@
 # 05 – Beantwoorde vragen van Dodenakkers (Leon, René)
 
-Stand: 2026-10-06 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
+Stand: 2026-10-09 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
 
 Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 2026: opmerkingen bij de vragenlijst, opmerkingen in de PDF, het Word-document). Per vraag: de vraag in het kort, het antwoord (de laatste stand) en wat er op de kaart mee gedaan is. Tussenstanden staan in de git-geschiedenis.
 
@@ -89,7 +89,8 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 | R3 Gecorrigeerde Excel | Aangeleverd: `Joodse begraafplaatsen voor Joop.xlsx` (2026-10-06) | Vervangt de oude Excel; 315 rijen, zelfde kenmerken. De nieuwe kolommen Contactpersoon, Telefoon, E-mail, Website en Foto Beeldbank worden niet ingelezen. Zeven correctieregels die de Excel nu zelf heeft zijn uit `data/corrections.csv` gehaald |
 | R3b Putte | Gegevens van Mahsike Hadas en de Frechie Foundation waren omgedraaid (Leon 2026-10-06) | Uit de nieuwe Excel: Frechie Foundation rijksmonument 516689 met beschermd deel; Mahsike Hadas geen rijksmonument |
 | Gr1 Loppersum | Terrein = sectie E 3823, vermoedelijk groter; Leon stuurde een KML (`Voor Joop.kmz`, 2026-10-06), naam "Oude Joodse begraafplaats" | Nieuw terrein van 132 m² (Grootte 104) + ingang; `jb-ger-247` heeft nu een terrein |
-| Uithuizen | Punt gecorrigeerd in `Voor Joop.kmz` (2026-10-06) | Het nagestuurde punt is de locatie (18 m verschoven); terrein ongewijzigd |
+| Uithuizen | Punt gecorrigeerd in `Voor Joop.kmz` (2026-10-06); contour nagestuurd in `Voor Joop_2.kmz` (2026-10-09) | Het nagestuurde punt is de locatie (18 m verschoven); terrein nu de nagestuurde contour (229 m², was 202 m²) |
+| OK1 Verdwenen op oude kaarten | De Bilt, Zwartsluis, Zevenaar zo laten: andere ondergronden geven ook verschillen; verdwenen begraafplaatsen zijn en blijven bij benadering (Leon 2026-10-09) | Punten ongewijzigd; overzicht in [data/verdwenen-oude-kaarten.md](data/verdwenen-oude-kaarten.md) |
 
 ## Overige opmerkingen
 

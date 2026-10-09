@@ -29,7 +29,7 @@ Dit is een hulpmiddel en geen controle van het werk van Dodenakkers. Een Bonnebl
 | [`jb-ver-471`](https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev/oude-kaarten?id=jb-ver-471&kaart=25aa2d3bad71f1d8) | Portugees Israëlitische Begraafplaats Crooswijk (1696–1807), Rotterdam | Kleine begraafplaats met kruisjes direct westelijk (1880); past bij "later RK begraafplaats Crooswijk". |
 | [`jb-ver-105`](https://joodse-begraafplaatsen.jolietjakeblues64.workers.dev/oude-kaarten?id=jb-ver-105&kaart=91770a0a84490750) | Oude Joodse Begraafplaats, Leiden | Het punt ligt bij het Observatorium (1874); past bij "nu Sterrenwacht". De begraafplaats zelf staat er niet meer op. |
 
-## Mogelijk, navragen (6)
+## Mogelijk (Leon 2026-10-09: zo laten, de punten zijn en blijven bij benadering) (6)
 
 | Kenmerk | Begraafplaats | Wat de kaart laat zien |
 |---|---|---|
