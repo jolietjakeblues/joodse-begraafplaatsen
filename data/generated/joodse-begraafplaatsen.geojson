@@ -14140,7 +14140,7 @@
     "rmon_bron": "Geen",
     "link": null,
     "beschermd_deel": null,
-    "jaartal": 1847,
+    "jaartal": 1812,
     "jaartal_bron": "1847",
     "circa": null,
     "met": false,
@@ -14154,7 +14154,16 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Zuid-Holland.kmz",
     "lon": 4.1048355,
-    "lat": 51.7510438
+    "lat": 51.7510438,
+    "correcties": [
+     {
+      "veld": "jaartal",
+      "reden": "Jaartal volgens onderzoek van Dodenakkers",
+      "datum": "2026-10-19",
+      "bron": "Leon",
+      "oud": 1847
+     }
+    ]
    },
    "geometry": {
     "type": "Point",
@@ -14350,7 +14359,7 @@
     "rmon_bron": "Geen",
     "link": null,
     "beschermd_deel": null,
-    "jaartal": 1812,
+    "jaartal": 1802,
     "jaartal_bron": "1812",
     "circa": null,
     "met": false,
@@ -14364,7 +14373,16 @@
     "locatie_bron": "Locaties.kmz",
     "terrein_bron": "Zuid-Holland.kmz",
     "lon": 3.9723936,
-    "lat": 51.8159909
+    "lat": 51.8159909,
+    "correcties": [
+     {
+      "veld": "jaartal",
+      "reden": "Jaartal volgens onderzoek van Dodenakkers",
+      "datum": "2026-10-19",
+      "bron": "Leon",
+      "oud": 1812
+     }
+    ]
    },
    "geometry": {
     "type": "Point",

@@ -182,6 +182,8 @@ Geen.
 - `jb-ver-872` naam: 'Portugees Israëlitische Begraafplaats Crooswijk' -> 'Portugees Israëlitische Begraafplaats Crooswijk (vanaf 1877)' (Twee verschillende plekken met dezelfde naam; aanvullen met periode mag (vraag B6), Leon, 2026-10-02)
 - `jb-ver-182` naam: 'Joodse begraafplaats' -> 'Oude Joodse begraafplaats' (De geruimde Dordtse begraafplaats mag Oude Joodse begraafplaats heten (vraag B7), Leon, 2026-10-02)
 - `jb-loc-2459` rijksmonument: False -> 'ja' (Rijksmonument 12342 beschermt beide Joodse begraafplaatsen in Denekamp; de RCE-contour ligt om de nieuwe (vraag R2), Leon (vraag R2), 2026-10-06)
+- `jb-loc-1913` jaartal: 1812 -> '1802' (Jaartal volgens onderzoek van Dodenakkers, Leon, 2026-10-19)
+- `jb-loc-1935` jaartal: 1847 -> '1812' (Jaartal volgens onderzoek van Dodenakkers, Leon, 2026-10-19)
 
 ## Verdwenen begraafplaatsen
 
