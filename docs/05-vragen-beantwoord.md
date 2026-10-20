@@ -1,6 +1,6 @@
 # 05 – Beantwoorde vragen van Dodenakkers (Leon, René)
 
-Stand: 2026-10-09 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
+Stand: 2026-10-20 · Open vragen: [04-vragen-open.md](04-vragen-open.md)
 
 Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 2026: opmerkingen bij de vragenlijst, opmerkingen in de PDF, het Word-document). Per vraag: de vraag in het kort, het antwoord (de laatste stand) en wat er op de kaart mee gedaan is. Tussenstanden staan in de git-geschiedenis.
 
@@ -91,6 +91,8 @@ Alle vragen die Leon en René hebben beantwoord, in drie rondes (2 en 5 oktober 
 | Gr1 Loppersum | Terrein = sectie E 3823, vermoedelijk groter; Leon stuurde een KML (`Voor Joop.kmz`, 2026-10-06), naam "Oude Joodse begraafplaats" | Nieuw terrein van 132 m² (Grootte 104) + ingang; `jb-ger-247` heeft nu een terrein |
 | Uithuizen | Punt gecorrigeerd in `Voor Joop.kmz` (2026-10-06); contour nagestuurd in `Voor Joop_2.kmz` (2026-10-09) | Het nagestuurde punt is de locatie (18 m verschoven); terrein nu de nagestuurde contour (229 m², was 202 m²) |
 | OK1 Verdwenen op oude kaarten | De Bilt, Zwartsluis, Zevenaar zo laten: andere ondergronden geven ook verschillen; verdwenen begraafplaatsen zijn en blijven bij benadering (Leon 2026-10-09) | Punten ongewijzigd; overzicht in [data/verdwenen-oude-kaarten.md](data/verdwenen-oude-kaarten.md) |
+| Dr1 Emmen | Namen gekruist; 2026-10-09: "lijkt nog steeds niet goed te gaan"; 2026-10-20: "geheel correct nu, klopt ook met alle eigen gegevens" | Punten 3075 ↔ 2183 omgewisseld via `data/punt_correcties.csv`: Westenesch (1885–1915) in het westen, achter de synagoge (1915) in het centrum |
+| Goedereede, Dirksland | Jaartallen uit onderzoek: Goedereede 1802, Dirksland 1812; de opmerking bij Goedereede ("1812-1900") is voor de kaart niet relevant (Leon 2026-10-19/20) | Via `data/corrections.csv`; Bijzonderheden ongewijzigd |
 
 ## Overige opmerkingen
 
